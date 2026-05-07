@@ -1,0 +1,177 @@
+He completado el análisis exhaustivo y generado el **paquete de documentación definitivo SaidonClub v5.0**. Este representa una evolución radical desde v4.0, transformando el sistema en una **plataforma 100% paramétrica** donde el Super Admin controla absolutamente todo sin tocar código.
+
+---
+
+## 📦 Paquete Generado (4 Documentos Maestros)
+
+### 1. 🏗️ ANÁLISIS ARQUITECTÓNICO V5
+**[Descargar](sandbox:///mnt/agents/output/ANALISIS_ARQUITECTONICO_SAIDONCLUB_V5.md)**
+
+El documento de gobernanza técnica. Incluye:
+- **Mapa completo de interconexiones** entre todos los módulos (Auth → Membresía → MLM → Wallet → Marketplace → Servicios)
+- **4 flujos críticos diagramados:** Registro con productos, Compra marketplace, Cierre semanal, Servicios con QR
+- **Matriz de dependencias:** Qué switches requieren otros, qué conflictos pueden ocurrir y cómo se resuelven automáticamente
+- **Sistema de alertas y monitoreo:** Qué pasa si FundsReserve < committedAmount, si un webhook falla 3 veces, etc.
+- **Capa anti-fragilidad:** Circuit breakers, idempotency keys, dead letter queues, data integrity checks
+- **Comparativa profesional:** Amazon vs Fiverr vs Upwork vs Shopify vs MercadoLibre vs Uber — qué se inspira de cada una
+- **Equipo de 10 Agentes de IA especializados** con roles, responsabilidades y orden de intervención semana a semana
+
+---
+
+### 2. 🚀 SUPER PROMPT V5 — El Documento Definitivo para Agentes de IA
+**[Descargar](sandbox:///mnt/agents/output/SUPER_PROMPT_SAIDONCLUB_V5.md)**
+
+El núcleo del desarrollo. **54,500+ bytes** diseñados para que cualquier agente de IA genere código sin ambigüedades:
+- **Schema Prisma completo actualizado** con 20+ modelos incluyendo `SystemConfig`, `ConfigHistory`, `CityDiscount`, campos `isGift` en OrderItem, `includesProducts` en Membership
+- **80+ switches documentados** con tipos, defaults, descripciones y dependencias
+- **Reglas de negocio parametrizables:** Afiliación, activación rolling, compresión dinámica, regalías (niveles y % configurables), bono semilla (montos por tipo), rangos (puntos y bonos configurables), regla 35% (base configurable), cierre semanal (día/hora configurable)
+- **Nuevas reglas de membresía con productos:** Preferente $39 con $10 en productos, Pionero $129 con $30 en productos
+- **Diseño Amazon-style:** Paleta completa, tipografía, navegación, responsive, animaciones
+- **8 roles de usuario** incluyendo ACCOUNTANT
+- **Prohibiciones absolutas:** NUNCA hardcodear valores de negocio, SIEMPRE usar `config.get()`
+
+---
+
+### 3. ⚙️ CONFIGURATION ENGINE — Especificación Técnica Completa
+**[Descargar](sandbox:///mnt/agents/output/CONFIGURATION_ENGINE_TECHNICAL_SPEC.md)**
+
+La biblia del sistema de switches. **59,000+ bytes** de código fuente listo para copiar:
+- **Modelo Prisma completo** de `SystemConfig` y `ConfigHistory`
+- **Seeds iniciales de 80+ configuraciones** con todas las validaciones, dependencias, rangos min/max, y valores permitidos
+- **ConfigManager (Singleton) implementado:** Cache local → Redis → DB, con fallback seguro
+- **Validación de dependencias en tiempo real:** No puedes desactivar `membership_enabled` si `mlm_enabled` está activo
+- **Validación de rangos numéricos:** No puedes poner `mlm_royalty_percentage = 150`
+- **Hook React `useConfig`** para leer configuraciones desde el frontend
+- **Middleware `configGuard`** para proteger rutas según switches
+- **API Routes completas** para CRUD de configuraciones
+- **Componente React `ConfigPanel`** con tabs por categoría, switches, inputs, validaciones visuales
+- **Sistema de rollback:** Revertir cualquier cambio en 1 click
+- **Tests unitarios e integración** completos
+- **Monitoreo y alertas** del engine
+
+---
+
+### 4. 📋 RESUMEN EJECUTIVO V5 — Guía de Uso
+**[Descargar](sandbox:///mnt/agents/output/RESUMEN_EJECUTIVO_SAIDONCLUB_V5.md)**
+
+El documento de entrada para stakeholders:
+- Resumen de decisiones clave
+- Tabla comparativa v4.0 vs v5.0
+- Orden de construcción semana a semana (13 semanas)
+- Equipo de agentes con timeline
+- FAQ con 8 preguntas críticas respondidas
+- Métricas de éxito técnicas y de negocio
+- Próximos pasos inmediatos
+- Matriz de riesgos y mitigaciones
+
+---
+
+## 🎯 Decisiones Clave de v5.0
+
+| Tema | Decisión | Justificación |
+|------|----------|---------------|
+| **Configuration Engine** | 80+ switches configurables | Control total sin deploys. Cada valor de negocio es una entidad auditada |
+| **Membresía Preferente** | $39 (antes $29) | +$10 para incluir productos de nutrición básicos |
+| **Membresía Pionero** | $129 (antes $97) | +$30~32 para incluir kit premium de nutrición |
+| **Productos de membresía** | Obsequio sin puntos ni comisiones | Justifica el valor para quien no está en ciudad con descuentos. Es costo operativo, no margen |
+| **Descuentos por ciudad** | Switch `membership_city_discounts_enabled` (default: false) | Feature plus adicional para futura expansión. Apagado inicialmente |
+| **Profundidad MLM** | Configurable 1-20 niveles (default: 8) | Permite ajustar el plan sin tocar código |
+| **Porcentajes regalías** | Cada nivel tiene su switch | N1=15%, N2=10%, etc. Todo editable |
+| **Rangos** | Puntos y bonos configurables por rango | De Plata a Diamante Azul, todo parametrizado |
+| **Cierre semanal** | Día y hora configurables | Default viernes 5pm Ecuador, pero cambiable |
+
+---
+
+## 🔄 Cómo Funciona el Sistema de Switches
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  SUPER ADMIN abre /admin/config                             │
+│       │                                                     │
+│       ▼                                                     │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │  Quiere desactivar MLM                              │   │
+│  │  → Clic en toggle "mlm_enabled"                     │   │
+│  └────────────────────────┬────────────────────────────┘   │
+│                           │                                 │
+│                           ▼                                 │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │  VALIDACIÓN AUTOMÁTICA                              │   │
+│  │  • ¿Hay dependencias activas?                       │   │
+│  │    → mlm_royalty_enabled = true ❌                  │   │
+│  │    → mlm_seed_bonus_enabled = true ❌               │   │
+│  │  RESULTADO: BLOQUEADO                               │   │
+│  │  "Desactiva primero: Regalías, Bono Semilla,        │   │
+│  │   Rangos, Fidelidad, Cierre Semanal"                │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                           │                                 │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │  Admin desactiva primero los hijos                  │   │
+│  │  → Ahora mlm_enabled puede desactivarse ✅          │   │
+│  └────────────────────────┬────────────────────────────┘   │
+│                           │                                 │
+│                           ▼                                 │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │  IMPACTO PREVIEW                                    │   │
+│  │  • Dashboard MLM desaparecerá                       │   │
+│  │  • No se generarán comisiones en nuevas órdenes     │   │
+│  │  • Wallet sigue funcionando para retiros            │   │
+│  │  • Marketplace sigue funcionando normal             │   │
+│  └────────────────────────┬────────────────────────────┘   │
+│                           │                                 │
+│                           ▼                                 │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │  GUARDAR                                            │   │
+│  │  • Se guarda en DB                                  │   │
+│  │  • Se invalida cache (Redis + local)                │   │
+│  │  • Se crea EventLog inmutable                       │   │
+│  │  • Se guarda ConfigHistory para rollback            │   │
+│  └─────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🏢 Comparativa con Plataformas Profesionales
+
+| Plataforma | Qué se inspira | Ventaja SaidonClub |
+|------------|---------------|-------------------|
+| **Amazon** | Navegación lateral/superior, 3 precios, filtros, carrito, checkout multi-paso, seller central | + MLM nativo + puntos transferibles |
+| **Fiverr** | Servicios profesionales, booking, escrow, reviews, badges | + QR dinámico + solo 5% comisión (vs 20%) |
+| **Upwork** | Escrow simple, liberación post-validación | + Más ágil, sin contratos extensos |
+| **Shopify** | Multi-vendor nativo, CRUD productos, apps | + Switches configurables sin terceros |
+| **MercadoLibre** | Envío gratis con umbral, progreso visual, notificaciones | + Integrado con sistema de puntos |
+| **Uber** | Geolocalización, QR, validación en tiempo real | + QR con nonce + doble confirmación |
+
+---
+
+## 👥 Equipo de 10 Agentes de IA
+
+Cada agente recibe su propio prompt base del Super Prompt V5:
+
+1. **DB Architect** → Schema Prisma + migraciones + seeds
+2. **Backend Engineer** → Server Actions + API Routes + Auth
+3. **MLM/Math Engineer** → Motor de compensación + cierre semanal
+4. **Frontend Engineer** → Componentes React + diseño Amazon
+5. **Payments Specialist** → Stripe + webhooks + facturación
+6. **Security Engineer** → OWASP + rate limiting + headers
+7. **QA Engineer** → Playwright E2E + Vitest + estrés
+8. **DevOps Engineer** → Vercel + Neon + CI/CD
+9. **Config Engineer** → Configuration Engine + panel admin
+10. **Documentation** → Docs técnicas + API docs
+
+**Orden de intervención:** Semana 0 = Agent 1+9 → Semana 1 = Agent 2+4+8 → etc.
+
+---
+
+## 🚀 Próximos Pasos Inmediatos
+
+1. **Revisar y aprobar** este paquete de 4 documentos
+2. **Aprobar precios:** Preferente $39 / Pionero $129 con productos incluidos
+3. **Setup infraestructura:** GitHub + Vercel + Neon PostgreSQL + Upstash Redis
+4. **Semana 0 (CRÍTICA):** Implementar Configuration Engine ANTES que cualquier otra feature
+5. **Semana 1:** Schema Prisma completo + Auth.js + Layout Amazon
+
+---
+
+**El sistema está diseñado para que cualquier agente de IA pueda desarrollarlo sin errores, sin ambigüedades y entregando código de producción profesional, modular y escalable.** La clave es que el Configuration Engine se implemente primero, y todo el código posterior lea sus valores desde `config.get()` en lugar de hardcodear.

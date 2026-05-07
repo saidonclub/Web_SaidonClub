@@ -1,0 +1,1602 @@
+[
+  {
+    "id": 1,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Marketplace",
+    "action": "Check data loading latency",
+    "persona": "Agente_1 - Socio"
+  },
+  {
+    "id": 2,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Network Tree",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_2 - Pionero"
+  },
+  {
+    "id": 3,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Profile",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_3 - Provider"
+  },
+  {
+    "id": 4,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Wallet",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_4 - Cliente"
+  },
+  {
+    "id": 5,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Settings",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_5 - Admin"
+  },
+  {
+    "id": 6,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Audit Log",
+    "action": "Test navigation transitions",
+    "persona": "Agente_6 - Socio"
+  },
+  {
+    "id": 7,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Dashboard",
+    "action": "Check session persistence",
+    "persona": "Agente_7 - Pionero"
+  },
+  {
+    "id": 8,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Marketplace",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_8 - Provider"
+  },
+  {
+    "id": 9,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Network Tree",
+    "action": "Check data loading latency",
+    "persona": "Agente_9 - Cliente"
+  },
+  {
+    "id": 10,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Profile",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_10 - Admin"
+  },
+  {
+    "id": 11,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Wallet",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_11 - Socio"
+  },
+  {
+    "id": 12,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Settings",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_12 - Pionero"
+  },
+  {
+    "id": 13,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Audit Log",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_13 - Provider"
+  },
+  {
+    "id": 14,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Dashboard",
+    "action": "Test navigation transitions",
+    "persona": "Agente_14 - Cliente"
+  },
+  {
+    "id": 15,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Marketplace",
+    "action": "Check session persistence",
+    "persona": "Agente_15 - Admin"
+  },
+  {
+    "id": 16,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Network Tree",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_16 - Socio"
+  },
+  {
+    "id": 17,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Profile",
+    "action": "Check data loading latency",
+    "persona": "Agente_17 - Pionero"
+  },
+  {
+    "id": 18,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Wallet",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_18 - Provider"
+  },
+  {
+    "id": 19,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Settings",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_19 - Cliente"
+  },
+  {
+    "id": 20,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Audit Log",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_20 - Admin"
+  },
+  {
+    "id": 21,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Dashboard",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_21 - Socio"
+  },
+  {
+    "id": 22,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Marketplace",
+    "action": "Test navigation transitions",
+    "persona": "Agente_22 - Pionero"
+  },
+  {
+    "id": 23,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Network Tree",
+    "action": "Check session persistence",
+    "persona": "Agente_23 - Provider"
+  },
+  {
+    "id": 24,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Profile",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_24 - Cliente"
+  },
+  {
+    "id": 25,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Wallet",
+    "action": "Check data loading latency",
+    "persona": "Agente_25 - Admin"
+  },
+  {
+    "id": 26,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Settings",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_26 - Socio"
+  },
+  {
+    "id": 27,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Audit Log",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_27 - Pionero"
+  },
+  {
+    "id": 28,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Dashboard",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_28 - Provider"
+  },
+  {
+    "id": 29,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Marketplace",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_29 - Cliente"
+  },
+  {
+    "id": 30,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Network Tree",
+    "action": "Test navigation transitions",
+    "persona": "Agente_30 - Admin"
+  },
+  {
+    "id": 31,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Profile",
+    "action": "Check session persistence",
+    "persona": "Agente_31 - Socio"
+  },
+  {
+    "id": 32,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Wallet",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_32 - Pionero"
+  },
+  {
+    "id": 33,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Settings",
+    "action": "Check data loading latency",
+    "persona": "Agente_33 - Provider"
+  },
+  {
+    "id": 34,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Audit Log",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_34 - Cliente"
+  },
+  {
+    "id": 35,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Dashboard",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_35 - Admin"
+  },
+  {
+    "id": 36,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Marketplace",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_36 - Socio"
+  },
+  {
+    "id": 37,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Network Tree",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_37 - Pionero"
+  },
+  {
+    "id": 38,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Profile",
+    "action": "Test navigation transitions",
+    "persona": "Agente_38 - Provider"
+  },
+  {
+    "id": 39,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Wallet",
+    "action": "Check session persistence",
+    "persona": "Agente_39 - Cliente"
+  },
+  {
+    "id": 40,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Settings",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_40 - Admin"
+  },
+  {
+    "id": 41,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Audit Log",
+    "action": "Check data loading latency",
+    "persona": "Agente_41 - Socio"
+  },
+  {
+    "id": 42,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Dashboard",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_42 - Pionero"
+  },
+  {
+    "id": 43,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Marketplace",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_43 - Provider"
+  },
+  {
+    "id": 44,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Network Tree",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_44 - Cliente"
+  },
+  {
+    "id": 45,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Profile",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_45 - Admin"
+  },
+  {
+    "id": 46,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Wallet",
+    "action": "Test navigation transitions",
+    "persona": "Agente_46 - Socio"
+  },
+  {
+    "id": 47,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Settings",
+    "action": "Check session persistence",
+    "persona": "Agente_47 - Pionero"
+  },
+  {
+    "id": 48,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Audit Log",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_48 - Provider"
+  },
+  {
+    "id": 49,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Dashboard",
+    "action": "Check data loading latency",
+    "persona": "Agente_49 - Cliente"
+  },
+  {
+    "id": 50,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Marketplace",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_50 - Admin"
+  },
+  {
+    "id": 51,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Network Tree",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_51 - Socio"
+  },
+  {
+    "id": 52,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Profile",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_52 - Pionero"
+  },
+  {
+    "id": 53,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Wallet",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_53 - Provider"
+  },
+  {
+    "id": 54,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Settings",
+    "action": "Test navigation transitions",
+    "persona": "Agente_54 - Cliente"
+  },
+  {
+    "id": 55,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Audit Log",
+    "action": "Check session persistence",
+    "persona": "Agente_55 - Admin"
+  },
+  {
+    "id": 56,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Dashboard",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_56 - Socio"
+  },
+  {
+    "id": 57,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Marketplace",
+    "action": "Check data loading latency",
+    "persona": "Agente_57 - Pionero"
+  },
+  {
+    "id": 58,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Network Tree",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_58 - Provider"
+  },
+  {
+    "id": 59,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Profile",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_59 - Cliente"
+  },
+  {
+    "id": 60,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Wallet",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_60 - Admin"
+  },
+  {
+    "id": 61,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Settings",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_61 - Socio"
+  },
+  {
+    "id": 62,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Audit Log",
+    "action": "Test navigation transitions",
+    "persona": "Agente_62 - Pionero"
+  },
+  {
+    "id": 63,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Dashboard",
+    "action": "Check session persistence",
+    "persona": "Agente_63 - Provider"
+  },
+  {
+    "id": 64,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Marketplace",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_64 - Cliente"
+  },
+  {
+    "id": 65,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Network Tree",
+    "action": "Check data loading latency",
+    "persona": "Agente_65 - Admin"
+  },
+  {
+    "id": 66,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Profile",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_66 - Socio"
+  },
+  {
+    "id": 67,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Wallet",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_67 - Pionero"
+  },
+  {
+    "id": 68,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Settings",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_68 - Provider"
+  },
+  {
+    "id": 69,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Audit Log",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_69 - Cliente"
+  },
+  {
+    "id": 70,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Dashboard",
+    "action": "Test navigation transitions",
+    "persona": "Agente_70 - Admin"
+  },
+  {
+    "id": 71,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Marketplace",
+    "action": "Check session persistence",
+    "persona": "Agente_71 - Socio"
+  },
+  {
+    "id": 72,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Network Tree",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_72 - Pionero"
+  },
+  {
+    "id": 73,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Profile",
+    "action": "Check data loading latency",
+    "persona": "Agente_73 - Provider"
+  },
+  {
+    "id": 74,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Wallet",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_74 - Cliente"
+  },
+  {
+    "id": 75,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Settings",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_75 - Admin"
+  },
+  {
+    "id": 76,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Audit Log",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_76 - Socio"
+  },
+  {
+    "id": 77,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Dashboard",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_77 - Pionero"
+  },
+  {
+    "id": 78,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Marketplace",
+    "action": "Test navigation transitions",
+    "persona": "Agente_78 - Provider"
+  },
+  {
+    "id": 79,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Network Tree",
+    "action": "Check session persistence",
+    "persona": "Agente_79 - Cliente"
+  },
+  {
+    "id": 80,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Profile",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_80 - Admin"
+  },
+  {
+    "id": 81,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Wallet",
+    "action": "Check data loading latency",
+    "persona": "Agente_81 - Socio"
+  },
+  {
+    "id": 82,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Settings",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_82 - Pionero"
+  },
+  {
+    "id": 83,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Audit Log",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_83 - Provider"
+  },
+  {
+    "id": 84,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Dashboard",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_84 - Cliente"
+  },
+  {
+    "id": 85,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Marketplace",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_85 - Admin"
+  },
+  {
+    "id": 86,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Network Tree",
+    "action": "Test navigation transitions",
+    "persona": "Agente_86 - Socio"
+  },
+  {
+    "id": 87,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Profile",
+    "action": "Check session persistence",
+    "persona": "Agente_87 - Pionero"
+  },
+  {
+    "id": 88,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Wallet",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_88 - Provider"
+  },
+  {
+    "id": 89,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Settings",
+    "action": "Check data loading latency",
+    "persona": "Agente_89 - Cliente"
+  },
+  {
+    "id": 90,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Audit Log",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_90 - Admin"
+  },
+  {
+    "id": 91,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Dashboard",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_91 - Socio"
+  },
+  {
+    "id": 92,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Marketplace",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_92 - Pionero"
+  },
+  {
+    "id": 93,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Network Tree",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_93 - Provider"
+  },
+  {
+    "id": 94,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Profile",
+    "action": "Test navigation transitions",
+    "persona": "Agente_94 - Cliente"
+  },
+  {
+    "id": 95,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Wallet",
+    "action": "Check session persistence",
+    "persona": "Agente_95 - Admin"
+  },
+  {
+    "id": 96,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Settings",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_96 - Socio"
+  },
+  {
+    "id": 97,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Audit Log",
+    "action": "Check data loading latency",
+    "persona": "Agente_97 - Pionero"
+  },
+  {
+    "id": 98,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Dashboard",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_98 - Provider"
+  },
+  {
+    "id": 99,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Marketplace",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_99 - Cliente"
+  },
+  {
+    "id": 100,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Network Tree",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_100 - Admin"
+  },
+  {
+    "id": 101,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Profile",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_101 - Socio"
+  },
+  {
+    "id": 102,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Wallet",
+    "action": "Test navigation transitions",
+    "persona": "Agente_102 - Pionero"
+  },
+  {
+    "id": 103,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Settings",
+    "action": "Check session persistence",
+    "persona": "Agente_103 - Provider"
+  },
+  {
+    "id": 104,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Audit Log",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_104 - Cliente"
+  },
+  {
+    "id": 105,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Dashboard",
+    "action": "Check data loading latency",
+    "persona": "Agente_105 - Admin"
+  },
+  {
+    "id": 106,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Marketplace",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_106 - Socio"
+  },
+  {
+    "id": 107,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Network Tree",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_107 - Pionero"
+  },
+  {
+    "id": 108,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Profile",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_108 - Provider"
+  },
+  {
+    "id": 109,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Wallet",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_109 - Cliente"
+  },
+  {
+    "id": 110,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Settings",
+    "action": "Test navigation transitions",
+    "persona": "Agente_110 - Admin"
+  },
+  {
+    "id": 111,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Audit Log",
+    "action": "Check session persistence",
+    "persona": "Agente_111 - Socio"
+  },
+  {
+    "id": 112,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Dashboard",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_112 - Pionero"
+  },
+  {
+    "id": 113,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Marketplace",
+    "action": "Check data loading latency",
+    "persona": "Agente_113 - Provider"
+  },
+  {
+    "id": 114,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Network Tree",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_114 - Cliente"
+  },
+  {
+    "id": 115,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Profile",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_115 - Admin"
+  },
+  {
+    "id": 116,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Wallet",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_116 - Socio"
+  },
+  {
+    "id": 117,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Settings",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_117 - Pionero"
+  },
+  {
+    "id": 118,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Audit Log",
+    "action": "Test navigation transitions",
+    "persona": "Agente_118 - Provider"
+  },
+  {
+    "id": 119,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Dashboard",
+    "action": "Check session persistence",
+    "persona": "Agente_119 - Cliente"
+  },
+  {
+    "id": 120,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Marketplace",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_120 - Admin"
+  },
+  {
+    "id": 121,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Network Tree",
+    "action": "Check data loading latency",
+    "persona": "Agente_121 - Socio"
+  },
+  {
+    "id": 122,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Profile",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_122 - Pionero"
+  },
+  {
+    "id": 123,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Wallet",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_123 - Provider"
+  },
+  {
+    "id": 124,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Settings",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_124 - Cliente"
+  },
+  {
+    "id": 125,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Audit Log",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_125 - Admin"
+  },
+  {
+    "id": 126,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Dashboard",
+    "action": "Test navigation transitions",
+    "persona": "Agente_126 - Socio"
+  },
+  {
+    "id": 127,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Marketplace",
+    "action": "Check session persistence",
+    "persona": "Agente_127 - Pionero"
+  },
+  {
+    "id": 128,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Network Tree",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_128 - Provider"
+  },
+  {
+    "id": 129,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Profile",
+    "action": "Check data loading latency",
+    "persona": "Agente_129 - Cliente"
+  },
+  {
+    "id": 130,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Wallet",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_130 - Admin"
+  },
+  {
+    "id": 131,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Settings",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_131 - Socio"
+  },
+  {
+    "id": 132,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Audit Log",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_132 - Pionero"
+  },
+  {
+    "id": 133,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Dashboard",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_133 - Provider"
+  },
+  {
+    "id": 134,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Marketplace",
+    "action": "Test navigation transitions",
+    "persona": "Agente_134 - Cliente"
+  },
+  {
+    "id": 135,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Network Tree",
+    "action": "Check session persistence",
+    "persona": "Agente_135 - Admin"
+  },
+  {
+    "id": 136,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Profile",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_136 - Socio"
+  },
+  {
+    "id": 137,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Wallet",
+    "action": "Check data loading latency",
+    "persona": "Agente_137 - Pionero"
+  },
+  {
+    "id": 138,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Settings",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_138 - Provider"
+  },
+  {
+    "id": 139,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Audit Log",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_139 - Cliente"
+  },
+  {
+    "id": 140,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Dashboard",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_140 - Admin"
+  },
+  {
+    "id": 141,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Marketplace",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_141 - Socio"
+  },
+  {
+    "id": 142,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Network Tree",
+    "action": "Test navigation transitions",
+    "persona": "Agente_142 - Pionero"
+  },
+  {
+    "id": 143,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Profile",
+    "action": "Check session persistence",
+    "persona": "Agente_143 - Provider"
+  },
+  {
+    "id": 144,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Wallet",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_144 - Cliente"
+  },
+  {
+    "id": 145,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Settings",
+    "action": "Check data loading latency",
+    "persona": "Agente_145 - Admin"
+  },
+  {
+    "id": 146,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Audit Log",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_146 - Socio"
+  },
+  {
+    "id": 147,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Dashboard",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_147 - Pionero"
+  },
+  {
+    "id": 148,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Marketplace",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_148 - Provider"
+  },
+  {
+    "id": 149,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Network Tree",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_149 - Cliente"
+  },
+  {
+    "id": 150,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Profile",
+    "action": "Test navigation transitions",
+    "persona": "Agente_150 - Admin"
+  },
+  {
+    "id": 151,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Wallet",
+    "action": "Check session persistence",
+    "persona": "Agente_151 - Socio"
+  },
+  {
+    "id": 152,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Settings",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_152 - Pionero"
+  },
+  {
+    "id": 153,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Audit Log",
+    "action": "Check data loading latency",
+    "persona": "Agente_153 - Provider"
+  },
+  {
+    "id": 154,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Dashboard",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_154 - Cliente"
+  },
+  {
+    "id": 155,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Marketplace",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_155 - Admin"
+  },
+  {
+    "id": 156,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Network Tree",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_156 - Socio"
+  },
+  {
+    "id": 157,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Profile",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_157 - Pionero"
+  },
+  {
+    "id": 158,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Wallet",
+    "action": "Test navigation transitions",
+    "persona": "Agente_158 - Provider"
+  },
+  {
+    "id": 159,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Settings",
+    "action": "Check session persistence",
+    "persona": "Agente_159 - Cliente"
+  },
+  {
+    "id": 160,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Audit Log",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_160 - Admin"
+  },
+  {
+    "id": 161,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Dashboard",
+    "action": "Check data loading latency",
+    "persona": "Agente_161 - Socio"
+  },
+  {
+    "id": 162,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Marketplace",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_162 - Pionero"
+  },
+  {
+    "id": 163,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Network Tree",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_163 - Provider"
+  },
+  {
+    "id": 164,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Profile",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_164 - Cliente"
+  },
+  {
+    "id": 165,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Wallet",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_165 - Admin"
+  },
+  {
+    "id": 166,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Settings",
+    "action": "Test navigation transitions",
+    "persona": "Agente_166 - Socio"
+  },
+  {
+    "id": 167,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Audit Log",
+    "action": "Check session persistence",
+    "persona": "Agente_167 - Pionero"
+  },
+  {
+    "id": 168,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Dashboard",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_168 - Provider"
+  },
+  {
+    "id": 169,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Marketplace",
+    "action": "Check data loading latency",
+    "persona": "Agente_169 - Cliente"
+  },
+  {
+    "id": 170,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Network Tree",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_170 - Admin"
+  },
+  {
+    "id": 171,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Profile",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_171 - Socio"
+  },
+  {
+    "id": 172,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Wallet",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_172 - Pionero"
+  },
+  {
+    "id": 173,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Settings",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_173 - Provider"
+  },
+  {
+    "id": 174,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Audit Log",
+    "action": "Test navigation transitions",
+    "persona": "Agente_174 - Cliente"
+  },
+  {
+    "id": 175,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Dashboard",
+    "action": "Check session persistence",
+    "persona": "Agente_175 - Admin"
+  },
+  {
+    "id": 176,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Marketplace",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_176 - Socio"
+  },
+  {
+    "id": 177,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Network Tree",
+    "action": "Check data loading latency",
+    "persona": "Agente_177 - Pionero"
+  },
+  {
+    "id": 178,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Profile",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_178 - Provider"
+  },
+  {
+    "id": 179,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Wallet",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_179 - Cliente"
+  },
+  {
+    "id": 180,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Settings",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_180 - Admin"
+  },
+  {
+    "id": 181,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Audit Log",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_181 - Socio"
+  },
+  {
+    "id": 182,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Dashboard",
+    "action": "Test navigation transitions",
+    "persona": "Agente_182 - Pionero"
+  },
+  {
+    "id": 183,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Marketplace",
+    "action": "Check session persistence",
+    "persona": "Agente_183 - Provider"
+  },
+  {
+    "id": 184,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Network Tree",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_184 - Cliente"
+  },
+  {
+    "id": 185,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Profile",
+    "action": "Check data loading latency",
+    "persona": "Agente_185 - Admin"
+  },
+  {
+    "id": 186,
+    "role": "Socio",
+    "device": "Desktop",
+    "flow": "Wallet",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_186 - Socio"
+  },
+  {
+    "id": 187,
+    "role": "Pionero",
+    "device": "Mobile",
+    "flow": "Settings",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_187 - Pionero"
+  },
+  {
+    "id": 188,
+    "role": "Provider",
+    "device": "Tablet",
+    "flow": "Audit Log",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_188 - Provider"
+  },
+  {
+    "id": 189,
+    "role": "Cliente",
+    "device": "Desktop",
+    "flow": "Dashboard",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_189 - Cliente"
+  },
+  {
+    "id": 190,
+    "role": "Admin",
+    "device": "Mobile",
+    "flow": "Marketplace",
+    "action": "Test navigation transitions",
+    "persona": "Agente_190 - Admin"
+  },
+  {
+    "id": 191,
+    "role": "Socio",
+    "device": "Tablet",
+    "flow": "Network Tree",
+    "action": "Check session persistence",
+    "persona": "Agente_191 - Socio"
+  },
+  {
+    "id": 192,
+    "role": "Pionero",
+    "device": "Desktop",
+    "flow": "Profile",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_192 - Pionero"
+  },
+  {
+    "id": 193,
+    "role": "Provider",
+    "device": "Mobile",
+    "flow": "Wallet",
+    "action": "Check data loading latency",
+    "persona": "Agente_193 - Provider"
+  },
+  {
+    "id": 194,
+    "role": "Cliente",
+    "device": "Tablet",
+    "flow": "Settings",
+    "action": "Test interactive elements (buttons, inputs)",
+    "persona": "Agente_194 - Cliente"
+  },
+  {
+    "id": 195,
+    "role": "Admin",
+    "device": "Desktop",
+    "flow": "Audit Log",
+    "action": "Validate visual consistency with 'Ultra-Luxury' theme",
+    "persona": "Agente_195 - Admin"
+  },
+  {
+    "id": 196,
+    "role": "Socio",
+    "device": "Mobile",
+    "flow": "Dashboard",
+    "action": "Check for overlapping elements",
+    "persona": "Agente_196 - Socio"
+  },
+  {
+    "id": 197,
+    "role": "Pionero",
+    "device": "Tablet",
+    "flow": "Marketplace",
+    "action": "Verify text readability and typography",
+    "persona": "Agente_197 - Pionero"
+  },
+  {
+    "id": 198,
+    "role": "Provider",
+    "device": "Desktop",
+    "flow": "Network Tree",
+    "action": "Test navigation transitions",
+    "persona": "Agente_198 - Provider"
+  },
+  {
+    "id": 199,
+    "role": "Cliente",
+    "device": "Mobile",
+    "flow": "Profile",
+    "action": "Check session persistence",
+    "persona": "Agente_199 - Cliente"
+  },
+  {
+    "id": 200,
+    "role": "Admin",
+    "device": "Tablet",
+    "flow": "Wallet",
+    "action": "Verify UI alignment and responsiveness",
+    "persona": "Agente_200 - Admin"
+  }
+]

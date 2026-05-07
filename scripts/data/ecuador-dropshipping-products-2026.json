@@ -1,0 +1,5102 @@
+[
+  {
+    "id": 1,
+    "name": "Consola Avanzado EcuadorDropship",
+    "slug": "consola-avanzado-ecuadordropship-1",
+    "description": "Descubre el nuevo Consola Avanzado EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 104.03,
+    "priceSaidon": 72.82,
+    "cost": 41.61,
+    "margin": null,
+    "stock": 337,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "name": "Collar Impermeable HomePro",
+    "slug": "collar-impermeable-homepro-2",
+    "description": "Descubre el nuevo Collar Impermeable HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Salud y Belleza",
+    "pricePVP": 102.7,
+    "priceSaidon": 71.89,
+    "cost": 41.08,
+    "margin": null,
+    "stock": 200,
+    "images": [
+      "https://via.placeholder.com/500?text=Collar"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 3,
+    "name": "Aspiradora Inteligente FitLife",
+    "slug": "aspiradora-inteligente-fitlife-3",
+    "description": "Descubre el nuevo Aspiradora Inteligente FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 106.7,
+    "priceSaidon": 74.69,
+    "cost": 42.68,
+    "margin": null,
+    "stock": 104,
+    "images": [
+      "https://via.placeholder.com/500?text=Aspiradora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 4,
+    "name": "Consola Premium PetJoy",
+    "slug": "consola-premium-petjoy-4",
+    "description": "Descubre el nuevo Consola Premium PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 41.05,
+    "priceSaidon": 28.73,
+    "cost": 16.42,
+    "margin": null,
+    "stock": 488,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 5,
+    "name": "Taladro Profesional SaidonBrands",
+    "slug": "taladro-profesional-saidonbrands-5",
+    "description": "Descubre el nuevo Taladro Profesional SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Mascotas",
+    "pricePVP": 123.05,
+    "priceSaidon": 86.13,
+    "cost": 49.22,
+    "margin": null,
+    "stock": 298,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 6,
+    "name": "Pesa Ultra-rápido FitLife",
+    "slug": "pesa-ultra-rpido-fitlife-6",
+    "description": "Descubre el nuevo Pesa Ultra-rápido FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 42.02,
+    "priceSaidon": 29.41,
+    "cost": 16.81,
+    "margin": null,
+    "stock": 88,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 7,
+    "name": "Correa Ergonómico ToyWorld",
+    "slug": "correa-ergonmico-toyworld-7",
+    "description": "Descubre el nuevo Correa Ergonómico ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 62.18,
+    "priceSaidon": 43.53,
+    "cost": 24.87,
+    "margin": null,
+    "stock": 381,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 8,
+    "name": "Secador Avanzado TechMax",
+    "slug": "secador-avanzado-techmax-8",
+    "description": "Descubre el nuevo Secador Avanzado TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 53.72,
+    "priceSaidon": 37.6,
+    "cost": 21.49,
+    "margin": null,
+    "stock": 536,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 9,
+    "name": "Drone Impermeable StyleIcon",
+    "slug": "drone-impermeable-styleicon-9",
+    "description": "Descubre el nuevo Drone Impermeable StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 43.63,
+    "priceSaidon": 30.54,
+    "cost": 17.45,
+    "margin": null,
+    "stock": 361,
+    "images": [
+      "https://via.placeholder.com/500?text=Drone"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 10,
+    "name": "Dispensador Ergonómico BeautyGlow",
+    "slug": "dispensador-ergonmico-beautyglow-10",
+    "description": "Descubre el nuevo Dispensador Ergonómico BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Salud y Belleza",
+    "pricePVP": 47.75,
+    "priceSaidon": 33.42,
+    "cost": 19.1,
+    "margin": null,
+    "stock": 259,
+    "images": [
+      "https://via.placeholder.com/500?text=Dispensador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 11,
+    "name": "Reloj Inteligente BeautyGlow",
+    "slug": "reloj-inteligente-beautyglow-11",
+    "description": "Descubre el nuevo Reloj Inteligente BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 67.83,
+    "priceSaidon": 47.48,
+    "cost": 27.13,
+    "margin": null,
+    "stock": 98,
+    "images": [
+      "https://via.placeholder.com/500?text=Reloj"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 12,
+    "name": "Cargador Ecológico ToyWorld",
+    "slug": "cargador-ecolgico-toyworld-12",
+    "description": "Descubre el nuevo Cargador Ecológico ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 115.88,
+    "priceSaidon": 81.12,
+    "cost": 46.35,
+    "margin": null,
+    "stock": 233,
+    "images": [
+      "https://via.placeholder.com/500?text=Cargador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 13,
+    "name": "Auriculares Compacto EcuadorDropship",
+    "slug": "auriculares-compacto-ecuadordropship-13",
+    "description": "Descubre el nuevo Auriculares Compacto EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Mascotas",
+    "pricePVP": 91.8,
+    "priceSaidon": 64.26,
+    "cost": 36.72,
+    "margin": null,
+    "stock": 378,
+    "images": [
+      "https://via.placeholder.com/500?text=Auriculares"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 14,
+    "name": "Soporte Automático StyleIcon",
+    "slug": "soporte-automtico-styleicon-14",
+    "description": "Descubre el nuevo Soporte Automático StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 51.97,
+    "priceSaidon": 36.38,
+    "cost": 20.79,
+    "margin": null,
+    "stock": 447,
+    "images": [
+      "https://via.placeholder.com/500?text=Soporte"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 15,
+    "name": "Humidificador Inteligente ToyWorld",
+    "slug": "humidificador-inteligente-toyworld-15",
+    "description": "Descubre el nuevo Humidificador Inteligente ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 117.42,
+    "priceSaidon": 82.19,
+    "cost": 46.97,
+    "margin": null,
+    "stock": 78,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 16,
+    "name": "Consola Multifuncional SaidonBrands",
+    "slug": "consola-multifuncional-saidonbrands-16",
+    "description": "Descubre el nuevo Consola Multifuncional SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 36.42,
+    "priceSaidon": 25.49,
+    "cost": 14.57,
+    "margin": null,
+    "stock": 373,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 17,
+    "name": "Secador Portátil ToolMaster",
+    "slug": "secador-porttil-toolmaster-17",
+    "description": "Descubre el nuevo Secador Portátil ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 31.1,
+    "priceSaidon": 21.77,
+    "cost": 12.44,
+    "margin": null,
+    "stock": 175,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 18,
+    "name": "Cargador Ecológico HomePro",
+    "slug": "cargador-ecolgico-homepro-18",
+    "description": "Descubre el nuevo Cargador Ecológico HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Salud y Belleza",
+    "pricePVP": 80.33,
+    "priceSaidon": 56.23,
+    "cost": 32.13,
+    "margin": null,
+    "stock": 91,
+    "images": [
+      "https://via.placeholder.com/500?text=Cargador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 19,
+    "name": "Soporte Multifuncional FitLife",
+    "slug": "soporte-multifuncional-fitlife-19",
+    "description": "Descubre el nuevo Soporte Multifuncional FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 17.25,
+    "priceSaidon": 12.07,
+    "cost": 6.9,
+    "margin": null,
+    "stock": 371,
+    "images": [
+      "https://via.placeholder.com/500?text=Soporte"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 20,
+    "name": "Drone Digital ToolMaster",
+    "slug": "drone-digital-toolmaster-20",
+    "description": "Descubre el nuevo Drone Digital ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 111.3,
+    "priceSaidon": 77.91,
+    "cost": 44.52,
+    "margin": null,
+    "stock": 222,
+    "images": [
+      "https://via.placeholder.com/500?text=Drone"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 21,
+    "name": "Linterna Portátil SaidonBrands",
+    "slug": "linterna-porttil-saidonbrands-21",
+    "description": "Descubre el nuevo Linterna Portátil SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Mascotas",
+    "pricePVP": 113.5,
+    "priceSaidon": 79.45,
+    "cost": 45.4,
+    "margin": null,
+    "stock": 359,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 22,
+    "name": "Taladro Premium BeautyGlow",
+    "slug": "taladro-premium-beautyglow-22",
+    "description": "Descubre el nuevo Taladro Premium BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 55.53,
+    "priceSaidon": 38.87,
+    "cost": 22.21,
+    "margin": null,
+    "stock": 374,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 23,
+    "name": "Banda de Resistencia Digital BeautyGlow",
+    "slug": "banda-de-resistencia-digital-beautyglow-23",
+    "description": "Descubre el nuevo Banda de Resistencia Digital BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 109.03,
+    "priceSaidon": 76.32,
+    "cost": 43.61,
+    "margin": null,
+    "stock": 506,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 24,
+    "name": "Consola Avanzado SaidonBrands",
+    "slug": "consola-avanzado-saidonbrands-24",
+    "description": "Descubre el nuevo Consola Avanzado SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 43.55,
+    "priceSaidon": 30.48,
+    "cost": 17.42,
+    "margin": null,
+    "stock": 149,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 25,
+    "name": "Linterna Profesional EcuadorDropship",
+    "slug": "linterna-profesional-ecuadordropship-25",
+    "description": "Descubre el nuevo Linterna Profesional EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 122,
+    "priceSaidon": 85.4,
+    "cost": 48.8,
+    "margin": null,
+    "stock": 367,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 26,
+    "name": "Rompecabezas Recargable PetJoy",
+    "slug": "rompecabezas-recargable-petjoy-26",
+    "description": "Descubre el nuevo Rompecabezas Recargable PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Salud y Belleza",
+    "pricePVP": 43.8,
+    "priceSaidon": 30.66,
+    "cost": 17.52,
+    "margin": null,
+    "stock": 353,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 27,
+    "name": "Humidificador Impermeable TechMax",
+    "slug": "humidificador-impermeable-techmax-27",
+    "description": "Descubre el nuevo Humidificador Impermeable TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 18.68,
+    "priceSaidon": 13.08,
+    "cost": 7.47,
+    "margin": null,
+    "stock": 237,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 28,
+    "name": "Secador Multifuncional FitLife",
+    "slug": "secador-multifuncional-fitlife-28",
+    "description": "Descubre el nuevo Secador Multifuncional FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 69.38,
+    "priceSaidon": 48.57,
+    "cost": 27.75,
+    "margin": null,
+    "stock": 548,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 29,
+    "name": "Esterilla Impermeable TechMax",
+    "slug": "esterilla-impermeable-techmax-29",
+    "description": "Descubre el nuevo Esterilla Impermeable TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Mascotas",
+    "pricePVP": 124.5,
+    "priceSaidon": 87.15,
+    "cost": 49.8,
+    "margin": null,
+    "stock": 486,
+    "images": [
+      "https://via.placeholder.com/500?text=Esterilla"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 30,
+    "name": "Juego de Destornilladores Recargable FitLife",
+    "slug": "juego-de-destornilladores-recargable-fitlife-30",
+    "description": "Descubre el nuevo Juego de Destornilladores Recargable FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 116.35,
+    "priceSaidon": 81.44,
+    "cost": 46.54,
+    "margin": null,
+    "stock": 195,
+    "images": [
+      "https://via.placeholder.com/500?text=Juego%20de%20Destornilladores"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 31,
+    "name": "Collar Profesional ToolMaster",
+    "slug": "collar-profesional-toolmaster-31",
+    "description": "Descubre el nuevo Collar Profesional ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 93.58,
+    "priceSaidon": 65.51,
+    "cost": 37.43,
+    "margin": null,
+    "stock": 448,
+    "images": [
+      "https://via.placeholder.com/500?text=Collar"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 32,
+    "name": "Soporte Avanzado HomePro",
+    "slug": "soporte-avanzado-homepro-32",
+    "description": "Descubre el nuevo Soporte Avanzado HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 53.22,
+    "priceSaidon": 37.25,
+    "cost": 21.29,
+    "margin": null,
+    "stock": 358,
+    "images": [
+      "https://via.placeholder.com/500?text=Soporte"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 33,
+    "name": "Collar Ecológico SaidonBrands",
+    "slug": "collar-ecolgico-saidonbrands-33",
+    "description": "Descubre el nuevo Collar Ecológico SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 35,
+    "priceSaidon": 24.5,
+    "cost": 14,
+    "margin": null,
+    "stock": 505,
+    "images": [
+      "https://via.placeholder.com/500?text=Collar"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 34,
+    "name": "Cámara Digital HomePro",
+    "slug": "cmara-digital-homepro-34",
+    "description": "Descubre el nuevo Cámara Digital HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Salud y Belleza",
+    "pricePVP": 60,
+    "priceSaidon": 42,
+    "cost": 24,
+    "margin": null,
+    "stock": 217,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 35,
+    "name": "Banda de Resistencia Ecológico FitLife",
+    "slug": "banda-de-resistencia-ecolgico-fitlife-35",
+    "description": "Descubre el nuevo Banda de Resistencia Ecológico FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 116.93,
+    "priceSaidon": 81.85,
+    "cost": 46.77,
+    "margin": null,
+    "stock": 449,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 36,
+    "name": "Licuadora Profesional TechMax",
+    "slug": "licuadora-profesional-techmax-36",
+    "description": "Descubre el nuevo Licuadora Profesional TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 103.63,
+    "priceSaidon": 72.54,
+    "cost": 41.45,
+    "margin": null,
+    "stock": 513,
+    "images": [
+      "https://via.placeholder.com/500?text=Licuadora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 37,
+    "name": "Depiladora Recargable BeautyGlow",
+    "slug": "depiladora-recargable-beautyglow-37",
+    "description": "Descubre el nuevo Depiladora Recargable BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Mascotas",
+    "pricePVP": 57.23,
+    "priceSaidon": 40.06,
+    "cost": 22.89,
+    "margin": null,
+    "stock": 283,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 38,
+    "name": "Cámara Profesional HomePro",
+    "slug": "cmara-profesional-homepro-38",
+    "description": "Descubre el nuevo Cámara Profesional HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 69.8,
+    "priceSaidon": 48.86,
+    "cost": 27.92,
+    "margin": null,
+    "stock": 501,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 39,
+    "name": "Humidificador Digital SaidonBrands",
+    "slug": "humidificador-digital-saidonbrands-39",
+    "description": "Descubre el nuevo Humidificador Digital SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 39.52,
+    "priceSaidon": 27.66,
+    "cost": 15.81,
+    "margin": null,
+    "stock": 530,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 40,
+    "name": "Linterna Automático FitLife",
+    "slug": "linterna-automtico-fitlife-40",
+    "description": "Descubre el nuevo Linterna Automático FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 122.1,
+    "priceSaidon": 85.47,
+    "cost": 48.84,
+    "margin": null,
+    "stock": 402,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 41,
+    "name": "Taladro Ecológico StyleIcon",
+    "slug": "taladro-ecolgico-styleicon-41",
+    "description": "Descubre el nuevo Taladro Ecológico StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 68.88,
+    "priceSaidon": 48.22,
+    "cost": 27.55,
+    "margin": null,
+    "stock": 154,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 42,
+    "name": "Banda de Resistencia Impermeable BeautyGlow",
+    "slug": "banda-de-resistencia-impermeable-beautyglow-42",
+    "description": "Descubre el nuevo Banda de Resistencia Impermeable BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Salud y Belleza",
+    "pricePVP": 113.03,
+    "priceSaidon": 79.12,
+    "cost": 45.21,
+    "margin": null,
+    "stock": 533,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 43,
+    "name": "Gafas Automático ToolMaster",
+    "slug": "gafas-automtico-toolmaster-43",
+    "description": "Descubre el nuevo Gafas Automático ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 104.8,
+    "priceSaidon": 73.36,
+    "cost": 41.92,
+    "margin": null,
+    "stock": 201,
+    "images": [
+      "https://via.placeholder.com/500?text=Gafas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 44,
+    "name": "Reloj Inteligente ToyWorld",
+    "slug": "reloj-inteligente-toyworld-44",
+    "description": "Descubre el nuevo Reloj Inteligente ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 109.98,
+    "priceSaidon": 76.99,
+    "cost": 43.99,
+    "margin": null,
+    "stock": 276,
+    "images": [
+      "https://via.placeholder.com/500?text=Reloj"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 45,
+    "name": "Humidificador Ergonómico StyleIcon",
+    "slug": "humidificador-ergonmico-styleicon-45",
+    "description": "Descubre el nuevo Humidificador Ergonómico StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Mascotas",
+    "pricePVP": 75.8,
+    "priceSaidon": 53.06,
+    "cost": 30.32,
+    "margin": null,
+    "stock": 290,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 46,
+    "name": "Cámara Automático StyleIcon",
+    "slug": "cmara-automtico-styleicon-46",
+    "description": "Descubre el nuevo Cámara Automático StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 65.15,
+    "priceSaidon": 45.61,
+    "cost": 26.06,
+    "margin": null,
+    "stock": 515,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 47,
+    "name": "Linterna Avanzado TechMax",
+    "slug": "linterna-avanzado-techmax-47",
+    "description": "Descubre el nuevo Linterna Avanzado TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 87.33,
+    "priceSaidon": 61.13,
+    "cost": 34.93,
+    "margin": null,
+    "stock": 243,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 48,
+    "name": "Auriculares Impermeable ToyWorld",
+    "slug": "auriculares-impermeable-toyworld-48",
+    "description": "Descubre el nuevo Auriculares Impermeable ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 29.93,
+    "priceSaidon": 20.95,
+    "cost": 11.97,
+    "margin": null,
+    "stock": 349,
+    "images": [
+      "https://via.placeholder.com/500?text=Auriculares"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 49,
+    "name": "Auriculares Inteligente TechMax",
+    "slug": "auriculares-inteligente-techmax-49",
+    "description": "Descubre el nuevo Auriculares Inteligente TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 66.25,
+    "priceSaidon": 46.38,
+    "cost": 26.5,
+    "margin": null,
+    "stock": 128,
+    "images": [
+      "https://via.placeholder.com/500?text=Auriculares"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 50,
+    "name": "Plancha Inalámbrico SaidonBrands",
+    "slug": "plancha-inalmbrico-saidonbrands-50",
+    "description": "Descubre el nuevo Plancha Inalámbrico SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Salud y Belleza",
+    "pricePVP": 68.95,
+    "priceSaidon": 48.27,
+    "cost": 27.58,
+    "margin": null,
+    "stock": 463,
+    "images": [
+      "https://via.placeholder.com/500?text=Plancha"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 51,
+    "name": "Humidificador Inteligente ToolMaster",
+    "slug": "humidificador-inteligente-toolmaster-51",
+    "description": "Descubre el nuevo Humidificador Inteligente ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 112.52,
+    "priceSaidon": 78.76,
+    "cost": 45.01,
+    "margin": null,
+    "stock": 546,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 52,
+    "name": "Altavoz Profesional PetJoy",
+    "slug": "altavoz-profesional-petjoy-52",
+    "description": "Descubre el nuevo Altavoz Profesional PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 27.4,
+    "priceSaidon": 19.18,
+    "cost": 10.96,
+    "margin": null,
+    "stock": 71,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 53,
+    "name": "Auriculares Recargable EcuadorDropship",
+    "slug": "auriculares-recargable-ecuadordropship-53",
+    "description": "Descubre el nuevo Auriculares Recargable EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Mascotas",
+    "pricePVP": 59.88,
+    "priceSaidon": 41.92,
+    "cost": 23.95,
+    "margin": null,
+    "stock": 271,
+    "images": [
+      "https://via.placeholder.com/500?text=Auriculares"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 54,
+    "name": "Banda de Resistencia Ecológico BeautyGlow",
+    "slug": "banda-de-resistencia-ecolgico-beautyglow-54",
+    "description": "Descubre el nuevo Banda de Resistencia Ecológico BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 34.45,
+    "priceSaidon": 24.12,
+    "cost": 13.78,
+    "margin": null,
+    "stock": 58,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 55,
+    "name": "Consola Ecológico EcuadorDropship",
+    "slug": "consola-ecolgico-ecuadordropship-55",
+    "description": "Descubre el nuevo Consola Ecológico EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 39.58,
+    "priceSaidon": 27.71,
+    "cost": 15.83,
+    "margin": null,
+    "stock": 65,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 56,
+    "name": "Mochila Impermeable PetJoy",
+    "slug": "mochila-impermeable-petjoy-56",
+    "description": "Descubre el nuevo Mochila Impermeable PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 94.53,
+    "priceSaidon": 66.17,
+    "cost": 37.81,
+    "margin": null,
+    "stock": 245,
+    "images": [
+      "https://via.placeholder.com/500?text=Mochila"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 57,
+    "name": "Secador Compacto ToolMaster",
+    "slug": "secador-compacto-toolmaster-57",
+    "description": "Descubre el nuevo Secador Compacto ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 103.55,
+    "priceSaidon": 72.48,
+    "cost": 41.42,
+    "margin": null,
+    "stock": 346,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 58,
+    "name": "Linterna Ultra-rápido BeautyGlow",
+    "slug": "linterna-ultra-rpido-beautyglow-58",
+    "description": "Descubre el nuevo Linterna Ultra-rápido BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Salud y Belleza",
+    "pricePVP": 98.95,
+    "priceSaidon": 69.27,
+    "cost": 39.58,
+    "margin": null,
+    "stock": 433,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 59,
+    "name": "Secador Profesional ToolMaster",
+    "slug": "secador-profesional-toolmaster-59",
+    "description": "Descubre el nuevo Secador Profesional ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 101.63,
+    "priceSaidon": 71.14,
+    "cost": 40.65,
+    "margin": null,
+    "stock": 513,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 60,
+    "name": "Consola Digital TechMax",
+    "slug": "consola-digital-techmax-60",
+    "description": "Descubre el nuevo Consola Digital TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 17.5,
+    "priceSaidon": 12.25,
+    "cost": 7,
+    "margin": null,
+    "stock": 379,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 61,
+    "name": "Banda de Resistencia Ultra-rápido EcuadorDropship",
+    "slug": "banda-de-resistencia-ultra-rpido-ecuadordropship-61",
+    "description": "Descubre el nuevo Banda de Resistencia Ultra-rápido EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Mascotas",
+    "pricePVP": 41.42,
+    "priceSaidon": 28.99,
+    "cost": 16.57,
+    "margin": null,
+    "stock": 53,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 62,
+    "name": "Mochila Compacto EcuadorDropship",
+    "slug": "mochila-compacto-ecuadordropship-62",
+    "description": "Descubre el nuevo Mochila Compacto EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 72.58,
+    "priceSaidon": 50.81,
+    "cost": 29.03,
+    "margin": null,
+    "stock": 227,
+    "images": [
+      "https://via.placeholder.com/500?text=Mochila"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 63,
+    "name": "Banda de Resistencia Compacto EcuadorDropship",
+    "slug": "banda-de-resistencia-compacto-ecuadordropship-63",
+    "description": "Descubre el nuevo Banda de Resistencia Compacto EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 53.92,
+    "priceSaidon": 37.74,
+    "cost": 21.57,
+    "margin": null,
+    "stock": 99,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 64,
+    "name": "Auriculares Automático SaidonBrands",
+    "slug": "auriculares-automtico-saidonbrands-64",
+    "description": "Descubre el nuevo Auriculares Automático SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 51.17,
+    "priceSaidon": 35.82,
+    "cost": 20.47,
+    "margin": null,
+    "stock": 104,
+    "images": [
+      "https://via.placeholder.com/500?text=Auriculares"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 65,
+    "name": "Collar Automático TechMax",
+    "slug": "collar-automtico-techmax-65",
+    "description": "Descubre el nuevo Collar Automático TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 118.58,
+    "priceSaidon": 83.01,
+    "cost": 47.43,
+    "margin": null,
+    "stock": 282,
+    "images": [
+      "https://via.placeholder.com/500?text=Collar"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 66,
+    "name": "Esterilla Portátil PetJoy",
+    "slug": "esterilla-porttil-petjoy-66",
+    "description": "Descubre el nuevo Esterilla Portátil PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Salud y Belleza",
+    "pricePVP": 38.77,
+    "priceSaidon": 27.14,
+    "cost": 15.51,
+    "margin": null,
+    "stock": 315,
+    "images": [
+      "https://via.placeholder.com/500?text=Esterilla"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 67,
+    "name": "Altavoz Multifuncional ToolMaster",
+    "slug": "altavoz-multifuncional-toolmaster-67",
+    "description": "Descubre el nuevo Altavoz Multifuncional ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 94.08,
+    "priceSaidon": 65.86,
+    "cost": 37.63,
+    "margin": null,
+    "stock": 475,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 68,
+    "name": "Esterilla Ergonómico FitLife",
+    "slug": "esterilla-ergonmico-fitlife-68",
+    "description": "Descubre el nuevo Esterilla Ergonómico FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 104.9,
+    "priceSaidon": 73.43,
+    "cost": 41.96,
+    "margin": null,
+    "stock": 498,
+    "images": [
+      "https://via.placeholder.com/500?text=Esterilla"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 69,
+    "name": "Linterna Inteligente TechMax",
+    "slug": "linterna-inteligente-techmax-69",
+    "description": "Descubre el nuevo Linterna Inteligente TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Mascotas",
+    "pricePVP": 124.38,
+    "priceSaidon": 87.07,
+    "cost": 49.75,
+    "margin": null,
+    "stock": 324,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 70,
+    "name": "Aspiradora Profesional ToyWorld",
+    "slug": "aspiradora-profesional-toyworld-70",
+    "description": "Descubre el nuevo Aspiradora Profesional ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 22,
+    "priceSaidon": 15.4,
+    "cost": 8.8,
+    "margin": null,
+    "stock": 129,
+    "images": [
+      "https://via.placeholder.com/500?text=Aspiradora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 71,
+    "name": "Humidificador Ergonómico HomePro",
+    "slug": "humidificador-ergonmico-homepro-71",
+    "description": "Descubre el nuevo Humidificador Ergonómico HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 39.1,
+    "priceSaidon": 27.37,
+    "cost": 15.64,
+    "margin": null,
+    "stock": 510,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 72,
+    "name": "Depiladora Recargable FitLife",
+    "slug": "depiladora-recargable-fitlife-72",
+    "description": "Descubre el nuevo Depiladora Recargable FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 64.5,
+    "priceSaidon": 45.15,
+    "cost": 25.8,
+    "margin": null,
+    "stock": 318,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 73,
+    "name": "Altavoz Inteligente EcuadorDropship",
+    "slug": "altavoz-inteligente-ecuadordropship-73",
+    "description": "Descubre el nuevo Altavoz Inteligente EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 50.95,
+    "priceSaidon": 35.66,
+    "cost": 20.38,
+    "margin": null,
+    "stock": 188,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 74,
+    "name": "Linterna Profesional ToyWorld",
+    "slug": "linterna-profesional-toyworld-74",
+    "description": "Descubre el nuevo Linterna Profesional ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Salud y Belleza",
+    "pricePVP": 20.4,
+    "priceSaidon": 14.28,
+    "cost": 8.16,
+    "margin": null,
+    "stock": 297,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 75,
+    "name": "Pesa Inalámbrico EcuadorDropship",
+    "slug": "pesa-inalmbrico-ecuadordropship-75",
+    "description": "Descubre el nuevo Pesa Inalámbrico EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 68.92,
+    "priceSaidon": 48.24,
+    "cost": 27.57,
+    "margin": null,
+    "stock": 144,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 76,
+    "name": "Correa Ergonómico StyleIcon",
+    "slug": "correa-ergonmico-styleicon-76",
+    "description": "Descubre el nuevo Correa Ergonómico StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 50.15,
+    "priceSaidon": 35.1,
+    "cost": 20.06,
+    "margin": null,
+    "stock": 530,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 77,
+    "name": "Depiladora Compacto ToyWorld",
+    "slug": "depiladora-compacto-toyworld-77",
+    "description": "Descubre el nuevo Depiladora Compacto ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Mascotas",
+    "pricePVP": 17.05,
+    "priceSaidon": 11.94,
+    "cost": 6.82,
+    "margin": null,
+    "stock": 515,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 78,
+    "name": "Batería Ultra-rápido StyleIcon",
+    "slug": "batera-ultra-rpido-styleicon-78",
+    "description": "Descubre el nuevo Batería Ultra-rápido StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 52.1,
+    "priceSaidon": 36.47,
+    "cost": 20.84,
+    "margin": null,
+    "stock": 334,
+    "images": [
+      "https://via.placeholder.com/500?text=Bater%C3%ADa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 79,
+    "name": "Altavoz Avanzado TechMax",
+    "slug": "altavoz-avanzado-techmax-79",
+    "description": "Descubre el nuevo Altavoz Avanzado TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 68.4,
+    "priceSaidon": 47.88,
+    "cost": 27.36,
+    "margin": null,
+    "stock": 367,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 80,
+    "name": "Consola Inteligente EcuadorDropship",
+    "slug": "consola-inteligente-ecuadordropship-80",
+    "description": "Descubre el nuevo Consola Inteligente EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 114.28,
+    "priceSaidon": 80,
+    "cost": 45.71,
+    "margin": null,
+    "stock": 547,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 81,
+    "name": "Soporte Profesional HomePro",
+    "slug": "soporte-profesional-homepro-81",
+    "description": "Descubre el nuevo Soporte Profesional HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 35.92,
+    "priceSaidon": 25.14,
+    "cost": 14.37,
+    "margin": null,
+    "stock": 446,
+    "images": [
+      "https://via.placeholder.com/500?text=Soporte"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 82,
+    "name": "Masajeador Profesional PetJoy",
+    "slug": "masajeador-profesional-petjoy-82",
+    "description": "Descubre el nuevo Masajeador Profesional PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Salud y Belleza",
+    "pricePVP": 54.9,
+    "priceSaidon": 38.43,
+    "cost": 21.96,
+    "margin": null,
+    "stock": 443,
+    "images": [
+      "https://via.placeholder.com/500?text=Masajeador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 83,
+    "name": "Mochila Avanzado FitLife",
+    "slug": "mochila-avanzado-fitlife-83",
+    "description": "Descubre el nuevo Mochila Avanzado FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 96.88,
+    "priceSaidon": 67.82,
+    "cost": 38.75,
+    "margin": null,
+    "stock": 424,
+    "images": [
+      "https://via.placeholder.com/500?text=Mochila"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 84,
+    "name": "Banda de Resistencia Ecológico BeautyGlow",
+    "slug": "banda-de-resistencia-ecolgico-beautyglow-84",
+    "description": "Descubre el nuevo Banda de Resistencia Ecológico BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 24.57,
+    "priceSaidon": 17.2,
+    "cost": 9.83,
+    "margin": null,
+    "stock": 439,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 85,
+    "name": "Soporte Inalámbrico PetJoy",
+    "slug": "soporte-inalmbrico-petjoy-85",
+    "description": "Descubre el nuevo Soporte Inalámbrico PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Mascotas",
+    "pricePVP": 113.3,
+    "priceSaidon": 79.31,
+    "cost": 45.32,
+    "margin": null,
+    "stock": 259,
+    "images": [
+      "https://via.placeholder.com/500?text=Soporte"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 86,
+    "name": "Altavoz Ergonómico HomePro",
+    "slug": "altavoz-ergonmico-homepro-86",
+    "description": "Descubre el nuevo Altavoz Ergonómico HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 38.88,
+    "priceSaidon": 27.22,
+    "cost": 15.55,
+    "margin": null,
+    "stock": 254,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 87,
+    "name": "Esterilla Compacto HomePro",
+    "slug": "esterilla-compacto-homepro-87",
+    "description": "Descubre el nuevo Esterilla Compacto HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 78.22,
+    "priceSaidon": 54.75,
+    "cost": 31.29,
+    "margin": null,
+    "stock": 473,
+    "images": [
+      "https://via.placeholder.com/500?text=Esterilla"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 88,
+    "name": "Pesa Portátil ToolMaster",
+    "slug": "pesa-porttil-toolmaster-88",
+    "description": "Descubre el nuevo Pesa Portátil ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 107.88,
+    "priceSaidon": 75.52,
+    "cost": 43.15,
+    "margin": null,
+    "stock": 456,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 89,
+    "name": "Reloj Premium EcuadorDropship",
+    "slug": "reloj-premium-ecuadordropship-89",
+    "description": "Descubre el nuevo Reloj Premium EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 37.43,
+    "priceSaidon": 26.2,
+    "cost": 14.97,
+    "margin": null,
+    "stock": 206,
+    "images": [
+      "https://via.placeholder.com/500?text=Reloj"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 90,
+    "name": "Rompecabezas Avanzado TechMax",
+    "slug": "rompecabezas-avanzado-techmax-90",
+    "description": "Descubre el nuevo Rompecabezas Avanzado TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Salud y Belleza",
+    "pricePVP": 107.93,
+    "priceSaidon": 75.55,
+    "cost": 43.17,
+    "margin": null,
+    "stock": 231,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 91,
+    "name": "Batería Automático FitLife",
+    "slug": "batera-automtico-fitlife-91",
+    "description": "Descubre el nuevo Batería Automático FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 96.27,
+    "priceSaidon": 67.39,
+    "cost": 38.51,
+    "margin": null,
+    "stock": 485,
+    "images": [
+      "https://via.placeholder.com/500?text=Bater%C3%ADa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 92,
+    "name": "Collar Multifuncional SaidonBrands",
+    "slug": "collar-multifuncional-saidonbrands-92",
+    "description": "Descubre el nuevo Collar Multifuncional SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 90.72,
+    "priceSaidon": 63.5,
+    "cost": 36.29,
+    "margin": null,
+    "stock": 432,
+    "images": [
+      "https://via.placeholder.com/500?text=Collar"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 93,
+    "name": "Reloj Ultra-rápido TechMax",
+    "slug": "reloj-ultra-rpido-techmax-93",
+    "description": "Descubre el nuevo Reloj Ultra-rápido TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Mascotas",
+    "pricePVP": 89.7,
+    "priceSaidon": 62.79,
+    "cost": 35.88,
+    "margin": null,
+    "stock": 534,
+    "images": [
+      "https://via.placeholder.com/500?text=Reloj"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 94,
+    "name": "Mochila Avanzado PetJoy",
+    "slug": "mochila-avanzado-petjoy-94",
+    "description": "Descubre el nuevo Mochila Avanzado PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 94.98,
+    "priceSaidon": 66.49,
+    "cost": 37.99,
+    "margin": null,
+    "stock": 75,
+    "images": [
+      "https://via.placeholder.com/500?text=Mochila"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 95,
+    "name": "Cartera Ecológico BeautyGlow",
+    "slug": "cartera-ecolgico-beautyglow-95",
+    "description": "Descubre el nuevo Cartera Ecológico BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 41.95,
+    "priceSaidon": 29.36,
+    "cost": 16.78,
+    "margin": null,
+    "stock": 239,
+    "images": [
+      "https://via.placeholder.com/500?text=Cartera"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 96,
+    "name": "Taladro Premium ToyWorld",
+    "slug": "taladro-premium-toyworld-96",
+    "description": "Descubre el nuevo Taladro Premium ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 103.9,
+    "priceSaidon": 72.73,
+    "cost": 41.56,
+    "margin": null,
+    "stock": 242,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 97,
+    "name": "Licuadora Ecológico PetJoy",
+    "slug": "licuadora-ecolgico-petjoy-97",
+    "description": "Descubre el nuevo Licuadora Ecológico PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 107.78,
+    "priceSaidon": 75.45,
+    "cost": 43.11,
+    "margin": null,
+    "stock": 486,
+    "images": [
+      "https://via.placeholder.com/500?text=Licuadora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 98,
+    "name": "Cargador Multifuncional FitLife",
+    "slug": "cargador-multifuncional-fitlife-98",
+    "description": "Descubre el nuevo Cargador Multifuncional FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Salud y Belleza",
+    "pricePVP": 54.05,
+    "priceSaidon": 37.83,
+    "cost": 21.62,
+    "margin": null,
+    "stock": 267,
+    "images": [
+      "https://via.placeholder.com/500?text=Cargador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 99,
+    "name": "Altavoz Multifuncional PetJoy",
+    "slug": "altavoz-multifuncional-petjoy-99",
+    "description": "Descubre el nuevo Altavoz Multifuncional PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 80.1,
+    "priceSaidon": 56.07,
+    "cost": 32.04,
+    "margin": null,
+    "stock": 362,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 100,
+    "name": "Secador Automático ToolMaster",
+    "slug": "secador-automtico-toolmaster-100",
+    "description": "Descubre el nuevo Secador Automático ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 27.83,
+    "priceSaidon": 19.48,
+    "cost": 11.13,
+    "margin": null,
+    "stock": 196,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 101,
+    "name": "Pesa Digital HomePro",
+    "slug": "pesa-digital-homepro-101",
+    "description": "Descubre el nuevo Pesa Digital HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Mascotas",
+    "pricePVP": 111.63,
+    "priceSaidon": 78.14,
+    "cost": 44.65,
+    "margin": null,
+    "stock": 191,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 102,
+    "name": "Reloj Inteligente EcuadorDropship",
+    "slug": "reloj-inteligente-ecuadordropship-102",
+    "description": "Descubre el nuevo Reloj Inteligente EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 46.13,
+    "priceSaidon": 32.29,
+    "cost": 18.45,
+    "margin": null,
+    "stock": 247,
+    "images": [
+      "https://via.placeholder.com/500?text=Reloj"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 103,
+    "name": "Esterilla Compacto StyleIcon",
+    "slug": "esterilla-compacto-styleicon-103",
+    "description": "Descubre el nuevo Esterilla Compacto StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 64.88,
+    "priceSaidon": 45.42,
+    "cost": 25.95,
+    "margin": null,
+    "stock": 376,
+    "images": [
+      "https://via.placeholder.com/500?text=Esterilla"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 104,
+    "name": "Altavoz Premium StyleIcon",
+    "slug": "altavoz-premium-styleicon-104",
+    "description": "Descubre el nuevo Altavoz Premium StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 101.2,
+    "priceSaidon": 70.84,
+    "cost": 40.48,
+    "margin": null,
+    "stock": 503,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 105,
+    "name": "Altavoz Compacto ToyWorld",
+    "slug": "altavoz-compacto-toyworld-105",
+    "description": "Descubre el nuevo Altavoz Compacto ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 56.88,
+    "priceSaidon": 39.82,
+    "cost": 22.75,
+    "margin": null,
+    "stock": 487,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 106,
+    "name": "Consola Ecológico ToyWorld",
+    "slug": "consola-ecolgico-toyworld-106",
+    "description": "Descubre el nuevo Consola Ecológico ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Salud y Belleza",
+    "pricePVP": 72.35,
+    "priceSaidon": 50.64,
+    "cost": 28.94,
+    "margin": null,
+    "stock": 273,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 107,
+    "name": "Cargador Profesional TechMax",
+    "slug": "cargador-profesional-techmax-107",
+    "description": "Descubre el nuevo Cargador Profesional TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 16.9,
+    "priceSaidon": 11.83,
+    "cost": 6.76,
+    "margin": null,
+    "stock": 487,
+    "images": [
+      "https://via.placeholder.com/500?text=Cargador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 108,
+    "name": "Secador Inteligente StyleIcon",
+    "slug": "secador-inteligente-styleicon-108",
+    "description": "Descubre el nuevo Secador Inteligente StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 116.3,
+    "priceSaidon": 81.41,
+    "cost": 46.52,
+    "margin": null,
+    "stock": 101,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 109,
+    "name": "Consola Digital TechMax",
+    "slug": "consola-digital-techmax-109",
+    "description": "Descubre el nuevo Consola Digital TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Mascotas",
+    "pricePVP": 88.13,
+    "priceSaidon": 61.69,
+    "cost": 35.25,
+    "margin": null,
+    "stock": 118,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 110,
+    "name": "Humidificador Recargable EcuadorDropship",
+    "slug": "humidificador-recargable-ecuadordropship-110",
+    "description": "Descubre el nuevo Humidificador Recargable EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 84,
+    "priceSaidon": 58.8,
+    "cost": 33.6,
+    "margin": null,
+    "stock": 434,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 111,
+    "name": "Correa Digital FitLife",
+    "slug": "correa-digital-fitlife-111",
+    "description": "Descubre el nuevo Correa Digital FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 102.35,
+    "priceSaidon": 71.64,
+    "cost": 40.94,
+    "margin": null,
+    "stock": 455,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 112,
+    "name": "Drone Ultra-rápido EcuadorDropship",
+    "slug": "drone-ultra-rpido-ecuadordropship-112",
+    "description": "Descubre el nuevo Drone Ultra-rápido EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 35.92,
+    "priceSaidon": 25.14,
+    "cost": 14.37,
+    "margin": null,
+    "stock": 111,
+    "images": [
+      "https://via.placeholder.com/500?text=Drone"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 113,
+    "name": "Consola Avanzado ToolMaster",
+    "slug": "consola-avanzado-toolmaster-113",
+    "description": "Descubre el nuevo Consola Avanzado ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 123.07,
+    "priceSaidon": 86.15,
+    "cost": 49.23,
+    "margin": null,
+    "stock": 445,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 114,
+    "name": "Depiladora Recargable BeautyGlow",
+    "slug": "depiladora-recargable-beautyglow-114",
+    "description": "Descubre el nuevo Depiladora Recargable BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Salud y Belleza",
+    "pricePVP": 50.23,
+    "priceSaidon": 35.16,
+    "cost": 20.09,
+    "margin": null,
+    "stock": 539,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 115,
+    "name": "Batería Multifuncional PetJoy",
+    "slug": "batera-multifuncional-petjoy-115",
+    "description": "Descubre el nuevo Batería Multifuncional PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 29.35,
+    "priceSaidon": 20.54,
+    "cost": 11.74,
+    "margin": null,
+    "stock": 548,
+    "images": [
+      "https://via.placeholder.com/500?text=Bater%C3%ADa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 116,
+    "name": "Consola Automático StyleIcon",
+    "slug": "consola-automtico-styleicon-116",
+    "description": "Descubre el nuevo Consola Automático StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 79.05,
+    "priceSaidon": 55.33,
+    "cost": 31.62,
+    "margin": null,
+    "stock": 525,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 117,
+    "name": "Cama Ergonómico BeautyGlow",
+    "slug": "cama-ergonmico-beautyglow-117",
+    "description": "Descubre el nuevo Cama Ergonómico BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Mascotas",
+    "pricePVP": 34.08,
+    "priceSaidon": 23.86,
+    "cost": 13.63,
+    "margin": null,
+    "stock": 81,
+    "images": [
+      "https://via.placeholder.com/500?text=Cama"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 118,
+    "name": "Taladro Automático ToyWorld",
+    "slug": "taladro-automtico-toyworld-118",
+    "description": "Descubre el nuevo Taladro Automático ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 25.82,
+    "priceSaidon": 18.07,
+    "cost": 10.33,
+    "margin": null,
+    "stock": 239,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 119,
+    "name": "Licuadora Compacto EcuadorDropship",
+    "slug": "licuadora-compacto-ecuadordropship-119",
+    "description": "Descubre el nuevo Licuadora Compacto EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 36.2,
+    "priceSaidon": 25.34,
+    "cost": 14.48,
+    "margin": null,
+    "stock": 51,
+    "images": [
+      "https://via.placeholder.com/500?text=Licuadora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 120,
+    "name": "Depiladora Multifuncional ToyWorld",
+    "slug": "depiladora-multifuncional-toyworld-120",
+    "description": "Descubre el nuevo Depiladora Multifuncional ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 112.4,
+    "priceSaidon": 78.68,
+    "cost": 44.96,
+    "margin": null,
+    "stock": 531,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 121,
+    "name": "Esterilla Multifuncional SaidonBrands",
+    "slug": "esterilla-multifuncional-saidonbrands-121",
+    "description": "Descubre el nuevo Esterilla Multifuncional SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 61.6,
+    "priceSaidon": 43.12,
+    "cost": 24.64,
+    "margin": null,
+    "stock": 361,
+    "images": [
+      "https://via.placeholder.com/500?text=Esterilla"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 122,
+    "name": "Cama Automático TechMax",
+    "slug": "cama-automtico-techmax-122",
+    "description": "Descubre el nuevo Cama Automático TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Salud y Belleza",
+    "pricePVP": 102.13,
+    "priceSaidon": 71.49,
+    "cost": 40.85,
+    "margin": null,
+    "stock": 150,
+    "images": [
+      "https://via.placeholder.com/500?text=Cama"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 123,
+    "name": "Cartera Automático FitLife",
+    "slug": "cartera-automtico-fitlife-123",
+    "description": "Descubre el nuevo Cartera Automático FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 64.42,
+    "priceSaidon": 45.09,
+    "cost": 25.77,
+    "margin": null,
+    "stock": 74,
+    "images": [
+      "https://via.placeholder.com/500?text=Cartera"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 124,
+    "name": "Cámara Ergonómico PetJoy",
+    "slug": "cmara-ergonmico-petjoy-124",
+    "description": "Descubre el nuevo Cámara Ergonómico PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 55.95,
+    "priceSaidon": 39.16,
+    "cost": 22.38,
+    "margin": null,
+    "stock": 346,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 125,
+    "name": "Pesa Avanzado FitLife",
+    "slug": "pesa-avanzado-fitlife-125",
+    "description": "Descubre el nuevo Pesa Avanzado FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Mascotas",
+    "pricePVP": 23.4,
+    "priceSaidon": 16.38,
+    "cost": 9.36,
+    "margin": null,
+    "stock": 264,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 126,
+    "name": "Rompecabezas Impermeable HomePro",
+    "slug": "rompecabezas-impermeable-homepro-126",
+    "description": "Descubre el nuevo Rompecabezas Impermeable HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 33.08,
+    "priceSaidon": 23.16,
+    "cost": 13.23,
+    "margin": null,
+    "stock": 240,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 127,
+    "name": "Depiladora Ultra-rápido ToyWorld",
+    "slug": "depiladora-ultra-rpido-toyworld-127",
+    "description": "Descubre el nuevo Depiladora Ultra-rápido ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 120.23,
+    "priceSaidon": 84.16,
+    "cost": 48.09,
+    "margin": null,
+    "stock": 210,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 128,
+    "name": "Gafas Multifuncional ToolMaster",
+    "slug": "gafas-multifuncional-toolmaster-128",
+    "description": "Descubre el nuevo Gafas Multifuncional ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 40.82,
+    "priceSaidon": 28.57,
+    "cost": 16.33,
+    "margin": null,
+    "stock": 108,
+    "images": [
+      "https://via.placeholder.com/500?text=Gafas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 129,
+    "name": "Drone Recargable TechMax",
+    "slug": "drone-recargable-techmax-129",
+    "description": "Descubre el nuevo Drone Recargable TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 16.6,
+    "priceSaidon": 11.62,
+    "cost": 6.64,
+    "margin": null,
+    "stock": 389,
+    "images": [
+      "https://via.placeholder.com/500?text=Drone"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 130,
+    "name": "Depiladora Inalámbrico ToyWorld",
+    "slug": "depiladora-inalmbrico-toyworld-130",
+    "description": "Descubre el nuevo Depiladora Inalámbrico ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Salud y Belleza",
+    "pricePVP": 72.9,
+    "priceSaidon": 51.03,
+    "cost": 29.16,
+    "margin": null,
+    "stock": 447,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 131,
+    "name": "Correa Ultra-rápido SaidonBrands",
+    "slug": "correa-ultra-rpido-saidonbrands-131",
+    "description": "Descubre el nuevo Correa Ultra-rápido SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 57.45,
+    "priceSaidon": 40.21,
+    "cost": 22.98,
+    "margin": null,
+    "stock": 284,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 132,
+    "name": "Taladro Automático PetJoy",
+    "slug": "taladro-automtico-petjoy-132",
+    "description": "Descubre el nuevo Taladro Automático PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 113.1,
+    "priceSaidon": 79.17,
+    "cost": 45.24,
+    "margin": null,
+    "stock": 419,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 133,
+    "name": "Juego de Destornilladores Multifuncional BeautyGlow",
+    "slug": "juego-de-destornilladores-multifuncional-beautyglow-133",
+    "description": "Descubre el nuevo Juego de Destornilladores Multifuncional BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Mascotas",
+    "pricePVP": 48.5,
+    "priceSaidon": 33.95,
+    "cost": 19.4,
+    "margin": null,
+    "stock": 73,
+    "images": [
+      "https://via.placeholder.com/500?text=Juego%20de%20Destornilladores"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 134,
+    "name": "Cama Ergonómico ToyWorld",
+    "slug": "cama-ergonmico-toyworld-134",
+    "description": "Descubre el nuevo Cama Ergonómico ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 47.18,
+    "priceSaidon": 33.03,
+    "cost": 18.87,
+    "margin": null,
+    "stock": 334,
+    "images": [
+      "https://via.placeholder.com/500?text=Cama"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 135,
+    "name": "Juego de Destornilladores Inteligente TechMax",
+    "slug": "juego-de-destornilladores-inteligente-techmax-135",
+    "description": "Descubre el nuevo Juego de Destornilladores Inteligente TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 79.52,
+    "priceSaidon": 55.66,
+    "cost": 31.81,
+    "margin": null,
+    "stock": 146,
+    "images": [
+      "https://via.placeholder.com/500?text=Juego%20de%20Destornilladores"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 136,
+    "name": "Linterna Digital EcuadorDropship",
+    "slug": "linterna-digital-ecuadordropship-136",
+    "description": "Descubre el nuevo Linterna Digital EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 52.07,
+    "priceSaidon": 36.45,
+    "cost": 20.83,
+    "margin": null,
+    "stock": 353,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 137,
+    "name": "Cámara Premium HomePro",
+    "slug": "cmara-premium-homepro-137",
+    "description": "Descubre el nuevo Cámara Premium HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 29.75,
+    "priceSaidon": 20.82,
+    "cost": 11.9,
+    "margin": null,
+    "stock": 527,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 138,
+    "name": "Altavoz Ultra-rápido TechMax",
+    "slug": "altavoz-ultra-rpido-techmax-138",
+    "description": "Descubre el nuevo Altavoz Ultra-rápido TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Salud y Belleza",
+    "pricePVP": 30.47,
+    "priceSaidon": 21.33,
+    "cost": 12.19,
+    "margin": null,
+    "stock": 360,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 139,
+    "name": "Secador Ergonómico ToyWorld",
+    "slug": "secador-ergonmico-toyworld-139",
+    "description": "Descubre el nuevo Secador Ergonómico ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 106.93,
+    "priceSaidon": 74.85,
+    "cost": 42.77,
+    "margin": null,
+    "stock": 99,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 140,
+    "name": "Plancha Ecológico EcuadorDropship",
+    "slug": "plancha-ecolgico-ecuadordropship-140",
+    "description": "Descubre el nuevo Plancha Ecológico EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 18.25,
+    "priceSaidon": 12.77,
+    "cost": 7.3,
+    "margin": null,
+    "stock": 257,
+    "images": [
+      "https://via.placeholder.com/500?text=Plancha"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 141,
+    "name": "Linterna Digital EcuadorDropship",
+    "slug": "linterna-digital-ecuadordropship-141",
+    "description": "Descubre el nuevo Linterna Digital EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Mascotas",
+    "pricePVP": 71.45,
+    "priceSaidon": 50.02,
+    "cost": 28.58,
+    "margin": null,
+    "stock": 115,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 142,
+    "name": "Altavoz Inalámbrico EcuadorDropship",
+    "slug": "altavoz-inalmbrico-ecuadordropship-142",
+    "description": "Descubre el nuevo Altavoz Inalámbrico EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 78.2,
+    "priceSaidon": 54.74,
+    "cost": 31.28,
+    "margin": null,
+    "stock": 320,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 143,
+    "name": "Taladro Avanzado ToolMaster",
+    "slug": "taladro-avanzado-toolmaster-143",
+    "description": "Descubre el nuevo Taladro Avanzado ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 111.88,
+    "priceSaidon": 78.32,
+    "cost": 44.75,
+    "margin": null,
+    "stock": 256,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 144,
+    "name": "Depiladora Impermeable FitLife",
+    "slug": "depiladora-impermeable-fitlife-144",
+    "description": "Descubre el nuevo Depiladora Impermeable FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 28.45,
+    "priceSaidon": 19.91,
+    "cost": 11.38,
+    "margin": null,
+    "stock": 222,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 145,
+    "name": "Cama Avanzado SaidonBrands",
+    "slug": "cama-avanzado-saidonbrands-145",
+    "description": "Descubre el nuevo Cama Avanzado SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 12.9,
+    "priceSaidon": 9.03,
+    "cost": 5.16,
+    "margin": null,
+    "stock": 342,
+    "images": [
+      "https://via.placeholder.com/500?text=Cama"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 146,
+    "name": "Cama Recargable ToolMaster",
+    "slug": "cama-recargable-toolmaster-146",
+    "description": "Descubre el nuevo Cama Recargable ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Salud y Belleza",
+    "pricePVP": 109.63,
+    "priceSaidon": 76.74,
+    "cost": 43.85,
+    "margin": null,
+    "stock": 118,
+    "images": [
+      "https://via.placeholder.com/500?text=Cama"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 147,
+    "name": "Taladro Ergonómico PetJoy",
+    "slug": "taladro-ergonmico-petjoy-147",
+    "description": "Descubre el nuevo Taladro Ergonómico PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 21,
+    "priceSaidon": 14.7,
+    "cost": 8.4,
+    "margin": null,
+    "stock": 313,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 148,
+    "name": "Juego de Destornilladores Inalámbrico StyleIcon",
+    "slug": "juego-de-destornilladores-inalmbrico-styleicon-148",
+    "description": "Descubre el nuevo Juego de Destornilladores Inalámbrico StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 114.53,
+    "priceSaidon": 80.17,
+    "cost": 45.81,
+    "margin": null,
+    "stock": 238,
+    "images": [
+      "https://via.placeholder.com/500?text=Juego%20de%20Destornilladores"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 149,
+    "name": "Pesa Profesional HomePro",
+    "slug": "pesa-profesional-homepro-149",
+    "description": "Descubre el nuevo Pesa Profesional HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Mascotas",
+    "pricePVP": 63.22,
+    "priceSaidon": 44.25,
+    "cost": 25.29,
+    "margin": null,
+    "stock": 357,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 150,
+    "name": "Reloj Portátil ToyWorld",
+    "slug": "reloj-porttil-toyworld-150",
+    "description": "Descubre el nuevo Reloj Portátil ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 62.6,
+    "priceSaidon": 43.82,
+    "cost": 25.04,
+    "margin": null,
+    "stock": 279,
+    "images": [
+      "https://via.placeholder.com/500?text=Reloj"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 151,
+    "name": "Rompecabezas Multifuncional EcuadorDropship",
+    "slug": "rompecabezas-multifuncional-ecuadordropship-151",
+    "description": "Descubre el nuevo Rompecabezas Multifuncional EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 63.13,
+    "priceSaidon": 44.19,
+    "cost": 25.25,
+    "margin": null,
+    "stock": 243,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 152,
+    "name": "Gafas Ultra-rápido ToyWorld",
+    "slug": "gafas-ultra-rpido-toyworld-152",
+    "description": "Descubre el nuevo Gafas Ultra-rápido ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 101.35,
+    "priceSaidon": 70.94,
+    "cost": 40.54,
+    "margin": null,
+    "stock": 297,
+    "images": [
+      "https://via.placeholder.com/500?text=Gafas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 153,
+    "name": "Altavoz Avanzado PetJoy",
+    "slug": "altavoz-avanzado-petjoy-153",
+    "description": "Descubre el nuevo Altavoz Avanzado PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 91.93,
+    "priceSaidon": 64.35,
+    "cost": 36.77,
+    "margin": null,
+    "stock": 468,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 154,
+    "name": "Banda de Resistencia Avanzado ToyWorld",
+    "slug": "banda-de-resistencia-avanzado-toyworld-154",
+    "description": "Descubre el nuevo Banda de Resistencia Avanzado ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Salud y Belleza",
+    "pricePVP": 90.65,
+    "priceSaidon": 63.45,
+    "cost": 36.26,
+    "margin": null,
+    "stock": 495,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 155,
+    "name": "Aspiradora Ecológico StyleIcon",
+    "slug": "aspiradora-ecolgico-styleicon-155",
+    "description": "Descubre el nuevo Aspiradora Ecológico StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 70.33,
+    "priceSaidon": 49.23,
+    "cost": 28.13,
+    "margin": null,
+    "stock": 140,
+    "images": [
+      "https://via.placeholder.com/500?text=Aspiradora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 156,
+    "name": "Dispensador Profesional BeautyGlow",
+    "slug": "dispensador-profesional-beautyglow-156",
+    "description": "Descubre el nuevo Dispensador Profesional BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 17.22,
+    "priceSaidon": 12.05,
+    "cost": 6.89,
+    "margin": null,
+    "stock": 284,
+    "images": [
+      "https://via.placeholder.com/500?text=Dispensador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 157,
+    "name": "Pesa Inteligente HomePro",
+    "slug": "pesa-inteligente-homepro-157",
+    "description": "Descubre el nuevo Pesa Inteligente HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Mascotas",
+    "pricePVP": 44.07,
+    "priceSaidon": 30.85,
+    "cost": 17.63,
+    "margin": null,
+    "stock": 96,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 158,
+    "name": "Juego de Destornilladores Multifuncional EcuadorDropship",
+    "slug": "juego-de-destornilladores-multifuncional-ecuadordropship-158",
+    "description": "Descubre el nuevo Juego de Destornilladores Multifuncional EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 119.83,
+    "priceSaidon": 83.88,
+    "cost": 47.93,
+    "margin": null,
+    "stock": 509,
+    "images": [
+      "https://via.placeholder.com/500?text=Juego%20de%20Destornilladores"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 159,
+    "name": "Drone Multifuncional FitLife",
+    "slug": "drone-multifuncional-fitlife-159",
+    "description": "Descubre el nuevo Drone Multifuncional FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 92.88,
+    "priceSaidon": 65.02,
+    "cost": 37.15,
+    "margin": null,
+    "stock": 301,
+    "images": [
+      "https://via.placeholder.com/500?text=Drone"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 160,
+    "name": "Altavoz Ecológico EcuadorDropship",
+    "slug": "altavoz-ecolgico-ecuadordropship-160",
+    "description": "Descubre el nuevo Altavoz Ecológico EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 74.1,
+    "priceSaidon": 51.87,
+    "cost": 29.64,
+    "margin": null,
+    "stock": 163,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 161,
+    "name": "Depiladora Inteligente HomePro",
+    "slug": "depiladora-inteligente-homepro-161",
+    "description": "Descubre el nuevo Depiladora Inteligente HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 13.5,
+    "priceSaidon": 9.45,
+    "cost": 5.4,
+    "margin": null,
+    "stock": 523,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 162,
+    "name": "Secador Compacto StyleIcon",
+    "slug": "secador-compacto-styleicon-162",
+    "description": "Descubre el nuevo Secador Compacto StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Salud y Belleza",
+    "pricePVP": 122.15,
+    "priceSaidon": 85.5,
+    "cost": 48.86,
+    "margin": null,
+    "stock": 488,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 163,
+    "name": "Soporte Portátil ToyWorld",
+    "slug": "soporte-porttil-toyworld-163",
+    "description": "Descubre el nuevo Soporte Portátil ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 62.9,
+    "priceSaidon": 44.03,
+    "cost": 25.16,
+    "margin": null,
+    "stock": 516,
+    "images": [
+      "https://via.placeholder.com/500?text=Soporte"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 164,
+    "name": "Correa Automático ToolMaster",
+    "slug": "correa-automtico-toolmaster-164",
+    "description": "Descubre el nuevo Correa Automático ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 122.67,
+    "priceSaidon": 85.87,
+    "cost": 49.07,
+    "margin": null,
+    "stock": 379,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 165,
+    "name": "Cartera Recargable SaidonBrands",
+    "slug": "cartera-recargable-saidonbrands-165",
+    "description": "Descubre el nuevo Cartera Recargable SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Mascotas",
+    "pricePVP": 87.73,
+    "priceSaidon": 61.41,
+    "cost": 35.09,
+    "margin": null,
+    "stock": 459,
+    "images": [
+      "https://via.placeholder.com/500?text=Cartera"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 166,
+    "name": "Rompecabezas Inteligente PetJoy",
+    "slug": "rompecabezas-inteligente-petjoy-166",
+    "description": "Descubre el nuevo Rompecabezas Inteligente PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 50.05,
+    "priceSaidon": 35.03,
+    "cost": 20.02,
+    "margin": null,
+    "stock": 481,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 167,
+    "name": "Linterna Portátil PetJoy",
+    "slug": "linterna-porttil-petjoy-167",
+    "description": "Descubre el nuevo Linterna Portátil PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 69.9,
+    "priceSaidon": 48.93,
+    "cost": 27.96,
+    "margin": null,
+    "stock": 481,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 168,
+    "name": "Cartera Ergonómico EcuadorDropship",
+    "slug": "cartera-ergonmico-ecuadordropship-168",
+    "description": "Descubre el nuevo Cartera Ergonómico EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 37.88,
+    "priceSaidon": 26.52,
+    "cost": 15.15,
+    "margin": null,
+    "stock": 386,
+    "images": [
+      "https://via.placeholder.com/500?text=Cartera"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 169,
+    "name": "Cargador Avanzado HomePro",
+    "slug": "cargador-avanzado-homepro-169",
+    "description": "Descubre el nuevo Cargador Avanzado HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 112.33,
+    "priceSaidon": 78.63,
+    "cost": 44.93,
+    "margin": null,
+    "stock": 235,
+    "images": [
+      "https://via.placeholder.com/500?text=Cargador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 170,
+    "name": "Rompecabezas Ergonómico BeautyGlow",
+    "slug": "rompecabezas-ergonmico-beautyglow-170",
+    "description": "Descubre el nuevo Rompecabezas Ergonómico BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Salud y Belleza",
+    "pricePVP": 114.63,
+    "priceSaidon": 80.24,
+    "cost": 45.85,
+    "margin": null,
+    "stock": 412,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 171,
+    "name": "Correa Premium HomePro",
+    "slug": "correa-premium-homepro-171",
+    "description": "Descubre el nuevo Correa Premium HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 64.72,
+    "priceSaidon": 45.3,
+    "cost": 25.89,
+    "margin": null,
+    "stock": 368,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 172,
+    "name": "Depiladora Ultra-rápido PetJoy",
+    "slug": "depiladora-ultra-rpido-petjoy-172",
+    "description": "Descubre el nuevo Depiladora Ultra-rápido PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 100.08,
+    "priceSaidon": 70.06,
+    "cost": 40.03,
+    "margin": null,
+    "stock": 191,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 173,
+    "name": "Gafas Avanzado ToyWorld",
+    "slug": "gafas-avanzado-toyworld-173",
+    "description": "Descubre el nuevo Gafas Avanzado ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Mascotas",
+    "pricePVP": 29.5,
+    "priceSaidon": 20.65,
+    "cost": 11.8,
+    "margin": null,
+    "stock": 339,
+    "images": [
+      "https://via.placeholder.com/500?text=Gafas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 174,
+    "name": "Gafas Inalámbrico SaidonBrands",
+    "slug": "gafas-inalmbrico-saidonbrands-174",
+    "description": "Descubre el nuevo Gafas Inalámbrico SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 77.93,
+    "priceSaidon": 54.55,
+    "cost": 31.17,
+    "margin": null,
+    "stock": 199,
+    "images": [
+      "https://via.placeholder.com/500?text=Gafas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 175,
+    "name": "Cargador Compacto ToyWorld",
+    "slug": "cargador-compacto-toyworld-175",
+    "description": "Descubre el nuevo Cargador Compacto ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 64.8,
+    "priceSaidon": 45.36,
+    "cost": 25.92,
+    "margin": null,
+    "stock": 483,
+    "images": [
+      "https://via.placeholder.com/500?text=Cargador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 176,
+    "name": "Reloj Impermeable EcuadorDropship",
+    "slug": "reloj-impermeable-ecuadordropship-176",
+    "description": "Descubre el nuevo Reloj Impermeable EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 53.03,
+    "priceSaidon": 37.12,
+    "cost": 21.21,
+    "margin": null,
+    "stock": 481,
+    "images": [
+      "https://via.placeholder.com/500?text=Reloj"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 177,
+    "name": "Pesa Compacto SaidonBrands",
+    "slug": "pesa-compacto-saidonbrands-177",
+    "description": "Descubre el nuevo Pesa Compacto SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 122.83,
+    "priceSaidon": 85.98,
+    "cost": 49.13,
+    "margin": null,
+    "stock": 171,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 178,
+    "name": "Cama Automático StyleIcon",
+    "slug": "cama-automtico-styleicon-178",
+    "description": "Descubre el nuevo Cama Automático StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Salud y Belleza",
+    "pricePVP": 60.08,
+    "priceSaidon": 42.06,
+    "cost": 24.03,
+    "margin": null,
+    "stock": 100,
+    "images": [
+      "https://via.placeholder.com/500?text=Cama"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 179,
+    "name": "Juego de Destornilladores Premium EcuadorDropship",
+    "slug": "juego-de-destornilladores-premium-ecuadordropship-179",
+    "description": "Descubre el nuevo Juego de Destornilladores Premium EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 36.92,
+    "priceSaidon": 25.84,
+    "cost": 14.77,
+    "margin": null,
+    "stock": 314,
+    "images": [
+      "https://via.placeholder.com/500?text=Juego%20de%20Destornilladores"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 180,
+    "name": "Juego de Destornilladores Automático PetJoy",
+    "slug": "juego-de-destornilladores-automtico-petjoy-180",
+    "description": "Descubre el nuevo Juego de Destornilladores Automático PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 108.05,
+    "priceSaidon": 75.63,
+    "cost": 43.22,
+    "margin": null,
+    "stock": 469,
+    "images": [
+      "https://via.placeholder.com/500?text=Juego%20de%20Destornilladores"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 181,
+    "name": "Mochila Profesional StyleIcon",
+    "slug": "mochila-profesional-styleicon-181",
+    "description": "Descubre el nuevo Mochila Profesional StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Mascotas",
+    "pricePVP": 18.35,
+    "priceSaidon": 12.85,
+    "cost": 7.34,
+    "margin": null,
+    "stock": 429,
+    "images": [
+      "https://via.placeholder.com/500?text=Mochila"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 182,
+    "name": "Altavoz Inalámbrico ToolMaster",
+    "slug": "altavoz-inalmbrico-toolmaster-182",
+    "description": "Descubre el nuevo Altavoz Inalámbrico ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 59.85,
+    "priceSaidon": 41.89,
+    "cost": 23.94,
+    "margin": null,
+    "stock": 183,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 183,
+    "name": "Pesa Impermeable SaidonBrands",
+    "slug": "pesa-impermeable-saidonbrands-183",
+    "description": "Descubre el nuevo Pesa Impermeable SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 102.13,
+    "priceSaidon": 71.49,
+    "cost": 40.85,
+    "margin": null,
+    "stock": 545,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 184,
+    "name": "Cámara Multifuncional TechMax",
+    "slug": "cmara-multifuncional-techmax-184",
+    "description": "Descubre el nuevo Cámara Multifuncional TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 98.98,
+    "priceSaidon": 69.29,
+    "cost": 39.59,
+    "margin": null,
+    "stock": 268,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 185,
+    "name": "Linterna Premium PetJoy",
+    "slug": "linterna-premium-petjoy-185",
+    "description": "Descubre el nuevo Linterna Premium PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 90.53,
+    "priceSaidon": 63.37,
+    "cost": 36.21,
+    "margin": null,
+    "stock": 483,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 186,
+    "name": "Cama Ultra-rápido FitLife",
+    "slug": "cama-ultra-rpido-fitlife-186",
+    "description": "Descubre el nuevo Cama Ultra-rápido FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Salud y Belleza",
+    "pricePVP": 62.95,
+    "priceSaidon": 44.06,
+    "cost": 25.18,
+    "margin": null,
+    "stock": 99,
+    "images": [
+      "https://via.placeholder.com/500?text=Cama"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 187,
+    "name": "Banda de Resistencia Recargable BeautyGlow",
+    "slug": "banda-de-resistencia-recargable-beautyglow-187",
+    "description": "Descubre el nuevo Banda de Resistencia Recargable BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 93.77,
+    "priceSaidon": 65.64,
+    "cost": 37.51,
+    "margin": null,
+    "stock": 216,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 188,
+    "name": "Esterilla Premium FitLife",
+    "slug": "esterilla-premium-fitlife-188",
+    "description": "Descubre el nuevo Esterilla Premium FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 96.88,
+    "priceSaidon": 67.82,
+    "cost": 38.75,
+    "margin": null,
+    "stock": 344,
+    "images": [
+      "https://via.placeholder.com/500?text=Esterilla"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 189,
+    "name": "Masajeador Premium PetJoy",
+    "slug": "masajeador-premium-petjoy-189",
+    "description": "Descubre el nuevo Masajeador Premium PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Mascotas",
+    "pricePVP": 114.98,
+    "priceSaidon": 80.49,
+    "cost": 45.99,
+    "margin": null,
+    "stock": 100,
+    "images": [
+      "https://via.placeholder.com/500?text=Masajeador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 190,
+    "name": "Licuadora Ecológico SaidonBrands",
+    "slug": "licuadora-ecolgico-saidonbrands-190",
+    "description": "Descubre el nuevo Licuadora Ecológico SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 45.13,
+    "priceSaidon": 31.59,
+    "cost": 18.05,
+    "margin": null,
+    "stock": 306,
+    "images": [
+      "https://via.placeholder.com/500?text=Licuadora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 191,
+    "name": "Linterna Profesional FitLife",
+    "slug": "linterna-profesional-fitlife-191",
+    "description": "Descubre el nuevo Linterna Profesional FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 16.75,
+    "priceSaidon": 11.72,
+    "cost": 6.7,
+    "margin": null,
+    "stock": 531,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 192,
+    "name": "Gafas Avanzado BeautyGlow",
+    "slug": "gafas-avanzado-beautyglow-192",
+    "description": "Descubre el nuevo Gafas Avanzado BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 24.1,
+    "priceSaidon": 16.87,
+    "cost": 9.64,
+    "margin": null,
+    "stock": 371,
+    "images": [
+      "https://via.placeholder.com/500?text=Gafas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 193,
+    "name": "Collar Inalámbrico ToyWorld",
+    "slug": "collar-inalmbrico-toyworld-193",
+    "description": "Descubre el nuevo Collar Inalámbrico ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 110.2,
+    "priceSaidon": 77.14,
+    "cost": 44.08,
+    "margin": null,
+    "stock": 524,
+    "images": [
+      "https://via.placeholder.com/500?text=Collar"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 194,
+    "name": "Batería Portátil TechMax",
+    "slug": "batera-porttil-techmax-194",
+    "description": "Descubre el nuevo Batería Portátil TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Salud y Belleza",
+    "pricePVP": 20.8,
+    "priceSaidon": 14.56,
+    "cost": 8.32,
+    "margin": null,
+    "stock": 457,
+    "images": [
+      "https://via.placeholder.com/500?text=Bater%C3%ADa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 195,
+    "name": "Depiladora Premium EcuadorDropship",
+    "slug": "depiladora-premium-ecuadordropship-195",
+    "description": "Descubre el nuevo Depiladora Premium EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 16.55,
+    "priceSaidon": 11.58,
+    "cost": 6.62,
+    "margin": null,
+    "stock": 444,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 196,
+    "name": "Pesa Compacto SaidonBrands",
+    "slug": "pesa-compacto-saidonbrands-196",
+    "description": "Descubre el nuevo Pesa Compacto SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 117.35,
+    "priceSaidon": 82.14,
+    "cost": 46.94,
+    "margin": null,
+    "stock": 302,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 197,
+    "name": "Rompecabezas Automático SaidonBrands",
+    "slug": "rompecabezas-automtico-saidonbrands-197",
+    "description": "Descubre el nuevo Rompecabezas Automático SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Mascotas",
+    "pricePVP": 106.25,
+    "priceSaidon": 74.38,
+    "cost": 42.5,
+    "margin": null,
+    "stock": 320,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 198,
+    "name": "Correa Impermeable TechMax",
+    "slug": "correa-impermeable-techmax-198",
+    "description": "Descubre el nuevo Correa Impermeable TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 82.75,
+    "priceSaidon": 57.92,
+    "cost": 33.1,
+    "margin": null,
+    "stock": 187,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 199,
+    "name": "Altavoz Impermeable TechMax",
+    "slug": "altavoz-impermeable-techmax-199",
+    "description": "Descubre el nuevo Altavoz Impermeable TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 14.35,
+    "priceSaidon": 10.04,
+    "cost": 5.74,
+    "margin": null,
+    "stock": 549,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 200,
+    "name": "Humidificador Ergonómico StyleIcon",
+    "slug": "humidificador-ergonmico-styleicon-200",
+    "description": "Descubre el nuevo Humidificador Ergonómico StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 73.08,
+    "priceSaidon": 51.16,
+    "cost": 29.23,
+    "margin": null,
+    "stock": 491,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 201,
+    "name": "Gafas Avanzado SaidonBrands",
+    "slug": "gafas-avanzado-saidonbrands-201",
+    "description": "Descubre el nuevo Gafas Avanzado SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 69.8,
+    "priceSaidon": 48.86,
+    "cost": 27.92,
+    "margin": null,
+    "stock": 79,
+    "images": [
+      "https://via.placeholder.com/500?text=Gafas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 202,
+    "name": "Cartera Ergonómico ToolMaster",
+    "slug": "cartera-ergonmico-toolmaster-202",
+    "description": "Descubre el nuevo Cartera Ergonómico ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Salud y Belleza",
+    "pricePVP": 85.45,
+    "priceSaidon": 59.81,
+    "cost": 34.18,
+    "margin": null,
+    "stock": 505,
+    "images": [
+      "https://via.placeholder.com/500?text=Cartera"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 203,
+    "name": "Plancha Avanzado FitLife",
+    "slug": "plancha-avanzado-fitlife-203",
+    "description": "Descubre el nuevo Plancha Avanzado FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 85.85,
+    "priceSaidon": 60.09,
+    "cost": 34.34,
+    "margin": null,
+    "stock": 59,
+    "images": [
+      "https://via.placeholder.com/500?text=Plancha"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 204,
+    "name": "Soporte Impermeable HomePro",
+    "slug": "soporte-impermeable-homepro-204",
+    "description": "Descubre el nuevo Soporte Impermeable HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 59.28,
+    "priceSaidon": 41.5,
+    "cost": 23.71,
+    "margin": null,
+    "stock": 72,
+    "images": [
+      "https://via.placeholder.com/500?text=Soporte"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 205,
+    "name": "Mochila Multifuncional TechMax",
+    "slug": "mochila-multifuncional-techmax-205",
+    "description": "Descubre el nuevo Mochila Multifuncional TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Mascotas",
+    "pricePVP": 98.47,
+    "priceSaidon": 68.93,
+    "cost": 39.39,
+    "margin": null,
+    "stock": 275,
+    "images": [
+      "https://via.placeholder.com/500?text=Mochila"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 206,
+    "name": "Correa Profesional BeautyGlow",
+    "slug": "correa-profesional-beautyglow-206",
+    "description": "Descubre el nuevo Correa Profesional BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 27,
+    "priceSaidon": 18.9,
+    "cost": 10.8,
+    "margin": null,
+    "stock": 473,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 207,
+    "name": "Depiladora Digital TechMax",
+    "slug": "depiladora-digital-techmax-207",
+    "description": "Descubre el nuevo Depiladora Digital TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 112.8,
+    "priceSaidon": 78.96,
+    "cost": 45.12,
+    "margin": null,
+    "stock": 213,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 208,
+    "name": "Aspiradora Portátil EcuadorDropship",
+    "slug": "aspiradora-porttil-ecuadordropship-208",
+    "description": "Descubre el nuevo Aspiradora Portátil EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 97.2,
+    "priceSaidon": 68.04,
+    "cost": 38.88,
+    "margin": null,
+    "stock": 64,
+    "images": [
+      "https://via.placeholder.com/500?text=Aspiradora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 209,
+    "name": "Batería Inalámbrico FitLife",
+    "slug": "batera-inalmbrico-fitlife-209",
+    "description": "Descubre el nuevo Batería Inalámbrico FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 29.5,
+    "priceSaidon": 20.65,
+    "cost": 11.8,
+    "margin": null,
+    "stock": 99,
+    "images": [
+      "https://via.placeholder.com/500?text=Bater%C3%ADa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 210,
+    "name": "Humidificador Profesional BeautyGlow",
+    "slug": "humidificador-profesional-beautyglow-210",
+    "description": "Descubre el nuevo Humidificador Profesional BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Salud y Belleza",
+    "pricePVP": 49.7,
+    "priceSaidon": 34.79,
+    "cost": 19.88,
+    "margin": null,
+    "stock": 313,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 211,
+    "name": "Rompecabezas Recargable HomePro",
+    "slug": "rompecabezas-recargable-homepro-211",
+    "description": "Descubre el nuevo Rompecabezas Recargable HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 18,
+    "priceSaidon": 12.6,
+    "cost": 7.2,
+    "margin": null,
+    "stock": 384,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 212,
+    "name": "Mochila Digital PetJoy",
+    "slug": "mochila-digital-petjoy-212",
+    "description": "Descubre el nuevo Mochila Digital PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 123.58,
+    "priceSaidon": 86.51,
+    "cost": 49.43,
+    "margin": null,
+    "stock": 419,
+    "images": [
+      "https://via.placeholder.com/500?text=Mochila"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 213,
+    "name": "Taladro Avanzado FitLife",
+    "slug": "taladro-avanzado-fitlife-213",
+    "description": "Descubre el nuevo Taladro Avanzado FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Mascotas",
+    "pricePVP": 100.08,
+    "priceSaidon": 70.06,
+    "cost": 40.03,
+    "margin": null,
+    "stock": 436,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 214,
+    "name": "Depiladora Ergonómico ToyWorld",
+    "slug": "depiladora-ergonmico-toyworld-214",
+    "description": "Descubre el nuevo Depiladora Ergonómico ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 83.63,
+    "priceSaidon": 58.54,
+    "cost": 33.45,
+    "margin": null,
+    "stock": 244,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 215,
+    "name": "Banda de Resistencia Compacto EcuadorDropship",
+    "slug": "banda-de-resistencia-compacto-ecuadordropship-215",
+    "description": "Descubre el nuevo Banda de Resistencia Compacto EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 108.85,
+    "priceSaidon": 76.19,
+    "cost": 43.54,
+    "margin": null,
+    "stock": 327,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 216,
+    "name": "Correa Profesional SaidonBrands",
+    "slug": "correa-profesional-saidonbrands-216",
+    "description": "Descubre el nuevo Correa Profesional SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 90.45,
+    "priceSaidon": 63.31,
+    "cost": 36.18,
+    "margin": null,
+    "stock": 400,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 217,
+    "name": "Secador Recargable FitLife",
+    "slug": "secador-recargable-fitlife-217",
+    "description": "Descubre el nuevo Secador Recargable FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 92.45,
+    "priceSaidon": 64.72,
+    "cost": 36.98,
+    "margin": null,
+    "stock": 93,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 218,
+    "name": "Juego de Destornilladores Inalámbrico BeautyGlow",
+    "slug": "juego-de-destornilladores-inalmbrico-beautyglow-218",
+    "description": "Descubre el nuevo Juego de Destornilladores Inalámbrico BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Salud y Belleza",
+    "pricePVP": 91.88,
+    "priceSaidon": 64.32,
+    "cost": 36.75,
+    "margin": null,
+    "stock": 63,
+    "images": [
+      "https://via.placeholder.com/500?text=Juego%20de%20Destornilladores"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 219,
+    "name": "Cartera Profesional StyleIcon",
+    "slug": "cartera-profesional-styleicon-219",
+    "description": "Descubre el nuevo Cartera Profesional StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 83.98,
+    "priceSaidon": 58.79,
+    "cost": 33.59,
+    "margin": null,
+    "stock": 154,
+    "images": [
+      "https://via.placeholder.com/500?text=Cartera"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 220,
+    "name": "Reloj Automático TechMax",
+    "slug": "reloj-automtico-techmax-220",
+    "description": "Descubre el nuevo Reloj Automático TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 114.6,
+    "priceSaidon": 80.22,
+    "cost": 45.84,
+    "margin": null,
+    "stock": 246,
+    "images": [
+      "https://via.placeholder.com/500?text=Reloj"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 221,
+    "name": "Batería Portátil SaidonBrands",
+    "slug": "batera-porttil-saidonbrands-221",
+    "description": "Descubre el nuevo Batería Portátil SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Mascotas",
+    "pricePVP": 118.07,
+    "priceSaidon": 82.65,
+    "cost": 47.23,
+    "margin": null,
+    "stock": 214,
+    "images": [
+      "https://via.placeholder.com/500?text=Bater%C3%ADa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 222,
+    "name": "Plancha Ecológico ToolMaster",
+    "slug": "plancha-ecolgico-toolmaster-222",
+    "description": "Descubre el nuevo Plancha Ecológico ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 85.35,
+    "priceSaidon": 59.74,
+    "cost": 34.14,
+    "margin": null,
+    "stock": 299,
+    "images": [
+      "https://via.placeholder.com/500?text=Plancha"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 223,
+    "name": "Drone Ergonómico TechMax",
+    "slug": "drone-ergonmico-techmax-223",
+    "description": "Descubre el nuevo Drone Ergonómico TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 121.53,
+    "priceSaidon": 85.07,
+    "cost": 48.61,
+    "margin": null,
+    "stock": 525,
+    "images": [
+      "https://via.placeholder.com/500?text=Drone"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 224,
+    "name": "Licuadora Profesional SaidonBrands",
+    "slug": "licuadora-profesional-saidonbrands-224",
+    "description": "Descubre el nuevo Licuadora Profesional SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 103.8,
+    "priceSaidon": 72.66,
+    "cost": 41.52,
+    "margin": null,
+    "stock": 398,
+    "images": [
+      "https://via.placeholder.com/500?text=Licuadora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 225,
+    "name": "Correa Profesional TechMax",
+    "slug": "correa-profesional-techmax-225",
+    "description": "Descubre el nuevo Correa Profesional TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 45.25,
+    "priceSaidon": 31.67,
+    "cost": 18.1,
+    "margin": null,
+    "stock": 474,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 226,
+    "name": "Cama Portátil StyleIcon",
+    "slug": "cama-porttil-styleicon-226",
+    "description": "Descubre el nuevo Cama Portátil StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Salud y Belleza",
+    "pricePVP": 68.4,
+    "priceSaidon": 47.88,
+    "cost": 27.36,
+    "margin": null,
+    "stock": 112,
+    "images": [
+      "https://via.placeholder.com/500?text=Cama"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 227,
+    "name": "Collar Profesional StyleIcon",
+    "slug": "collar-profesional-styleicon-227",
+    "description": "Descubre el nuevo Collar Profesional StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 117.65,
+    "priceSaidon": 82.36,
+    "cost": 47.06,
+    "margin": null,
+    "stock": 66,
+    "images": [
+      "https://via.placeholder.com/500?text=Collar"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 228,
+    "name": "Taladro Premium PetJoy",
+    "slug": "taladro-premium-petjoy-228",
+    "description": "Descubre el nuevo Taladro Premium PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 82.3,
+    "priceSaidon": 57.61,
+    "cost": 32.92,
+    "margin": null,
+    "stock": 485,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 229,
+    "name": "Auriculares Impermeable ToolMaster",
+    "slug": "auriculares-impermeable-toolmaster-229",
+    "description": "Descubre el nuevo Auriculares Impermeable ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Mascotas",
+    "pricePVP": 95.3,
+    "priceSaidon": 66.71,
+    "cost": 38.12,
+    "margin": null,
+    "stock": 347,
+    "images": [
+      "https://via.placeholder.com/500?text=Auriculares"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 230,
+    "name": "Masajeador Inalámbrico HomePro",
+    "slug": "masajeador-inalmbrico-homepro-230",
+    "description": "Descubre el nuevo Masajeador Inalámbrico HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 109.13,
+    "priceSaidon": 76.39,
+    "cost": 43.65,
+    "margin": null,
+    "stock": 460,
+    "images": [
+      "https://via.placeholder.com/500?text=Masajeador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 231,
+    "name": "Cama Inalámbrico PetJoy",
+    "slug": "cama-inalmbrico-petjoy-231",
+    "description": "Descubre el nuevo Cama Inalámbrico PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 100.55,
+    "priceSaidon": 70.38,
+    "cost": 40.22,
+    "margin": null,
+    "stock": 131,
+    "images": [
+      "https://via.placeholder.com/500?text=Cama"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 232,
+    "name": "Consola Impermeable EcuadorDropship",
+    "slug": "consola-impermeable-ecuadordropship-232",
+    "description": "Descubre el nuevo Consola Impermeable EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 87.07,
+    "priceSaidon": 60.95,
+    "cost": 34.83,
+    "margin": null,
+    "stock": 413,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 233,
+    "name": "Juego de Destornilladores Ultra-rápido BeautyGlow",
+    "slug": "juego-de-destornilladores-ultra-rpido-beautyglow-233",
+    "description": "Descubre el nuevo Juego de Destornilladores Ultra-rápido BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 95.25,
+    "priceSaidon": 66.67,
+    "cost": 38.1,
+    "margin": null,
+    "stock": 249,
+    "images": [
+      "https://via.placeholder.com/500?text=Juego%20de%20Destornilladores"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 234,
+    "name": "Pesa Automático FitLife",
+    "slug": "pesa-automtico-fitlife-234",
+    "description": "Descubre el nuevo Pesa Automático FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Salud y Belleza",
+    "pricePVP": 83.65,
+    "priceSaidon": 58.55,
+    "cost": 33.46,
+    "margin": null,
+    "stock": 430,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 235,
+    "name": "Taladro Digital SaidonBrands",
+    "slug": "taladro-digital-saidonbrands-235",
+    "description": "Descubre el nuevo Taladro Digital SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 119.45,
+    "priceSaidon": 83.61,
+    "cost": 47.78,
+    "margin": null,
+    "stock": 488,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 236,
+    "name": "Rompecabezas Automático HomePro",
+    "slug": "rompecabezas-automtico-homepro-236",
+    "description": "Descubre el nuevo Rompecabezas Automático HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 122.73,
+    "priceSaidon": 85.91,
+    "cost": 49.09,
+    "margin": null,
+    "stock": 184,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 237,
+    "name": "Plancha Multifuncional BeautyGlow",
+    "slug": "plancha-multifuncional-beautyglow-237",
+    "description": "Descubre el nuevo Plancha Multifuncional BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Mascotas",
+    "pricePVP": 74.5,
+    "priceSaidon": 52.15,
+    "cost": 29.8,
+    "margin": null,
+    "stock": 465,
+    "images": [
+      "https://via.placeholder.com/500?text=Plancha"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 238,
+    "name": "Cargador Impermeable FitLife",
+    "slug": "cargador-impermeable-fitlife-238",
+    "description": "Descubre el nuevo Cargador Impermeable FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 14.47,
+    "priceSaidon": 10.13,
+    "cost": 5.79,
+    "margin": null,
+    "stock": 458,
+    "images": [
+      "https://via.placeholder.com/500?text=Cargador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 239,
+    "name": "Consola Digital FitLife",
+    "slug": "consola-digital-fitlife-239",
+    "description": "Descubre el nuevo Consola Digital FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 38.25,
+    "priceSaidon": 26.77,
+    "cost": 15.3,
+    "margin": null,
+    "stock": 378,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 240,
+    "name": "Cámara Multifuncional HomePro",
+    "slug": "cmara-multifuncional-homepro-240",
+    "description": "Descubre el nuevo Cámara Multifuncional HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 59.55,
+    "priceSaidon": 41.68,
+    "cost": 23.82,
+    "margin": null,
+    "stock": 420,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 241,
+    "name": "Secador Recargable SaidonBrands",
+    "slug": "secador-recargable-saidonbrands-241",
+    "description": "Descubre el nuevo Secador Recargable SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 28.25,
+    "priceSaidon": 19.77,
+    "cost": 11.3,
+    "margin": null,
+    "stock": 345,
+    "images": [
+      "https://via.placeholder.com/500?text=Secador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 242,
+    "name": "Depiladora Compacto TechMax",
+    "slug": "depiladora-compacto-techmax-242",
+    "description": "Descubre el nuevo Depiladora Compacto TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Salud y Belleza",
+    "pricePVP": 84.25,
+    "priceSaidon": 58.97,
+    "cost": 33.7,
+    "margin": null,
+    "stock": 181,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 243,
+    "name": "Cartera Portátil ToyWorld",
+    "slug": "cartera-porttil-toyworld-243",
+    "description": "Descubre el nuevo Cartera Portátil ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 67.3,
+    "priceSaidon": 47.11,
+    "cost": 26.92,
+    "margin": null,
+    "stock": 145,
+    "images": [
+      "https://via.placeholder.com/500?text=Cartera"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 244,
+    "name": "Auriculares Ergonómico TechMax",
+    "slug": "auriculares-ergonmico-techmax-244",
+    "description": "Descubre el nuevo Auriculares Ergonómico TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 120.9,
+    "priceSaidon": 84.63,
+    "cost": 48.36,
+    "margin": null,
+    "stock": 58,
+    "images": [
+      "https://via.placeholder.com/500?text=Auriculares"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 245,
+    "name": "Licuadora Automático ToyWorld",
+    "slug": "licuadora-automtico-toyworld-245",
+    "description": "Descubre el nuevo Licuadora Automático ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Mascotas",
+    "pricePVP": 38.92,
+    "priceSaidon": 27.24,
+    "cost": 15.57,
+    "margin": null,
+    "stock": 506,
+    "images": [
+      "https://via.placeholder.com/500?text=Licuadora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 246,
+    "name": "Esterilla Avanzado PetJoy",
+    "slug": "esterilla-avanzado-petjoy-246",
+    "description": "Descubre el nuevo Esterilla Avanzado PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 55.3,
+    "priceSaidon": 38.71,
+    "cost": 22.12,
+    "margin": null,
+    "stock": 325,
+    "images": [
+      "https://via.placeholder.com/500?text=Esterilla"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 247,
+    "name": "Cargador Digital HomePro",
+    "slug": "cargador-digital-homepro-247",
+    "description": "Descubre el nuevo Cargador Digital HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 100.68,
+    "priceSaidon": 70.48,
+    "cost": 40.27,
+    "margin": null,
+    "stock": 528,
+    "images": [
+      "https://via.placeholder.com/500?text=Cargador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 248,
+    "name": "Banda de Resistencia Portátil ToolMaster",
+    "slug": "banda-de-resistencia-porttil-toolmaster-248",
+    "description": "Descubre el nuevo Banda de Resistencia Portátil ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 73.72,
+    "priceSaidon": 51.6,
+    "cost": 29.49,
+    "margin": null,
+    "stock": 249,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 249,
+    "name": "Banda de Resistencia Inalámbrico ToolMaster",
+    "slug": "banda-de-resistencia-inalmbrico-toolmaster-249",
+    "description": "Descubre el nuevo Banda de Resistencia Inalámbrico ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 62.82,
+    "priceSaidon": 43.97,
+    "cost": 25.13,
+    "margin": null,
+    "stock": 254,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 250,
+    "name": "Cama Automático SaidonBrands",
+    "slug": "cama-automtico-saidonbrands-250",
+    "description": "Descubre el nuevo Cama Automático SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Salud y Belleza",
+    "pricePVP": 104.53,
+    "priceSaidon": 73.17,
+    "cost": 41.81,
+    "margin": null,
+    "stock": 474,
+    "images": [
+      "https://via.placeholder.com/500?text=Cama"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 251,
+    "name": "Banda de Resistencia Ultra-rápido StyleIcon",
+    "slug": "banda-de-resistencia-ultra-rpido-styleicon-251",
+    "description": "Descubre el nuevo Banda de Resistencia Ultra-rápido StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 117.1,
+    "priceSaidon": 81.97,
+    "cost": 46.84,
+    "margin": null,
+    "stock": 410,
+    "images": [
+      "https://via.placeholder.com/500?text=Banda%20de%20Resistencia"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 252,
+    "name": "Correa Ultra-rápido FitLife",
+    "slug": "correa-ultra-rpido-fitlife-252",
+    "description": "Descubre el nuevo Correa Ultra-rápido FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 93.4,
+    "priceSaidon": 65.38,
+    "cost": 37.36,
+    "margin": null,
+    "stock": 228,
+    "images": [
+      "https://via.placeholder.com/500?text=Correa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 253,
+    "name": "Cámara Portátil SaidonBrands",
+    "slug": "cmara-porttil-saidonbrands-253",
+    "description": "Descubre el nuevo Cámara Portátil SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Mascotas",
+    "pricePVP": 99.13,
+    "priceSaidon": 69.39,
+    "cost": 39.65,
+    "margin": null,
+    "stock": 119,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 254,
+    "name": "Cámara Ultra-rápido BeautyGlow",
+    "slug": "cmara-ultra-rpido-beautyglow-254",
+    "description": "Descubre el nuevo Cámara Ultra-rápido BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 55.38,
+    "priceSaidon": 38.77,
+    "cost": 22.15,
+    "margin": null,
+    "stock": 344,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 255,
+    "name": "Rompecabezas Portátil ToyWorld",
+    "slug": "rompecabezas-porttil-toyworld-255",
+    "description": "Descubre el nuevo Rompecabezas Portátil ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 39.7,
+    "priceSaidon": 27.79,
+    "cost": 15.88,
+    "margin": null,
+    "stock": 149,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 256,
+    "name": "Auriculares Recargable EcuadorDropship",
+    "slug": "auriculares-recargable-ecuadordropship-256",
+    "description": "Descubre el nuevo Auriculares Recargable EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 88.42,
+    "priceSaidon": 61.89,
+    "cost": 35.37,
+    "margin": null,
+    "stock": 102,
+    "images": [
+      "https://via.placeholder.com/500?text=Auriculares"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 257,
+    "name": "Cargador Avanzado ToyWorld",
+    "slug": "cargador-avanzado-toyworld-257",
+    "description": "Descubre el nuevo Cargador Avanzado ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 16.55,
+    "priceSaidon": 11.58,
+    "cost": 6.62,
+    "margin": null,
+    "stock": 266,
+    "images": [
+      "https://via.placeholder.com/500?text=Cargador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 258,
+    "name": "Altavoz Inalámbrico ToolMaster",
+    "slug": "altavoz-inalmbrico-toolmaster-258",
+    "description": "Descubre el nuevo Altavoz Inalámbrico ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Salud y Belleza",
+    "pricePVP": 46.17,
+    "priceSaidon": 32.32,
+    "cost": 18.47,
+    "margin": null,
+    "stock": 328,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 259,
+    "name": "Dispensador Profesional BeautyGlow",
+    "slug": "dispensador-profesional-beautyglow-259",
+    "description": "Descubre el nuevo Dispensador Profesional BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 82.93,
+    "priceSaidon": 58.05,
+    "cost": 33.17,
+    "margin": null,
+    "stock": 289,
+    "images": [
+      "https://via.placeholder.com/500?text=Dispensador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 260,
+    "name": "Reloj Premium TechMax",
+    "slug": "reloj-premium-techmax-260",
+    "description": "Descubre el nuevo Reloj Premium TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 65.67,
+    "priceSaidon": 45.97,
+    "cost": 26.27,
+    "margin": null,
+    "stock": 332,
+    "images": [
+      "https://via.placeholder.com/500?text=Reloj"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 261,
+    "name": "Plancha Premium HomePro",
+    "slug": "plancha-premium-homepro-261",
+    "description": "Descubre el nuevo Plancha Premium HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Mascotas",
+    "pricePVP": 18.27,
+    "priceSaidon": 12.79,
+    "cost": 7.31,
+    "margin": null,
+    "stock": 123,
+    "images": [
+      "https://via.placeholder.com/500?text=Plancha"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 262,
+    "name": "Cámara Automático HomePro",
+    "slug": "cmara-automtico-homepro-262",
+    "description": "Descubre el nuevo Cámara Automático HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 31.07,
+    "priceSaidon": 21.75,
+    "cost": 12.43,
+    "margin": null,
+    "stock": 203,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 263,
+    "name": "Altavoz Ecológico PetJoy",
+    "slug": "altavoz-ecolgico-petjoy-263",
+    "description": "Descubre el nuevo Altavoz Ecológico PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 20.05,
+    "priceSaidon": 14.04,
+    "cost": 8.02,
+    "margin": null,
+    "stock": 171,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 264,
+    "name": "Plancha Automático SaidonBrands",
+    "slug": "plancha-automtico-saidonbrands-264",
+    "description": "Descubre el nuevo Plancha Automático SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 25.67,
+    "priceSaidon": 17.97,
+    "cost": 10.27,
+    "margin": null,
+    "stock": 498,
+    "images": [
+      "https://via.placeholder.com/500?text=Plancha"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 265,
+    "name": "Humidificador Profesional TechMax",
+    "slug": "humidificador-profesional-techmax-265",
+    "description": "Descubre el nuevo Humidificador Profesional TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 103.18,
+    "priceSaidon": 72.23,
+    "cost": 41.27,
+    "margin": null,
+    "stock": 451,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 266,
+    "name": "Humidificador Inalámbrico TechMax",
+    "slug": "humidificador-inalmbrico-techmax-266",
+    "description": "Descubre el nuevo Humidificador Inalámbrico TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Salud y Belleza",
+    "pricePVP": 107.85,
+    "priceSaidon": 75.49,
+    "cost": 43.14,
+    "margin": null,
+    "stock": 480,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 267,
+    "name": "Humidificador Avanzado BeautyGlow",
+    "slug": "humidificador-avanzado-beautyglow-267",
+    "description": "Descubre el nuevo Humidificador Avanzado BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 122.38,
+    "priceSaidon": 85.67,
+    "cost": 48.95,
+    "margin": null,
+    "stock": 442,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 268,
+    "name": "Cargador Recargable TechMax",
+    "slug": "cargador-recargable-techmax-268",
+    "description": "Descubre el nuevo Cargador Recargable TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 53.5,
+    "priceSaidon": 37.45,
+    "cost": 21.4,
+    "margin": null,
+    "stock": 352,
+    "images": [
+      "https://via.placeholder.com/500?text=Cargador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 269,
+    "name": "Cámara Impermeable HomePro",
+    "slug": "cmara-impermeable-homepro-269",
+    "description": "Descubre el nuevo Cámara Impermeable HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Mascotas",
+    "pricePVP": 47.07,
+    "priceSaidon": 32.95,
+    "cost": 18.83,
+    "margin": null,
+    "stock": 140,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 270,
+    "name": "Altavoz Automático StyleIcon",
+    "slug": "altavoz-automtico-styleicon-270",
+    "description": "Descubre el nuevo Altavoz Automático StyleIcon. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por StyleIcon.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 20.6,
+    "priceSaidon": 14.42,
+    "cost": 8.24,
+    "margin": null,
+    "stock": 188,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 271,
+    "name": "Aspiradora Digital FitLife",
+    "slug": "aspiradora-digital-fitlife-271",
+    "description": "Descubre el nuevo Aspiradora Digital FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 54.95,
+    "priceSaidon": 38.46,
+    "cost": 21.98,
+    "margin": null,
+    "stock": 51,
+    "images": [
+      "https://via.placeholder.com/500?text=Aspiradora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 272,
+    "name": "Batería Profesional HomePro",
+    "slug": "batera-profesional-homepro-272",
+    "description": "Descubre el nuevo Batería Profesional HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 86.48,
+    "priceSaidon": 60.54,
+    "cost": 34.59,
+    "margin": null,
+    "stock": 472,
+    "images": [
+      "https://via.placeholder.com/500?text=Bater%C3%ADa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 273,
+    "name": "Batería Multifuncional PetJoy",
+    "slug": "batera-multifuncional-petjoy-273",
+    "description": "Descubre el nuevo Batería Multifuncional PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 14.2,
+    "priceSaidon": 9.94,
+    "cost": 5.68,
+    "margin": null,
+    "stock": 223,
+    "images": [
+      "https://via.placeholder.com/500?text=Bater%C3%ADa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 274,
+    "name": "Consola Compacto PetJoy",
+    "slug": "consola-compacto-petjoy-274",
+    "description": "Descubre el nuevo Consola Compacto PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Salud y Belleza",
+    "pricePVP": 24.75,
+    "priceSaidon": 17.32,
+    "cost": 9.9,
+    "margin": null,
+    "stock": 467,
+    "images": [
+      "https://via.placeholder.com/500?text=Consola"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 275,
+    "name": "Soporte Recargable EcuadorDropship",
+    "slug": "soporte-recargable-ecuadordropship-275",
+    "description": "Descubre el nuevo Soporte Recargable EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 74.08,
+    "priceSaidon": 51.86,
+    "cost": 29.63,
+    "margin": null,
+    "stock": 523,
+    "images": [
+      "https://via.placeholder.com/500?text=Soporte"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 276,
+    "name": "Drone Impermeable TechMax",
+    "slug": "drone-impermeable-techmax-276",
+    "description": "Descubre el nuevo Drone Impermeable TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 31.1,
+    "priceSaidon": 21.77,
+    "cost": 12.44,
+    "margin": null,
+    "stock": 302,
+    "images": [
+      "https://via.placeholder.com/500?text=Drone"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 277,
+    "name": "Mochila Impermeable TechMax",
+    "slug": "mochila-impermeable-techmax-277",
+    "description": "Descubre el nuevo Mochila Impermeable TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Mascotas",
+    "pricePVP": 81.35,
+    "priceSaidon": 56.94,
+    "cost": 32.54,
+    "margin": null,
+    "stock": 314,
+    "images": [
+      "https://via.placeholder.com/500?text=Mochila"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 278,
+    "name": "Taladro Automático SaidonBrands",
+    "slug": "taladro-automtico-saidonbrands-278",
+    "description": "Descubre el nuevo Taladro Automático SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 49.42,
+    "priceSaidon": 34.59,
+    "cost": 19.77,
+    "margin": null,
+    "stock": 410,
+    "images": [
+      "https://via.placeholder.com/500?text=Taladro"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 279,
+    "name": "Cartera Profesional EcuadorDropship",
+    "slug": "cartera-profesional-ecuadordropship-279",
+    "description": "Descubre el nuevo Cartera Profesional EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 45.05,
+    "priceSaidon": 31.53,
+    "cost": 18.02,
+    "margin": null,
+    "stock": 330,
+    "images": [
+      "https://via.placeholder.com/500?text=Cartera"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 280,
+    "name": "Mochila Ergonómico EcuadorDropship",
+    "slug": "mochila-ergonmico-ecuadordropship-280",
+    "description": "Descubre el nuevo Mochila Ergonómico EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 24.47,
+    "priceSaidon": 17.13,
+    "cost": 9.79,
+    "margin": null,
+    "stock": 206,
+    "images": [
+      "https://via.placeholder.com/500?text=Mochila"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 281,
+    "name": "Cartera Recargable BeautyGlow",
+    "slug": "cartera-recargable-beautyglow-281",
+    "description": "Descubre el nuevo Cartera Recargable BeautyGlow. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por BeautyGlow.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 65.63,
+    "priceSaidon": 45.94,
+    "cost": 26.25,
+    "margin": null,
+    "stock": 289,
+    "images": [
+      "https://via.placeholder.com/500?text=Cartera"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 282,
+    "name": "Plancha Multifuncional ToolMaster",
+    "slug": "plancha-multifuncional-toolmaster-282",
+    "description": "Descubre el nuevo Plancha Multifuncional ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Salud y Belleza",
+    "pricePVP": 58.17,
+    "priceSaidon": 40.72,
+    "cost": 23.27,
+    "margin": null,
+    "stock": 364,
+    "images": [
+      "https://via.placeholder.com/500?text=Plancha"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 283,
+    "name": "Soporte Compacto SaidonBrands",
+    "slug": "soporte-compacto-saidonbrands-283",
+    "description": "Descubre el nuevo Soporte Compacto SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 43.85,
+    "priceSaidon": 30.7,
+    "cost": 17.54,
+    "margin": null,
+    "stock": 97,
+    "images": [
+      "https://via.placeholder.com/500?text=Soporte"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 284,
+    "name": "Humidificador Profesional SaidonBrands",
+    "slug": "humidificador-profesional-saidonbrands-284",
+    "description": "Descubre el nuevo Humidificador Profesional SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 80.82,
+    "priceSaidon": 56.57,
+    "cost": 32.33,
+    "margin": null,
+    "stock": 337,
+    "images": [
+      "https://via.placeholder.com/500?text=Humidificador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 285,
+    "name": "Altavoz Impermeable ToyWorld",
+    "slug": "altavoz-impermeable-toyworld-285",
+    "description": "Descubre el nuevo Altavoz Impermeable ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Mascotas",
+    "pricePVP": 40.8,
+    "priceSaidon": 28.56,
+    "cost": 16.32,
+    "margin": null,
+    "stock": 347,
+    "images": [
+      "https://via.placeholder.com/500?text=Altavoz"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 286,
+    "name": "Masajeador Ultra-rápido TechMax",
+    "slug": "masajeador-ultra-rpido-techmax-286",
+    "description": "Descubre el nuevo Masajeador Ultra-rápido TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 77.8,
+    "priceSaidon": 54.46,
+    "cost": 31.12,
+    "margin": null,
+    "stock": 531,
+    "images": [
+      "https://via.placeholder.com/500?text=Masajeador"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 287,
+    "name": "Plancha Ultra-rápido HomePro",
+    "slug": "plancha-ultra-rpido-homepro-287",
+    "description": "Descubre el nuevo Plancha Ultra-rápido HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 111.3,
+    "priceSaidon": 77.91,
+    "cost": 44.52,
+    "margin": null,
+    "stock": 531,
+    "images": [
+      "https://via.placeholder.com/500?text=Plancha"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 288,
+    "name": "Cámara Inteligente PetJoy",
+    "slug": "cmara-inteligente-petjoy-288",
+    "description": "Descubre el nuevo Cámara Inteligente PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 108.95,
+    "priceSaidon": 76.27,
+    "cost": 43.58,
+    "margin": null,
+    "stock": 469,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 289,
+    "name": "Rompecabezas Portátil EcuadorDropship",
+    "slug": "rompecabezas-porttil-ecuadordropship-289",
+    "description": "Descubre el nuevo Rompecabezas Portátil EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 32.27,
+    "priceSaidon": 22.59,
+    "cost": 12.91,
+    "margin": null,
+    "stock": 105,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 290,
+    "name": "Rompecabezas Multifuncional SaidonBrands",
+    "slug": "rompecabezas-multifuncional-saidonbrands-290",
+    "description": "Descubre el nuevo Rompecabezas Multifuncional SaidonBrands. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por SaidonBrands.",
+    "category": "Salud y Belleza",
+    "pricePVP": 24,
+    "priceSaidon": 16.8,
+    "cost": 9.6,
+    "margin": null,
+    "stock": 495,
+    "images": [
+      "https://via.placeholder.com/500?text=Rompecabezas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 291,
+    "name": "Cámara Multifuncional TechMax",
+    "slug": "cmara-multifuncional-techmax-291",
+    "description": "Descubre el nuevo Cámara Multifuncional TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 100.45,
+    "priceSaidon": 70.31,
+    "cost": 40.18,
+    "margin": null,
+    "stock": 282,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 292,
+    "name": "Depiladora Inalámbrico FitLife",
+    "slug": "depiladora-inalmbrico-fitlife-292",
+    "description": "Descubre el nuevo Depiladora Inalámbrico FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 111.13,
+    "priceSaidon": 77.79,
+    "cost": 44.45,
+    "margin": null,
+    "stock": 271,
+    "images": [
+      "https://via.placeholder.com/500?text=Depiladora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 293,
+    "name": "Gafas Ultra-rápido ToyWorld",
+    "slug": "gafas-ultra-rpido-toyworld-293",
+    "description": "Descubre el nuevo Gafas Ultra-rápido ToyWorld. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToyWorld.",
+    "category": "Mascotas",
+    "pricePVP": 35.75,
+    "priceSaidon": 25.02,
+    "cost": 14.3,
+    "margin": null,
+    "stock": 210,
+    "images": [
+      "https://via.placeholder.com/500?text=Gafas"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 294,
+    "name": "Cámara Ecológico PetJoy",
+    "slug": "cmara-ecolgico-petjoy-294",
+    "description": "Descubre el nuevo Cámara Ecológico PetJoy. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por PetJoy.",
+    "category": "Herramientas y Mejoras del Hogar",
+    "pricePVP": 60,
+    "priceSaidon": 42,
+    "cost": 24,
+    "margin": null,
+    "stock": 519,
+    "images": [
+      "https://via.placeholder.com/500?text=C%C3%A1mara"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 295,
+    "name": "Mochila Impermeable ToolMaster",
+    "slug": "mochila-impermeable-toolmaster-295",
+    "description": "Descubre el nuevo Mochila Impermeable ToolMaster. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por ToolMaster.",
+    "category": "Juguetes y Juegos",
+    "pricePVP": 19,
+    "priceSaidon": 13.3,
+    "cost": 7.6,
+    "margin": null,
+    "stock": 304,
+    "images": [
+      "https://via.placeholder.com/500?text=Mochila"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 296,
+    "name": "Aspiradora Digital HomePro",
+    "slug": "aspiradora-digital-homepro-296",
+    "description": "Descubre el nuevo Aspiradora Digital HomePro. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por HomePro.",
+    "category": "Tecnología y Electrónica",
+    "pricePVP": 105.15,
+    "priceSaidon": 73.61,
+    "cost": 42.06,
+    "margin": null,
+    "stock": 130,
+    "images": [
+      "https://via.placeholder.com/500?text=Aspiradora"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 297,
+    "name": "Linterna Recargable TechMax",
+    "slug": "linterna-recargable-techmax-297",
+    "description": "Descubre el nuevo Linterna Recargable TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Hogar y Cocina",
+    "pricePVP": 107.1,
+    "priceSaidon": 74.97,
+    "cost": 42.84,
+    "margin": null,
+    "stock": 146,
+    "images": [
+      "https://via.placeholder.com/500?text=Linterna"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 298,
+    "name": "Pesa Recargable TechMax",
+    "slug": "pesa-recargable-techmax-298",
+    "description": "Descubre el nuevo Pesa Recargable TechMax. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por TechMax.",
+    "category": "Salud y Belleza",
+    "pricePVP": 86.82,
+    "priceSaidon": 60.77,
+    "cost": 34.73,
+    "margin": null,
+    "stock": 116,
+    "images": [
+      "https://via.placeholder.com/500?text=Pesa"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 299,
+    "name": "Plancha Avanzado EcuadorDropship",
+    "slug": "plancha-avanzado-ecuadordropship-299",
+    "description": "Descubre el nuevo Plancha Avanzado EcuadorDropship. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por EcuadorDropship.",
+    "category": "Deportes y Fitness",
+    "pricePVP": 72.35,
+    "priceSaidon": 50.64,
+    "cost": 28.94,
+    "margin": null,
+    "stock": 112,
+    "images": [
+      "https://via.placeholder.com/500?text=Plancha"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  },
+  {
+    "id": 300,
+    "name": "Esterilla Profesional FitLife",
+    "slug": "esterilla-profesional-fitlife-300",
+    "description": "Descubre el nuevo Esterilla Profesional FitLife. Ideal para el mercado ecuatoriano en 2026. Calidad superior y diseño innovador garantizado por FitLife.",
+    "category": "Moda y Accesorios",
+    "pricePVP": 90.3,
+    "priceSaidon": 63.21,
+    "cost": 36.12,
+    "margin": null,
+    "stock": 419,
+    "images": [
+      "https://via.placeholder.com/500?text=Esterilla"
+    ],
+    "provider": "SaidonClub Dropshipping",
+    "isActive": true
+  }
+]

@@ -1,0 +1,10 @@
+# Dependencias para Browser Use Agent
+# Instalación: pip install -r requirements-browser.txt
+
+browser-use>=0.2.0
+playwright-stealth>=2.0.0
+playwright>=1.40.0
+langchain>=0.1.0
+langchain-openai>=0.0.2
+langchain-anthropic>=0.1.0
+python-dotenv>=1.0.0

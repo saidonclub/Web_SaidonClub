@@ -1,0 +1,115 @@
+/* ============================================================
+   config.module.css
+   ============================================================ */
+
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--clr-text-secondary, #9ca3af);
+  font-size: 0.875rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.configGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.configItem {
+  background-color: var(--clr-bg-elevated, #1a1a2e);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.25rem;
+}
+
+.configHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.configKey {
+  font-family: monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--clr-orange, #ff6b00);
+}
+
+.configBadge {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.active {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.inactive {
+  background-color: rgba(156, 163, 175, 0.15);
+  color: #9ca3af;
+}
+
+.configDescription {
+  font-size: 0.75rem;
+  color: var(--clr-text-secondary, #9ca3af);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.configValue {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.valueLabel {
+  font-size: 0.75rem;
+  color: var(--clr-text-secondary, #9ca3af);
+}
+
+.valueCode {
+  font-family: monospace;
+  font-size: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: white;
+}
+
+.configRange {
+  font-size: 0.625rem;
+  color: var(--clr-text-secondary, #9ca3af);
+  margin-top: 0.5rem;
+}

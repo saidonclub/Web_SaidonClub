@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "lib": ["ES2022", "dom"],
+    "paths": {
+      "@saidonclub/database": ["../database/src/index.ts"],
+      "@saidonclub/config-engine": ["../config-engine/src/index.ts"]
+    }
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../database" },
+    { "path": "../config-engine" }
+  ]
+}

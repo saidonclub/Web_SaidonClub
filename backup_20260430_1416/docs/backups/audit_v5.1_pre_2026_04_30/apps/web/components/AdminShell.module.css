@@ -1,0 +1,235 @@
+/* ============================================================
+   AdminShell.module.css
+   Layout shell para páginas administrativas
+   ============================================================ */
+
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--clr-bg-base, #0a0a0f);
+}
+
+/* Loading state */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 1rem;
+  color: var(--clr-text-secondary, #9ca3af);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--clr-bg-elevated, #1a1a2e);
+  border-top-color: var(--clr-orange, #ff6b00);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile header */
+.mobileHeader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: var(--clr-bg-elevated, #1a1a2e);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 0 1rem;
+  align-items: center;
+  gap: 1rem;
+  z-index: 40;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: var(--clr-text-primary);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.menuButton:hover {
+  background-color: var(--clr-bg-hover);
+}
+
+.mobileTitle {
+  font-weight: 600;
+  color: var(--clr-text-primary);
+}
+
+/* Overlay for mobile */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 30;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: var(--clr-bg-elevated, #1a1a2e);
+  border-right: 1px solid var(--clr-border-subtle);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  transition: transform 0.3s ease;
+}
+
+.sidebarHeader {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--clr-border-subtle);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--clr-text-primary);
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--clr-orange, #ff6b00), #f7931e);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.logoText {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+/* Navigation */
+.nav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow-y: auto;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: var(--clr-text-secondary, #9ca3af);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.navItem:hover {
+  background-color: var(--clr-bg-hover);
+  color: var(--clr-text-primary);
+}
+
+.navItem.active {
+  background-color: rgba(255, 107, 0, 0.15);
+  color: var(--clr-orange, #ff6b00);
+}
+
+.navItem.active svg {
+  color: var(--clr-orange, #ff6b00);
+}
+
+/* Sidebar footer */
+.sidebarFooter {
+  padding: 1rem 0.75rem;
+  border-top: 1px solid var(--clr-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: #ef4444;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.logoutButton:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  margin-left: 260px;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .mobileHeader {
+    display: flex;
+  }
+
+  .overlay {
+    display: block;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .content {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+}
+
+.logoImage { max-width: 150px; height: auto; display: block; margin: 0 auto; }

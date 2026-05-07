@@ -1,0 +1,20 @@
+{
+  "name": "@saidonclub/config-engine",
+  "version": "5.2.0",
+  "description": "Singleton configuration manager with Supabase persistence.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@saidonclub/database": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.5.0"
+  }
+}
