@@ -5,7 +5,7 @@
 //             Centraliza todos los exports del paquete.
 // ============================================================
 
-export { getGenealogyTree, getLineVolume } from './genealogy';
+export { getGenealogyTree, getLineVolume, getUserLinesVolumes, refreshAllVolumesCache } from './genealogy';
 export type { GenealogyNode } from './genealogy';
 
 export { calculateRoyalties } from './royalties';

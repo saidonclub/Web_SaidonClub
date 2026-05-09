@@ -40,9 +40,9 @@ export async function getGenealogyTree(
       -- Base case: The direct sponsor of the user
       SELECT
         u.id, u.username, u.sponsor_id,
-        COALESCE(a."isActive", false) as is_active,
+        COALESCE(a.is_active, false) as is_active,
         1 as physical_level,
-        CASE WHEN COALESCE(a."isActive", false) THEN 1 ELSE 0 END as active_level
+        CASE WHEN COALESCE(a.is_active, false) THEN 1 ELSE 0 END as active_level
       FROM users u
       LEFT JOIN activation_status a ON a.user_id = u.id
       WHERE u.id = (SELECT sponsor_id FROM users WHERE id = $1)
@@ -52,9 +52,9 @@ export async function getGenealogyTree(
       -- Recursive step: The sponsor's sponsor
       SELECT
         u.id, u.username, u.sponsor_id,
-        COALESCE(a."isActive", false) as is_active,
+        COALESCE(a.is_active, false) as is_active,
         c.physical_level + 1 as physical_level,
-        c.active_level + CASE WHEN COALESCE(a."isActive", false) THEN 1 ELSE 0 END as active_level
+        c.active_level + CASE WHEN COALESCE(a.is_active, false) THEN 1 ELSE 0 END as active_level
       FROM users u
       INNER JOIN upline c ON u.id = c.sponsor_id
       LEFT JOIN activation_status a ON a.user_id = u.id
@@ -82,20 +82,61 @@ export async function getGenealogyTree(
 }
 
 /**
- * Obtiene el volumen total de puntos de una línea específica.
- * Suma de puntos de todos los descendientes de un patrocinador directo.
- * Usado internamente para calcular la Regla del 35% en rangos.
- *
- * OPTIMIZADO: Usa Recursive CTE para evitar problema N+1.
+ * Obtiene los volúmenes de todas las líneas directas de un usuario.
+ * Una "línea" se define como un referido directo y toda su organización descendente.
+ * 
+ * OPTIMIZACIÓN ENTERPRISE: 
+ * - Una sola consulta SQL para N líneas.
+ * - Incluye el volumen personal de cada cabeza de línea.
+ */
+export async function getUserLinesVolumes(
+  userId: string,
+  cycleMonth: number,
+  cycleYear: number
+): Promise<{ lineId: string; volume: number }[]> {
+  const query = `
+    WITH RECURSIVE downline AS (
+      -- Base: Referidos directos (Cabeza de cada línea)
+      SELECT id as member_id, id as line_root_id
+      FROM users 
+      WHERE sponsor_id = $1
+
+      UNION ALL
+
+      -- Recursión: Descendientes de esos referidos
+      SELECT u.id, d.line_root_id
+      FROM users u
+      INNER JOIN downline d ON u.sponsor_id = d.member_id
+    )
+    SELECT 
+      d.line_root_id as "lineId",
+      COALESCE(SUM(pl.amount), 0) as volume
+    FROM downline d
+    LEFT JOIN points_ledger pl ON pl.user_id = d.member_id 
+      AND pl.cycle_month = $2::int 
+      AND pl.cycle_year = $3::int
+    GROUP BY d.line_root_id;
+  `;
+
+  const results = await prisma.$queryRawUnsafe<any[]>(query, userId, cycleMonth, cycleYear);
+  return results.map(row => ({
+    lineId: row.lineId,
+    volume: Number(row.volume)
+  }));
+}
+
+/**
+ * Obtiene el volumen total de puntos de una línea específica (incluyendo al raíz).
+ * @deprecated Use getUserLinesVolumes para múltiples líneas.
  */
 export async function getLineVolume(
-  sponsorId: string,
+  rootId: string,
   cycleMonth: number,
   cycleYear: number
 ): Promise<number> {
   const query = `
     WITH RECURSIVE downline AS (
-      SELECT id FROM users WHERE sponsor_id = $1
+      SELECT id FROM users WHERE id = $1
       UNION ALL
       SELECT u.id FROM users u INNER JOIN downline d ON u.sponsor_id = d.id
     )
@@ -106,6 +147,57 @@ export async function getLineVolume(
       AND cycle_year = $3::int;
   `;
 
-  const results = await prisma.$queryRawUnsafe<any[]>(query, sponsorId, cycleMonth, cycleYear);
+  const results = await prisma.$queryRawUnsafe<any[]>(query, rootId, cycleMonth, cycleYear);
   return results.length > 0 ? Number(results[0].total) : 0;
+}
+
+/**
+ * RECURSIVE CTE GOD MODE:
+ * Calcula el volumen de TODAS las líneas de TODOS los usuarios del sistema.
+ * Útil para cierres masivos y reportes globales.
+ * 
+ * ESTRATEGIA:
+ * 1. Mapea todo el árbol genealógico.
+ * 2. Suma puntos por línea.
+ * 3. Actualiza el caché atómicamente.
+ */
+export async function refreshAllVolumesCache(
+  cycleMonth: number,
+  cycleYear: number
+): Promise<void> {
+  const query = `
+    INSERT INTO volume_cache (id, user_id, line_root_id, volume, cycle_month, cycle_year, "updatedAt")
+    WITH RECURSIVE organizational_tree AS (
+      -- Base: Todas las líneas directas de todos
+      SELECT id as member_id, sponsor_id as user_id, id as line_root_id
+      FROM users 
+      WHERE sponsor_id IS NOT NULL
+
+      UNION ALL
+
+      -- Recursión: descendientes
+      SELECT u.id, ot.user_id, ot.line_root_id
+      FROM users u
+      INNER JOIN organizational_tree ot ON u.sponsor_id = ot.member_id
+    )
+    SELECT 
+      gen_random_uuid(),
+      ot.user_id,
+      ot.line_root_id,
+      COALESCE(SUM(pl.amount), 0),
+      $1::int,
+      $2::int,
+      NOW()
+    FROM organizational_tree ot
+    LEFT JOIN points_ledger pl ON pl.user_id = ot.member_id 
+      AND pl.cycle_month = $1 
+      AND pl.cycle_year = $2
+    GROUP BY ot.user_id, ot.line_root_id
+    ON CONFLICT (user_id, line_root_id, cycle_month, cycle_year) 
+    DO UPDATE SET 
+      volume = EXCLUDED.volume,
+      "updatedAt" = EXCLUDED."updatedAt";
+  `;
+
+  await prisma.$executeRawUnsafe(query, cycleMonth, cycleYear);
 }

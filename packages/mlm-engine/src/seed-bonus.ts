@@ -53,23 +53,34 @@ export async function calculateSeedBonus(
   const commissions: SeedBonusCommission[] = [];
   let totalCalculated = 0;
 
+  // Fetch all required config values upfront to avoid querying inside the loop
+  const [
+    preferenteN1,
+    upgradeN1,
+    pioneroN1,
+    pioneroN2_8
+  ] = await Promise.all([
+    config.get<number>('mlm_seed_preferente_n1', 10),
+    config.get<number>('mlm_seed_upgrade_n1', 33),
+    config.get<number>('mlm_seed_pionero_n1', 43),
+    config.get<number>('mlm_seed_pionero_n2_8', 1)
+  ]);
+
   for (const node of tree) {
     let amount = 0;
 
     if (node.level === 1) {
       // Nivel 1: montos variables según tipo de membresía
       if (membershipType === 'PREFERENTE') {
-        amount = await config.get<number>('mlm_seed_preferente_n1', 10);
+        amount = preferenteN1;
       } else if (membershipType === 'PIONERO') {
         // Si es upgrade, usa el bonus de upgrade N1, si no el normal de pionero
-        amount = isUpgrade
-          ? await config.get<number>('mlm_seed_upgrade_n1', 33)
-          : await config.get<number>('mlm_seed_pionero_n1', 43);
+        amount = isUpgrade ? upgradeN1 : pioneroN1;
       }
     } else if (node.level >= 2 && node.level <= 8) {
       // Niveles 2-8: Pionero y Upgrade pagan $1 por nivel
       if (membershipType === 'PIONERO') {
-        amount = await config.get<number>('mlm_seed_pionero_n2_8', 1);
+        amount = pioneroN2_8;
       }
       // Preferente NO paga niveles 2-8 (por diseño del plan)
     }

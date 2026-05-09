@@ -14,7 +14,7 @@
 
 import { prisma } from '@saidonclub/database';
 import { config } from '@saidonclub/config-engine';
-import { getLineVolume } from './genealogy';
+import { getUserLinesVolumes } from './genealogy';
 
 export interface RankEvaluation {
   userId: string;
@@ -24,7 +24,7 @@ export interface RankEvaluation {
   bonusAmount: number;
 }
 
-const RANK_HIERARCHY = [
+export const RANK_HIERARCHY = [
   { name: 'PLATA', pointsKey: 'rank_plata_points', bonusKey: 'rank_plata_bonus' },
   { name: 'ORO', pointsKey: 'rank_oro_points', bonusKey: 'rank_oro_bonus' },
   { name: 'ZAFIRO', pointsKey: 'rank_zafiro_points', bonusKey: 'rank_zafiro_bonus' },
@@ -36,43 +36,64 @@ const RANK_HIERARCHY = [
 
 /**
  * Evalúa el rango alcanzado por un usuario en un ciclo mensual.
- * Se ejecuta durante el cierre semanal que cae en el cambio de mes.
+ * OPTIMIZADO: Elimina N+1 y llamadas redundantes a config.
  */
 export async function evaluateRank(
   userId: string,
   cycleMonth: number,
-  cycleYear: number
+  cycleYear: number,
+  preFetchedRequirements?: any[],
+  preFetchedVolumes?: Record<string, number[]>
 ): Promise<RankEvaluation | null> {
   const ranksEnabled = await config.get<boolean>('mlm_ranks_enabled', true);
   if (!ranksEnabled) return null;
 
   const rule35Enabled = await config.get<boolean>('mlm_rank_35_rule_enabled', true);
 
-  const user = await prisma.user.findUnique({
-    where: { id: userId },
-    include: { referrals: true },
-  });
-  if (!user) return null;
+  let lineVolumes: number[] = [];
+  
+  if (preFetchedVolumes) {
+    lineVolumes = preFetchedVolumes[userId] || [];
+  } else {
+    // INTENTO 1: Leer desde VolumeCache (O(1) masivo)
+    const cachedLines = await prisma.volumeCache.findMany({
+      where: {
+        userId,
+        cycleMonth,
+        cycleYear,
+      },
+    });
 
-  // Sumar volumen de cada línea directa
-  let totalVolume = 0;
-  const lineVolumes: number[] = [];
+    console.log(`[DEBUG] User ${userId}: cachedLines=${cachedLines.length}`);
 
-  for (const ref of user.referrals) {
-    const vol = await getLineVolume(ref.id, cycleMonth, cycleYear);
-    lineVolumes.push(vol);
-    totalVolume += vol;
+    if (cachedLines.length > 0) {
+      lineVolumes = cachedLines.map(c => Number(c.volume));
+    } else {
+      // INTENTO 2: Cálculo dinámico (Fallback o tiempo real)
+      const lines = await getUserLinesVolumes(userId, cycleMonth, cycleYear);
+      lineVolumes = lines.map(l => l.volume);
+    }
   }
+
+  const totalVolume = lineVolumes.reduce((sum, v) => sum + v, 0);
 
   // Determinar rango alcanzado (del más alto al más bajo)
   let achievedRank: string | null = null;
   let bonusAmount = 0;
   let finalCappedVolume = 0;
 
-  for (let i = RANK_HIERARCHY.length - 1; i >= 0; i--) {
-    const rank = RANK_HIERARCHY[i];
-    const requiredPoints = await config.get<number>(rank.pointsKey, Infinity);
-    const bonus = await config.get<number>(rank.bonusKey, 0);
+  // Usar requerimientos pre-cargados o cargarlos ahora (con cache local)
+  const rankRequirements = preFetchedRequirements || await Promise.all(
+    RANK_HIERARCHY.map(async (r) => ({
+      ...r,
+      points: await config.get<number>(r.pointsKey, Infinity),
+      bonus: await config.get<number>(r.bonusKey, 0),
+    }))
+  );
+
+  for (let i = rankRequirements.length - 1; i >= 0; i--) {
+    const rank = rankRequirements[i];
+    const requiredPoints = rank.points;
 
     // Aplicar Regla del 35% dinámicamente según los puntos requeridos del rango
     let cappedVolumeForRank = totalVolume;
@@ -83,7 +104,7 @@ export async function evaluateRank(
 
     if (cappedVolumeForRank >= requiredPoints) {
       achievedRank = rank.name;
-      bonusAmount = bonus;
+      bonusAmount = rank.bonus;
       finalCappedVolume = cappedVolumeForRank;
       break;
     }

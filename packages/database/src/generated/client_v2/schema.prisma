@@ -76,39 +76,39 @@ model User {
   createdAt         DateTime              @default(now())
   updatedAt         DateTime              @updatedAt
   cityId            String?               @map("city_id")
+  kycLevel          Int                   @default(1)
+  mustResetPassword Boolean               @default(false)
+  lastLoginAt       DateTime?
+  twoFactorEnabled  Boolean               @default(false) @map("two_factor_enabled")
+  twoFactorSecret   String?               @map("two_factor_secret")
   activation        ActivationStatus?
+  appointments      Appointment[]         @relation("ClientAppointments")
   cart              Cart?
+  clientReviews     ClientReview[]
+  clientWarnings    ClientWarning[]
   commissions       Commission[]
   events            EventLog[]
+  beneficiaries     FamilyBeneficiary[]   @relation("MemberBeneficiaries")
   fidelity          FidelityTracking[]
+  kyc               KYC?
   membership        Membership?
   providerOrders    Order[]               @relation("ProviderOrders")
   orders            Order[]
   pointsLedger      PointsLedger[]
   products          Product[]
+  providerProfile   ProviderProfile?
+  providerReviews   ProviderReview[]
+  pushSubscriptions PushSubscription[]
   ranks             Rank[]
   seedBonuses       SeedBonus[]
+  serviceProvider   ServiceProvider?
   services          Service[]
+  notifications     SystemNotification[]
+  legalAcceptances  UserLegalAcceptance[]
   city              City?                 @relation(fields: [cityId], references: [id])
   sponsor           User?                 @relation("SponsorRelation", fields: [sponsorId], references: [id])
   referrals         User[]                @relation("SponsorRelation")
   wallet            Wallet?
-  providerProfile   ProviderProfile?
-  kycLevel          Int                   @default(1)
-  mustResetPassword Boolean               @default(false)
-  lastLoginAt       DateTime?
-  kyc               KYC?
-  twoFactorSecret   String?               @map("two_factor_secret")
-  twoFactorEnabled  Boolean               @default(false) @map("two_factor_enabled")
-  appointments      Appointment[]         @relation("ClientAppointments")
-  serviceProvider   ServiceProvider?
-  beneficiaries     FamilyBeneficiary[]   @relation("MemberBeneficiaries")
-  providerReviews   ProviderReview[]
-  clientReviews     ClientReview[]
-  clientWarnings    ClientWarning[]
-  notifications     SystemNotification[]
-  legalAcceptances  UserLegalAcceptance[]
-  pushSubscriptions PushSubscription[]
 
   @@map("users")
   @@schema("public")
@@ -435,6 +435,7 @@ model Rank {
   createdAt      DateTime @default(now())
   user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  @@unique([userId, cycleMonth, cycleYear])
   @@map("ranks")
   @@schema("public")
 }
@@ -451,6 +452,20 @@ model FidelityTracking {
   user              User           @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("fidelity_tracking")
+  @@schema("public")
+}
+
+model VolumeCache {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  lineRootId String   @map("line_root_id")
+  volume     Decimal  @db.Decimal(12, 2)
+  cycleMonth Int      @map("cycle_month")
+  cycleYear  Int      @map("cycle_year")
+  updatedAt  DateTime @updatedAt @map("updatedAt")
+
+  @@unique([userId, lineRootId, cycleMonth, cycleYear])
+  @@map("volume_cache")
   @@schema("public")
 }
 
@@ -552,8 +567,8 @@ model Province {
   createdAt DateTime @default(now())
   lat       Decimal? @db.Decimal(10, 7)
   lon       Decimal? @db.Decimal(10, 7)
-  country   Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
   cities    City[]
+  country   Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
 
   @@unique([name, countryId])
   @@map("provinces")
@@ -608,8 +623,6 @@ model TickerMessage {
   @@schema("public")
 }
 
-// Legacy Appointment model removed - replaced by Service Marketplace Appointment (line 1277)
-
 model KYC {
   id             String    @id @default(uuid())
   userId         String    @unique @map("user_id")
@@ -655,8 +668,568 @@ model AuditLog {
   @@schema("public")
 }
 
+model ServiceProvider {
+  id                   String                @id @default(cuid())
+  userId               String                @unique
+  status               ProviderStatus        @default(PENDING_KYC)
+  kycStatus            KycStatus             @default(NOT_STARTED)
+  kycSubmittedAt       DateTime?
+  kycApprovedAt        DateTime?
+  kycApprovedByUserId  String?
+  kycRejectionReason   String?
+  businessName         String
+  profession           String
+  professionCategory   ProfessionCategory
+  licenseNumber        String?
+  licenseIssuedBy      String?
+  licenseExpiresAt     DateTime?
+  bio                  String?               @db.VarChar(1000)
+  phone                String
+  email                String
+  whatsapp             String?
+  telegram             String?
+  website              String?
+  instagram            String?
+  facebook             String?
+  tiktok               String?
+  address              String?
+  city                 String?
+  province             String?
+  latitude             Float?
+  longitude            Float?
+  profilePhotoUrl      String?
+  personalPhotos       String[]              @default([])
+  workPhotos           String[]              @default([])
+  businessPhotos       String[]              @default([])
+  adPhotos             String[]              @default([])
+  idDocumentUrl        String?
+  idDocumentBackUrl    String?
+  professionalTitleUrl String[]              @default([])
+  certificationUrls    String[]              @default([])
+  selfieWithIdUrl      String?
+  categoryKycData      Json?
+  agreementNumber      String?               @unique
+  agreementSignedAt    DateTime?
+  agreementDocUrl      String?
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  acceptsPostpay       Boolean               @default(true) @map("accepts_postpay")
+  acceptsPrepaid       Boolean               @default(true) @map("accepts_prepaid")
+  isDebtBlocked        Boolean               @default(false) @map("is_debt_blocked")
+  lastDebtSettlement   DateTime?             @map("last_debt_settlement")
+  lastWarningAt        DateTime?             @map("last_warning_at")
+  pendingDebt          Decimal               @default(0) @map("pending_debt") @db.Decimal(12, 2)
+  totalDebtPaid        Decimal               @default(0) @map("total_debt_paid") @db.Decimal(12, 2)
+  warningCount         Int                   @default(0) @map("warning_count")
+  averageRating        Float                 @default(0) @map("average_rating")
+  totalReviews         Int                   @default(0) @map("total_reviews")
+  appointments         Appointment[]
+  clientReviews        ClientReview[]
+  debtSettlements      DebtSettlement[]
+  blockedDates         ProviderBlockedDate[]
+  providerReviews      ProviderReview[]
+  schedules            ProviderSchedule[]
+  warnings             ProviderWarning[]
+  services             ServiceListing[]
+  user                 User                  @relation(fields: [userId], references: [id])
+
+  @@index([city, professionCategory])
+  @@index([status, kycStatus])
+  @@index([averageRating])
+  @@map("service_providers")
+  @@schema("public")
+}
+
+model ServiceListing {
+  id                   String           @id @default(cuid())
+  providerId           String
+  name                 String
+  description          String
+  category             ServiceCategory
+  isActive             Boolean          @default(true)
+  requiresApproval     Boolean          @default(false)
+  publicPrice          Decimal          @db.Decimal(10, 2)
+  memberPrice          Decimal          @db.Decimal(10, 2)
+  internalPrice        Decimal          @db.Decimal(10, 2)
+  companyCommission    Decimal          @db.Decimal(10, 2)
+  commissionPercentage Decimal          @db.Decimal(5, 2)
+  ivaPercentage        Decimal          @default(15.00) @db.Decimal(5, 2)
+  ivaIncluded          Boolean          @default(false)
+  modality             ServiceModality
+  duration             Int
+  allowEmergency       Boolean          @default(false)
+  emergencySurcharge   Decimal?         @db.Decimal(10, 2)
+  requiresPrePayment   Boolean          @default(false)
+  pendingUpdate        Json?
+  createdAt            DateTime         @default(now())
+  updatedAt            DateTime         @updatedAt
+  allowsPostpay        Boolean          @default(true) @map("allows_postpay")
+  allowsPrepaid        Boolean          @default(true) @map("allows_prepaid")
+  appointments         Appointment[]
+  reviews              ProviderReview[]
+  provider             ServiceProvider  @relation(fields: [providerId], references: [id])
+
+  @@index([category, isActive])
+  @@index([providerId, isActive])
+  @@map("service_listings")
+  @@schema("public")
+}
+
+model FamilyBeneficiary {
+  id                String             @id @default(cuid())
+  memberId          String
+  firstName         String
+  lastName          String
+  relationship      FamilyRelationship
+  dateOfBirth       DateTime
+  idDocumentNumber  String
+  idDocumentType    IdDocumentType     @default(CEDULA)
+  photoUrl          String?
+  idDocumentUrl     String?
+  idDocumentBackUrl String?
+  isActive          Boolean            @default(true)
+  verifiedAt        DateTime?
+  verifiedByUserId  String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  appointments      Appointment[]
+  member            User               @relation("MemberBeneficiaries", fields: [memberId], references: [id])
+
+  @@unique([memberId, idDocumentNumber])
+  @@map("family_beneficiaries")
+  @@schema("public")
+}
+
+model Appointment {
+  id                      String                   @id @default(cuid())
+  status                  AppointmentStatus        @default(PENDING_PROVIDER)
+  createdAt               DateTime                 @default(now())
+  actualEndTime           DateTime?
+  actualStartTime         DateTime?
+  appliedInternalPrice    Decimal                  @db.Decimal(10, 2)
+  appliedIvaPercentage    Decimal                  @db.Decimal(5, 2)
+  appliedMemberPrice      Decimal                  @db.Decimal(10, 2)
+  appliedPublicPrice      Decimal                  @db.Decimal(10, 2)
+  beneficiaryId           String?
+  clientId                String
+  clientNotes             String?
+  companyCommissionAmount Decimal?                 @db.Decimal(10, 2)
+  confirmedDate           DateTime?
+  emergencyReason         String?
+  isEmergency             Boolean                  @default(false)
+  ivaAmount               Decimal?                 @db.Decimal(10, 2)
+  paidAt                  DateTime?
+  paymentId               String?
+  paymentMethod           String?
+  paymentStatus           PaymentStatus?           @default(PENDING)
+  proposedSlots           Json?
+  providerId              String
+  providerNetAmount       Decimal?                 @db.Decimal(10, 2)
+  providerNotes           String?
+  requestedDate           DateTime?
+  requestedTimeSlot       String?
+  serviceId               String
+  totalCharged            Decimal?                 @db.Decimal(10, 2)
+  updatedAt               DateTime                 @updatedAt
+  qrCode                  String?                  @unique
+  auditLog                AppointmentAuditLog[]
+  beneficiary             FamilyBeneficiary?       @relation(fields: [beneficiaryId], references: [id])
+  client                  User                     @relation("ClientAppointments", fields: [clientId], references: [id])
+  provider                ServiceProvider          @relation(fields: [providerId], references: [id])
+  service                 ServiceListing           @relation(fields: [serviceId], references: [id])
+  bipartiteForm           BipartiteForm?
+  clientReview            ClientReview?
+  providerReview          ProviderReview?
+  invoice                 ServiceInvoice?
+  transactionVerification TransactionVerification?
+
+  @@index([clientId, status])
+  @@index([providerId, status])
+  @@index([confirmedDate])
+  @@map("appointments")
+  @@schema("public")
+}
+
+model AppointmentAuditLog {
+  id              String      @id @default(cuid())
+  appointmentId   String
+  fromStatus      String
+  toStatus        String
+  triggeredByRole String
+  triggeredById   String?
+  reason          String?
+  metadata        Json?
+  createdAt       DateTime    @default(now())
+  appointment     Appointment @relation(fields: [appointmentId], references: [id])
+
+  @@map("appointment_audit_logs")
+  @@schema("public")
+}
+
+model BipartiteForm {
+  id                        String              @id @default(cuid())
+  appointmentId             String              @unique
+  serviceDescription        String
+  additionalServicesGiven   Json?
+  baseServiceValue          Decimal             @db.Decimal(10, 2)
+  extraServicesValue        Decimal             @default(0) @db.Decimal(10, 2)
+  totalServiceValue         Decimal             @db.Decimal(10, 2)
+  ivaApplied                Decimal             @db.Decimal(10, 2)
+  totalWithIva              Decimal             @db.Decimal(10, 2)
+  paymentTypeUsed           FormPaymentType
+  providerObservations      String?
+  isObservationPrivate      Boolean             @default(false)
+  providerDeclares          String
+  providerSignedAt          DateTime?
+  providerSignatureData     String?
+  providerIpAddress         String?
+  providerUserAgent         String?
+  clientDeclares            String?
+  clientAcceptedAt          DateTime?
+  clientSignatureData       String?
+  clientIpAddress           String?
+  clientUserAgent           String?
+  clientRejectedAt          DateTime?
+  clientRejectionReason     String?
+  formStatus                BipartiteFormStatus @default(PROVIDER_FILLING)
+  membershipDiscountApplied Boolean             @default(false)
+  discountAmount            Decimal?            @db.Decimal(10, 2)
+  createdAt                 DateTime            @default(now())
+  updatedAt                 DateTime            @updatedAt
+  appointment               Appointment         @relation(fields: [appointmentId], references: [id])
+
+  @@map("bipartite_forms")
+  @@schema("public")
+}
+
+model ServiceInvoice {
+  id                      String                  @id @default(cuid())
+  appointmentId           String                  @unique
+  invoiceNumber           String                  @unique
+  issuedAt                DateTime                @default(now())
+  providerLegalName       String
+  providerRuc             String?
+  providerAgreementNumber String
+  clientLegalName         String
+  clientIdDocument        String
+  clientIdType            String
+  subtotal                Decimal                 @db.Decimal(10, 2)
+  ivaPercentage           Decimal                 @db.Decimal(5, 2)
+  ivaAmount               Decimal                 @db.Decimal(10, 2)
+  total                   Decimal                 @db.Decimal(10, 2)
+  companyCommission       Decimal                 @db.Decimal(10, 2)
+  providerNetPayment      Decimal                 @db.Decimal(10, 2)
+  agreementInternalPrice  Decimal                 @db.Decimal(10, 2)
+  invoiceStatus           InvoiceStatus           @default(ISSUED)
+  pdfUrl                  String?
+  sentToClientAt          DateTime?
+  sentToProviderAt        DateTime?
+  accountingEntry         ServiceAccountingEntry?
+  appointment             Appointment             @relation(fields: [appointmentId], references: [id])
+
+  @@map("service_invoices")
+  @@schema("public")
+}
+
+model ServiceAccountingEntry {
+  id                 String         @id @default(cuid())
+  invoiceId          String         @unique
+  agreementNumber    String
+  providerCode       String
+  serviceDate        DateTime
+  clientChargedTotal Decimal        @db.Decimal(10, 2)
+  ivaAmount          Decimal        @db.Decimal(10, 2)
+  companyCommission  Decimal        @db.Decimal(10, 2)
+  providerNetPayment Decimal        @db.Decimal(10, 2)
+  currency           String         @default("USD")
+  walletCreditId     String?
+  recordedAt         DateTime       @default(now())
+  invoice            ServiceInvoice @relation(fields: [invoiceId], references: [id])
+
+  @@map("service_accounting_entries")
+  @@schema("public")
+}
+
+model TransactionVerification {
+  id                 String             @id @default(cuid())
+  appointmentId      String             @unique
+  providerAmount     Decimal            @map("provider_amount") @db.Decimal(10, 2)
+  providerDeclaredAt DateTime           @map("provider_declared_at")
+  providerIpAddress  String?            @map("provider_ip_address")
+  clientAmount       Decimal            @map("client_amount") @db.Decimal(10, 2)
+  clientDeclaredAt   DateTime?          @map("client_declared_at")
+  clientIpAddress    String?            @map("client_ip_address")
+  verificationStatus VerificationStatus @default(PENDING)
+  matchedAt          DateTime?          @map("matched_at")
+  alertTriggeredAt   DateTime?          @map("alert_triggered_at")
+  alertReason        String?            @map("alert_reason")
+  resolvedAt         DateTime?          @map("resolved_at")
+  resolvedBy         String?            @map("resolved_by")
+  amountAgreed       Decimal?           @map("amount_agreed") @db.Decimal(10, 2)
+  commissionAmount   Decimal?           @map("commission_amount") @db.Decimal(10, 2)
+  debtGenerated      Decimal?           @map("debt_generated") @db.Decimal(10, 2)
+  paymentMethod      PaymentMethodType  @map("payment_method")
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  appointment        Appointment        @relation(fields: [appointmentId], references: [id])
+
+  @@index([verificationStatus])
+  @@index([appointmentId])
+  @@map("transaction_verifications")
+  @@schema("public")
+}
+
+model DebtSettlement {
+  id             String          @id @default(cuid())
+  providerId     String
+  amount         Decimal         @db.Decimal(12, 2)
+  paymentMethod  String          @default("BANK_TRANSFER")
+  previousDebt   Decimal         @db.Decimal(12, 2)
+  newDebt        Decimal         @db.Decimal(12, 2)
+  settlementDate DateTime        @default(now())
+  notes          String?
+  status         String          @default("COMPLETED")
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  provider       ServiceProvider @relation(fields: [providerId], references: [id])
+
+  @@index([providerId])
+  @@index([settlementDate])
+  @@map("debt_settlements")
+  @@schema("public")
+}
+
+model ProviderReview {
+  id                String          @id @default(cuid())
+  appointmentId     String          @unique
+  clientId          String
+  providerId        String
+  serviceId         String
+  rating            Int
+  title             String?
+  comment           String          @db.VarChar(1000)
+  isAnonymous       Boolean         @default(false)
+  isVisible         Boolean         @default(true)
+  moderationFlag    String?
+  moderatedByUserId String?
+  moderatedAt       DateTime?
+  createdAt         DateTime        @default(now())
+  appointment       Appointment     @relation(fields: [appointmentId], references: [id])
+  client            User            @relation(fields: [clientId], references: [id])
+  provider          ServiceProvider @relation(fields: [providerId], references: [id])
+  service           ServiceListing  @relation(fields: [serviceId], references: [id])
+
+  @@map("provider_reviews")
+  @@schema("public")
+}
+
+model ClientReview {
+  id                String          @id @default(cuid())
+  appointmentId     String          @unique
+  providerId        String
+  clientId          String
+  rating            Int
+  behaviorRating    Int
+  punctualityRating Int
+  comment           String          @db.VarChar(500)
+  isRecommended     Boolean         @default(true)
+  isVisible         Boolean         @default(true)
+  moderatedByUserId String?
+  createdAt         DateTime        @default(now())
+  appointment       Appointment     @relation(fields: [appointmentId], references: [id])
+  client            User            @relation(fields: [clientId], references: [id])
+  provider          ServiceProvider @relation(fields: [providerId], references: [id])
+
+  @@map("client_reviews")
+  @@schema("public")
+}
+
+model ProviderWarning {
+  id              String          @id @default(cuid())
+  providerId      String
+  type            WarningSeverity
+  reason          String
+  details         String?
+  issuedByUserId  String
+  issuedAt        DateTime        @default(now())
+  expiresAt       DateTime?
+  resolvedAt      DateTime?
+  resolutionNotes String?
+  provider        ServiceProvider @relation(fields: [providerId], references: [id])
+
+  @@map("provider_warnings")
+  @@schema("public")
+}
+
+model ClientWarning {
+  id              String          @id @default(cuid())
+  clientId        String
+  type            WarningSeverity
+  reason          String
+  details         String?
+  issuedByUserId  String
+  issuedAt        DateTime        @default(now())
+  expiresAt       DateTime?
+  resolvedAt      DateTime?
+  resolutionNotes String?
+  client          User            @relation(fields: [clientId], references: [id])
+
+  @@map("client_warnings")
+  @@schema("public")
+}
+
+model ProviderSchedule {
+  id                  String          @id @default(cuid())
+  providerId          String
+  dayOfWeek           Int
+  startTime           String
+  endTime             String
+  slotDurationMinutes Int             @default(60)
+  isActive            Boolean         @default(true)
+  breakStart          String?
+  breakEnd            String?
+  provider            ServiceProvider @relation(fields: [providerId], references: [id])
+
+  @@unique([providerId, dayOfWeek])
+  @@map("provider_schedules")
+  @@schema("public")
+}
+
+model ProviderBlockedDate {
+  id         String          @id @default(cuid())
+  providerId String
+  date       DateTime
+  reason     String?
+  provider   ServiceProvider @relation(fields: [providerId], references: [id])
+
+  @@map("provider_blocked_dates")
+  @@schema("public")
+}
+
+model SystemNotification {
+  id             String           @id @default(cuid())
+  userId         String
+  type           NotificationType
+  title          String
+  body           String
+  data           Json?
+  channels       String[]
+  emailSentAt    DateTime?
+  emailError     String?
+  whatsappSentAt DateTime?
+  whatsappError  String?
+  telegramSentAt DateTime?
+  telegramError  String?
+  pushSentAt     DateTime?
+  pushError      String?
+  readAt         DateTime?
+  createdAt      DateTime         @default(now())
+  user           User             @relation(fields: [userId], references: [id])
+
+  @@index([userId, readAt])
+  @@map("system_notifications")
+  @@schema("public")
+}
+
+model LegalDocument {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  content   String
+  version   String
+  isActive  Boolean  @default(true)
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+
+  @@map("legal_documents")
+  @@schema("public")
+}
+
+model UserLegalAcceptance {
+  id              String   @id @default(cuid())
+  userId          String
+  documentSlug    String
+  documentVersion String
+  acceptedAt      DateTime @default(now())
+  ipAddress       String?
+  user            User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, documentSlug])
+  @@map("user_legal_acceptances")
+  @@schema("public")
+}
+
+model SystemEvent {
+  id              String    @id @default(cuid())
+  eventType       String
+  entityType      String
+  entityId        String
+  payload         Json
+  processedAt     DateTime?
+  processingError String?
+  retryCount      Int       @default(0)
+  createdAt       DateTime  @default(now())
+
+  @@index([eventType, processedAt])
+  @@map("system_events")
+  @@schema("public")
+}
+
+model PushSubscription {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  endpoint  String   @map("endpoint")
+  keys      Json     @map("keys")
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, endpoint])
+  @@index([userId])
+  @@map("push_subscriptions")
+  @@schema("public")
+}
+
+model ChatMessage {
+  id         String   @id @default(uuid())
+  content    String
+  senderId   String   @map("sender_id")
+  senderName String   @map("sender_name")
+  senderRole String   @map("sender_role")
+  read       Boolean  @default(false)
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  @@index([senderId])
+  @@index([createdAt])
+  @@map("chat_messages")
+  @@schema("public")
+}
+
+model Testimonial {
+  id        String   @id @default(uuid())
+  name      String
+  role      String
+  content   String
+  avatar    String?
+  imageUrl  String?  @map("image_url")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("testimonials")
+  @@schema("public")
+}
+
+model Subscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("subscribers")
+  @@schema("public")
+}
+
 enum AppointmentStatus {
-  // Valores originales
   SOLICITADA
   CONFIRMADA
   PAGADA
@@ -666,7 +1239,6 @@ enum AppointmentStatus {
   CALIFICADA
   CANCELADA
   NO_SHOW
-  // Valores nuevos para Service Marketplace
   PENDING_PROVIDER
   PROVIDER_RESPONDED
   PENDING_CLIENT
@@ -833,10 +1405,10 @@ enum PaymentMethod {
 
 enum PaymentStatus {
   PENDING
-  PROCESSING
   COMPLETED
   FAILED
   REFUNDED
+  PROCESSING
 
   @@schema("public")
 }
@@ -937,10 +1509,6 @@ enum FundType {
 
   @@schema("public")
 }
-
-// ============================================================
-// SERVICE MARKETPLACE ENGINE - ENUMS (PARTE 2)
-// ============================================================
 
 enum ProviderStatus {
   PENDING_KYC
@@ -1111,399 +1679,6 @@ enum VerificationType {
   @@schema("public")
 }
 
-// ============================================================
-// SERVICE MARKETPLACE ENGINE - MODELS (PARTE 2)
-// ============================================================
-
-model ServiceProvider {
-  id     String @id @default(cuid())
-  userId String @unique
-  user   User   @relation(fields: [userId], references: [id])
-
-  status              ProviderStatus @default(PENDING_KYC)
-  kycStatus           KycStatus      @default(NOT_STARTED)
-  kycSubmittedAt      DateTime?
-  kycApprovedAt       DateTime?
-  kycApprovedByUserId String?
-  kycRejectionReason  String?
-
-  businessName       String
-  profession         String
-  professionCategory ProfessionCategory
-
-  acceptsPrepaid     Boolean   @default(true) @map("accepts_prepaid")
-  acceptsPostpay     Boolean   @default(true) @map("accepts_postpay")
-  pendingDebt        Decimal   @default(0) @map("pending_debt") @db.Decimal(12, 2)
-  totalDebtPaid      Decimal   @default(0) @map("total_debt_paid") @db.Decimal(12, 2)
-  lastDebtSettlement DateTime? @map("last_debt_settlement")
-  isDebtBlocked      Boolean   @default(false) @map("is_debt_blocked")
-  warningCount       Int       @default(0) @map("warning_count")
-  lastWarningAt      DateTime? @map("last_warning_at")
-  licenseNumber      String?
-  licenseIssuedBy    String?
-  licenseExpiresAt   DateTime?
-  bio                String?   @db.VarChar(1000)
-
-  phone     String
-  email     String
-  whatsapp  String?
-  telegram  String?
-  website   String?
-  instagram String?
-  facebook  String?
-  tiktok    String?
-  address   String?
-  city      String?
-  province  String?
-  latitude  Float?
-  longitude Float?
-
-  profilePhotoUrl String?
-  personalPhotos  String[] @default([])
-  workPhotos      String[] @default([])
-  businessPhotos  String[] @default([])
-  adPhotos        String[] @default([])
-
-  idDocumentUrl        String?
-  idDocumentBackUrl    String?
-  professionalTitleUrl String[] @default([])
-  certificationUrls    String[] @default([])
-  selfieWithIdUrl      String?
-
-  categoryKycData Json?
-
-  agreementNumber   String?   @unique
-  agreementSignedAt DateTime?
-  agreementDocUrl   String?
-
-  averageRating Float @default(0) @map("average_rating")
-  totalReviews  Int   @default(0) @map("total_reviews")
-
-  services        ServiceListing[]
-  appointments    Appointment[]
-  schedules       ProviderSchedule[]
-  blockedDates    ProviderBlockedDate[]
-  providerReviews ProviderReview[]
-  clientReviews   ClientReview[]
-  warnings        ProviderWarning[]
-  debtSettlements DebtSettlement[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([city, professionCategory])
-  @@index([status, kycStatus])
-  @@index([averageRating])
-  @@map("service_providers")
-  @@schema("public")
-}
-
-model ServiceListing {
-  id         String          @id @default(cuid())
-  providerId String
-  provider   ServiceProvider @relation(fields: [providerId], references: [id])
-
-  name             String
-  description      String          @db.Text
-  category         ServiceCategory
-  isActive         Boolean         @default(true)
-  requiresApproval Boolean         @default(false)
-
-  publicPrice   Decimal @db.Decimal(10, 2)
-  memberPrice   Decimal @db.Decimal(10, 2)
-  internalPrice Decimal @db.Decimal(10, 2)
-
-  companyCommission    Decimal @db.Decimal(10, 2)
-  commissionPercentage Decimal @db.Decimal(5, 2)
-
-  ivaPercentage Decimal @default(15.00) @db.Decimal(5, 2)
-  ivaIncluded   Boolean @default(false)
-
-  allowsPrepaid Boolean @default(true) @map("allows_prepaid")
-  allowsPostpay Boolean @default(true) @map("allows_postpay")
-
-  modality           ServiceModality
-  duration           Int
-  allowEmergency     Boolean         @default(false)
-  emergencySurcharge Decimal?        @db.Decimal(10, 2)
-
-  requiresPrePayment Boolean @default(false)
-
-  pendingUpdate Json?
-
-  appointments Appointment[]
-  reviews      ProviderReview[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([category, isActive])
-  @@index([providerId, isActive])
-  @@map("service_listings")
-  @@schema("public")
-}
-
-model FamilyBeneficiary {
-  id       String @id @default(cuid())
-  memberId String
-  member   User   @relation("MemberBeneficiaries", fields: [memberId], references: [id])
-
-  firstName        String
-  lastName         String
-  relationship     FamilyRelationship
-  dateOfBirth      DateTime
-  idDocumentNumber String
-  idDocumentType   IdDocumentType     @default(CEDULA)
-
-  photoUrl          String?
-  idDocumentUrl     String?
-  idDocumentBackUrl String?
-
-  isActive         Boolean   @default(true)
-  verifiedAt       DateTime?
-  verifiedByUserId String?
-
-  appointments Appointment[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@unique([memberId, idDocumentNumber])
-  @@map("family_beneficiaries")
-  @@schema("public")
-}
-
-model Appointment {
-  id String @id @default(cuid())
-
-  clientId      String
-  client        User               @relation("ClientAppointments", fields: [clientId], references: [id])
-  beneficiaryId String?
-  beneficiary   FamilyBeneficiary? @relation(fields: [beneficiaryId], references: [id])
-  providerId    String
-  provider      ServiceProvider    @relation(fields: [providerId], references: [id])
-  serviceId     String
-  service       ServiceListing     @relation(fields: [serviceId], references: [id])
-
-  status AppointmentStatus @default(PENDING_PROVIDER)
-
-  isEmergency     Boolean @default(false)
-  emergencyReason String?
-
-  requestedDate     DateTime?
-  requestedTimeSlot String?
-  proposedSlots     Json?
-  confirmedDate     DateTime?
-  actualStartTime   DateTime?
-  actualEndTime     DateTime?
-
-  clientNotes   String?
-  providerNotes String?
-
-  appliedPublicPrice      Decimal  @db.Decimal(10, 2)
-  appliedMemberPrice      Decimal  @db.Decimal(10, 2)
-  appliedInternalPrice    Decimal  @db.Decimal(10, 2)
-  appliedIvaPercentage    Decimal  @db.Decimal(5, 2)
-  ivaAmount               Decimal? @db.Decimal(10, 2)
-  totalCharged            Decimal? @db.Decimal(10, 2)
-  companyCommissionAmount Decimal? @db.Decimal(10, 2)
-  providerNetAmount       Decimal? @db.Decimal(10, 2)
-
-  paymentMethod String?
-  paymentId     String?
-  paymentStatus PaymentStatus? @default(PENDING)
-  paidAt        DateTime?
-  qrCode        String?        @unique
-
-  bipartiteForm           BipartiteForm?
-  invoice                 ServiceInvoice?
-  providerReview          ProviderReview?
-  clientReview            ClientReview?
-  auditLog                AppointmentAuditLog[]
-  transactionVerification TransactionVerification?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([clientId, status])
-  @@index([providerId, status])
-  @@index([confirmedDate])
-  @@map("appointments")
-  @@schema("public")
-}
-
-model AppointmentAuditLog {
-  id              String      @id @default(cuid())
-  appointmentId   String
-  appointment     Appointment @relation(fields: [appointmentId], references: [id])
-  fromStatus      String
-  toStatus        String
-  triggeredByRole String
-  triggeredById   String?
-  reason          String?
-  metadata        Json?
-  createdAt       DateTime    @default(now())
-
-  @@map("appointment_audit_logs")
-  @@schema("public")
-}
-
-model BipartiteForm {
-  id            String      @id @default(cuid())
-  appointmentId String      @unique
-  appointment   Appointment @relation(fields: [appointmentId], references: [id])
-
-  serviceDescription      String          @db.Text
-  additionalServicesGiven Json?
-  baseServiceValue        Decimal         @db.Decimal(10, 2)
-  extraServicesValue      Decimal         @default(0) @db.Decimal(10, 2)
-  totalServiceValue       Decimal         @db.Decimal(10, 2)
-  ivaApplied              Decimal         @db.Decimal(10, 2)
-  totalWithIva            Decimal         @db.Decimal(10, 2)
-  paymentTypeUsed         FormPaymentType
-
-  providerObservations String? @db.Text
-  isObservationPrivate Boolean @default(false)
-
-  providerDeclares      String    @db.Text
-  providerSignedAt      DateTime?
-  providerSignatureData String?
-  providerIpAddress     String?
-  providerUserAgent     String?
-
-  clientDeclares      String?   @db.Text
-  clientAcceptedAt    DateTime?
-  clientSignatureData String?
-  clientIpAddress     String?
-  clientUserAgent     String?
-
-  clientRejectedAt      DateTime?
-  clientRejectionReason String?
-
-  formStatus BipartiteFormStatus @default(PROVIDER_FILLING)
-
-  membershipDiscountApplied Boolean  @default(false)
-  discountAmount            Decimal? @db.Decimal(10, 2)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("bipartite_forms")
-  @@schema("public")
-}
-
-model ServiceInvoice {
-  id            String      @id @default(cuid())
-  appointmentId String      @unique
-  appointment   Appointment @relation(fields: [appointmentId], references: [id])
-
-  invoiceNumber String @unique
-
-  issuedAt DateTime @default(now())
-
-  providerLegalName       String
-  providerRuc             String?
-  providerAgreementNumber String
-  clientLegalName         String
-  clientIdDocument        String
-  clientIdType            String
-
-  subtotal      Decimal @db.Decimal(10, 2)
-  ivaPercentage Decimal @db.Decimal(5, 2)
-  ivaAmount     Decimal @db.Decimal(10, 2)
-  total         Decimal @db.Decimal(10, 2)
-
-  companyCommission      Decimal @db.Decimal(10, 2)
-  providerNetPayment     Decimal @db.Decimal(10, 2)
-  agreementInternalPrice Decimal @db.Decimal(10, 2)
-
-  invoiceStatus    InvoiceStatus @default(ISSUED)
-  pdfUrl           String?
-  sentToClientAt   DateTime?
-  sentToProviderAt DateTime?
-
-  accountingEntry ServiceAccountingEntry?
-
-  @@map("service_invoices")
-  @@schema("public")
-}
-
-model ServiceAccountingEntry {
-  id                 String         @id @default(cuid())
-  invoiceId          String         @unique
-  invoice            ServiceInvoice @relation(fields: [invoiceId], references: [id])
-  agreementNumber    String
-  providerCode       String
-  serviceDate        DateTime
-  clientChargedTotal Decimal        @db.Decimal(10, 2)
-  ivaAmount          Decimal        @db.Decimal(10, 2)
-  companyCommission  Decimal        @db.Decimal(10, 2)
-  providerNetPayment Decimal        @db.Decimal(10, 2)
-  currency           String         @default("USD")
-  walletCreditId     String?
-  recordedAt         DateTime       @default(now())
-
-  @@map("service_accounting_entries")
-  @@schema("public")
-}
-
-model TransactionVerification {
-  id            String      @id @default(cuid())
-  appointmentId String      @unique
-  appointment   Appointment @relation(fields: [appointmentId], references: [id])
-
-  providerAmount     Decimal  @map("provider_amount") @db.Decimal(10, 2)
-  providerDeclaredAt DateTime @map("provider_declared_at")
-  providerIpAddress  String?  @map("provider_ip_address")
-
-  clientAmount     Decimal   @map("client_amount") @db.Decimal(10, 2)
-  clientDeclaredAt DateTime? @map("client_declared_at")
-  clientIpAddress  String?   @map("client_ip_address")
-
-  verificationStatus VerificationStatus @default(PENDING)
-  matchedAt          DateTime?          @map("matched_at")
-  alertTriggeredAt   DateTime?          @map("alert_triggered_at")
-  alertReason        String?            @map("alert_reason")
-  resolvedAt         DateTime?          @map("resolved_at")
-  resolvedBy         String?            @map("resolved_by")
-
-  amountAgreed     Decimal? @map("amount_agreed") @db.Decimal(10, 2)
-  commissionAmount Decimal? @map("commission_amount") @db.Decimal(10, 2)
-  debtGenerated    Decimal? @map("debt_generated") @db.Decimal(10, 2)
-
-  paymentMethod PaymentMethodType @map("payment_method")
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([verificationStatus])
-  @@index([appointmentId])
-  @@map("transaction_verifications")
-  @@schema("public")
-}
-
-model DebtSettlement {
-  id         String          @id @default(cuid())
-  providerId String
-  provider   ServiceProvider @relation(fields: [providerId], references: [id])
-
-  amount         Decimal  @db.Decimal(12, 2)
-  paymentMethod  String   @default("BANK_TRANSFER")
-  previousDebt   Decimal  @db.Decimal(12, 2)
-  newDebt        Decimal  @db.Decimal(12, 2)
-  settlementDate DateTime @default(now())
-  notes          String?
-  status         String   @default("COMPLETED")
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([providerId])
-  @@index([settlementDate])
-  @@map("debt_settlements")
-  @@schema("public")
-}
-
 enum VerificationStatus {
   PENDING
   MATCHED
@@ -1520,203 +1695,5 @@ enum PaymentMethodType {
   CARD
   PLATFORM_WALLET
 
-  @@schema("public")
-}
-
-model ProviderReview {
-  id            String          @id @default(cuid())
-  appointmentId String          @unique
-  appointment   Appointment     @relation(fields: [appointmentId], references: [id])
-  clientId      String
-  client        User            @relation(fields: [clientId], references: [id])
-  providerId    String
-  provider      ServiceProvider @relation(fields: [providerId], references: [id])
-  serviceId     String
-  service       ServiceListing  @relation(fields: [serviceId], references: [id])
-
-  rating      Int
-  title       String?
-  comment     String  @db.VarChar(1000)
-  isAnonymous Boolean @default(false)
-
-  isVisible         Boolean   @default(true)
-  moderationFlag    String?
-  moderatedByUserId String?
-  moderatedAt       DateTime?
-
-  createdAt DateTime @default(now())
-
-  @@map("provider_reviews")
-  @@schema("public")
-}
-
-model ClientReview {
-  id            String          @id @default(cuid())
-  appointmentId String          @unique
-  appointment   Appointment     @relation(fields: [appointmentId], references: [id])
-  providerId    String
-  provider      ServiceProvider @relation(fields: [providerId], references: [id])
-  clientId      String
-  client        User            @relation(fields: [clientId], references: [id])
-
-  rating            Int
-  behaviorRating    Int
-  punctualityRating Int
-  comment           String  @db.VarChar(500)
-  isRecommended     Boolean @default(true)
-
-  isVisible         Boolean @default(true)
-  moderatedByUserId String?
-
-  createdAt DateTime @default(now())
-
-  @@map("client_reviews")
-  @@schema("public")
-}
-
-model ProviderWarning {
-  id              String          @id @default(cuid())
-  providerId      String
-  provider        ServiceProvider @relation(fields: [providerId], references: [id])
-  type            WarningSeverity
-  reason          String
-  details         String?         @db.Text
-  issuedByUserId  String
-  issuedAt        DateTime        @default(now())
-  expiresAt       DateTime?
-  resolvedAt      DateTime?
-  resolutionNotes String?
-
-  @@map("provider_warnings")
-  @@schema("public")
-}
-
-model ClientWarning {
-  id              String          @id @default(cuid())
-  clientId        String
-  client          User            @relation(fields: [clientId], references: [id])
-  type            WarningSeverity
-  reason          String
-  details         String?         @db.Text
-  issuedByUserId  String
-  issuedAt        DateTime        @default(now())
-  expiresAt       DateTime?
-  resolvedAt      DateTime?
-  resolutionNotes String?
-
-  @@map("client_warnings")
-  @@schema("public")
-}
-
-model ProviderSchedule {
-  id                  String          @id @default(cuid())
-  providerId          String
-  provider            ServiceProvider @relation(fields: [providerId], references: [id])
-  dayOfWeek           Int
-  startTime           String
-  endTime             String
-  slotDurationMinutes Int             @default(60)
-  isActive            Boolean         @default(true)
-  breakStart          String?
-  breakEnd            String?
-
-  @@unique([providerId, dayOfWeek])
-  @@map("provider_schedules")
-  @@schema("public")
-}
-
-model ProviderBlockedDate {
-  id         String          @id @default(cuid())
-  providerId String
-  provider   ServiceProvider @relation(fields: [providerId], references: [id])
-  date       DateTime
-  reason     String?
-
-  @@map("provider_blocked_dates")
-  @@schema("public")
-}
-
-model SystemNotification {
-  id       String           @id @default(cuid())
-  userId   String
-  user     User             @relation(fields: [userId], references: [id])
-  type     NotificationType
-  title    String
-  body     String           @db.Text
-  data     Json?
-  channels String[]
-
-  emailSentAt    DateTime?
-  emailError     String?
-  whatsappSentAt DateTime?
-  whatsappError  String?
-  telegramSentAt DateTime?
-  telegramError  String?
-  pushSentAt     DateTime?
-  pushError      String?
-  readAt         DateTime?
-
-  createdAt DateTime @default(now())
-
-  @@index([userId, readAt])
-  @@map("system_notifications")
-  @@schema("public")
-}
-
-model LegalDocument {
-  id        String   @id @default(cuid())
-  slug      String   @unique
-  title     String
-  content   String   @db.Text
-  version   String
-  isActive  Boolean  @default(true)
-  updatedAt DateTime @updatedAt
-  updatedBy String?
-
-  @@map("legal_documents")
-  @@schema("public")
-}
-
-model UserLegalAcceptance {
-  id              String   @id @default(cuid())
-  userId          String
-  user            User     @relation(fields: [userId], references: [id])
-  documentSlug    String
-  documentVersion String
-  acceptedAt      DateTime @default(now())
-  ipAddress       String?
-
-  @@unique([userId, documentSlug])
-  @@map("user_legal_acceptances")
-  @@schema("public")
-}
-
-model SystemEvent {
-  id              String    @id @default(cuid())
-  eventType       String
-  entityType      String
-  entityId        String
-  payload         Json
-  processedAt     DateTime?
-  processingError String?
-  retryCount      Int       @default(0)
-  createdAt       DateTime  @default(now())
-
-  @@index([eventType, processedAt])
-  @@map("system_events")
-  @@schema("public")
-}
-
-model PushSubscription {
-  id        String   @id @default(cuid())
-  userId    String   @map("user_id")
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  endpoint  String   @map("endpoint")
-  keys      Json     @map("keys")
-  createdAt DateTime @default(now()) @map("created_at")
-
-  @@unique([userId, endpoint])
-  @@index([userId])
-  @@map("push_subscriptions")
   @@schema("public")
 }

@@ -5,7 +5,7 @@
 // ============================================================
 
 // ------------------------------------------------------------
-// ROLES - Los 9 tipos de usuario definidos en el sistema
+// ROLES - Los 10 tipos de usuario definidos en el sistema
 // ------------------------------------------------------------
 export enum Role {
   /** Usuario básico sin membresía. Compra sin descuento, sin wallet ni puntos */
@@ -28,6 +28,9 @@ export enum Role {
 
   /** Super administrador. Control total, config MLM, activaciones manuales */
   SUPER_ADMIN = 'SUPER_ADMIN',
+
+  /** Contador/Finanzas. Ver reportes financieros, métricas, NO modificar usuarios */
+  ACCOUNTANT = 'ACCOUNTANT',
 
   /** Solo lectura. Ver transacciones, reportes, logs. NO modificar */
   AUDITOR = 'AUDITOR',
@@ -94,6 +97,7 @@ export enum Permission {
   APPROVE_PROVIDERS = 'APPROVE_PROVIDERS',
   MANAGE_KYC = 'MANAGE_KYC',
   HANDLE_SUPPORT = 'HANDLE_SUPPORT',
+  MANAGE_CONTENT = 'MANAGE_CONTENT',
 
   // ===== SUPER ADMIN =====
   MANAGE_MLM_CONFIG = 'MANAGE_MLM_CONFIG',
@@ -222,6 +226,7 @@ export const ROLE_PERMISSIONS: Record<Role, Permission[]> = {
     Permission.MANAGE_KYC,
     Permission.APPROVE_WITHDRAWALS,
     Permission.VIEW_REPORTS,
+    Permission.MANAGE_CONTENT,
   ],
 
   // AUDITOR: Solo lectura total (no puede modificar nada)
@@ -234,6 +239,21 @@ export const ROLE_PERMISSIONS: Record<Role, Permission[]> = {
     Permission.VIEW_REPORTS,
     Permission.VIEW_AUDIT_LOGS,
     Permission.VIEW_FINANCIAL_CONTROL,
+    Permission.EXPORT_DATA,
+  ],
+
+  // ACCOUNTANT: Solo finanzas y reportes. NO modificar usuarios ni configuraciones
+  [Role.ACCOUNTANT]: [
+    Permission.VIEW_CATALOG,
+    Permission.VIEW_PRODUCTS,
+    Permission.VIEW_SERVICES,
+    Permission.VIEW_OWN_ORDERS,
+    Permission.VIEW_OWN_WALLET,
+    Permission.VIEW_ALL_TRANSACTIONS,
+    Permission.VIEW_ALL_USERS,
+    Permission.VIEW_REPORTS,
+    Permission.VIEW_FINANCIAL_CONTROL,
+    Permission.APPROVE_WITHDRAWALS,
     Permission.EXPORT_DATA,
   ],
 
@@ -342,6 +362,7 @@ export function isAdminRole(role: Role): boolean {
     Role.SUPER_ADMIN,
     Role.AUDITOR,
     Role.SUPPORT,
+    Role.ACCOUNTANT,
   ].includes(role);
 }
 
@@ -391,6 +412,8 @@ export function getUserLevel(role: Role): number {
       return 4;
     case Role.ADMIN:
       return 5;
+    case Role.ACCOUNTANT:
+      return 5.5;
     case Role.AUDITOR:
       return 6;
     case Role.SUPER_ADMIN:

@@ -33,7 +33,10 @@ class ConfigManager {
     }
 
     // 3. Valor por defecto
-    if (defaultValue !== undefined) return defaultValue as T;
+    if (defaultValue !== undefined) {
+      this.setLocalCache(key, defaultValue);
+      return defaultValue as T;
+    }
     throw new Error(`Configuración '${key}' no encontrada y sin valor por defecto.`);
   }
 

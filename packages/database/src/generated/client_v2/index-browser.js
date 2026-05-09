@@ -177,8 +177,8 @@ exports.Prisma.UserScalarFieldEnum = {
   kycLevel: 'kycLevel',
   mustResetPassword: 'mustResetPassword',
   lastLoginAt: 'lastLoginAt',
-  twoFactorSecret: 'twoFactorSecret',
-  twoFactorEnabled: 'twoFactorEnabled'
+  twoFactorEnabled: 'twoFactorEnabled',
+  twoFactorSecret: 'twoFactorSecret'
 };
 
 exports.Prisma.VerificationTokenScalarFieldEnum = {
@@ -428,6 +428,16 @@ exports.Prisma.FidelityTrackingScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.VolumeCacheScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  lineRootId: 'lineRootId',
+  volume: 'volume',
+  cycleMonth: 'cycleMonth',
+  cycleYear: 'cycleYear',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.WeeklyClosureScalarFieldEnum = {
   id: 'id',
   closureDate: 'closureDate',
@@ -580,14 +590,6 @@ exports.Prisma.ServiceProviderScalarFieldEnum = {
   businessName: 'businessName',
   profession: 'profession',
   professionCategory: 'professionCategory',
-  acceptsPrepaid: 'acceptsPrepaid',
-  acceptsPostpay: 'acceptsPostpay',
-  pendingDebt: 'pendingDebt',
-  totalDebtPaid: 'totalDebtPaid',
-  lastDebtSettlement: 'lastDebtSettlement',
-  isDebtBlocked: 'isDebtBlocked',
-  warningCount: 'warningCount',
-  lastWarningAt: 'lastWarningAt',
   licenseNumber: 'licenseNumber',
   licenseIssuedBy: 'licenseIssuedBy',
   licenseExpiresAt: 'licenseExpiresAt',
@@ -619,10 +621,18 @@ exports.Prisma.ServiceProviderScalarFieldEnum = {
   agreementNumber: 'agreementNumber',
   agreementSignedAt: 'agreementSignedAt',
   agreementDocUrl: 'agreementDocUrl',
-  averageRating: 'averageRating',
-  totalReviews: 'totalReviews',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  acceptsPostpay: 'acceptsPostpay',
+  acceptsPrepaid: 'acceptsPrepaid',
+  isDebtBlocked: 'isDebtBlocked',
+  lastDebtSettlement: 'lastDebtSettlement',
+  lastWarningAt: 'lastWarningAt',
+  pendingDebt: 'pendingDebt',
+  totalDebtPaid: 'totalDebtPaid',
+  warningCount: 'warningCount',
+  averageRating: 'averageRating',
+  totalReviews: 'totalReviews'
 };
 
 exports.Prisma.ServiceListingScalarFieldEnum = {
@@ -640,8 +650,6 @@ exports.Prisma.ServiceListingScalarFieldEnum = {
   commissionPercentage: 'commissionPercentage',
   ivaPercentage: 'ivaPercentage',
   ivaIncluded: 'ivaIncluded',
-  allowsPrepaid: 'allowsPrepaid',
-  allowsPostpay: 'allowsPostpay',
   modality: 'modality',
   duration: 'duration',
   allowEmergency: 'allowEmergency',
@@ -649,7 +657,9 @@ exports.Prisma.ServiceListingScalarFieldEnum = {
   requiresPrePayment: 'requiresPrePayment',
   pendingUpdate: 'pendingUpdate',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  allowsPostpay: 'allowsPostpay',
+  allowsPrepaid: 'allowsPrepaid'
 };
 
 exports.Prisma.FamilyBeneficiaryScalarFieldEnum = {
@@ -673,36 +683,36 @@ exports.Prisma.FamilyBeneficiaryScalarFieldEnum = {
 
 exports.Prisma.AppointmentScalarFieldEnum = {
   id: 'id',
-  clientId: 'clientId',
-  beneficiaryId: 'beneficiaryId',
-  providerId: 'providerId',
-  serviceId: 'serviceId',
   status: 'status',
-  isEmergency: 'isEmergency',
-  emergencyReason: 'emergencyReason',
-  requestedDate: 'requestedDate',
-  requestedTimeSlot: 'requestedTimeSlot',
-  proposedSlots: 'proposedSlots',
-  confirmedDate: 'confirmedDate',
-  actualStartTime: 'actualStartTime',
+  createdAt: 'createdAt',
   actualEndTime: 'actualEndTime',
-  clientNotes: 'clientNotes',
-  providerNotes: 'providerNotes',
-  appliedPublicPrice: 'appliedPublicPrice',
-  appliedMemberPrice: 'appliedMemberPrice',
+  actualStartTime: 'actualStartTime',
   appliedInternalPrice: 'appliedInternalPrice',
   appliedIvaPercentage: 'appliedIvaPercentage',
-  ivaAmount: 'ivaAmount',
-  totalCharged: 'totalCharged',
+  appliedMemberPrice: 'appliedMemberPrice',
+  appliedPublicPrice: 'appliedPublicPrice',
+  beneficiaryId: 'beneficiaryId',
+  clientId: 'clientId',
+  clientNotes: 'clientNotes',
   companyCommissionAmount: 'companyCommissionAmount',
-  providerNetAmount: 'providerNetAmount',
-  paymentMethod: 'paymentMethod',
-  paymentId: 'paymentId',
-  paymentStatus: 'paymentStatus',
+  confirmedDate: 'confirmedDate',
+  emergencyReason: 'emergencyReason',
+  isEmergency: 'isEmergency',
+  ivaAmount: 'ivaAmount',
   paidAt: 'paidAt',
-  qrCode: 'qrCode',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  paymentId: 'paymentId',
+  paymentMethod: 'paymentMethod',
+  paymentStatus: 'paymentStatus',
+  proposedSlots: 'proposedSlots',
+  providerId: 'providerId',
+  providerNetAmount: 'providerNetAmount',
+  providerNotes: 'providerNotes',
+  requestedDate: 'requestedDate',
+  requestedTimeSlot: 'requestedTimeSlot',
+  serviceId: 'serviceId',
+  totalCharged: 'totalCharged',
+  updatedAt: 'updatedAt',
+  qrCode: 'qrCode'
 };
 
 exports.Prisma.AppointmentAuditLogScalarFieldEnum = {
@@ -962,6 +972,35 @@ exports.Prisma.PushSubscriptionScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.ChatMessageScalarFieldEnum = {
+  id: 'id',
+  content: 'content',
+  senderId: 'senderId',
+  senderName: 'senderName',
+  senderRole: 'senderRole',
+  read: 'read',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.TestimonialScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  role: 'role',
+  content: 'content',
+  avatar: 'avatar',
+  imageUrl: 'imageUrl',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SubscriberScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  isActive: 'isActive',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1097,10 +1136,10 @@ exports.PaymentMethod = exports.$Enums.PaymentMethod = {
 
 exports.PaymentStatus = exports.$Enums.PaymentStatus = {
   PENDING: 'PENDING',
-  PROCESSING: 'PROCESSING',
   COMPLETED: 'COMPLETED',
   FAILED: 'FAILED',
-  REFUNDED: 'REFUNDED'
+  REFUNDED: 'REFUNDED',
+  PROCESSING: 'PROCESSING'
 };
 
 exports.PointSource = exports.$Enums.PointSource = {
@@ -1394,6 +1433,7 @@ exports.Prisma.ModelName = {
   SeedBonus: 'SeedBonus',
   Rank: 'Rank',
   FidelityTracking: 'FidelityTracking',
+  VolumeCache: 'VolumeCache',
   WeeklyClosure: 'WeeklyClosure',
   EventLog: 'EventLog',
   FundsReserve: 'FundsReserve',
@@ -1426,7 +1466,10 @@ exports.Prisma.ModelName = {
   LegalDocument: 'LegalDocument',
   UserLegalAcceptance: 'UserLegalAcceptance',
   SystemEvent: 'SystemEvent',
-  PushSubscription: 'PushSubscription'
+  PushSubscription: 'PushSubscription',
+  ChatMessage: 'ChatMessage',
+  Testimonial: 'Testimonial',
+  Subscriber: 'Subscriber'
 };
 
 /**

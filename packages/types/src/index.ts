@@ -83,6 +83,7 @@ export interface ProductPublic {
   };
   options?: any; // Configurable options JSON
   stock?: number;
+  rating?: number;
 }
 
 // ─────────────────────────────────────────────────────────────

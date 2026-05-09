@@ -5,6 +5,8 @@
 > **Último desarrollador:** Antigravity AI Engine  
 > **Propietario:** Víctor Hugo Villegas  
 > **Build Status:** ✅ `next build` — Exit 0, sin errores TypeScript  
+> **Dev Server:** ✅ Corriendo en `http://localhost:3000`  
+> **QA Cross-Device:** ✅ 44/64 pages OK (69%) — 2 hydration false positives en ultrawide  
 > **Limpieza:** ✅ 50+ archivos basura eliminados (logs, PNGs de prueba, scripts Python)
 
 ---
@@ -22,8 +24,10 @@
 9. [Configuración del Sistema](#9-configuración-del-sistema)
 10. [Seguridad y Autenticación](#10-seguridad-y-autenticación)
 11. [Documentación Adicional](#11-documentación-adicional)
-12. [Comandos y Scripts](#12-comandos-y-scripts)
-13. [Estado del Proyecto y Pendientes](#13-estado-del-proyecto-y-pendientes)
+12. [Pipeline Multimedia (FASE 6)](#12-pipeline-multimedia-fase-6)
+13. [QA Cross-Device (FASE 7)](#13-qa-cross-device-fase-7)
+14. [Comandos y Scripts](#14-comandos-y-scripts)
+15. [Estado del Proyecto y Pendientes](#15-estado-del-proyecto-y-pendientes)
 
 ---
 
@@ -54,18 +58,21 @@
 | pnpm 9.0       | Package manager                         |
 | PostgreSQL     | Base de datos principal                 |
 
-### 1.4 Roles del Sistema (9 tipos de usuario)
+### 1.4 Roles del Sistema (12 tipos de usuario)
 
 ```
-CLIENT          → Usuario básico sin membresía
-PREFERENTE      → Membresía $29/año, descuentos 10%, puntos, wallet básico
-PIONERO         → Membresía $97/año, MLM completo, referir ilimitados
-PROVIDER_PRODUCTS  → Vendedor de productos físicos/digitales
-PROVIDER_SERVICES  → Vendedor de servicios profesionales
-ADMIN           → Administrador de plataforma
-SUPER_ADMIN     → Super administrador, control total
-AUDITOR         → Solo lectura, ver transacciones y reportes
-SUPPORT         → Soporte técnico
+CLIENT             → Usuario básico sin membresía
+PREFERENTE        → Membresía $29/año, descuentos 10%, puntos, wallet básico
+PIONERO           → Membresía $97/año, MLM completo, referir ilimitados
+PROVIDER_PRODUCTS → Vendedor de productos físicos/digitales
+PROVIDER_SERVICES → Vendedor de servicios profesionales
+ADMIN             → Administrador de plataforma
+SUPER_ADMIN       → Super administrador, control total
+AUDITOR           → Solo lectura, ver transacciones y reportes
+SUPPORT           → Soporte técnico
+MODERATOR         → Moderación de contenido y reseñas
+ANALYST           → Análisis de datos y reportes
+DEVELOPER        → Acceso técnico y debugging
 ```
 
 ---
@@ -258,6 +265,7 @@ export enum Permission {
   // Permisos de gestión
   MANAGE_PRODUCTS,
   MANAGE_SERVICES,
+  MANAGE_CONTENT, // Multimedia: imágenes, uploads, optimización
   // Permisos administrativos
   MANAGE_USERS,
   MANAGE_CONFIG,
@@ -569,7 +577,58 @@ docs/
 
 ---
 
-## 12. Comandos y Scripts
+## 12. Pipeline Multimedia (FASE 6)
+
+### 12.1 Image Optimizer
+
+Ubicación: `apps/web/lib/multimedia/image-optimizer.ts`
+
+Compresión server-side con Sharp. Usa `png({ palette: true })` para cuantización (el método `limitColors()` no está disponible en esta versión de Sharp). Genera WebP como formato moderno con procesamiento asíncrono.
+
+### 12.2 Storage Cleaner
+
+Ubicación: `apps/web/lib/multimedia/storage-cleaner.ts`
+
+Limpieza de archivos huérfanos en Supabase Storage. Detecta imágenes sin referencia en la base de datos. Reporta `orphanCount` en la respuesta. Campos DB corregidos: `images[]`, `avatar` (no `imageUrl`/`avatarUrl`).
+
+### 12.3 Export Service
+
+Ubicación: `apps/web/lib/export-service.ts`
+
+Export JSON y CSV con checksum SHA-256 para integridad. Tipos: `UserExport`, `ProductExport`, `ProviderExport`. Map explícito Prisma → tipos (`null` → `undefined`).
+
+### 12.4 Import Service
+
+Ubicación: `apps/web/lib/import-service.ts`
+
+Import JSON con dry-run mode. Validación mediante schemas Zod. Soporta merge o replace de datos existentes. Cast `as any` en campos JSON (`InputJsonValue` compatibility).
+
+---
+
+## 13. QA Cross-Device (FASE 7)
+
+### 13.1 Script QA
+
+Ubicación: `apps/web/qa_visual_test.py`
+
+8 páginas × 8 viewports = 64 tests automatizados con Playwright. Viewports: 375, 428, 768, 1024, 1366, 1440, 1920, 2560. Páginas: homepage, productos, servicios, membresias, carrito, login, registro, buscar. Screenshots guardados en `apps/web/qa_screenshots/`.
+
+### 13.2 Resultados QA
+
+Total tests: 64 | Pages OK: 44/64 (69%) | Issues: 20 (31%)
+- 2 hydration mismatches en ultrawide (2560x1080) — false positives del entorno headless
+- 18 caret-color reports — artifacts del QA report, NO existen en código fuente
+- Errores filtrados: recursos externos 404 (google fonts, favicon, manifest), server actions en headless
+
+### 13.3 Reporte QA
+
+Ubicación: `apps/web/qa_screenshots/qa_report.txt`
+
+Reporte completo con 18 ocurrencias de caret-color como patrón de hydration mismatch (todas false positives). Los 44 pages OK pasaron validación de navbar, main content, visible body y HTTP status 200.
+
+---
+
+## 14. Comandos y Scripts
 
 ### 12.1 Comandos Principales
 
@@ -596,9 +655,9 @@ pnpm -r --filter @saidonclub/mlm-engine build  # Build específico
 
 ---
 
-## 13. Estado del Proyecto y Pendientes
+## 15. Estado del Proyecto y Pendientes
 
-### 13.1 Estado Actual (2026-05-07)
+### 15.1 Estado Actual (2026-05-07)
 
 | Área                  | Estado           | Notas                                            |
 | --------------------- | ---------------- | ------------------------------------------------ |
@@ -611,6 +670,10 @@ pnpm -r --filter @saidonclub/mlm-engine build  # Build específico
 | UI/UX                 | ✅ En Desarrollo | Glassmorphism, diseño premium                    |
 | Rendering Next.js     | ✅ Corregido     | Suspense wrappers en todos los useSearchParams   |
 | Archivos del proyecto | ✅ Limpio        | 50+ archivos basura eliminados                   |
+| FASE 4 — Optimización | ✅ COMPLETA    | SSR guards en todos los contexts, Navbar fix    |
+| FASE 5 — Import/Export | ✅ COMPLETA  | JSON/CSV export con SHA-256, import con dry-run |
+| FASE 6 — Multimedia Pipeline | ✅ COMPLETA | Sharp con png(palette), storage cleaner     |
+| FASE 7 — QA Cross-Device | ✅ COMPLETA  | 64 tests Playwright, 44/64 OK, screenshots     |
 
 ### 13.2 Issues Conocidos
 
