@@ -36,12 +36,7 @@ export async function exchangeBalanceToPoints(userId: string, amount: number) {
       throw new Error('Wallet no encontrada para el usuario');
     }
 
-    // 2. Verificar saldo disponible
-    if (wallet.balanceAvailable.lt(amountDecimal)) {
-      throw new Error('Saldo insuficiente para realizar el canje');
-    }
-
-    // 3. Descontar de wallet
+    // 2. Descontar de wallet
     // increment/decrement en Prisma generan SQL 'balance = balance - X' que es seguro ante concurrencia
     const updatedWallet = await tx.wallet.update({
       where: { userId },
@@ -50,6 +45,13 @@ export async function exchangeBalanceToPoints(userId: string, amount: number) {
         totalWithdrawn: { increment: amountDecimal },
       },
     });
+
+    // 3. Verificar que no se haya quedado en negativo (resolución de carrera)
+    if (updatedWallet.balanceAvailable.lt(0)) {
+      throw new Error('Saldo insuficiente para realizar el canje');
+    }
+
+
 
     // 4. Registrar transacción en wallet
     await tx.walletTransaction.create({

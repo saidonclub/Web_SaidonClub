@@ -3,9 +3,72 @@
 // AGENT:      MLM/Math Engineer
 // PURPOSE:    Gestión de pagos a proveedores por ventas realizadas.
 //             Acredita el costo del producto/servicio al wallet del proveedor.
+//             Incluye límites diarios de transferencia por rol.
 // ============================================================
 
 import { prisma, Prisma } from '@saidonclub/database';
+
+// ─── Límites diarios de transferencia por rol ─────────────────────────────
+export const DAILY_TRANSFER_LIMITS: Record<string, number> = {
+  USER:        500,
+  PREFERENTE:  1_000,
+  PIONERO:     5_000,
+  PROVIDER_PRODUCTS: 10_000,
+  PROVIDER_SERVICES: 10_000,
+  ADMIN:       50_000,
+  SUPER_ADMIN: 999_999,
+  AUDITOR:     0,      // Auditores no pueden transferir
+  ACCOUNTANT:  0,
+};
+
+export const DEFAULT_DAILY_LIMIT = 500;
+
+/**
+ * Verifica si un usuario puede realizar una transferencia dado su límite diario.
+ * @returns { allowed: boolean, remaining: number, limit: number }
+ */
+export async function checkTransferLimit(
+  userId: string,
+  amount: number,
+): Promise<{ allowed: boolean; remaining: number; limit: number; message?: string }> {
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: { role: true },
+  });
+
+  const limit = DAILY_TRANSFER_LIMITS[user?.role ?? 'USER'] ?? DEFAULT_DAILY_LIMIT;
+
+  if (limit === 0) {
+    return { allowed: false, remaining: 0, limit, message: 'Tu rol no permite transferencias.' };
+  }
+
+  const todayStart = new Date();
+  todayStart.setHours(0, 0, 0, 0);
+
+  const todayTransfers = await prisma.walletTransaction.aggregate({
+    _sum: { amount: true },
+    where: {
+      wallet: { userId },
+      type: 'POINTS_TRANSFER',
+      createdAt: { gte: todayStart },
+      status: { in: ['PENDING', 'VALIDATED', 'PAID'] },
+    },
+  });
+
+  const usedToday = Math.abs(Number(todayTransfers._sum?.amount ?? 0));
+  const remaining = Math.max(0, limit - usedToday);
+
+  if (amount > remaining) {
+    return {
+      allowed: false,
+      remaining,
+      limit,
+      message: `Límite diario alcanzado. Puedes transferir máximo ${remaining.toFixed(2)} hoy (límite: ${limit.toLocaleString()}/día).`,
+    };
+  }
+
+  return { allowed: true, remaining, limit };
+}
 
 /**
  * Procesa los pagos a proveedores para una orden específica.

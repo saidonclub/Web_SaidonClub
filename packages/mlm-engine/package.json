@@ -12,9 +12,11 @@
   "dependencies": {
     "@prisma/client": "^5.12.0",
     "@saidonclub/config-engine": "workspace:*",
-    "@saidonclub/database": "workspace:*"
+    "@saidonclub/database": "workspace:*",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@types/uuid": "^9.0.0",
     "typescript": "^5.4.0",
     "vitest": "^1.5.0"
   }

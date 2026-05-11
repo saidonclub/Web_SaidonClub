@@ -84,6 +84,8 @@ export interface ProductPublic {
   options?: any; // Configurable options JSON
   stock?: number;
   rating?: number;
+  reviewsCount?: number;
+  isVerified?: boolean;
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -259,6 +261,9 @@ export interface ServicePublic {
     totalReviews?: number;
   };
   location?: string;
+  rating?: number;
+  reviewsCount?: number;
+  isVerified?: boolean;
 }
 
 export interface ServiceProvider {

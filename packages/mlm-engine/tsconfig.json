@@ -3,15 +3,31 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "lib": ["ES2022", "dom"],
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
     "paths": {
-      "@saidonclub/database": ["../database/src/index.ts"],
-      "@saidonclub/config-engine": ["../config-engine/src/index.ts"]
+      "@saidonclub/database": [
+        "../database/src/index.ts"
+      ],
+      "@saidonclub/config-engine": [
+        "../config-engine/src/index.ts"
+      ]
     }
   },
-  "include": ["src"],
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/stress_test.ts"
+  ],
   "references": [
-    { "path": "../database" },
-    { "path": "../config-engine" }
+    {
+      "path": "../database"
+    },
+    {
+      "path": "../config-engine"
+    }
   ]
 }

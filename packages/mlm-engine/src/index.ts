@@ -17,7 +17,7 @@ export type { RankEvaluation } from './ranks';
 export { calculateSeedBonus } from './seed-bonus';
 export type { SeedBonusCommission } from './seed-bonus';
 
-export { processProviderPayments } from './payments';
+export { processProviderPayments, checkTransferLimit, DAILY_TRANSFER_LIMITS } from './payments';
 
 export { exchangeBalanceToPoints } from './wallet';
 

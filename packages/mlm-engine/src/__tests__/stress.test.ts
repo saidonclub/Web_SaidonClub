@@ -25,11 +25,8 @@ describe('MLM Engine Performance & Integrity Audit', () => {
       data: {
         email: `${PREFIX}master@saidonclub.com`,
         username: `${PREFIX}master`,
-        role: 'PIONERO',
-        firstName: 'Audit',
-        lastName: 'Master',
-        country: 'Colombia',
-        city: 'Bogota',
+        role: 'PIONERO' as any,
+        affiliateCode: `${PREFIX}master_code`,
       }
     });
 
@@ -40,12 +37,9 @@ describe('MLM Engine Performance & Integrity Audit', () => {
       usersData.push({
         email: `${PREFIX}user${i}@saidonclub.com`,
         username: `${PREFIX}user${i}`,
-        role: 'PIONERO',
-        firstName: 'Audit',
-        lastName: `User ${i}`,
-        country: 'Colombia',
-        city: 'Bogota',
-        sponsorId: master.id, // Todos cuelgan del master para simplificar, o podemos crear jerarquías
+        role: 'PIONERO' as any,
+        affiliateCode: `${PREFIX}code_${i}`,
+        sponsorId: master.id,
       });
     }
 
@@ -57,8 +51,10 @@ describe('MLM Engine Performance & Integrity Audit', () => {
     console.log(`[AUDIT] Inyectando volumen de puntos masivo...`);
     const ledgerData = allUsers.map(u => ({
       userId: u.id,
-      amount: 100, // 100 puntos cada uno
-      type: 'PURCHASE' as any,
+      amount: 100,
+      sourceType: 'MARKETPLACE' as any,
+      cycleMonth: new Date().getMonth() + 1,
+      cycleYear: new Date().getFullYear(),
       description: 'Audit Load',
     }));
     await prisma.pointsLedger.createMany({ data: ledgerData });

@@ -1,4 +1,4 @@
-import { prisma, Prisma } from '@saidonclub/database';
+import { prisma } from '@saidonclub/database';
 import { config } from '@saidonclub/config-engine';
 import { evaluateRank } from './ranks';
 import { refreshAllVolumesCache } from './genealogy';
@@ -78,9 +78,11 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
     console.log('[CLOSURE] Fase 3: Evaluando rangos con caché O(1)...');
     
     // PRE-FETCH Rank requirements once for all users
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: NodeNext requires .js ext but webpack resolves without it
     const { RANK_HIERARCHY } = await import('./ranks');
     const rankRequirements = await Promise.all(
-      RANK_HIERARCHY.map(async (r) => ({
+      RANK_HIERARCHY.map(async (r: (typeof RANK_HIERARCHY)[number]) => ({
         ...r,
         points: await config.get<number>(r.pointsKey, Infinity),
         bonus: await config.get<number>(r.bonusKey, 0),
