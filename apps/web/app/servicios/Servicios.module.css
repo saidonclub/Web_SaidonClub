@@ -803,6 +803,27 @@
     overflow: visible;
   }
 
+  /* ── OPCIONES button: properly sized on tablet ── */
+  .mobileTabBtn {
+    width: auto !important;
+    height: auto !important;
+    padding: 8px 16px !important;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--clr-text-primary);
+    background: var(--clr-bg-elevated);
+    border: 1px solid var(--clr-border);
+    border-radius: 8px;
+    position: relative;
+    top: 0;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
   .sidebarContent {
     display: flex;
     flex-direction: row;

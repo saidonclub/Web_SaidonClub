@@ -278,9 +278,6 @@ export default async function ProductosPage({
                  </div>
                  <h3>No se encontraron productos</h3>
                  <p>Intenta ajustar tus filtros o búsqueda.</p>
-                 <Link href="/productos" className={styles.noResultsBtn}>
-                   Ver Todos los Productos
-                 </Link>
                </div>
              )}
           </div>

@@ -335,10 +335,15 @@
 }
 
 .searchBtn:hover {
-  background: var(--clr-text-on-brand);
-  color: var(--clr-orange);
+  background: var(--clr-obsidian-950);
+  color: #fff;
   box-shadow: 0 0 15px var(--clr-orange-glow);
-  filter: brightness(1.1);
+  filter: brightness(1.2);
+}
+
+.searchBtnMobile:hover {
+  background: var(--clr-obsidian-950);
+  color: #fff;
 }
 
 /* Actions */

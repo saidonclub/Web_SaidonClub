@@ -74,12 +74,6 @@ export default function CategoryBar() {
                   </div>
                 </Link>
               ))}
-              <Link href="/productos" className={`${styles.card} ${styles.viewAllCard} ${styles.productViewAll}`}>
-                <div className={styles.content}>
-                  <div className={styles.iconWrap}><ArrowRight size={22} /></div>
-                  <span className={styles.label}>Ver todo</span>
-                </div>
-              </Link>
             </div>
           </div>
         </div>
@@ -109,12 +103,6 @@ export default function CategoryBar() {
                   </div>
                 </Link>
               ))}
-              <Link href="/servicios" className={`${styles.card} ${styles.viewAllCard} ${styles.serviceViewAll}`}>
-                <div className={styles.content}>
-                  <div className={styles.iconWrap}><ArrowRight size={22} /></div>
-                  <span className={styles.label}>Ver todo</span>
-                </div>
-              </Link>
             </div>
           </div>
         </div>

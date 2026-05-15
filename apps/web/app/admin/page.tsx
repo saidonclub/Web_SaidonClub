@@ -142,9 +142,6 @@ export default async function AdminDashboard() {
               <TrendingUp size={18} />
               Transacciones Recientes
             </h2>
-            <a href="/admin/transactions" className={styles.cardLink}>
-              Ver todas
-            </a>
           </div>
           <div className={styles.tableWrapper}>
             <table className={styles.table}>
@@ -191,9 +188,6 @@ export default async function AdminDashboard() {
               <Users size={18} />
               Usuarios Recientes
             </h2>
-            <a href="/admin/users" className={styles.cardLink}>
-              Ver todos
-            </a>
           </div>
           <div className={styles.tableWrapper}>
             <table className={styles.table}>

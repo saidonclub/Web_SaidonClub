@@ -63,9 +63,6 @@ export default function ServiceList({ services }: ServiceListProps) {
         </div>
         <h3>No se encontraron servicios</h3>
         <p>Intenta ajustar tus filtros o búsqueda.</p>
-        <Link href="/servicios" className={styles.noResultsBtn}>
-          Ver Todos los Servicios
-        </Link>
       </div>
     );
   }

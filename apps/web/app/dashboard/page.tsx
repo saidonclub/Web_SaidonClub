@@ -463,9 +463,6 @@ export default async function DashboardPage() {
           <div className={styles.card}>
             <div className={styles.activityHeader}>
               <h3 className={styles.activityTitle}>Scripts de Ventas</h3>
-              <Link href="/dashboard/scripts" className={styles.viewAll}>
-                Ver todos
-              </Link>
             </div>
             <p className={styles.scriptsDescription}>
               Guiones probados para WhatsApp, Instagram y más. Cópialos y cierra más ventas.
