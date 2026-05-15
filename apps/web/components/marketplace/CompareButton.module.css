@@ -1,0 +1,110 @@
+/* ================================================================
+   COMPARE BUTTON — SaidonClub OS v9.5
+   ================================================================ */
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-bg-glass-dark);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--clr-text-secondary);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+}
+
+.iconButton:hover:not(.disabled) {
+  background: var(--clr-orange);
+  border-color: var(--clr-orange);
+  color: var(--clr-text-on-brand);
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px var(--clr-orange-dim);
+}
+
+.iconButton.inCompare {
+  background: var(--clr-orange);
+  border-color: var(--clr-orange);
+  color: var(--clr-text-on-brand);
+}
+
+.iconButton.inCompare:hover {
+  background: var(--clr-error);
+  border-color: var(--clr-error);
+  color: var(--clr-text-inverse);
+}
+
+.iconButton.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.sizeSm {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+}
+
+.sizeMd {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+}
+
+.sizeLg {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg); /* 12px -> lg (16px) or keep 12px if specific, but standardized is better */
+}
+
+/* Full variant */
+.fullButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--clr-bg-hover);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  color: var(--clr-text-primary);
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.fullButton:hover:not(.disabled) {
+  background: var(--clr-orange);
+  border-color: var(--clr-orange);
+  color: var(--clr-text-on-brand);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--clr-orange-dim);
+}
+
+.fullButton.inCompare {
+  background: var(--clr-orange);
+  border-color: var(--clr-orange);
+  color: var(--clr-text-on-brand);
+}
+
+.fullButton.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.countBadge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--clr-orange);
+  color: var(--clr-text-on-brand);
+  font-size: 10px;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: var(--radius-md);
+  min-width: 20px;
+  text-align: center;
+}

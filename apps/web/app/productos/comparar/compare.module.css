@@ -1,0 +1,20 @@
+/* ================================================================
+   COMPARE PAGE — SaidonClub OS v9.5
+   ================================================================ */
+
+.page {
+  min-height: 100vh;
+  background: var(--clr-bg-base);
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 12px;
+  }
+}

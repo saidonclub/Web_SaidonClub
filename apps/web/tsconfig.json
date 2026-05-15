@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"],
+      "@saidonclub/database": ["../../packages/database/src/index.ts"],
+      "@saidonclub/rbac": ["../../packages/rbac/src/index.ts"],
+      "@saidonclub/config-engine": ["../../packages/config-engine/src/index.ts"],
+      "@saidonclub/types": ["../../packages/types/src/index.ts"],
+      "@saidonclub/analytics": ["../../packages/analytics/src/index.ts"],
+      "@saidonclub/media-engine": ["../../packages/media-engine/src/index.ts"],
+      "@saidonclub/mlm-engine": ["../../packages/mlm-engine/src/index.ts"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

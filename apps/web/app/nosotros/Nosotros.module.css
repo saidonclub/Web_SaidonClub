@@ -1,0 +1,284 @@
+/* ============================================================
+   NOSOTROS — Ultra Premium Design
+   ============================================================ */
+
+.container {
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+  background: var(--clr-bg-base, #050505);
+  color: #fff;
+}
+
+/* ── HERO BANNER ── */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid rgba(255, 107, 0, 0.15);
+}
+
+/* Ken Burns background */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -10%;
+  background-image: url('/about_banner.png');
+  background-size: cover;
+  background-position: center;
+  animation: nosotrosKenBurns 45s ease-in-out infinite alternate;
+  z-index: -2;
+}
+
+/* Obsidian gradient overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0.3) 0%,
+    rgba(5, 5, 5, 0.7) 50%,
+    rgba(5, 5, 5, 1) 100%
+  );
+  z-index: -1;
+}
+
+@keyframes nosotrosKenBurns {
+  0%   { transform: scale(1.0) rotate(0deg); }
+  50%  { transform: scale(1.15) rotate(1deg); }
+  100% { transform: scale(1.1) rotate(-1deg); }
+}
+
+.heroShimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255, 107, 0, 0.04) 50%,
+    transparent 65%
+  );
+  animation: heroSweep 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes heroSweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  padding: 0 24px;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  background: rgba(255, 107, 0, 0.12);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFB070;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  backdrop-filter: blur(12px);
+  animation: fadeInDown 1s ease-out;
+}
+
+.title {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 950;
+  margin-bottom: 24px;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: #fff;
+  text-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  animation: fadeInUp 1.2s ease-out 0.2s both;
+}
+
+.title span {
+  background: linear-gradient(135deg, #FF6B00 0%, #FFB070 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(255, 107, 0, 0.4));
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  animation: fadeInUp 1.2s ease-out 0.4s both;
+}
+
+/* ── STATS ── */
+.statsSection {
+  background: #080808;
+  padding: 100px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.statItem {
+  text-align: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all 0.4s;
+}
+
+.statItem:hover {
+  background: rgba(255, 107, 0, 0.05);
+  border-color: rgba(255, 107, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.statValue {
+  font-size: 3.5rem;
+  font-weight: 950;
+  color: #FF6B00;
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -0.05em;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+/* ── MISSION/VISION ── */
+.section {
+  padding: 140px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.card {
+  background: rgba(20, 20, 20, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 60px 48px;
+  border-radius: 40px;
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FF6B00, #FFB070);
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.card:hover::before { transform: scaleX(1); }
+
+.card:hover {
+  background: rgba(255, 107, 0, 0.02);
+  border-color: rgba(255, 107, 0, 0.3);
+  transform: translateY(-10px);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+}
+
+.cardIcon {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 107, 0, 0.1);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FF6B00;
+  margin-bottom: 32px;
+  transition: all 0.5s;
+}
+
+.card:hover .cardIcon {
+  transform: scale(1.1) rotate(10deg);
+  background: rgba(255, 107, 0, 0.2);
+}
+
+.cardTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.cardText {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* ── CTA ── */
+.cta {
+  padding: 100px 24px 160px;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 950;
+  margin-bottom: 32px;
+  letter-spacing: -0.04em;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .statsGrid { grid-template-columns: 1fr; }
+  .title { font-size: 3rem; }
+  .card { padding: 40px 30px; }
+}

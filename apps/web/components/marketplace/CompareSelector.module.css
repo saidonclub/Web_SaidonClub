@@ -1,0 +1,173 @@
+/* ================================================================
+   COMPARE SELECTOR — SaidonClub OS v9.5
+   ================================================================ */
+
+.selectorContainer {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  z-index: 50;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: var(--clr-text-muted);
+}
+
+.loaderIcon {
+  position: absolute;
+  right: 12px;
+  color: var(--clr-orange);
+  animation: spin 1s linear infinite;
+}
+
+.input {
+  width: 100%;
+  background: var(--clr-bg-elevated);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text-primary);
+  padding: 12px 36px 12px 40px;
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--clr-orange);
+  box-shadow: 0 0 0 3px var(--clr-orange-dim);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.resultItem:hover {
+  background: var(--clr-bg-hover);
+}
+
+.resultInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.resultImageWrapper {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background: var(--clr-bg-elevated);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.noImage {
+  font-size: 20px;
+}
+
+.resultDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.resultName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--clr-text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.resultPrice {
+  font-size: 12px;
+  color: var(--clr-text-secondary);
+  font-weight: 700;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--clr-orange);
+  color: var(--clr-text-on-brand);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.addBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-element);
+}
+
+.addBtn.added {
+  background: var(--clr-bg-elevated);
+  color: var(--clr-text-muted);
+  border: 1px solid var(--clr-border);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.noResults {
+  padding: 16px;
+  text-align: center;
+  color: var(--clr-text-muted);
+  font-size: 13px;
+}
+
+.fullMessage {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--clr-error-dim);
+  color: var(--clr-error);
+  border: 1px solid var(--clr-error-glow);
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

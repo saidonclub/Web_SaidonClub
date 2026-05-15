@@ -1,0 +1,97 @@
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--clr-service);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  width: 100%;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--clr-service-light); /* Lighter blue */
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5), var(--shadow-glow-blue);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.button:disabled {
+  opacity: 0.8;
+  cursor: default;
+}
+
+.compact {
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+}
+
+.success {
+  background: var(--clr-success) !important; /* Emerald 500 */
+  box-shadow: 0 4px 15px var(--clr-success-glow) !important;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: none;
+}
+
+.button:hover .shimmer {
+  animation: shimmerEffect 1.5s infinite;
+}
+
+@keyframes shimmerEffect {
+  100% {
+    left: 150%;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  .button {
+    padding: 10px 15px;
+    font-size: 10px;
+  }
+}

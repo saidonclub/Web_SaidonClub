@@ -1,0 +1,299 @@
+/* ================================================================
+   REGISTER PAGE — SaidonClub OS v9.5 Enterprise
+   Estética: Obsidian & Safety Orange — Premium Onboarding
+   ================================================================ */
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-bg-base);
+  padding: 24px 20px;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: fixed;
+  top: -25%;
+  right: -15%;
+  width: 65%;
+  height: 75%;
+  background: radial-gradient(ellipse, rgba(255,107,0,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.container::after {
+  content: '';
+  position: fixed;
+  bottom: -20%;
+  left: -10%;
+  width: 55%;
+  height: 65%;
+  background: radial-gradient(ellipse, rgba(99,102,241,0.04) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── Card ── */
+.card {
+  max-width: 480px;
+  width: 100%;
+  background: var(--clr-bg-glass);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--clr-border);
+  padding: clamp(24px, 5vw, 44px);
+  box-shadow:
+    var(--shadow-card),
+    0 0 60px rgba(255,107,0,0.03),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 20%; right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--clr-orange), transparent);
+  border-radius: 0 0 2px 2px;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.logoImage {
+  width: auto;
+  max-width: 190px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(255,107,0,0.18));
+  transition: filter 0.3s;
+}
+
+.logoImage:hover {
+  filter: drop-shadow(0 0 20px rgba(255,107,0,0.3));
+}
+
+.title {
+  color: var(--clr-text-primary);
+  font-size: clamp(20px, 3.5vw, 24px);
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.version {
+  color: var(--clr-text-secondary);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* ── Alerts ── */
+.errorAlert {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.25);
+  color: var(--clr-error);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+/* ── Form ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Input Group ── */
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--clr-text-muted);
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.inputWrapper:focus-within .inputIcon {
+  color: var(--clr-orange);
+}
+
+.input {
+  width: 100%;
+  background: var(--clr-bg-elevated);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px 12px 44px;
+  color: var(--clr-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.input::placeholder { color: var(--clr-text-muted); }
+
+.input:focus,
+.input:focus-visible {
+  border-color: var(--clr-orange);
+  background: var(--clr-bg-card);
+  box-shadow: 0 0 0 4px rgba(255,107,0,0.1);
+  outline: none;
+}
+
+/* ── Terms Row ── */
+.termsRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  background: var(--clr-bg-hover);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s;
+}
+
+.termsRow:has(.checkbox:checked) {
+  border-color: rgba(255,107,0,0.35);
+  background: rgba(255,107,0,0.04);
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--clr-orange);
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.termsLabel {
+  color: var(--clr-text-secondary);
+  font-size: 12px;
+  line-height: 1.55;
+  cursor: pointer;
+}
+
+.termsLink {
+  color: var(--clr-orange);
+  text-decoration: none;
+  font-weight: 700;
+  transition: opacity 0.2s;
+}
+
+.termsLink:hover { opacity: 0.8; text-decoration: underline; }
+
+/* ── Submit Button ── */
+.submitBtn {
+  background: linear-gradient(135deg, var(--clr-orange) 0%, #e65c00 100%);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(255,107,0,0.3);
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.submitBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255,107,0,0.42);
+}
+
+.submitBtn:hover::before { opacity: 1; }
+
+.submitBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(255,107,0,0.28);
+}
+
+.submitBtn:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.8);
+  outline-offset: 3px;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Footer ── */
+.footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.footerText {
+  color: var(--clr-text-secondary);
+  font-size: 13px;
+}
+
+.footerLink {
+  color: var(--clr-orange);
+  text-decoration: none;
+  font-weight: 700;
+  transition: opacity 0.2s;
+}
+
+.footerLink:hover { opacity: 0.8; text-decoration: underline; }
+
+.footerLink:focus-visible {
+  outline: 2px solid var(--clr-orange);
+  outline-offset: 2px;
+  border-radius: 3px;
+}

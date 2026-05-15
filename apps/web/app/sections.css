@@ -1,0 +1,576 @@
+/* ============================================================
+   SAIDONCLUB OS v5.2 — Section Theme System
+   Codificación visual por colores: Productos (Rojo), 
+   Servicios (Azul), MLM/Referidos (Violeta)
+   ============================================================ */
+
+/* ============================================
+   SECTION THEME VARIABLES (Productos = Rojo)
+   ============================================ */
+[data-section="products"],
+.section-products {
+  --section-accent: var(--clr-product);
+  --section-accent-light: var(--clr-product-light);
+  --section-accent-dim: var(--clr-product-dim);
+  --section-accent-glow: rgba(255, 61, 0, 0.30);
+  --section-gradient: linear-gradient(135deg, #FF3D00 0%, #FF6B6B 100%);
+  --section-gradient-subtle: linear-gradient(135deg, rgba(255,61,0,0.08) 0%, rgba(255,107,107,0.04) 100%);
+  --section-border: rgba(255, 61, 0, 0.25);
+  --section-border-hover: rgba(255, 61, 0, 0.50);
+  --section-icon-filter: none;
+  --section-badge-bg: rgba(255, 61, 0, 0.15);
+  --section-badge-text: #FF6B6B;
+  --section-shadow: 0 4px 20px rgba(255, 61, 0, 0.20);
+  --section-shadow-hover: 0 8px 30px rgba(255, 61, 0, 0.35);
+}
+
+/* ============================================
+   SECTION THEME VARIABLES (Servicios = Azul)
+   ============================================ */
+[data-section="services"],
+.section-services {
+  --section-accent: var(--clr-service);
+  --section-accent-light: var(--clr-service-light);
+  --section-accent-dim: var(--clr-service-dim);
+  --section-accent-glow: rgba(37, 99, 235, 0.30);
+  --section-gradient: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%);
+  --section-gradient-subtle: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(96,165,250,0.04) 100%);
+  --section-border: rgba(37, 99, 235, 0.25);
+  --section-border-hover: rgba(37, 99, 235, 0.50);
+  --section-icon-filter: none;
+  --section-badge-bg: rgba(37, 99, 235, 0.15);
+  --section-badge-text: #60A5FA;
+  --section-shadow: 0 4px 20px rgba(37, 99, 235, 0.20);
+  --section-shadow-hover: 0 8px 30px rgba(37, 99, 235, 0.35);
+}
+
+/* ============================================
+   SECTION THEME VARIABLES (MLM/Referidos = Violeta)
+   ============================================ */
+[data-section="mlm"],
+.section-mlm {
+  --section-accent: var(--clr-mlm);
+  --section-accent-light: var(--clr-mlm-light);
+  --section-accent-dim: var(--clr-mlm-dim);
+  --section-accent-glow: rgba(147, 51, 234, 0.30);
+  --section-gradient: linear-gradient(135deg, #9333EA 0%, #C084FC 100%);
+  --section-gradient-subtle: linear-gradient(135deg, rgba(147,51,234,0.08) 0%, rgba(192,132,252,0.04) 100%);
+  --section-border: rgba(147, 51, 234, 0.25);
+  --section-border-hover: rgba(147, 51, 234, 0.50);
+  --section-icon-filter: none;
+  --section-badge-bg: rgba(147, 51, 234, 0.15);
+  --section-badge-text: #C084FC;
+  --section-shadow: 0 4px 20px rgba(147, 51, 234, 0.20);
+  --section-shadow-hover: 0 8px 30px rgba(147, 51, 234, 0.35);
+}
+
+/* Base variables por defecto (tema oscuro Obsidian & Orange) */
+[data-section] {
+  --section-accent-default: var(--clr-orange);
+  --section-accent-light-default: var(--clr-orange-light);
+}
+
+/* ============================================
+   SECTION CARD COMPONENT
+   ============================================ */
+.section-card {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--section-border, var(--clr-border));
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--section-gradient, linear-gradient(135deg, var(--clr-orange) 0%, #FF3D00 100%));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.section-card:hover {
+  border-color: var(--section-border-hover, var(--clr-orange-dim));
+  transform: translateY(-3px);
+  box-shadow: var(--section-shadow-hover, var(--shadow-glow));
+}
+
+.section-card:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   SECTION BADGE
+   ============================================ */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--section-badge-bg, var(--clr-orange-dim));
+  color: var(--section-badge-text, var(--clr-orange));
+  border: 1px solid var(--section-border, rgba(255,107,0,0.3));
+}
+
+/* ============================================
+   SECTION BUTTON
+   ============================================ */
+.section-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  background: var(--section-gradient, linear-gradient(135deg, var(--clr-orange) 0%, #FF3D00 100%));
+  color: #fff;
+  box-shadow: var(--section-shadow, 0 4px 15px rgba(255,107,0,0.35));
+}
+
+.section-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--section-shadow-hover, 0 6px 25px rgba(255,107,0,0.50));
+}
+
+.section-btn-outline {
+  background: transparent;
+  color: var(--section-accent, var(--clr-orange));
+  border: 1px solid var(--section-border, var(--clr-border));
+}
+
+.section-btn-outline:hover {
+  background: var(--section-accent-dim, var(--clr-orange-dim));
+  border-color: var(--section-accent, var(--clr-orange));
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+.section-divider {
+  width: 100%;
+  height: 2px;
+  background: var(--section-gradient-subtle, linear-gradient(135deg, rgba(255,107,0,0.08) 0%, transparent 100%));
+  margin: 20px 0;
+  border-radius: var(--radius-xs);
+}
+
+/* ============================================
+   SECTION INPUT
+   ============================================ */
+.section-input {
+  width: 100%;
+  background: var(--clr-bg-elevated);
+  border: 1px solid var(--section-border, var(--clr-border));
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  color: var(--clr-text-primary);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.section-input:focus {
+  border-color: var(--section-accent, var(--clr-border-focus));
+  box-shadow: 0 0 0 3px var(--section-accent-dim, rgba(255,107,0,0.10));
+}
+
+/* ============================================
+   SECTION ICON WRAPPER
+   ============================================ */
+.section-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--section-accent-dim, var(--clr-orange-dim));
+  color: var(--section-accent, var(--clr-orange));
+  transition: all 0.2s ease;
+}
+
+.section-icon-lg {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+}
+
+/* ============================================
+   SECTION GRADIENT TEXT
+   ============================================ */
+.section-gradient-text {
+  background: var(--section-gradient, linear-gradient(135deg, var(--clr-orange-light) 0%, var(--clr-orange) 100%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   SECTION STAT CARD
+   ============================================ */
+.section-stat {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--section-border, var(--clr-border));
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.section-stat:hover {
+  border-color: var(--section-border-hover, var(--clr-orange-dim));
+  box-shadow: var(--section-shadow, var(--shadow-glow));
+}
+
+.section-stat-value {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--section-accent, var(--clr-orange));
+  line-height: 1;
+}
+
+.section-stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 6px;
+}
+
+/* ============================================
+   SECTION HEADER/TITLE
+   ============================================ */
+.section-title {
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+  font-weight: 600;
+  color: var(--section-accent, var(--clr-text-primary));
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--clr-text-secondary);
+  margin-bottom: 20px;
+}
+
+/* ============================================
+   SECTION GRID
+   ============================================ */
+.section-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.section-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.section-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.section-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1200px) {
+  .section-grid-4 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  .section-grid-3, .section-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .section-grid-2, .section-grid-3, .section-grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   SECTION PROGRESS BAR
+   ============================================ */
+.section-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--clr-bg-hover);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.section-progress-fill {
+  height: 100%;
+  background: var(--section-gradient, linear-gradient(90deg, var(--clr-orange) 0%, var(--clr-orange-light) 100%));
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+/* ============================================
+   SECTION TAG/PILL
+   ============================================ */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--section-accent-dim, var(--clr-orange-dim));
+  color: var(--section-accent, var(--clr-orange));
+  border: 1px solid var(--section-border, rgba(255,107,0,0.2));
+}
+
+/* ============================================
+   SECTION ANIMATIONS
+   ============================================ */
+@keyframes sectionPulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--section-accent-dim, rgba(255,107,0,0.3)); }
+  50% { box-shadow: 0 0 0 8px transparent; }
+}
+
+.section-pulse {
+  animation: sectionPulse 2s ease-in-out infinite;
+}
+
+@keyframes sectionGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.section-glow {
+  animation: sectionGlow 3s ease-in-out infinite;
+}
+
+/* ============================================
+   BACKGROUND GRADIENTS BY SECTION
+   ============================================ */
+.section-bg-products {
+  background: radial-gradient(circle at 0% 0%, rgba(255,61,0,0.08) 0%, transparent 50%);
+}
+
+.section-bg-services {
+  background: radial-gradient(circle at 100% 0%, rgba(37,99,235,0.08) 0%, transparent 50%);
+}
+
+.section-bg-mlm {
+  background: radial-gradient(circle at 50% 0%, rgba(147,51,234,0.08) 0%, transparent 50%);
+}
+
+/* ============================================
+   NAVIGATION COLOR CODING
+   ============================================ */
+.nav-section-products { border-left: 3px solid var(--clr-product); }
+.nav-section-services { border-left: 3px solid var(--clr-service); }
+.nav-section-mlm { border-left: 3px solid var(--clr-mlm); }
+
+.nav-section-products:hover { background: var(--clr-product-dim); }
+.nav-section-services:hover { background: var(--clr-service-dim); }
+.nav-section-mlm:hover { background: var(--clr-mlm-dim); }
+
+/* ============================================
+   PRODUCT CARD SPECIFIC
+   ============================================ */
+.product-card {
+  --section-accent: var(--clr-product);
+  --section-accent-light: var(--clr-product-light);
+  --section-accent-dim: var(--clr-product-dim);
+  --section-border: rgba(255, 61, 0, 0.25);
+  --section-border-hover: rgba(255, 61, 0, 0.50);
+  --section-gradient: linear-gradient(135deg, #FF3D00 0%, #FF6B6B 100%);
+  --section-badge-bg: rgba(255, 61, 0, 0.15);
+  --section-badge-text: #FF6B6B;
+  --section-shadow: 0 4px 20px rgba(255, 61, 0, 0.20);
+  border: 1px solid var(--section-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: var(--clr-bg-card);
+}
+
+.product-card:hover {
+  border-color: var(--section-border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--section-shadow);
+}
+
+.product-card .price-tag { color: var(--clr-product); font-weight: 700; }
+.product-card .product-badge { background: var(--clr-product-dim); color: var(--clr-product-light); }
+
+/* ============================================
+   SERVICE CARD SPECIFIC
+   ============================================ */
+.service-card {
+  --section-accent: var(--clr-service);
+  --section-accent-light: var(--clr-service-light);
+  --section-accent-dim: var(--clr-service-dim);
+  --section-border: rgba(37, 99, 235, 0.25);
+  --section-border-hover: rgba(37, 99, 235, 0.50);
+  --section-gradient: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%);
+  --section-badge-bg: rgba(37, 99, 235, 0.15);
+  --section-badge-text: #60A5FA;
+  --section-shadow: 0 4px 20px rgba(37, 99, 235, 0.20);
+  border: 1px solid var(--section-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: var(--clr-bg-card);
+}
+
+.service-card:hover {
+  border-color: var(--section-border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--section-shadow);
+}
+
+.service-card .price-tag { color: var(--clr-service); font-weight: 700; }
+.service-card .service-badge { background: var(--clr-service-dim); color: var(--clr-service-light); }
+
+/* ============================================
+   MLM CARD SPECIFIC
+   ============================================ */
+.mlm-card {
+  --section-accent: var(--clr-mlm);
+  --section-accent-light: var(--clr-mlm-light);
+  --section-accent-dim: var(--clr-mlm-dim);
+  --section-border: rgba(147, 51, 234, 0.25);
+  --section-border-hover: rgba(147, 51, 234, 0.50);
+  --section-gradient: linear-gradient(135deg, #9333EA 0%, #C084FC 100%);
+  --section-badge-bg: rgba(147, 51, 234, 0.15);
+  --section-badge-text: #C084FC;
+  --section-shadow: 0 4px 20px rgba(147, 51, 234, 0.20);
+  border: 1px solid var(--section-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: var(--clr-bg-card);
+}
+
+.mlm-card:hover {
+  border-color: var(--section-border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--section-shadow);
+}
+
+.mlm-card .points-tag { color: var(--clr-mlm); font-weight: 700; }
+.mlm-card .mlm-badge { background: var(--clr-mlm-dim); color: var(--clr-mlm-light); }
+
+/* ============================================
+   SECTION TOGGLE / TAB
+   ============================================ */
+.section-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--clr-bg-elevated);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+}
+
+.section-tab {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+}
+
+.section-tab:hover {
+  color: var(--clr-text-primary);
+  background: var(--clr-bg-hover);
+}
+
+.section-tab.active {
+  background: var(--clr-bg-card);
+  color: var(--section-accent, var(--clr-orange));
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* [data-section="products"] .section-tab.active { color: var(--clr-product); } */
+/* [data-section="services"] .section-tab.active { color: var(--clr-service); } */
+/* [data-section="mlm"] .section-tab.active { color: var(--clr-mlm); } */
+
+/* ============================================
+   RESPONSIVE FIXES
+   ============================================ */
+@media (max-width: 768px) {
+  .section-card {
+    padding: 16px;
+  }
+  
+  .section-icon-lg {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .section-stat-value {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-card {
+    padding: 12px;
+  }
+  
+  .section-badge {
+    font-size: 9px;
+    padding: 2px 8px;
+  }
+  
+  .section-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}
+
+/* ============================================
+   SECTION STATUS INDICATOR
+   ============================================ */
+.section-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.section-status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--section-accent, var(--clr-orange));
+  box-shadow: 0 0 8px var(--section-accent-dim, rgba(255,107,0,0.4));
+}
+
+/* ============================================
+   SECTION LOADING SKELETON
+   ============================================ */
+.section-skeleton {
+  background: linear-gradient(90deg,
+    var(--clr-bg-elevated) 25%,
+    var(--clr-bg-hover) 50%,
+    var(--clr-bg-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--section-border, var(--clr-border));
+}

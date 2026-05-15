@@ -1,0 +1,543 @@
+/* ================================================================
+   CALENDAR — SaidonClub OS v9.5
+   Interactive appointment calendar with time slots
+   ================================================================ */
+
+.calendarContainer {
+  background: var(--clr-bg-glass);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  backdrop-filter: blur(12px);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--clr-bg-hover);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.navBtn:hover {
+  background: var(--clr-orange);
+  border-color: var(--clr-orange);
+  color: #000;
+  transform: scale(1.05);
+}
+
+.monthYear {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--clr-text-primary);
+  margin: 0;
+  min-width: 200px;
+  text-align: center;
+}
+
+.viewToggle {
+  display: flex;
+  background: var(--clr-bg-elevated);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  gap: 4px;
+}
+
+.viewBtn {
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  color: var(--clr-text-secondary);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.viewBtn:hover {
+  color: var(--clr-text-primary);
+}
+
+.viewBtn.active {
+  background: var(--clr-orange);
+  color: #000;
+}
+
+/* Day Headers */
+.dayHeaders {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.dayHeader {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.dayCell {
+  aspect-ratio: 1;
+  min-height: 60px;
+  background: var(--clr-bg-elevated);
+  border: 1px solid var(--clr-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.dayCell:hover:not(.disabled):not(.past) {
+  border-color: var(--clr-orange);
+  background: var(--clr-bg-hover);
+}
+
+.dayCell.today {
+  border-color: var(--clr-orange);
+  background: color-mix(in srgb, var(--clr-orange) 10%, transparent);
+}
+
+.dayCell.today .dayNumber {
+  background: var(--clr-orange);
+  color: #000;
+}
+
+.dayCell.selected {
+  border-color: var(--clr-orange);
+  background: color-mix(in srgb, var(--clr-orange) 15%, transparent);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--clr-orange) 20%, transparent);
+}
+
+.dayCell.disabled,
+.dayCell.past {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dayNumber {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--clr-text-primary);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+
+.emptyCell {
+  aspect-ratio: 1;
+  min-height: 60px;
+}
+
+/* Appointment Dots */
+.appointmentDots {
+  display: flex;
+  gap: 3px;
+  margin-top: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.statusPending {
+  background: #f59e0b;
+}
+
+.statusConfirmed {
+  background: var(--clr-success);
+}
+
+.statusCompleted {
+  background: var(--clr-blue);
+}
+
+.statusCancelled {
+  background: var(--clr-error);
+}
+
+.moreIndicator {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--clr-text-muted);
+}
+
+/* Selected Details */
+.selectedDetails {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--clr-bg-elevated);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+}
+
+.detailsHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: var(--clr-orange);
+}
+
+.detailsHeader h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--clr-text-primary);
+  margin: 0;
+}
+
+/* Time Slots */
+.timeSlots {
+  margin-bottom: 24px;
+}
+
+.timeSlots h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--clr-text-secondary);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.slotsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+}
+
+.slotBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 8px;
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  color: var(--clr-text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slotBtn:hover:not(:disabled) {
+  border-color: var(--clr-orange);
+  background: var(--clr-bg-hover);
+}
+
+.slotBtn.selectedSlot {
+  background: var(--clr-orange);
+  border-color: var(--clr-orange);
+  color: #000;
+}
+
+.slotBtn.booked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--clr-bg-elevated);
+}
+
+.bookedLabel {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--clr-error);
+  text-transform: uppercase;
+}
+
+/* Appointments List */
+.appointmentsList h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--clr-text-secondary);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.noAppointments {
+  color: var(--clr-text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+.appointmentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.appointmentCard {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.appointmentCard:hover {
+  border-color: var(--clr-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in srgb, black 10%, transparent);
+}
+
+.appointmentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.status {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.statusPending {
+  background: color-mix(in srgb, var(--clr-warn) 15%, transparent);
+  color: #f59e0b;
+}
+
+.statusConfirmed {
+  background: color-mix(in srgb, var(--clr-success) 15%, transparent);
+  color: var(--clr-success);
+}
+
+.statusCompleted {
+  background: color-mix(in srgb, var(--clr-info) 15%, transparent);
+  color: var(--clr-blue);
+}
+
+.statusCancelled {
+  background: color-mix(in srgb, var(--clr-error) 15%, transparent);
+  color: var(--clr-error);
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+}
+
+.aptTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--clr-text-primary);
+  margin: 0 0 4px 0;
+}
+
+.aptService {
+  font-size: 12px;
+  color: var(--clr-orange);
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.aptDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--clr-text-muted);
+}
+
+.aptDetails span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.aptNotes {
+  font-size: 11px;
+  color: var(--clr-text-secondary);
+  margin: 8px 0 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--clr-border-subtle);
+  font-style: italic;
+}
+
+/* Action Buttons */
+.aptActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--clr-border-subtle);
+}
+
+.aptActions button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.acceptBtn {
+  background: color-mix(in srgb, var(--clr-success) 15%, transparent);
+  color: var(--clr-success);
+  border: 1px solid color-mix(in srgb, var(--clr-success) 30%, transparent);
+}
+
+.acceptBtn:hover {
+  background: var(--clr-success);
+  color: white;
+}
+
+.rejectBtn {
+  background: color-mix(in srgb, var(--clr-error) 15%, transparent);
+  color: var(--clr-error);
+  border: 1px solid color-mix(in srgb, var(--clr-error) 30%, transparent);
+}
+
+.rejectBtn:hover {
+  background: var(--clr-error);
+  color: white;
+}
+
+.rescheduleBtn {
+  background: color-mix(in srgb, var(--clr-info) 15%, transparent);
+  color: var(--clr-blue);
+  border: 1px solid color-mix(in srgb, var(--clr-info) 30%, transparent);
+}
+
+.rescheduleBtn:hover {
+  background: var(--clr-blue);
+  color: white;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--clr-border-subtle);
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--clr-text-muted);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .calendarContainer {
+    padding: 16px;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navigation {
+    justify-content: center;
+  }
+  
+  .viewToggle {
+    justify-content: center;
+  }
+  
+  .dayCell {
+    min-height: 50px;
+    padding: 4px;
+  }
+  
+  .dayNumber {
+    font-size: 12px;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .slotsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .appointmentsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .monthYear {
+    font-size: 16px;
+    min-width: auto;
+  }
+  
+  .dayHeaders {
+    display: none;
+  }
+  
+  .grid {
+    gap: 2px;
+  }
+}

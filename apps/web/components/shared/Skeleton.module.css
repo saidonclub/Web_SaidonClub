@@ -1,0 +1,229 @@
+/* Fix VFE-004: Theme-aware skeleton using CSS variables - 2026-05-12 */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--clr-bg-elevated) 25%,
+    var(--clr-bg-hover) 50%,
+    var(--clr-bg-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Grid Layout */
+/* Fix VFE-003: Responsive grid columns - 2026-05-12 */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 24px 0;
+}
+
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1280px) {
+  .grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Product Card Skeleton */
+.productCard {
+  background: var(--clr-bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-element);
+}
+
+.productImage {
+  width: 100%;
+  border-radius: 0;
+}
+
+.productContent {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.productFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+/* Service Card Skeleton */
+.serviceCard {
+  background: var(--clr-bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-element);
+}
+
+.serviceImage {
+  width: 100%;
+  border-radius: 0;
+}
+
+.serviceContent {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.serviceFooter {
+  margin-top: 12px;
+}
+
+/* Product Detail Skeleton */
+.productDetail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px 0;
+}
+
+@media (max-width: 768px) {
+  .productDetail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.productDetailGallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 12px;
+}
+
+.productDetailInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.productDetailPrice {
+  margin: 16px 0;
+}
+
+.productDetailActions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* Form Skeleton */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Dashboard Skeleton */
+.dashboard {
+  padding: 24px;
+}
+
+/* Fix VFE-003: Responsive grid columns - 2026-05-12 */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 640px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .statsGrid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.statCard {
+  background: var(--clr-bg-card);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-element);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dashboardContent {
+  background: var(--clr-bg-card);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-element);
+}
+
+/* Hero Skeleton */
+.hero {
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* List Skeleton */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: var(--clr-bg-card);
+  border-radius: var(--radius-md);
+}
+
+.listItemContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Breadcrumb Skeleton */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0;
+}
+
+/* Page Skeleton */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

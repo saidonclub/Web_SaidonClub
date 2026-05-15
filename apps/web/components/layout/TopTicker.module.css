@@ -1,0 +1,87 @@
+.tickerContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: 20px;
+}
+
+.message {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.highlightGold {
+  color: #fbbf24;
+  font-weight: 800;
+  text-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+}
+
+.highlightGreen {
+  color: #10b981;
+  font-weight: 800;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+}
+
+.highlightOrange {
+  color: #f97316;
+  font-weight: 800;
+}
+
+.highlightBlue {
+  color: #3b82f6;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.highlightRed {
+  color: #ef4444;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+}
+
+.highlightPurple {
+  color: #a855f7;
+  font-weight: 800;
+}
+
+.highlightGradient {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+.highlightCyan {
+  color: #06b6d4;
+  font-weight: 800;
+  text-shadow: 0 0 5px rgba(6, 182, 212, 0.4);
+}
+
+.highlightNeon {
+  color: #10b981;
+  font-weight: 900;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
