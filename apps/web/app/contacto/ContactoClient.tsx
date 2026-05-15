@@ -8,8 +8,8 @@ const CONTACT_CHANNELS = [
   {
     icon: <Mail />,
     label: "Email General",
-    value: "admin@saidonclub.com",
-    href: "mailto:admin@saidonclub.com",
+    value: "saidonclub@gmail.com",
+    href: "mailto:saidonclub@gmail.com",
     description: "Para consultas generales y soporte prioritario.",
   },
   {
@@ -29,8 +29,8 @@ const CONTACT_CHANNELS = [
   {
     icon: <Phone />,
     label: "Línea Directa",
-    value: "+593 98 378 8477",
-    href: "https://wa.me/593983788477",
+    value: "+593 98 795 8337",
+    href: "https://wa.me/593987958337",
     description: "Atención personalizada de lunes a sábado.",
   },
 ];
@@ -208,14 +208,14 @@ export default function ContactoClient() {
       {/* Global Operations */}
       <section className={styles.mapSection}>
         <div className={styles.mapInfo}>
-          <h3><MapPin size={24} style={{display: 'inline', marginRight: '10px'}} color="var(--clr-orange)"/> Loja, Ecuador</h3>
+          <h3><MapPin size={24} style={{display: 'inline', marginRight: '10px'}} color="var(--clr-orange)"/> Quito, Ecuador</h3>
           <p>
-            Nuestra sede central se encuentra en el corazón tecnológico de Loja.
-            Orgullosamente operando para todo el país.
+            Hernán Cortés 563, entre Alarcón y Luis Robalino.
+            Quito - Ecuador.
           </p>
           <div className={styles.mapHours}>
             <Clock size={16} style={{display: 'inline', marginRight: '5px'}}/>
-            Lunes – Sábado: 08:00 – 20:00 ECT
+            Lunes – Sábado: 09:00 – 18:00 ECT
           </div>
         </div>
       </section>

@@ -47,7 +47,7 @@ export default function Chatbot() {
         ...newMessages,
         {
           role: "assistant",
-          content: "Hubo un error de conexión con mi sistema principal. Por favor, intenta de nuevo o comunícate al soporte de WhatsApp: +593983788477",
+          content: "Hubo un error de conexión con mi sistema principal. Por favor, intenta de nuevo o comunícate al soporte de WhatsApp: +593987958337",
         },
       ]);
     } finally {

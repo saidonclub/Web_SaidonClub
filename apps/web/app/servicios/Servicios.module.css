@@ -722,67 +722,106 @@
   box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
 }
 
-/* Fix VFE-007: Premium empty states - 2026-05-12 */
+/* Fix VFE-007: Premium empty states (Obsidian & Electric Blue) */
 .noResults {
   grid-column: 1 / -1;
   text-align: center;
-  padding: 80px 24px;
-  background: var(--clr-bg-elevated);
-  border-radius: var(--radius-xl);
-  border: 1px dashed var(--clr-border);
-  animation: fadeIn 0.4s ease;
+  padding: 100px 40px;
+  background: rgba(18, 18, 20, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 32px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(37, 99, 235, 0.05);
+  animation: noResultsRevealBlue 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.noResults::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--clr-service), transparent);
+  opacity: 0.5;
+}
+
+@keyframes noResultsRevealBlue {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .noResultsIcon {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 24px;
-  background: radial-gradient(circle, var(--clr-service-dim) 0%, transparent 70%);
-  border-radius: var(--radius-full);
+  width: 120px;
+  height: 120px;
+  margin-bottom: 24px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: float 3s ease-in-out infinite;
+  animation: floatNoResultsBlue 4s ease-in-out infinite;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+@keyframes floatNoResultsBlue {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(-5deg); }
 }
 
 .noResultsIcon svg {
   color: var(--clr-service);
-  filter: drop-shadow(0 0 15px var(--clr-service-glow));
+  filter: drop-shadow(0 0 20px var(--clr-service-glow));
 }
 
 .noResults h3 {
   font-family: var(--font-heading);
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  font-weight: 800;
-  margin-bottom: 12px;
-  color: var(--clr-text-primary);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 900;
+  margin: 0;
+  color: #fff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
 }
 
 .noResults p {
   color: var(--clr-text-muted);
-  max-width: 400px;
-  margin: 0 auto 24px;
+  max-width: 440px;
+  margin-bottom: 32px;
   line-height: 1.6;
+  font-size: 1.05rem;
 }
 
 .noResultsBtn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: var(--clr-bg-card);
-  color: var(--clr-text-primary);
-  padding: 12px 24px;
-  border-radius: var(--radius-md);
+  gap: 12px;
+  background: var(--clr-bg-elevated);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 16px;
   text-decoration: none;
-  font-weight: 600;
-  border: 1px solid var(--clr-border);
-  transition: all 0.2s ease;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .noResultsBtn:hover {
+  background: var(--clr-service);
   border-color: var(--clr-service);
-  color: var(--clr-service);
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 30px var(--clr-service-glow);
 }
 
 @media (max-width: 900px) {
@@ -792,46 +831,76 @@
   }
 
   .sidebar {
-    width: 100%;
+    width: 100% !important;
     position: relative;
     top: 0;
     max-height: none;
-    padding: 16px;
-    border-radius: var(--radius-lg);
-    background: var(--clr-bg-elevated);
-    border: 1px solid var(--clr-border);
+    padding: 0; /* Changed from 16px to 0 to avoid empty box when collapsed */
+    background: transparent;
+    border: none;
     overflow: visible;
   }
 
-  /* ── OPCIONES button: properly sized on tablet ── */
+  .sidebar.collapsed {
+    width: 100% !important;
+    padding: 0;
+    display: block;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* ── OPCIONES button: properly sized and themed on tablet ── */
   .mobileTabBtn {
     width: auto !important;
-    height: auto !important;
-    padding: 8px 16px !important;
-    font-size: 11px;
+    height: 48px !important;
+    min-width: 140px;
+    padding: 0 28px !important;
+    font-size: 13px;
     font-weight: 800;
-    letter-spacing: 0.5px;
-    color: var(--clr-text-primary);
-    background: var(--clr-bg-elevated);
-    border: 1px solid var(--clr-border);
-    border-radius: 8px;
+    letter-spacing: 1.2px;
+    color: #fff !important;
+    /* Use Blue for Services */
+    background: linear-gradient(135deg, var(--clr-service) 0%, #1e40af 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 14px;
     position: relative;
     top: 0;
     right: 0;
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px var(--clr-service-glow);
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+  }
+
+  .mobileTabBtn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px var(--clr-service-glow);
+    filter: brightness(1.1);
+  }
+
+  .sidebar.collapsed .mobileTabBtn {
+    margin-bottom: 12px;
   }
 
   .sidebarContent {
+    background: var(--clr-bg-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--clr-border);
+    border-radius: 20px;
+    padding: 24px;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     gap: 20px;
     overflow-x: auto;
-    padding-bottom: 8px;
     scrollbar-width: none;
-    -ms-overflow-style: none;
+    box-shadow: var(--shadow-xl);
   }
 
   .sidebarContent::-webkit-scrollbar {
