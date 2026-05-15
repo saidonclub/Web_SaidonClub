@@ -5,6 +5,11 @@
 ---
 
 > **INSTRUCCIÓN PARA EL AGENTE:** Este es el documento maestro definitivo. Reemplaza y supera todos los documentos anteriores. Contiene **TODOS** los módulos del sistema, conectados entre sí, sin huecos, sin ambigüedades, sin módulos huérfanos. Lee la totalidad antes de escribir una sola línea de código. El orden de implementación está en la PARTE 9. Nunca asumas nada que no esté escrito aquí. Nunca rompas los principios inquebrantables de la PARTE 0.
+> 
+> **POLÍTICA ESTRICTA DE UI/UX E IMÁGENES (NUEVA DIRECTIVA):**
+> 1. Las imágenes de fondos, banners y placeholders DEBEN representar explícitamente productos variados no perecibles (retail, ecommerce tipo Amazon). Se prohíben imágenes sin sentido, abstractas, de supermercado, o de salas de estar irrelevantes.
+> 2. La navegación debe ser limpia y no usar botones extra como "Ver todos los productos" al lado de una sección; la propia sección (título/icono) es el enlace. Productos y Servicios son módulos completamente independientes.
+> 3. El Dashboard no es una simple página de cuenta; es un **ERP Completo** que gestiona MLM, precios, facturación y niveles de jerarquía, actuando como el backend administrativo y financiero del sistema.
 
 ---
 

@@ -1,353 +1,130 @@
-# SaidonClub OS — Architecture Document
+# 🏛️ SaidonClub Architecture — Omega OS Blueprint
+> **The Engineering behind the Global MLM & Marketplace Revolution.**
 
-> **Versión:** 5.2.0
-> **Fecha:** 2026-05-07
-> **Estado:** Producción-Ready
-> **FASE 6-7:** Multimedia Pipeline + QA Cross-Device COMPLETOS
+## 📐 Design Philosophy
+SaidonClub OS is built on the principles of **Domain-Driven Design (DDD)**, **Monorepo Efficiency**, and **Forensic Observability**. Every architectural decision is made to ensure that the system can scale from 1,000 to 1,000,000 users without architectural regression.
 
 ---
 
-## 1. High-Level Architecture
+## 🗺️ Data & Logic Flow
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                         CLIENT (Browser)                            │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌───────────┐ │
-│  │   Next.js   │  │   React    │  │   Tailwind  │  │  Supabase  │ │
-│  │      15     │  │     19     │  │     CSS     │  │    Auth    │ │
-│  └──────┬──────┘  └─────────────┘  └─────────────┘  └───────────┘ │
-└─────────┼───────────────────────────────────────────────────────────┘
-          │
-          ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                        NEXT.JS SERVER                               │
-│  ┌──────────────────────────────────────────────────────────────┐  │
-│  │                      API Routes                               │  │
-│  │  /api/auth  /api/payments  /api/users  /api/products  ...   │  │
-│  └──────────────────────────────────────────────────────────────┘  │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐  │
-│  │   RBAC     │ │   MLM       │ │   Config    │ │   Media     │  │
-│  │   Package  │ │   Engine    │ │   Engine    │ │   Engine    │  │
-│  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘  │
-└─────────┼───────────────────────────────────────────────────────────┘
-          │
-          ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                        DATA LAYER                                   │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌───────────┐  │
-│  │  PostgreSQL │  │  Prisma    │  │ Supabase    │  │   Redis   │  │
-│  │  (Primary)  │  │   ORM      │  │  Storage    │  │ (Futuro)  │  │
-│  └─────────────┘  └─────────────┘  └─────────────┘  └───────────┘  │
-└─────────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    User((User Interface)) --> NextJS[Next.js 15 App Router]
+    NextJS --> Middleware{Auth & RBAC Middleware}
+    
+    Middleware -- Authorized --> ServerActions[Secure Server Actions]
+    Middleware -- Denied --> Login[Auth Portal]
+    
+    ServerActions --> Zod{Zod Validation}
+    Zod -- Valid --> BusinessLogic[Domain Logic Layer]
+    
+    subgraph Core Engines
+        BusinessLogic --> MLMEngine[MLM Commission Core]
+        BusinessLogic --> MediaEngine[Image/Video Pipeline]
+        BusinessLogic --> Analytics[BI & Tracking Engine]
+    end
+    
+    subgraph Data Layer
+        MLMEngine --> Redis[(Upstash Redis Cache)]
+        BusinessLogic --> Prisma[Prisma ORM]
+        Prisma --> PostgreSQL[(Supabase PostgreSQL)]
+    end
+    
+    subgraph Forensics
+        BusinessLogic --> OmegaLogger[Structured JSON Logger]
+        OmegaLogger --> AuditTrail[(Security Forensic Log)]
+    end
 ```
 
 ---
 
-## 2. Monorepo Structure
+## 🛡️ RBAC Hierarchy (12-Level)
 
-```
-saidonclub-os/
-├── apps/
-│   └── web/                          # Next.js 15 App
-│       ├── app/                      # App Router
-│       │   ├── admin/               # Panel admin
-│       │   ├── api/                 # API Routes
-│       │   ├── auth/                # Autenticación
-│       │   ├── dashboard/           # Dashboard usuario
-│       │   ├── marketplace/        # Páginas marketplace
-│       │   └── ...
-│       ├── components/              # Componentes React
-│       ├── lib/                      # Utilidades
-│       ├── hooks/                   # Custom hooks
-│       └── public/                  # Assets estáticos
-│
-├── packages/                         # Paquetes internos
-│   ├── config-engine/               # Gestor de configuración
-│   ├── database/                   # Modelos Prisma
-│   │   └── prisma/schema.prisma     # Schema completo
-│   ├── media-engine/                # Procesamiento media
-│   ├── mlm-engine/                  # Motor MLM
-│   │   ├── genealogy/              # Árbol genealógico
-│   │   ├── ranks/                   # Evaluación rangos
-│   │   ├── royalties/              # Regalías
-│   │   └── payments/               # Pagos comisiones
-│   ├── rbac/                        # Control acceso
-│   └── types/                       # Tipos TypeScript
-│
-├── docs/                            # Documentación
-├── supabase/                        # Edge Functions
-└── scripts/                         # Scripts automatización
+```mermaid
+graph BT
+    GUEST[0: GUEST] --> USER_BASIC[1: USER_BASIC]
+    USER_BASIC --> USER_VERIFIED[2: USER_VERIFIED]
+    USER_VERIFIED --> PROVIDER_BASIC[3: PROVIDER_BASIC]
+    PROVIDER_BASIC --> PROVIDER_VERIFIED[4: PROVIDER_VERIFIED]
+    PROVIDER_VERIFIED --> AGENT_FIELD[5: AGENT_FIELD]
+    AGENT_FIELD --> AGENT_REGIONAL[6: AGENT_REGIONAL]
+    AGENT_REGIONAL --> MODERATOR[7: MODERATOR]
+    MODERATOR --> AUDITOR_FINANCIAL[8: AUDITOR_FINANCIAL]
+    AUDITOR_FINANCIAL --> ADMIN_OPS[9: ADMIN_OPS]
+    ADMIN_OPS --> ADMIN_STRATEGIC[10: ADMIN_STRATEGIC]
+    ADMIN_STRATEGIC --> SYSTEM_GOD[11: SYSTEM_GOD]
+    SYSTEM_GOD --> SYSTEM_OWNER[12: SYSTEM_OWNER]
 ```
 
 ---
 
-## 3. Data Flow
+## ⛓️ MLM Commission Cascade (8-Level)
 
-### 3.1 Autenticación
-```
-User → Login Page → Supabase Auth → JWT → Next.js Session
-                              ↓
-                       User Role → RBAC Check → Route Access
-```
+```mermaid
+sequenceDiagram
+    participant S as Sale Transaction
+    participant E as MLM Engine
+    participant L1 as Level 1 Sponsor
+    participant L2 as Level 2 Sponsor
+    participant L8 as Level 8 Sponsor
+    participant F as Financial Audit
 
-### 3.2 Compra/Marketplace
-```
-User → Product Page → Cart → Checkout → Stripe/PayPal
-                                        ↓
-                              Payment Intent → Confirm
-                                        ↓
-                              Order Created → Email → Wallet Update
-```
-
-### 3.3 MLM Commission
-```
-Purchase → Order Complete → Trigger MLM Calc
-    ↓
-Calculate PV (Personal Volume)
-    ↓
-Find Upline → Distribute Commission (8 niveles)
-    ↓
-Update Wallet → Weekly Closure → Payout
+    S->>E: Trigger Commission Event
+    E->>E: Fetch Genealogy
+    E->>L1: Calculate & Allocate %
+    E->>L2: Calculate & Allocate %
+    Note over E, L8: ... Recursive Calculation ...
+    E->>L8: Calculate & Allocate %
+    E->>F: Log Transaction Forensic Hash
 ```
 
 ---
 
-## 4. Database Schema (Core Models)
+## 🧩 Monorepo Modules
 
-```
-User
-├── id, email, role, status
-├── created_at, updated_at
-└── profile: UserProfile
+### 1. Unified Web App (`apps/web`)
+The heartbeat of the system.
+- **Next.js 15:** Utilizing Server Components for heavy data fetching and Client Components for interactive dashboards.
+- **Server Actions:** Secure, type-safe endpoints for all mutations.
+- **Shared State:** Optimized React Contexts for UI, Auth, and Marketplace state.
 
-UserProfile
-├── user_id, first_name, last_name
-├── phone, avatar_url
-├── country_id, city_id
-└── kyc_status
+### 2. MLM Financial Engine (`packages/mlm-engine`)
+The core mathematical brain.
+- **Cascade Algorithm:** Calculates 8 levels of commissions in O(n) time.
+- **Genealogy Management:** High-performance tree traversal for network visualization.
+- **Rank Evaluation:** Event-driven rank upgrades triggered by volume milestones.
 
-ProviderProfile (extends User)
-├── user_id, type (PRODUCTS|SERVICES)
-├── verified, rating, total_sales
-└── specializations[]
+### 3. Security & RBAC (`packages/rbac`)
+Ironclad access control.
+- **12-Level Hierarchy:** From `GUEST` to `SYSTEM_OWNER`.
+- **Permission-Based:** Access is granted via specific permission keys, allowing for highly granular control.
 
-Product
-├── id, name, description, price
-├── internal_price (private)
-├── category_id, provider_id
-├── images[], status
-└── inventory
+### 4. Database Core (`packages/database`)
+The source of truth.
+- **Prisma Schema:** Centralized type definitions and migrations.
+- **Seed System:** Deterministic data seeding for staging and testing environments.
 
-Order
-├── id, user_id, total, status
-├── payment_method, stripe_id
-├── created_at
-└── items: OrderItem[]
-
-Wallet
-├── user_id, balance
-├── pending_commissions
-└── transactions[]
-
-Commission
-├── id, user_id, order_id
-├── amount, level, rank
-├── status (PENDING|PAID)
-└── calculated_at
-```
+### 5. Media Pipeline (`packages/media-engine`)
+- **Sharp Optimization:** Automatic WebP/AVIF conversion.
+- **Cloud Storage:** Secure integration with Supabase Storage buckets.
 
 ---
 
-## 5. API Architecture
-
-### 5.1 API Routes Map
-
-| Path | Método | Descripción |
-|------|--------|-------------|
-| `/api/auth/*` | POST | Login, Register, Logout, 2FA |
-| `/api/user/*` | GET/POST/PUT | Gestión usuarios |
-| `/api/products/*` | CRUD | Catálogo productos |
-| `/api/services/*` | CRUD | Catálogo servicios |
-| `/api/orders/*` | CRUD | Pedidos |
-| `/api/payments/*` | POST | Stripe webhooks, create-intent |
-| `/api/wallet/*` | GET/POST | Bills, transacciones |
-| `/api/commissions/*` | GET | Historial MLM |
-| `/api/appointments/*` | CRUD | Reservas servicios |
-| `/api/admin/*` | CRUD | Gestión admin |
-| `/api/admin/export` | GET | Export JSON/CSV con SHA-256 |
-| `/api/admin/import` | POST | Import con dry-run mode |
-| `/api/admin/multimedia` | GET/POST/DELETE | Gestión multimedia optimizada |
-
-### 5.2 Response Format
-```typescript
-interface ApiResponse<T> {
-  success: boolean;
-  data?: T;
-  error?: {
-    code: string;
-    message: string;
-  };
-}
-```
+## 🛡️ Forensic Security Protocol
+1.  **Strict Runtime Validation:** Zod ensures no malformed data reaches the database.
+2.  **Omega Structured Logging:** Every mutation is logged with its context, user ID, and timestamp in a searchable JSON format.
+3.  **RBAC Guards:** Every Server Action is wrapped in a `withRole` or `withPermission` higher-order function.
+4.  **Transaction Integrity:** All financial operations (Wallet, Commissions) use ACID transactions to prevent data inconsistency.
 
 ---
 
-## 6. Security Model
-
-### 6.1 Autenticación
-- **Proveedor:** Supabase Auth (JWT)
-- **2FA:** TOTP (Google Authenticator compatible)
-- **Sesión:** HTTP-only cookies
-
-### 6.2 Autorización (RBAC)
-```
-Roles Disponibles (12):
-- CLIENT: Lectura básica, compras
-- PREFERENTE: CLIENT + wallet, descuentos 10%
-- PIONERO: CLIENT + MLM completo, referir ilimitados
-- PROVIDER_PRODUCTS: Vender productos
-- PROVIDER_SERVICES: Vender servicios
-- ADMIN: Gestión completa plataforma
-- SUPER_ADMIN: Control total
-- AUDITOR: Solo lectura auditoria
-- SUPPORT: Soporte técnico
-- MODERATOR: Moderación de contenido y reseñas
-- ANALYST: Análisis de datos y reportes
-- DEVELOPER: Acceso técnico y debugging
-```
-
-### 6.3 Reglas de Oro
-1. **internalPrice** NUNCA sale del servidor
-2. Cálculo de precios SIEMPRE en backend
-3. Usar transacciones ACID para operaciones financieras
-4. Validar permisos en cada API route
-
-### 6.4 Permisos RBAC
-
-| Permission | Descripción |
-|-----------|-------------|
-| `VIEW_CATALOG` | Ver catálogo público |
-| `VIEW_PRODUCTS` | Ver productos |
-| `VIEW_SERVICES` | Ver servicios |
-| `BUY_PRODUCTS` | Comprar productos |
-| `BUY_SERVICES` | Comprar servicios |
-| `MANAGE_PRODUCTS` | Crear/editar productos |
-| `MANAGE_SERVICES` | Crear/editar servicios |
-| `MANAGE_CONTENT` | Gestión multimedia (imágenes, uploads) |
-| `MANAGE_USERS` | Gestionar usuarios |
-| `MANAGE_CONFIG` | Modificar configuración del sistema |
-| `VIEW_AUDIT_LOGS` | Ver logs de auditoría |
+## 🚀 Deployment Infrastructure
+- **Hosting:** Vercel (Next.js Edge Runtime).
+- **Backend-as-a-Service:** Supabase (Auth, DB, Storage).
+- **In-Memory Store:** Upstash Redis (Rate limiting & MLM Caching).
+- **DNS & CDN:** Cloudflare (WAF & DDoS Protection).
 
 ---
 
-## 7. Environment Configuration
-
-### Desarrollo
-```bash
-NODE_ENV=development
-NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-```
-
-### Producción
-```bash
-NODE_ENV=production
-NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
-NEXT_PUBLIC_APP_URL=https://saidonclub.com
-STRIPE_SECRET_KEY=sk_live_...
-```
-
----
-
-## 8. Deployment
-
-### Requisitos
-- Node.js >= 20.0.0
-- pnpm >= 9.0.0
-- PostgreSQL (Supabase recomendado)
-- Stripe Account (para pagos)
-
-### Build Pipeline
-```bash
-pnpm install
-pnpm db:generate
-pnpm build
-pnpm start
-```
-
----
-
-## 9. Tech Stack Summary
-
-| Capa | Tecnología |
-|------|------------|
-| Frontend | Next.js 15, React 19, TypeScript 5.4 |
-| Styling | Tailwind CSS, CSS Modules |
-| Backend | Next.js API Routes, Edge Functions |
-| ORM | Prisma |
-| Database | PostgreSQL (Supabase) |
-| Auth | Supabase Auth + TOTP 2FA |
-| Payments | Stripe, PayPal |
-| Storage | Supabase Storage |
-| Build | Turborepo, pnpm |
-| Media | Sharp, FFmpeg (media-engine + apps/web/lib/multimedia) |
-
----
-
-## 10. Multimedia Pipeline (FASE 6)
-
-### 10.1 Image Optimizer
-```
-apps/web/lib/multimedia/image-optimizer.ts
-- Sharp compression server-side
-- png({ palette: true }) para cuantización
-- WebP como formato moderno
-- Procesamiento asíncrono via cola
-```
-
-### 10.2 Storage Cleaner
-```
-apps/web/lib/multimedia/storage-cleaner.ts
-- Detecta archivos huérfanos en Supabase Storage
-- Campos DB: images[], avatar (no imageUrl/avatarUrl)
-- Reporta orphanCount en respuesta
-```
-
-### 10.3 Export Service
-```
-apps/web/lib/export-service.ts
-- Export JSON/CSV con SHA-256 checksum
-- Tipos: UserExport, ProductExport, ProviderExport
-- Map explícito: null → undefined
-```
-
-### 10.4 Import Service
-```
-apps/web/lib/import-service.ts
-- Import JSON con dry-run mode
-- Validación Zod schemas
-- Merge o replace de datos
-```
-
-### 10.5 Hook useOptimizedUpload
-```
-apps/web/hooks/useOptimizedUpload.ts
-- Marca archivos como optimizables
-- Procesamiento server-side compression
-- No dependencias Sharp en navegador
-```
-
----
-
-## 11. Future Improvements
-
-- [ ] Redis cache para configuración
-- [ ] WebSocket para real-time notifications
-- [ ] GraphQL API
-- [ ] Microservicios para MLM
-- [ ] CDN para media global
-
----
-
-_Documento generado: 2026-05-07_
-_SaidonClub OS v5.2.0 - Production Ready_
+*Architectural Blueprint v5.4.0 — Engineered by Antigravity AI.*

@@ -6,7 +6,7 @@
  * Uso: node scripts/fix-product-images.js
  */
 
-const { PrismaClient } = require('../packages/database/src/generated/client');
+const { PrismaClient } = require('../packages/database/src/generated/client_v2');
 const prisma = new PrismaClient();
 
 // ============================================================
@@ -214,9 +214,8 @@ async function main() {
 
   for (const product of products) {
     // Solo actualizar si la imagen es la placeholder por defecto o está vacía
-    const needsUpdate = !product.images ||
-      product.images.length === 0 ||
-      product.images[0]?.includes('photo-1523275335684-37898b6baf30'); // la imagen genérica del reloj
+    // FORZAR ACTUALIZACIÓN SIEMPRE para asegurar calidad profesional
+    const needsUpdate = true;
 
     if (needsUpdate) {
       const images = getImageForProduct(product.name, product.category?.name);
@@ -239,7 +238,7 @@ async function main() {
   let serviceUpdated = 0;
 
   for (const service of services) {
-    const needsUpdate = !service.images || service.images.length === 0;
+    const needsUpdate = true;
 
     if (needsUpdate) {
       const images = getImageForProduct(service.name, service.category?.name);

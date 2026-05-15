@@ -1,0 +1,147 @@
+{
+  "timestamp": "2026-05-12T23:15:58.423Z",
+  "url": "http://localhost:3000",
+  "viewports": [
+    "Desktop 1920",
+    "Laptop 1440",
+    "Tablet 1024",
+    "Tablet 768",
+    "Mobile 428",
+    "Mobile 375"
+  ],
+  "summary": {
+    "critical": 6,
+    "high": 12,
+    "medium": 0,
+    "low": 0,
+    "total": 18
+  },
+  "errors": [
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:?",
+      "description": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "details": "{\"url\":\"http://localhost:3000/\",\"lineNumber\":0,\"columnNumber\":0}"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:76",
+      "description": "./components/layout/Navbar.module.css:92:1\nSyntax error: C:\\Users\\Gatita\\OneDrive\\Desktop\\Web_SaidonClub\\apps\\web\\components\\layout\\Navbar.module.css Unexpected }\n\n  90 |   z-index: 20000;\n  91 |   ma",
+      "details": "{\"url\":\"webpack-internal:///(pages-dir-browser)/../../node_modules/.pnpm/next@15.5.15_@babel+core@7.29.0_@playwright+test@1.59.1_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js\",\"lineNumber\":76,\"columnNumber\":21}"
+    },
+    {
+      "severity": "critical",
+      "category": "Network Error",
+      "element": "http://localhost:3000/",
+      "description": "HTTP 500 — Internal Server Error",
+      "details": "http://localhost:3000/"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:?",
+      "description": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "details": "{\"url\":\"http://localhost:3000/\",\"lineNumber\":0,\"columnNumber\":0}"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:76",
+      "description": "./components/layout/Navbar.module.css:92:1\nSyntax error: C:\\Users\\Gatita\\OneDrive\\Desktop\\Web_SaidonClub\\apps\\web\\components\\layout\\Navbar.module.css Unexpected }\n\n  90 |   z-index: 20000;\n  91 |   ma",
+      "details": "{\"url\":\"webpack-internal:///(pages-dir-browser)/../../node_modules/.pnpm/next@15.5.15_@babel+core@7.29.0_@playwright+test@1.59.1_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js\",\"lineNumber\":76,\"columnNumber\":21}"
+    },
+    {
+      "severity": "critical",
+      "category": "Network Error",
+      "element": "http://localhost:3000/",
+      "description": "HTTP 500 — Internal Server Error",
+      "details": "http://localhost:3000/"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:?",
+      "description": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "details": "{\"url\":\"http://localhost:3000/\",\"lineNumber\":0,\"columnNumber\":0}"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:76",
+      "description": "./components/layout/Navbar.module.css:92:1\nSyntax error: C:\\Users\\Gatita\\OneDrive\\Desktop\\Web_SaidonClub\\apps\\web\\components\\layout\\Navbar.module.css Unexpected }\n\n  90 |   z-index: 20000;\n  91 |   ma",
+      "details": "{\"url\":\"webpack-internal:///(pages-dir-browser)/../../node_modules/.pnpm/next@15.5.15_@babel+core@7.29.0_@playwright+test@1.59.1_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js\",\"lineNumber\":76,\"columnNumber\":21}"
+    },
+    {
+      "severity": "critical",
+      "category": "Network Error",
+      "element": "http://localhost:3000/",
+      "description": "HTTP 500 — Internal Server Error",
+      "details": "http://localhost:3000/"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:?",
+      "description": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "details": "{\"url\":\"http://localhost:3000/\",\"lineNumber\":0,\"columnNumber\":0}"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:76",
+      "description": "./components/layout/Navbar.module.css:92:1\nSyntax error: C:\\Users\\Gatita\\OneDrive\\Desktop\\Web_SaidonClub\\apps\\web\\components\\layout\\Navbar.module.css Unexpected }\n\n  90 |   z-index: 20000;\n  91 |   ma",
+      "details": "{\"url\":\"webpack-internal:///(pages-dir-browser)/../../node_modules/.pnpm/next@15.5.15_@babel+core@7.29.0_@playwright+test@1.59.1_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js\",\"lineNumber\":76,\"columnNumber\":21}"
+    },
+    {
+      "severity": "critical",
+      "category": "Network Error",
+      "element": "http://localhost:3000/",
+      "description": "HTTP 500 — Internal Server Error",
+      "details": "http://localhost:3000/"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:?",
+      "description": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "details": "{\"url\":\"http://localhost:3000/\",\"lineNumber\":0,\"columnNumber\":0}"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:76",
+      "description": "./components/layout/Navbar.module.css:92:1\nSyntax error: C:\\Users\\Gatita\\OneDrive\\Desktop\\Web_SaidonClub\\apps\\web\\components\\layout\\Navbar.module.css Unexpected }\n\n  90 |   z-index: 20000;\n  91 |   ma",
+      "details": "{\"url\":\"webpack-internal:///(pages-dir-browser)/../../node_modules/.pnpm/next@15.5.15_@babel+core@7.29.0_@playwright+test@1.59.1_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js\",\"lineNumber\":76,\"columnNumber\":21}"
+    },
+    {
+      "severity": "critical",
+      "category": "Network Error",
+      "element": "http://localhost:3000/",
+      "description": "HTTP 500 — Internal Server Error",
+      "details": "http://localhost:3000/"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:?",
+      "description": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "details": "{\"url\":\"http://localhost:3000/\",\"lineNumber\":0,\"columnNumber\":0}"
+    },
+    {
+      "severity": "high",
+      "category": "Console Error",
+      "element": "JS:76",
+      "description": "./components/layout/Navbar.module.css:92:1\nSyntax error: C:\\Users\\Gatita\\OneDrive\\Desktop\\Web_SaidonClub\\apps\\web\\components\\layout\\Navbar.module.css Unexpected }\n\n  90 |   z-index: 20000;\n  91 |   ma",
+      "details": "{\"url\":\"webpack-internal:///(pages-dir-browser)/../../node_modules/.pnpm/next@15.5.15_@babel+core@7.29.0_@playwright+test@1.59.1_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js\",\"lineNumber\":76,\"columnNumber\":21}"
+    },
+    {
+      "severity": "critical",
+      "category": "Network Error",
+      "element": "http://localhost:3000/",
+      "description": "HTTP 500 — Internal Server Error",
+      "details": "http://localhost:3000/"
+    }
+  ]
+}

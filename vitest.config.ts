@@ -31,10 +31,8 @@ export default defineConfig({
       '@saidonclub/config-engine': path.resolve(__dirname, './packages/config-engine/src'),
       '@saidonclub/types': path.resolve(__dirname, './packages/types/src'),
     },
-    // `threads` usa worker_threads en lugar de child_process.
-    // Evita el crash de chai en Node 24 que afecta al pool `forks`
-    // (tinypool/dist/esm/entry/process.js fuerza modo ESM estricto).
-    pool: 'threads',
+    // `forks` usa child_process en lugar de worker_threads, compatible con Node 24
+    pool: 'forks',
     server: {
       deps: {
         // El cliente generado de Prisma contiene un binario nativo .node
@@ -47,6 +45,7 @@ export default defineConfig({
           /\.node$/,
         ],
         interopDefault: true,
+        inline: ['chai', /@vitest\/expect/],
       },
     },
   },

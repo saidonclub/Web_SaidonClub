@@ -1,0 +1,122 @@
+.container {
+  padding: 30px;
+  background: var(--clr-bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--clr-border-glass);
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.iconWrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--clr-orange-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--clr-orange);
+}
+
+.title {
+  color: var(--clr-text);
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.description {
+  color: var(--clr-text-dim);
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.email {
+  color: var(--clr-text);
+}
+
+.pinGrid {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.pinInput {
+  width: 45px;
+  height: 55px;
+  background: var(--clr-bg-hover);
+  border: 1px solid var(--clr-border-glass);
+  border-radius: var(--radius-sm);
+  color: var(--clr-text);
+  font-size: 24px;
+  textAlign: center;
+  outline: none;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.pinInput:focus {
+  border-color: var(--clr-orange);
+  box-shadow: 0 0 0 4px var(--clr-orange-dim);
+}
+
+.error {
+  color: #FF4D4D;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 14px;
+  background: var(--clr-orange);
+  color: var(--clr-text-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform var(--transition-base), background var(--transition-base);
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #FF3D00;
+  transform: translateY(-2px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.resendContainer {
+  margin-top: 24px;
+}
+
+.resendBtn {
+  background: none;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  transition: color var(--transition-base);
+}
+
+.resendBtnActive {
+  color: var(--clr-orange);
+  text-decoration: underline;
+}
+
+.resendBtnDisabled {
+  color: var(--clr-text-dim);
+  cursor: default;
+}

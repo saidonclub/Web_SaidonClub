@@ -5,11 +5,12 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "db:generate": "prisma generate",
+    "build": "tsc && xcopy /E /I /Y src\\generated\\client_v3 dist\\generated\\client_v3",
+    "db:generate": "prisma generate && xcopy /E /I /Y src\\generated\\client_v3 dist\\generated\\client_v3",
     "db:migrate": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
     "db:seed-maestro": "tsx prisma/seed_maestro.ts",
+    "db:seed-omega": "tsx prisma/seed_omega.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

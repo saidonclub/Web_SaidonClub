@@ -290,6 +290,42 @@ async function main() {
       videos: ["https://www.youtube.com/watch?v=680X_6GzV9I"],
       provider: "Outdoor Adventure Manta",
       city: "Manta"
+    },
+    {
+      category: "tecnologia-innovacion",
+      name: "MacBook Pro 14 M3 Max - Space Black",
+      description: "La laptop más potente para profesionales creativos. Chip M3 Max con CPU de 14 núcleos y GPU de 30 núcleos. 36GB de memoria unificada y 1TB SSD. Pantalla Liquid Retina XDR de 14.2 pulgadas con ProMotion. Rendimiento extremo y eficiencia inigualable.",
+      pricePVP: 3499,
+      options: [
+        { name: "Memoria", values: ["36GB", "64GB", "128GB"] },
+        { name: "Almacenamiento", values: ["1TB", "2TB", "4TB"] }
+      ],
+      images: [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1611186871348-b1ec696e523f?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?q=80&w=1000&auto=format&fit=crop"
+      ],
+      videos: ["https://www.youtube.com/watch?v=0pg_Y41waaE"],
+      provider: "Saidon Tech Solutions",
+      city: "Quito"
+    },
+    {
+      category: "moda-calzado",
+      name: "Chaqueta de Cuero Premium 'The Rebel'",
+      description: "Confeccionada con el cuero italiano más fino, esta chaqueta es una pieza de inversión para toda la vida. Forro de seda, cremalleras YKK de alta resistencia y un corte que se adapta perfectamente a tu silueta. Estilo atemporal para el aventurero urbano.",
+      pricePVP: 850,
+      options: [
+        { name: "Talla", values: ["S", "M", "L", "XL"] },
+        { name: "Cuero", values: ["Napa", "Gamuza", "Piel de Cordero"] }
+      ],
+      images: [
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1000&auto=format&fit=crop"
+      ],
+      videos: ["https://www.youtube.com/watch?v=680X_6GzV9I"],
+      provider: "Urban Style Imports",
+      city: "Guayaquil"
     }
   ];
 
@@ -329,17 +365,63 @@ async function main() {
   // 6. Servicios de Alto Valor (Simplificados)
   console.log("🛠️ Generando servicios premium...");
   const premiumServices = [
-    { name: "Asesoría Financiera & Patrimonial", slug: "asesoria-financiera", city: "Quito" },
-    { name: "Consultoría de Negocios Digitales", slug: "marketing-digital", city: "Guayaquil" },
-    { name: "Arquitectura & Diseño de Interiores", slug: "diseno-branding", city: "Cuenca" },
+    { 
+      name: "Asesoría Financiera & Patrimonial Elite", 
+      slug: "asesoria-financiera", 
+      city: "Quito",
+      description: "Planificación integral de activos, optimización fiscal internacional y gestión de legados para individuos de alto patrimonio. Sesiones privadas con los mejores consultores del país.",
+      pricePVP: 500,
+      priceSaidon: 420,
+      points: 100,
+      images: [
+        "https://images.unsplash.com/photo-1591696208162-a977affd1743?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1454165833767-02a698d5874c?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop"
+      ],
+      videos: ["https://www.youtube.com/watch?v=680X_6GzV9I"],
+      location: "Av. de los Shyris N34-40, Edificio Spectrum, Quito",
+      lat: -0.180653,
+      lon: -78.484180
+    },
+    { 
+      name: "Transformación Digital & IA para Negocios", 
+      slug: "marketing-digital", 
+      city: "Guayaquil",
+      description: "Implementación de ecosistemas de IA, automatización de procesos y estrategias de crecimiento digital basadas en datos. Lleva tu empresa al siguiente nivel tecnológico.",
+      pricePVP: 1200,
+      priceSaidon: 980,
+      points: 250,
+      images: [
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1000&auto=format&fit=crop"
+      ],
+      videos: ["https://www.youtube.com/watch?v=680X_6GzV9I"],
+      location: "Puerto Santa Ana, Edificio The Point, Piso 15, Guayaquil",
+      lat: -2.183333,
+      lon: -79.883333
+    },
+    { 
+      name: "Arquitectura Bioclimática & Diseño de Lujo", 
+      slug: "diseno-branding", 
+      city: "Cuenca",
+      description: "Diseño de espacios que fusionan la estética de vanguardia con la sostenibilidad ambiental. Proyectos residenciales y comerciales de alta gama en el corazón de Cuenca.",
+      pricePVP: 2500,
+      priceSaidon: 2100,
+      points: 500,
+      images: [
+        "https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
+      ],
+      videos: ["https://www.youtube.com/watch?v=680X_6GzV9I"],
+      location: "Calle Larga y Borrero, Centro Histórico, Cuenca",
+      lat: -2.900128,
+      lon: -79.005896
+    },
   ];
 
   for (const s of premiumServices) {
-    const pricePVP = 250;
-    const priceSaidon = 210;
-    const points = 50;
-
-    // Crear categoría de servicio si no existe (aunque ya limpiamos, por si acaso)
     const sCat = await prisma.category.upsert({
       where: { slug: s.slug },
       update: { name: s.name.split(' & ')[0] },
@@ -350,25 +432,20 @@ async function main() {
       data: {
         code: `SERV-PREM-${s.slug.toUpperCase()}`,
         name: s.name,
-        description: `Servicio exclusivo para socios SaidonClub. ${s.name} con expertos certificados de primer nivel en ${s.city}. Maximiza tu potencial y protege tu futuro con nuestra red de confianza.`,
+        description: s.description,
         slug: `service-${s.slug}`,
-        pricePVP: new Decimal(pricePVP),
-        priceSaidon: new Decimal(priceSaidon),
-        pointsEarned: new Decimal(points),
-        cost: new Decimal(priceSaidon * 0.6),
+        pricePVP: new Decimal(s.pricePVP),
+        priceSaidon: new Decimal(s.priceSaidon),
+        pointsEarned: new Decimal(s.points),
+        cost: new Decimal(s.priceSaidon * 0.6),
         categoryId: sCat.id,
         providerId: providerMap[providers.find(p => p.city === s.city)?.name || providers[0].name],
         cityId: cityMap[s.city],
         status: ServiceStatus.APPROVED,
         isActive: true,
-        location: `Presencial ${s.city} / Online Global`,
-        images: [
-          s.slug === "asesoria-financiera" 
-            ? "https://images.unsplash.com/photo-1591696208162-a977affd1743?q=80&w=1000&auto=format&fit=crop"
-            : s.slug === "marketing-digital"
-            ? "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop"
-            : "https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=1000&auto=format&fit=crop"
-        ],
+        location: s.location,
+        images: s.images,
+        videos: s.videos,
       },
     });
   }

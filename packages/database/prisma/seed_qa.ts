@@ -1,4 +1,4 @@
-import { PrismaClient, UserRole } from '../src/generated/client';
+import { PrismaClient, UserRole } from '../src/generated/client_v2';
 import { createClient } from '@supabase/supabase-js';
 import * as dotenv from 'dotenv';
 import path from 'path';
@@ -11,6 +11,9 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
+
+console.log('DEBUG: Supabase URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
+console.log('DEBUG: Service Role Key starts with:', process.env.SUPABASE_SERVICE_ROLE_KEY?.substring(0, 10));
 
 const ROLES: UserRole[] = ['ADMIN', 'PIONERO', 'PREFERENTE', 'PROVIDER', 'SUPPORT'];
 const PASSWORD = 'SaidonClub2026+';

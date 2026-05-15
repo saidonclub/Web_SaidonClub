@@ -1,7 +1,7 @@
-
 import { prisma } from '../../database/src/client';
 import { executeWeeklyClosure } from './closure';
 import { v4 as uuidv4 } from 'uuid';
+import type { UserRole, PointSource, UserStatus } from '@saidonclub/database';
 
 async function runStressTest() {
   console.log('--- STARTING MLM STRESS TEST ---');
@@ -40,8 +40,8 @@ async function runStressTest() {
       username: `user_${i}_${Date.now()}`,
       sponsorId: parentId,
       affiliateCode,
-      role: 'PIONERO',
-      status: 'ACTIVE',
+      role: 'PIONERO' as UserRole,
+      status: 'ACTIVE' as UserStatus,
     });
 
     if (parentPool.length < 500) { 
@@ -75,7 +75,7 @@ async function runStressTest() {
       id: uuidv4(),
       userId,
       amount: Math.random() * 100,
-      sourceType: 'MARKETPLACE',
+      sourceType: 'MARKETPLACE' as PointSource,
       cycleMonth: new Date().getMonth() + 1,
       cycleYear: new Date().getFullYear(),
       description: 'Stress test purchase',

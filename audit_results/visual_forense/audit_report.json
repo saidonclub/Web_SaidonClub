@@ -1,0 +1,1432 @@
+{
+  "timestamp": "2026-05-14T01:15:49.704Z",
+  "baseUrl": "http://localhost:3001",
+  "totalCases": 68,
+  "results": [
+    {
+      "viewport": "Desktop",
+      "route": "/",
+      "status": "TIMEOUT",
+      "loadTime": 15028,
+      "screenshot": "Desktop_Base_0__.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos",
+      "status": "TIMEOUT",
+      "loadTime": 15004,
+      "screenshot": "Desktop_Base_1__productos.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios",
+      "status": "ERROR",
+      "error": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/membresias",
+      "status": "ERROR",
+      "error": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/auth/login",
+      "status": "ERROR",
+      "error": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/auth/register",
+      "status": "TIMEOUT",
+      "loadTime": 15007,
+      "screenshot": "Desktop_Base_5__auth_register.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/dashboard",
+      "status": 200,
+      "loadTime": 1620,
+      "screenshot": "Desktop_Base_6__dashboard.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/contacto",
+      "status": 200,
+      "loadTime": 2935,
+      "screenshot": "Desktop_Base_7__contacto.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/nosotros",
+      "status": 200,
+      "loadTime": 6482,
+      "screenshot": "Desktop_Base_8__nosotros.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/carrito",
+      "status": 200,
+      "loadTime": 5821,
+      "screenshot": "Desktop_Base_9__carrito.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?page=1&sort=desc",
+      "status": 200,
+      "loadTime": 4930,
+      "screenshot": "Desktop_Marketplace_10_productos_p1_sdesc.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?page=2&sort=desc",
+      "status": 200,
+      "loadTime": 5347,
+      "screenshot": "Desktop_Marketplace_11_productos_p2_sdesc.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?page=1&sort=asc",
+      "status": 200,
+      "loadTime": 5561,
+      "screenshot": "Desktop_Marketplace_12_productos_p1_sasc.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?page=2&sort=asc",
+      "status": 200,
+      "loadTime": 6974,
+      "screenshot": "Desktop_Marketplace_13_productos_p2_sasc.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?page=1&sort=popular",
+      "status": "TIMEOUT",
+      "loadTime": 15010,
+      "screenshot": "Desktop_Marketplace_14_productos_p1_spopular.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?page=2&sort=popular",
+      "status": 200,
+      "loadTime": 7363,
+      "screenshot": "Desktop_Marketplace_15_productos_p2_spopular.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?page=1&sort=desc",
+      "status": 200,
+      "loadTime": 7669,
+      "screenshot": "Desktop_Marketplace_16_servicios_p1_sdesc.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?page=2&sort=desc",
+      "status": 200,
+      "loadTime": 5238,
+      "screenshot": "Desktop_Marketplace_17_servicios_p2_sdesc.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?page=1&sort=asc",
+      "status": 200,
+      "loadTime": 5373,
+      "screenshot": "Desktop_Marketplace_18_servicios_p1_sasc.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?page=2&sort=asc",
+      "status": 200,
+      "loadTime": 5155,
+      "screenshot": "Desktop_Marketplace_19_servicios_p2_sasc.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?page=1&sort=popular",
+      "status": 200,
+      "loadTime": 4975,
+      "screenshot": "Desktop_Marketplace_20_servicios_p1_spopular.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?page=2&sort=popular",
+      "status": 200,
+      "loadTime": 8614,
+      "screenshot": "Desktop_Marketplace_21_servicios_p2_spopular.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?category=tecnologia",
+      "status": 200,
+      "loadTime": 1881,
+      "screenshot": "Desktop_Filter_22_prod_tecnologia.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?category=tecnologia",
+      "status": "TIMEOUT",
+      "loadTime": 15016,
+      "screenshot": "Desktop_Filter_23_serv_tecnologia.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?category=ropa",
+      "status": 200,
+      "loadTime": 5626,
+      "screenshot": "Desktop_Filter_24_prod_ropa.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?category=ropa",
+      "status": 200,
+      "loadTime": 5446,
+      "screenshot": "Desktop_Filter_25_serv_ropa.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?category=servicios-digitales",
+      "status": 200,
+      "loadTime": 5193,
+      "screenshot": "Desktop_Filter_26_prod_servicios-digitales.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?category=servicios-digitales",
+      "status": 200,
+      "loadTime": 5828,
+      "screenshot": "Desktop_Filter_27_serv_servicios-digitales.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?category=hogar",
+      "status": 200,
+      "loadTime": 12862,
+      "screenshot": "Desktop_Filter_28_prod_hogar.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?category=hogar",
+      "status": 200,
+      "loadTime": 6844,
+      "screenshot": "Desktop_Filter_29_serv_hogar.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos?category=otros",
+      "status": 200,
+      "loadTime": 5143,
+      "screenshot": "Desktop_Filter_30_prod_otros.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/servicios?category=otros",
+      "status": 200,
+      "loadTime": 5264,
+      "screenshot": "Desktop_Filter_31_serv_otros.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-1",
+      "status": 200,
+      "loadTime": 2055,
+      "screenshot": "Desktop_Detail_32_prod_1.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-2",
+      "status": 200,
+      "loadTime": 1962,
+      "screenshot": "Desktop_Detail_33_prod_2.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-3",
+      "status": 200,
+      "loadTime": 1471,
+      "screenshot": "Desktop_Detail_34_prod_3.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-4",
+      "status": 200,
+      "loadTime": 1518,
+      "screenshot": "Desktop_Detail_35_prod_4.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-5",
+      "status": 200,
+      "loadTime": 1781,
+      "screenshot": "Desktop_Detail_36_prod_5.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-6",
+      "status": 200,
+      "loadTime": 1699,
+      "screenshot": "Desktop_Detail_37_prod_6.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-7",
+      "status": 200,
+      "loadTime": 1676,
+      "screenshot": "Desktop_Detail_38_prod_7.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-8",
+      "status": 200,
+      "loadTime": 3472,
+      "screenshot": "Desktop_Detail_39_prod_8.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-9",
+      "status": 200,
+      "loadTime": 1755,
+      "screenshot": "Desktop_Detail_40_prod_9.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-10",
+      "status": 200,
+      "loadTime": 1829,
+      "screenshot": "Desktop_Detail_41_prod_10.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-11",
+      "status": 200,
+      "loadTime": 1508,
+      "screenshot": "Desktop_Detail_42_prod_11.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-12",
+      "status": 200,
+      "loadTime": 1563,
+      "screenshot": "Desktop_Detail_43_prod_12.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-13",
+      "status": 200,
+      "loadTime": 1526,
+      "screenshot": "Desktop_Detail_44_prod_13.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-14",
+      "status": 200,
+      "loadTime": 5112,
+      "screenshot": "Desktop_Detail_45_prod_14.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-15",
+      "status": 200,
+      "loadTime": 2427,
+      "screenshot": "Desktop_Detail_46_prod_15.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-16",
+      "status": 200,
+      "loadTime": 2547,
+      "screenshot": "Desktop_Detail_47_prod_16.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-17",
+      "status": 200,
+      "loadTime": 2143,
+      "screenshot": "Desktop_Detail_48_prod_17.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-18",
+      "status": 200,
+      "loadTime": 2188,
+      "screenshot": "Desktop_Detail_49_prod_18.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-19",
+      "status": 200,
+      "loadTime": 1598,
+      "screenshot": "Desktop_Detail_50_prod_19.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/productos/prod-simulado-20",
+      "status": 200,
+      "loadTime": 1781,
+      "screenshot": "Desktop_Detail_51_prod_20.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/auth/login?error=invalid_credentials",
+      "status": 200,
+      "loadTime": 1886,
+      "screenshot": "Desktop_Auth_52_login_invalid_credentials.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/auth/register?error=invalid_credentials",
+      "status": 200,
+      "loadTime": 8579,
+      "screenshot": "Desktop_Auth_53_reg_invalid_credentials.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/auth/login?error=user_not_found",
+      "status": 200,
+      "loadTime": 1882,
+      "screenshot": "Desktop_Auth_54_login_user_not_found.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/auth/register?error=user_not_found",
+      "status": 200,
+      "loadTime": 1314,
+      "screenshot": "Desktop_Auth_55_reg_user_not_found.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/auth/login?error=expired_session",
+      "status": 200,
+      "loadTime": 1280,
+      "screenshot": "Desktop_Auth_56_login_expired_session.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/auth/register?error=expired_session",
+      "status": 200,
+      "loadTime": 1651,
+      "screenshot": "Desktop_Auth_57_reg_expired_session.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/?testState=banner0",
+      "status": 200,
+      "loadTime": 5672,
+      "screenshot": "Desktop_Misc_58_home_state_0.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/?testState=banner1",
+      "status": 200,
+      "loadTime": 2538,
+      "screenshot": "Desktop_Misc_59_home_state_1.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/?testState=banner2",
+      "status": 200,
+      "loadTime": 2086,
+      "screenshot": "Desktop_Misc_60_home_state_2.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/?testState=banner3",
+      "status": 200,
+      "loadTime": 4154,
+      "screenshot": "Desktop_Misc_61_home_state_3.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/?testState=banner4",
+      "status": 200,
+      "loadTime": 2810,
+      "screenshot": "Desktop_Misc_62_home_state_4.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/?testState=banner5",
+      "status": 200,
+      "loadTime": 5043,
+      "screenshot": "Desktop_Misc_63_home_state_5.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/?testState=banner6",
+      "status": 200,
+      "loadTime": 2700,
+      "screenshot": "Desktop_Misc_64_home_state_6.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/?testState=banner7",
+      "status": 200,
+      "loadTime": 3292,
+      "screenshot": "Desktop_Misc_65_home_state_7.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/?testState=banner8",
+      "status": 200,
+      "loadTime": 2601,
+      "screenshot": "Desktop_Misc_66_home_state_8.png"
+    },
+    {
+      "viewport": "Desktop",
+      "route": "/?testState=banner9",
+      "status": 200,
+      "loadTime": 1962,
+      "screenshot": "Desktop_Misc_67_home_state_9.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/",
+      "status": 200,
+      "loadTime": 1851,
+      "screenshot": "Tablet_Base_0__.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos",
+      "status": 200,
+      "loadTime": 5528,
+      "screenshot": "Tablet_Base_1__productos.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios",
+      "status": 200,
+      "loadTime": 5652,
+      "screenshot": "Tablet_Base_2__servicios.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/membresias",
+      "status": 200,
+      "loadTime": 4927,
+      "screenshot": "Tablet_Base_3__membresias.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/auth/login",
+      "status": 200,
+      "loadTime": 4398,
+      "screenshot": "Tablet_Base_4__auth_login.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/auth/register",
+      "status": 200,
+      "loadTime": 2463,
+      "screenshot": "Tablet_Base_5__auth_register.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/dashboard",
+      "status": 200,
+      "loadTime": 1260,
+      "screenshot": "Tablet_Base_6__dashboard.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/contacto",
+      "status": 200,
+      "loadTime": 7901,
+      "screenshot": "Tablet_Base_7__contacto.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/nosotros",
+      "status": 200,
+      "loadTime": 5873,
+      "screenshot": "Tablet_Base_8__nosotros.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/carrito",
+      "status": 200,
+      "loadTime": 5093,
+      "screenshot": "Tablet_Base_9__carrito.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?page=1&sort=desc",
+      "status": 200,
+      "loadTime": 7094,
+      "screenshot": "Tablet_Marketplace_10_productos_p1_sdesc.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?page=2&sort=desc",
+      "status": 200,
+      "loadTime": 5804,
+      "screenshot": "Tablet_Marketplace_11_productos_p2_sdesc.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?page=1&sort=asc",
+      "status": 200,
+      "loadTime": 3311,
+      "screenshot": "Tablet_Marketplace_12_productos_p1_sasc.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?page=2&sort=asc",
+      "status": 200,
+      "loadTime": 7237,
+      "screenshot": "Tablet_Marketplace_13_productos_p2_sasc.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?page=1&sort=popular",
+      "status": 200,
+      "loadTime": 4863,
+      "screenshot": "Tablet_Marketplace_14_productos_p1_spopular.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?page=2&sort=popular",
+      "status": 200,
+      "loadTime": 5761,
+      "screenshot": "Tablet_Marketplace_15_productos_p2_spopular.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?page=1&sort=desc",
+      "status": 200,
+      "loadTime": 9474,
+      "screenshot": "Tablet_Marketplace_16_servicios_p1_sdesc.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?page=2&sort=desc",
+      "status": 200,
+      "loadTime": 5032,
+      "screenshot": "Tablet_Marketplace_17_servicios_p2_sdesc.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?page=1&sort=asc",
+      "status": 200,
+      "loadTime": 5115,
+      "screenshot": "Tablet_Marketplace_18_servicios_p1_sasc.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?page=2&sort=asc",
+      "status": 200,
+      "loadTime": 4831,
+      "screenshot": "Tablet_Marketplace_19_servicios_p2_sasc.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?page=1&sort=popular",
+      "status": 200,
+      "loadTime": 5009,
+      "screenshot": "Tablet_Marketplace_20_servicios_p1_spopular.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?page=2&sort=popular",
+      "status": 200,
+      "loadTime": 5903,
+      "screenshot": "Tablet_Marketplace_21_servicios_p2_spopular.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?category=tecnologia",
+      "status": 200,
+      "loadTime": 3250,
+      "screenshot": "Tablet_Filter_22_prod_tecnologia.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?category=tecnologia",
+      "status": 200,
+      "loadTime": 7140,
+      "screenshot": "Tablet_Filter_23_serv_tecnologia.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?category=ropa",
+      "status": 200,
+      "loadTime": 6101,
+      "screenshot": "Tablet_Filter_24_prod_ropa.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?category=ropa",
+      "status": 200,
+      "loadTime": 7123,
+      "screenshot": "Tablet_Filter_25_serv_ropa.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?category=servicios-digitales",
+      "status": 200,
+      "loadTime": 5828,
+      "screenshot": "Tablet_Filter_26_prod_servicios-digitales.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?category=servicios-digitales",
+      "status": 200,
+      "loadTime": 6149,
+      "screenshot": "Tablet_Filter_27_serv_servicios-digitales.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?category=hogar",
+      "status": 200,
+      "loadTime": 5561,
+      "screenshot": "Tablet_Filter_28_prod_hogar.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?category=hogar",
+      "status": 200,
+      "loadTime": 5737,
+      "screenshot": "Tablet_Filter_29_serv_hogar.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos?category=otros",
+      "status": 200,
+      "loadTime": 6353,
+      "screenshot": "Tablet_Filter_30_prod_otros.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/servicios?category=otros",
+      "status": 200,
+      "loadTime": 4907,
+      "screenshot": "Tablet_Filter_31_serv_otros.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-1",
+      "status": 200,
+      "loadTime": 2767,
+      "screenshot": "Tablet_Detail_32_prod_1.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-2",
+      "status": 200,
+      "loadTime": 2223,
+      "screenshot": "Tablet_Detail_33_prod_2.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-3",
+      "status": 200,
+      "loadTime": 1773,
+      "screenshot": "Tablet_Detail_34_prod_3.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-4",
+      "status": 200,
+      "loadTime": 2471,
+      "screenshot": "Tablet_Detail_35_prod_4.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-5",
+      "status": 200,
+      "loadTime": 2055,
+      "screenshot": "Tablet_Detail_36_prod_5.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-6",
+      "status": 200,
+      "loadTime": 1988,
+      "screenshot": "Tablet_Detail_37_prod_6.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-7",
+      "status": 200,
+      "loadTime": 1981,
+      "screenshot": "Tablet_Detail_38_prod_7.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-8",
+      "status": 200,
+      "loadTime": 2173,
+      "screenshot": "Tablet_Detail_39_prod_8.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-9",
+      "status": 200,
+      "loadTime": 2614,
+      "screenshot": "Tablet_Detail_40_prod_9.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-10",
+      "status": 200,
+      "loadTime": 2690,
+      "screenshot": "Tablet_Detail_41_prod_10.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-11",
+      "status": 200,
+      "loadTime": 4235,
+      "screenshot": "Tablet_Detail_42_prod_11.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-12",
+      "status": 200,
+      "loadTime": 1673,
+      "screenshot": "Tablet_Detail_43_prod_12.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-13",
+      "status": 200,
+      "loadTime": 1623,
+      "screenshot": "Tablet_Detail_44_prod_13.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-14",
+      "status": 200,
+      "loadTime": 1545,
+      "screenshot": "Tablet_Detail_45_prod_14.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-15",
+      "status": 200,
+      "loadTime": 1642,
+      "screenshot": "Tablet_Detail_46_prod_15.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-16",
+      "status": 200,
+      "loadTime": 1920,
+      "screenshot": "Tablet_Detail_47_prod_16.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-17",
+      "status": 200,
+      "loadTime": 2007,
+      "screenshot": "Tablet_Detail_48_prod_17.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-18",
+      "status": 200,
+      "loadTime": 1872,
+      "screenshot": "Tablet_Detail_49_prod_18.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-19",
+      "status": 200,
+      "loadTime": 1885,
+      "screenshot": "Tablet_Detail_50_prod_19.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/productos/prod-simulado-20",
+      "status": 200,
+      "loadTime": 1492,
+      "screenshot": "Tablet_Detail_51_prod_20.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/auth/login?error=invalid_credentials",
+      "status": 200,
+      "loadTime": 1777,
+      "screenshot": "Tablet_Auth_52_login_invalid_credentials.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/auth/register?error=invalid_credentials",
+      "status": 200,
+      "loadTime": 4677,
+      "screenshot": "Tablet_Auth_53_reg_invalid_credentials.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/auth/login?error=user_not_found",
+      "status": 200,
+      "loadTime": 1308,
+      "screenshot": "Tablet_Auth_54_login_user_not_found.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/auth/register?error=user_not_found",
+      "status": 200,
+      "loadTime": 1384,
+      "screenshot": "Tablet_Auth_55_reg_user_not_found.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/auth/login?error=expired_session",
+      "status": 200,
+      "loadTime": 2003,
+      "screenshot": "Tablet_Auth_56_login_expired_session.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/auth/register?error=expired_session",
+      "status": 200,
+      "loadTime": 2172,
+      "screenshot": "Tablet_Auth_57_reg_expired_session.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/?testState=banner0",
+      "status": 200,
+      "loadTime": 6710,
+      "screenshot": "Tablet_Misc_58_home_state_0.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/?testState=banner1",
+      "status": 200,
+      "loadTime": 9006,
+      "screenshot": "Tablet_Misc_59_home_state_1.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/?testState=banner2",
+      "status": 200,
+      "loadTime": 2668,
+      "screenshot": "Tablet_Misc_60_home_state_2.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/?testState=banner3",
+      "status": 200,
+      "loadTime": 2731,
+      "screenshot": "Tablet_Misc_61_home_state_3.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/?testState=banner4",
+      "status": 200,
+      "loadTime": 2423,
+      "screenshot": "Tablet_Misc_62_home_state_4.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/?testState=banner5",
+      "status": 200,
+      "loadTime": 1904,
+      "screenshot": "Tablet_Misc_63_home_state_5.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/?testState=banner6",
+      "status": 200,
+      "loadTime": 2410,
+      "screenshot": "Tablet_Misc_64_home_state_6.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/?testState=banner7",
+      "status": 200,
+      "loadTime": 4106,
+      "screenshot": "Tablet_Misc_65_home_state_7.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/?testState=banner8",
+      "status": 200,
+      "loadTime": 2808,
+      "screenshot": "Tablet_Misc_66_home_state_8.png"
+    },
+    {
+      "viewport": "Tablet",
+      "route": "/?testState=banner9",
+      "status": 200,
+      "loadTime": 2412,
+      "screenshot": "Tablet_Misc_67_home_state_9.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/",
+      "status": 200,
+      "loadTime": 2847,
+      "screenshot": "Mobile_Base_0__.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos",
+      "status": 200,
+      "loadTime": 6217,
+      "screenshot": "Mobile_Base_1__productos.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios",
+      "status": 200,
+      "loadTime": 6236,
+      "screenshot": "Mobile_Base_2__servicios.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/membresias",
+      "status": 200,
+      "loadTime": 3502,
+      "screenshot": "Mobile_Base_3__membresias.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/auth/login",
+      "status": 200,
+      "loadTime": 1853,
+      "screenshot": "Mobile_Base_4__auth_login.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/auth/register",
+      "status": 200,
+      "loadTime": 1549,
+      "screenshot": "Mobile_Base_5__auth_register.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/dashboard",
+      "status": 200,
+      "loadTime": 1640,
+      "screenshot": "Mobile_Base_6__dashboard.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/contacto",
+      "status": 200,
+      "loadTime": 5100,
+      "screenshot": "Mobile_Base_7__contacto.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/nosotros",
+      "status": 200,
+      "loadTime": 5100,
+      "screenshot": "Mobile_Base_8__nosotros.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/carrito",
+      "status": 200,
+      "loadTime": 1546,
+      "screenshot": "Mobile_Base_9__carrito.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?page=1&sort=desc",
+      "status": 200,
+      "loadTime": 5220,
+      "screenshot": "Mobile_Marketplace_10_productos_p1_sdesc.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?page=2&sort=desc",
+      "status": 200,
+      "loadTime": 5075,
+      "screenshot": "Mobile_Marketplace_11_productos_p2_sdesc.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?page=1&sort=asc",
+      "status": 200,
+      "loadTime": 6891,
+      "screenshot": "Mobile_Marketplace_12_productos_p1_sasc.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?page=2&sort=asc",
+      "status": 200,
+      "loadTime": 5504,
+      "screenshot": "Mobile_Marketplace_13_productos_p2_sasc.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?page=1&sort=popular",
+      "status": 200,
+      "loadTime": 5657,
+      "screenshot": "Mobile_Marketplace_14_productos_p1_spopular.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?page=2&sort=popular",
+      "status": 200,
+      "loadTime": 6917,
+      "screenshot": "Mobile_Marketplace_15_productos_p2_spopular.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?page=1&sort=desc",
+      "status": 200,
+      "loadTime": 5373,
+      "screenshot": "Mobile_Marketplace_16_servicios_p1_sdesc.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?page=2&sort=desc",
+      "status": 200,
+      "loadTime": 4881,
+      "screenshot": "Mobile_Marketplace_17_servicios_p2_sdesc.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?page=1&sort=asc",
+      "status": 200,
+      "loadTime": 5048,
+      "screenshot": "Mobile_Marketplace_18_servicios_p1_sasc.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?page=2&sort=asc",
+      "status": 200,
+      "loadTime": 5024,
+      "screenshot": "Mobile_Marketplace_19_servicios_p2_sasc.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?page=1&sort=popular",
+      "status": 200,
+      "loadTime": 9152,
+      "screenshot": "Mobile_Marketplace_20_servicios_p1_spopular.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?page=2&sort=popular",
+      "status": 200,
+      "loadTime": 4671,
+      "screenshot": "Mobile_Marketplace_21_servicios_p2_spopular.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?category=tecnologia",
+      "status": 200,
+      "loadTime": 2165,
+      "screenshot": "Mobile_Filter_22_prod_tecnologia.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?category=tecnologia",
+      "status": 200,
+      "loadTime": 5013,
+      "screenshot": "Mobile_Filter_23_serv_tecnologia.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?category=ropa",
+      "status": 200,
+      "loadTime": 5016,
+      "screenshot": "Mobile_Filter_24_prod_ropa.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?category=ropa",
+      "status": 200,
+      "loadTime": 5241,
+      "screenshot": "Mobile_Filter_25_serv_ropa.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?category=servicios-digitales",
+      "status": 200,
+      "loadTime": 4790,
+      "screenshot": "Mobile_Filter_26_prod_servicios-digitales.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?category=servicios-digitales",
+      "status": 200,
+      "loadTime": 5551,
+      "screenshot": "Mobile_Filter_27_serv_servicios-digitales.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?category=hogar",
+      "status": 200,
+      "loadTime": 6629,
+      "screenshot": "Mobile_Filter_28_prod_hogar.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?category=hogar",
+      "status": 200,
+      "loadTime": 5020,
+      "screenshot": "Mobile_Filter_29_serv_hogar.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos?category=otros",
+      "status": 200,
+      "loadTime": 4601,
+      "screenshot": "Mobile_Filter_30_prod_otros.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/servicios?category=otros",
+      "status": 200,
+      "loadTime": 4811,
+      "screenshot": "Mobile_Filter_31_serv_otros.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-1",
+      "status": 200,
+      "loadTime": 1531,
+      "screenshot": "Mobile_Detail_32_prod_1.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-2",
+      "status": 200,
+      "loadTime": 1719,
+      "screenshot": "Mobile_Detail_33_prod_2.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-3",
+      "status": 200,
+      "loadTime": 2837,
+      "screenshot": "Mobile_Detail_34_prod_3.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-4",
+      "status": 200,
+      "loadTime": 2262,
+      "screenshot": "Mobile_Detail_35_prod_4.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-5",
+      "status": 200,
+      "loadTime": 2069,
+      "screenshot": "Mobile_Detail_36_prod_5.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-6",
+      "status": 200,
+      "loadTime": 2119,
+      "screenshot": "Mobile_Detail_37_prod_6.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-7",
+      "status": 200,
+      "loadTime": 6656,
+      "screenshot": "Mobile_Detail_38_prod_7.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-8",
+      "status": 200,
+      "loadTime": 2723,
+      "screenshot": "Mobile_Detail_39_prod_8.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-9",
+      "status": 200,
+      "loadTime": 2068,
+      "screenshot": "Mobile_Detail_40_prod_9.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-10",
+      "status": 200,
+      "loadTime": 1980,
+      "screenshot": "Mobile_Detail_41_prod_10.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-11",
+      "status": 200,
+      "loadTime": 2035,
+      "screenshot": "Mobile_Detail_42_prod_11.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-12",
+      "status": 200,
+      "loadTime": 2177,
+      "screenshot": "Mobile_Detail_43_prod_12.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-13",
+      "status": 200,
+      "loadTime": 2024,
+      "screenshot": "Mobile_Detail_44_prod_13.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-14",
+      "status": 200,
+      "loadTime": 1937,
+      "screenshot": "Mobile_Detail_45_prod_14.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-15",
+      "status": 200,
+      "loadTime": 2151,
+      "screenshot": "Mobile_Detail_46_prod_15.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-16",
+      "status": 200,
+      "loadTime": 3071,
+      "screenshot": "Mobile_Detail_47_prod_16.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-17",
+      "status": 200,
+      "loadTime": 2230,
+      "screenshot": "Mobile_Detail_48_prod_17.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-18",
+      "status": 200,
+      "loadTime": 1448,
+      "screenshot": "Mobile_Detail_49_prod_18.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-19",
+      "status": 200,
+      "loadTime": 4879,
+      "screenshot": "Mobile_Detail_50_prod_19.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/productos/prod-simulado-20",
+      "status": 200,
+      "loadTime": 1409,
+      "screenshot": "Mobile_Detail_51_prod_20.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/auth/login?error=invalid_credentials",
+      "status": 200,
+      "loadTime": 1271,
+      "screenshot": "Mobile_Auth_52_login_invalid_credentials.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/auth/register?error=invalid_credentials",
+      "status": 200,
+      "loadTime": 1291,
+      "screenshot": "Mobile_Auth_53_reg_invalid_credentials.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/auth/login?error=user_not_found",
+      "status": 200,
+      "loadTime": 1087,
+      "screenshot": "Mobile_Auth_54_login_user_not_found.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/auth/register?error=user_not_found",
+      "status": 200,
+      "loadTime": 1162,
+      "screenshot": "Mobile_Auth_55_reg_user_not_found.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/auth/login?error=expired_session",
+      "status": 200,
+      "loadTime": 4778,
+      "screenshot": "Mobile_Auth_56_login_expired_session.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/auth/register?error=expired_session",
+      "status": 200,
+      "loadTime": 2077,
+      "screenshot": "Mobile_Auth_57_reg_expired_session.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/?testState=banner0",
+      "status": 200,
+      "loadTime": 4829,
+      "screenshot": "Mobile_Misc_58_home_state_0.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/?testState=banner1",
+      "status": 200,
+      "loadTime": 4603,
+      "screenshot": "Mobile_Misc_59_home_state_1.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/?testState=banner2",
+      "status": 200,
+      "loadTime": 4866,
+      "screenshot": "Mobile_Misc_60_home_state_2.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/?testState=banner3",
+      "status": 200,
+      "loadTime": 4556,
+      "screenshot": "Mobile_Misc_61_home_state_3.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/?testState=banner4",
+      "status": 200,
+      "loadTime": 4330,
+      "screenshot": "Mobile_Misc_62_home_state_4.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/?testState=banner5",
+      "status": 200,
+      "loadTime": 4390,
+      "screenshot": "Mobile_Misc_63_home_state_5.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/?testState=banner6",
+      "status": 200,
+      "loadTime": 3753,
+      "screenshot": "Mobile_Misc_64_home_state_6.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/?testState=banner7",
+      "status": 200,
+      "loadTime": 2736,
+      "screenshot": "Mobile_Misc_65_home_state_7.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/?testState=banner8",
+      "status": 200,
+      "loadTime": 2459,
+      "screenshot": "Mobile_Misc_66_home_state_8.png"
+    },
+    {
+      "viewport": "Mobile",
+      "route": "/?testState=banner9",
+      "status": 200,
+      "loadTime": 1756,
+      "screenshot": "Mobile_Misc_67_home_state_9.png"
+    }
+  ]
+}

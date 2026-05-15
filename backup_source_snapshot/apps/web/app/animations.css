@@ -1,0 +1,124 @@
+/* ============================================================
+   MICRO-ANIMACIONES & GLASSMORPHISM — SaidonClub OS v5.2
+   Importar en los módulos CSS que lo necesiten.
+   ============================================================ */
+
+/* ─── Keyframes globales ──────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+  50%       { box-shadow: 0 0 0 8px rgba(249, 115, 22, 0.12); }
+}
+
+@keyframes shimmerLoad {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes bounceIn {
+  0%   { transform: scale(0.8); opacity: 0; }
+  60%  { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* ─── Clases de utilidad de animación ────────────────────── */
+.animate-fadeInUp    { animation: fadeInUp    0.4s ease both; }
+.animate-fadeInScale { animation: fadeInScale 0.35s ease both; }
+.animate-slideInLeft { animation: slideInLeft 0.4s ease both; }
+.animate-bounceIn    { animation: bounceIn    0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+/* Delays escalonados para listas */
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.10s; }
+.delay-3 { animation-delay: 0.15s; }
+.delay-4 { animation-delay: 0.20s; }
+.delay-5 { animation-delay: 0.25s; }
+
+/* ─── Glassmorphism helpers ───────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-orange {
+  background: rgba(249, 115, 22, 0.06);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+}
+
+.glass-dark {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ─── Hover micro-interacciones ──────────────────────────── */
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.4),
+              0 8px 32px rgba(249, 115, 22, 0.15);
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+/* ─── Skeleton loader ─────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(40, 40, 40, 0.8) 25%,
+    rgba(60, 60, 60, 0.8) 50%,
+    rgba(40, 40, 40, 0.8) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerLoad 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ─── Pulse para estados activos ─────────────────────────── */
+.pulse-orange {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ─── Transiciones suaves globales ───────────────────────── */
+.transition-all-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

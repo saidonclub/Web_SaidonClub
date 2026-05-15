@@ -4,5 +4,5 @@
 // ============================================================
 
 export { prisma } from './client';
-export * from './generated/client_v2';
+export * from './generated/client_v3';
 export { supabaseAdmin, supabaseAnon, createUserClient } from './supabase';

@@ -1,7 +1,6 @@
 import { beforeAll, afterAll, afterEach, vi } from 'vitest'
 
 if (typeof window !== 'undefined') {
-  // Mock de window.matchMedia
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
     value: vi.fn().mockImplementation(query => ({
@@ -18,15 +17,12 @@ if (typeof window !== 'undefined') {
 }
 
 if (typeof global !== 'undefined') {
-  // Mock de IntersectionObserver
   (global as any).IntersectionObserver = vi.fn().mockImplementation(() => ({
     observe: vi.fn(),
     unobserve: vi.fn(),
     disconnect: vi.fn(),
     takeRecords: vi.fn(),
   }));
-
-  // Mock de ResizeObserver
   (global as any).ResizeObserver = vi.fn().mockImplementation(() => ({
     observe: vi.fn(),
     unobserve: vi.fn(),
@@ -35,7 +31,6 @@ if (typeof global !== 'undefined') {
 }
 
 if (typeof window !== 'undefined') {
-  // Mock de localStorage
   const localStorageMock = {
     getItem: vi.fn(),
     setItem: vi.fn(),
@@ -43,8 +38,6 @@ if (typeof window !== 'undefined') {
     clear: vi.fn(),
   }
   Object.defineProperty(window, 'localStorage', { value: localStorageMock })
-
-  // Mock de sessionStorage
   const sessionStorageMock = {
     getItem: vi.fn(),
     setItem: vi.fn(),
@@ -54,12 +47,10 @@ if (typeof window !== 'undefined') {
   Object.defineProperty(window, 'sessionStorage', { value: sessionStorageMock })
 }
 
-// Mock de crypto.randomUUID
 Object.defineProperty(crypto, 'randomUUID', {
   value: () => 'test-uuid-' + Math.random().toString(36).substr(2, 9),
 })
 
-// Suppress console errors in tests
 const originalError = console.error
 beforeAll(() => {
   console.error = vi.fn((message) => {

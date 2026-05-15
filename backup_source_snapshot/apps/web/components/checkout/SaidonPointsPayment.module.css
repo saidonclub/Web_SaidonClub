@@ -1,0 +1,345 @@
+.container {
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.coinsIcon,
+.coinIcon {
+  color: #f59e0b;
+}
+
+.pointsInfo {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.pointsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.pointsRow:last-child {
+  border-bottom: none;
+}
+
+.pointsRow span {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.pointsRow strong {
+  color: #111827;
+  font-size: 1rem;
+}
+
+.pointsGreen {
+  color: #059669 !important;
+}
+
+.pointsRed {
+  color: #dc2626 !important;
+}
+
+.missingPoints {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px;
+  background: #fef3c7;
+  border-radius: 8px;
+  color: #92400e;
+  font-size: 0.875rem;
+}
+
+.rateInfo {
+  background: #ecfdf5;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.rateInfo p {
+  color: #065f46;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.rateInfo strong {
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 0.75rem !important;
+  color: #047857 !important;
+  margin-top: 8px !important;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.earnPoints {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.earnPoints h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.earnPoints ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.earnPoints li {
+  font-size: 0.875rem;
+  color: #6b7280;
+  padding: 6px 0;
+}
+
+.balanceCard {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.balanceLabel {
+  font-size: 0.875rem;
+  color: #92400e;
+  margin-bottom: 4px;
+}
+
+.balanceAmount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.pointsIcon {
+  font-size: 1rem;
+  margin-left: 4px;
+}
+
+.conversionInfo {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.conversionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.conversionRow:last-child {
+  border-bottom: none;
+}
+
+.conversionLabel {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.conversionValue {
+  font-weight: 600;
+  color: #111827;
+}
+
+.totalValue {
+  font-size: 1.125rem;
+  color: #059669;
+}
+
+.warningBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.warningIcon {
+  color: #d97706;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.warningText {
+  font-size: 0.875rem;
+  color: #92400e;
+  line-height: 1.5;
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+
+.payButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: #f59e0b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.payButton:hover:not(:disabled) {
+  background: #d97706;
+}
+
+.payButton:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.disclaimer {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  gap: 16px;
+}
+
+.loadingContainer p {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  color: #f59e0b;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  text-align: center;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #d1fae5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #059669;
+  margin-bottom: 20px;
+}
+
+.successState h3 {
+  font-size: 1.5rem;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.successState p {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.insufficientPoints {
+  padding: 20px;
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.insufficientPoints p {
+  color: #92400e;
+  font-size: 0.875rem;
+  margin-bottom: 12px;
+}
+
+.topUpLink {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #f59e0b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.topUpLink:hover {
+  background: #d97706;
+}

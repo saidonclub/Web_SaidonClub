@@ -9,18 +9,17 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-async function testSupabase() {
-  console.log('Testing Supabase Auth Admin...');
+async function test() {
+  console.log('Testing Supabase connection...');
   console.log('URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
-  console.log('Key length:', process.env.SUPABASE_SERVICE_ROLE_KEY?.length);
   
   const { data, error } = await supabase.auth.admin.listUsers();
   
   if (error) {
-    console.error('❌ Error:', error.message);
+    console.error('Error:', error.message);
   } else {
-    console.log('✅ Success! Found', data.users.length, 'users.');
+    console.log('Success! Found', data.users.length, 'users.');
   }
 }
 
-testSupabase();
+test();

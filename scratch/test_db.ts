@@ -1,16 +1,14 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from './packages/database/src/generated/client_v2';
 
 const prisma = new PrismaClient();
 
 async function main() {
   try {
-    const countries = await prisma.country.findMany();
-    console.log('Countries count:', countries.length);
-    if (countries.length > 0) {
-      console.log('First country:', countries[0].name);
-    }
+    const products = await prisma.product.findMany({ take: 5 });
+    console.log('Products found:', products.length);
+    console.log(JSON.stringify(products, null, 2));
   } catch (error) {
-    console.error('Database connection failed:', error);
+    console.error('Error connecting to DB:', error);
   } finally {
     await prisma.$disconnect();
   }

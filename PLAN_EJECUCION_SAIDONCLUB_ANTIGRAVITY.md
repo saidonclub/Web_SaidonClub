@@ -360,6 +360,13 @@ RESTRICCIONES ADICIONALES PARA ESTE PROYECTO ESPECÍFICO:
   pruebas de regresión completas.
 - Cualquier cambio en la UI debe mantener el sistema de diseño "Obsidian & 
   Orange" ya implementado.
+- POLÍTICA DE IMÁGENES: Las imágenes de banners o fondos deben coincidir 
+  ESTRICTAMENTE con la naturaleza de un marketplace de bienes no perecibles 
+  (tecnología, gadgets, accesorios, retail tipo Amazon/AliExpress). Queda 
+  PROHIBIDO usar imágenes abstractas o que parezcan de otros rubros.
+- UX NAV/DASHBOARD: La navegación principal no usa botones redundantes de 
+  "Ver Todos"; el título de la categoría es el botón principal. El Dashboard 
+  debe tratarse como un ERP (Enterprise Resource Planning) para MLM y finanzas.
 
 ARQUITECTURA DEL MONOREPO:
 apps/web/              → Frontend Next.js (aquí va la mayoría del trabajo)

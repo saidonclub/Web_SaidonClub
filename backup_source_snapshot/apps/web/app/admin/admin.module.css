@@ -1,0 +1,225 @@
+/* ============================================================
+   admin.module.css
+   Estilos para el dashboard de administración
+   ============================================================ */
+
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--clr-text-secondary, #9ca3af);
+  font-size: 0.875rem;
+}
+
+.headerStats {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.headerStat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--clr-text-secondary, #9ca3af);
+}
+
+.headerStat svg {
+  color: var(--clr-orange, #ff6b00);
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Main Grid */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.card {
+  background-color: var(--clr-bg-elevated, #1a1a2e);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+}
+
+.cardTitle svg {
+  color: var(--clr-orange, #ff6b00);
+}
+
+.cardLink {
+  font-size: 0.75rem;
+  color: var(--clr-orange, #ff6b00);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.cardLink:hover {
+  opacity: 0.8;
+}
+
+/* Table */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table th {
+  text-align: left;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  color: var(--clr-text-secondary, #9ca3af);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.table td {
+  padding: 0.875rem 1.25rem;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.empty {
+  text-align: center;
+  color: var(--clr-text-secondary, #9ca3af);
+  padding: 2rem !important;
+}
+
+.amount {
+  font-weight: 600;
+  color: var(--clr-success, #10b981) !important;
+}
+
+.role {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--clr-text-secondary, #9ca3af);
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .tableWrapper {
+    overflow: visible;
+  }
+
+  .table, 
+  .table thead, 
+  .table tbody, 
+  .table tr, 
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table thead {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .table tr {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  .table td {
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    padding: 0.75rem 1rem 0.75rem 45% !important;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 3rem;
+  }
+
+  .table td:last-child {
+    border-bottom: none;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    width: 40%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: 600;
+    color: var(--clr-text-secondary, #9ca3af);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+}
+

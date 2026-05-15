@@ -1,0 +1,274 @@
+/* ============================================================
+   MotivationSection — Premium Dark Glassmorphism Cards
+   ============================================================ */
+
+.section {
+  padding: 100px 0;
+  background: #0D0D12 !important;
+  color: #F5F5F7 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(255, 107, 0, 0.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 80%, rgba(147, 51, 234, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 107, 0, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--clr-orange);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  color: #F5F5F7 !important;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Card ── */
+.card {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  background: rgba(17, 17, 19, 0.7);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover {
+  transform: translateY(-16px);
+  border-color: rgba(255, 107, 0, 0.4);
+  box-shadow:
+    0 50px 100px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(255, 107, 0, 0.12);
+}
+
+/* Card accent top border */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--clr-orange), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 3;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ── Image Wrapper ── */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: saturate(0.9) brightness(0.8);
+}
+
+.card:hover .image {
+  transform: scale(1.08);
+  filter: saturate(1.1) brightness(0.9);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 30%,
+    rgba(10, 10, 11, 0.6) 70%,
+    rgba(10, 10, 11, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+/* ── Content ── */
+.content {
+  position: relative;
+  padding: 28px 28px 32px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.iconWrapper {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 107, 0, 0.1);
+  border: 1px solid rgba(255, 107, 0, 0.25);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-orange);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.12) rotate(8deg);
+  background: var(--clr-orange);
+  color: #000;
+  box-shadow: 0 15px 35px rgba(255, 107, 0, 0.4);
+}
+
+.content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #F5F5F7 !important;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.content p {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ── Quote ── */
+.quote {
+  position: relative;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid var(--clr-orange);
+  border-radius: 0 12px 12px 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.4s ease;
+}
+
+.card:hover .quote {
+  background: rgba(255, 107, 0, 0.06);
+  transform: translateX(4px);
+}
+
+.quote span {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--clr-orange);
+  margin-top: 8px;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ── Action Link ── */
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #F5F5F7 !important;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  width: fit-content;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.actionLink:hover {
+  background: var(--clr-orange);
+  border-color: var(--clr-orange);
+  color: #000;
+  transform: translateX(8px);
+  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.35);
+}
+
+/* ── Light Mode override desactivado — sección siempre dark ── */
+/* Esta sección es siempre oscura independiente del tema del sistema */
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; gap: 20px; }
+  .section { padding: 70px 0; }
+  .imageWrapper { height: 200px; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 50px 0; }
+  .inner { padding: 0 16px; }
+  .header { margin-bottom: 40px; }
+  .content { padding: 20px 20px 24px; }
+}
