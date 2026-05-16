@@ -66,6 +66,17 @@ export async function calculateSeedBonus(
     config.get<number>('mlm_seed_pionero_n2_8', 1)
   ]);
 
+  // Pre-cargar billeteras para evitar N+1
+  const userIds = tree.map(node => node.userId);
+  const existingWallets = await tx.wallet.findMany({
+    where: { userId: { in: userIds } }
+  });
+  const walletMap = new Map(existingWallets.map(w => [w.userId, w]));
+
+  const now = new Date();
+  const currentMonth = now.getMonth() + 1;
+  const currentYear = now.getFullYear();
+
   for (const node of tree) {
     let amount = 0;
 
@@ -114,8 +125,7 @@ export async function calculateSeedBonus(
       });
       
       // Also add to the main commission table (to be paid out later)
-      const now = new Date();
-      await tx.commission.create({
+      const comm = await tx.commission.create({
         data: {
           userId: node.userId,
           // orderId is null/optional for seed bonus
@@ -123,9 +133,51 @@ export async function calculateSeedBonus(
           level: node.level,
           amount: amountFixed,
           pointsValue: 0,
-          cycleMonth: now.getMonth() + 1,
-          cycleYear: now.getFullYear(),
+          cycleMonth: currentMonth,
+          cycleYear: currentYear,
           status: 'PENDING',
+        }
+      });
+
+      // --- INTEGRACIÓN DE BILLETERA ---
+      
+      // 1. GET OR CREATE WALLET
+      let wallet = walletMap.get(node.userId);
+      if (!wallet) {
+        wallet = await tx.wallet.create({
+          data: {
+            userId: node.userId,
+            balancePending: 0,
+            balanceAvailable: 0,
+            balanceValidated: 0,
+          }
+        });
+        walletMap.set(node.userId, wallet);
+      }
+
+      // 2. UPDATE WALLET BALANCE (PENDING)
+      await tx.wallet.update({
+        where: { id: wallet.id },
+        data: {
+          balancePending: { increment: amountFixed },
+          totalEarned: { increment: amountFixed }
+        }
+      });
+
+      // 3. CREATE WALLET TRANSACTION
+      await tx.walletTransaction.create({
+        data: {
+          walletId: wallet.id,
+          type: 'COMMISSION',
+          amount: amountFixed,
+          status: 'PENDING',
+          description: `Bono Semilla - Nivel ${node.level} - Compra: ${membershipType}${isUpgrade ? ' (UPGRADE)' : ''}`,
+          metadata: {
+            commissionId: comm.id,
+            purchaserId,
+            level: node.level,
+            source: 'SEED_BONUS'
+          }
         }
       });
     }

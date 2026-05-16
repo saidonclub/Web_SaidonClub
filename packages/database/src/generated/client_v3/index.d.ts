@@ -548,6 +548,7 @@ export type FidelityStatus = (typeof FidelityStatus)[keyof typeof FidelityStatus
 
 export const ClosureStatus: {
   DETECTING: 'DETECTING',
+  PROCESSING: 'PROCESSING',
   VALIDATING: 'VALIDATING',
   PENDING: 'PENDING',
   PROCESSED: 'PROCESSED',

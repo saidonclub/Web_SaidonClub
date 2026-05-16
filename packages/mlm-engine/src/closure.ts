@@ -14,6 +14,16 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
     return;
   }
 
+  // Check for in-progress closures to avoid race conditions in multi-node environments
+  const inProgress = await prisma.weeklyClosure.findFirst({
+    where: { status: { in: ['DETECTING', 'VALIDATING'] } }
+  });
+
+  if (inProgress) {
+    console.log(`[CLOSURE] Ya hay un cierre en curso (${inProgress.id}). Abortando.`);
+    return;
+  }
+
   const closure = await prisma.weeklyClosure.create({
     data: {
       closureDate,
@@ -26,6 +36,8 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
   });
 
   console.log(`[CLOSURE] Iniciando cierre ${closure.id} (Modo Enterprise)`);
+  
+  let totalCommissionsAcc = 0;
 
   try {
     const now = new Date();
@@ -88,25 +100,51 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
         bonus: await config.get<number>(r.bonusKey, 0),
       }))
     );
-
-    const batchSize = 100;
+    const batchSize = 100; // Aumentado para mayor eficiencia dado que ahora es O(1) batching
     const pioneers = await prisma.user.findMany({
       where: { role: 'PIONERO' },
       select: { id: true },
     });
 
+    const ranksEnabled = await config.get<boolean>('mlm_ranks_enabled', true);
+    const rule35Enabled = await config.get<boolean>('mlm_rank_35_rule_enabled', true);
+
+    // Update status to PROCESSING and set detectionEnded
+    await prisma.weeklyClosure.update({
+      where: { id: closure.id },
+      data: { 
+        status: 'PROCESSING',
+        detectionEnded: new Date()
+      }
+    });
+
     for (let i = 0; i < pioneers.length; i += batchSize) {
       const batch = pioneers.slice(i, i + batchSize);
+      console.log(`[CLOSURE] Procesando lote ${i / batchSize + 1} (${batch.length} usuarios)...`);
+
       const batchUserIds = batch.map((u) => u.id);
 
-      // 1. Pre-fetch all volumes for this batch in one query
-      const allCachedVolumes = await prisma.volumeCache.findMany({
-        where: {
-          userId: { in: batchUserIds },
-          cycleMonth: currentMonth,
-          cycleYear: currentYear,
-        },
-      });
+      // 1. Pre-fetch ALL required data for this batch in parallel
+      const [allCachedVolumes, existingCommissions, existingWallets] = await Promise.all([
+        prisma.volumeCache.findMany({
+          where: {
+            userId: { in: batchUserIds },
+            cycleMonth: currentMonth,
+            cycleYear: currentYear,
+          },
+        }),
+        prisma.commission.findMany({
+          where: {
+            userId: { in: batchUserIds },
+            type: 'RANK_BONUS',
+            cycleMonth: currentMonth,
+            cycleYear: currentYear,
+          }
+        }),
+        prisma.wallet.findMany({
+          where: { userId: { in: batchUserIds } }
+        })
+      ]);
 
       const volumeMap: Record<string, number[]> = {};
       allCachedVolumes.forEach((v) => {
@@ -114,26 +152,57 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
         volumeMap[v.userId].push(Number(v.volume));
       });
 
-      // 2. Evaluate all ranks OUTSIDE the transaction
-      const evaluationResults: any[] = [];
-      for (const user of batch) {
-        const rankResult = await evaluateRank(
-          user.id,
-          currentMonth,
-          currentYear,
-          rankRequirements,
-          volumeMap
-        );
-        if (rankResult) {
-          evaluationResults.push(rankResult);
+      const commissionMap = new Map(existingCommissions.map(c => [c.userId, c]));
+      const walletMap = new Map(existingWallets.map(w => [w.userId, w]));
+
+      // Pre-fetch transactions for these wallets that match the criteria
+      const walletIds = existingWallets.map(w => w.id);
+      const existingTransactions = await prisma.walletTransaction.findMany({
+        where: {
+          walletId: { in: walletIds },
+          type: 'RANK_BONUS',
+          metadata: {
+            path: ['source'],
+            equals: 'RANK_BONUS'
+          }
         }
-      }
+      });
+      
+      // Map transactions by their commissionId (stored in metadata)
+      const transactionMap = new Map();
+      existingTransactions.forEach(tx => {
+        const metadata = tx.metadata as any;
+        if (metadata && metadata.commissionId) {
+          transactionMap.set(metadata.commissionId, tx);
+        }
+      });
+
+      // 2. Evaluate all ranks OUTSIDE the transaction in parallel (CPU intensive but non-blocking)
+      const evaluationResults = (await Promise.all(
+        batch.map((user) =>
+          evaluateRank(
+            user.id,
+            currentMonth,
+            currentYear,
+            rankRequirements,
+            volumeMap,
+            ranksEnabled,
+            rule35Enabled
+          )
+        )
+      )).filter(Boolean);
+
+      // Accumulate commissions for final report
+      evaluationResults.forEach((res) => {
+        if (res) totalCommissionsAcc += res.bonusAmount;
+      });
 
       // 3. Persist results in a clean, fast transaction
       if (evaluationResults.length > 0) {
         await prisma.$transaction(
           async (tx) => {
             for (const rankResult of evaluationResults) {
+              // UPSERT RANK
               await tx.rank.upsert({
                 where: {
                   userId_cycleMonth_cycleYear: {
@@ -160,46 +229,135 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
               });
 
               if (rankResult.bonusAmount > 0) {
-                await tx.commission.upsert({
-                  where: {
-                    orderId: `RANK-${currentYear}-${currentMonth}-${rankResult.userId}`
-                  },
-                  update: {
-                    amount: rankResult.bonusAmount,
-                  },
-                  create: {
-                    userId: rankResult.userId,
-                    orderId: `RANK-${currentYear}-${currentMonth}-${rankResult.userId}`,
-                    type: 'RANK_BONUS',
-                    amount: rankResult.bonusAmount,
-                    pointsValue: 0,
-                    cycleMonth: currentMonth,
-                    cycleYear: currentYear,
-                    status: 'PENDING',
-                  },
-                });
+                // UPSERT COMMISSION
+                const existingComm = commissionMap.get(rankResult.userId);
+                let comm;
+                if (existingComm) {
+                  comm = await tx.commission.update({
+                    where: { id: existingComm.id },
+                    data: { 
+                      amount: rankResult.bonusAmount,
+                      status: 'PENDING'
+                    }
+                  });
+                } else {
+                  comm = await tx.commission.create({
+                    data: {
+                      userId: rankResult.userId,
+                      type: 'RANK_BONUS',
+                      amount: rankResult.bonusAmount,
+                      pointsValue: 0,
+                      cycleMonth: currentMonth,
+                      cycleYear: currentYear,
+                      status: 'PENDING',
+                    },
+                  });
+                }
+
+                // UPSERT WALLET (Ensure exists)
+                let wallet = walletMap.get(rankResult.userId);
+                if (!wallet) {
+                  wallet = await tx.wallet.create({
+                    data: {
+                      userId: rankResult.userId,
+                      balancePending: 0,
+                      balanceAvailable: 0,
+                      balanceValidated: 0,
+                    }
+                  });
+                }
+
+                // IDEMPOTENT TRANSACTION
+                const existingTx = transactionMap.get(comm.id);
+
+                if (!existingTx) {
+                  await tx.wallet.update({
+                    where: { id: wallet.id },
+                    data: {
+                      balancePending: { increment: rankResult.bonusAmount },
+                      totalEarned: { increment: rankResult.bonusAmount }
+                    }
+                  });
+
+                  await tx.walletTransaction.create({
+                    data: {
+                      walletId: wallet.id,
+                      type: 'RANK_BONUS',
+                      amount: rankResult.bonusAmount,
+                      status: 'PENDING',
+                      description: `Bono de Rango - ${rankResult.achievedRank} - Ciclo ${currentMonth}/${currentYear}`,
+                      metadata: {
+                        commissionId: comm.id,
+                        rankName: rankResult.achievedRank,
+                        source: 'RANK_BONUS'
+                      }
+                    }
+                  });
+                } else if (Number(existingTx.amount) !== rankResult.bonusAmount) {
+                  const diff = rankResult.bonusAmount - Number(existingTx.amount);
+                  await tx.wallet.update({
+                    where: { id: wallet.id },
+                    data: {
+                      balancePending: { increment: diff },
+                      totalEarned: { increment: diff }
+                    }
+                  });
+                  
+                  await tx.walletTransaction.update({
+                    where: { id: existingTx.id },
+                    data: { amount: rankResult.bonusAmount }
+                  });
+                }
               }
             }
           },
-          {
-            timeout: 30000, // 30 seconds
-          }
+          { timeout: 300000 }
         );
       }
-      console.log(`[CLOSURE] Procesados ${Math.min(i + batchSize, pioneers.length)} / ${pioneers.length} pioneros`);
     }
 
+    // Update closure with total commissions calculated
+    await prisma.weeklyClosure.update({
+      where: { id: closure.id },
+      data: { totalCommissions: totalCommissionsAcc },
+    });
+    
     // ============================================================
     // FASE 4: VALIDACIÓN Y MOVIMIENTO DE FONDOS (High Performance)
     // ============================================================
-    console.log('[CLOSURE] Fase 4: Validando comisiones y actualizando balances masivamente...');
+    await prisma.weeklyClosure.update({
+      where: { id: closure.id },
+      data: { 
+        status: 'VALIDATING',
+        validationStarted: new Date()
+      }
+    });
+
+    console.log('[CLOSURE] Fase 4: Validando y liberando fondos...');
     
     // 1. Validar todas las comisiones masivamente
-    await prisma.$executeRaw`UPDATE commissions SET status = 'VALIDATED' WHERE status = 'PENDING'`;
+    // 1. Validar todas las comisiones masivamente y obtener totales por tipo
+    const commTotals = await prisma.$queryRawUnsafe<any[]>(`
+      WITH updated_comm AS (
+        UPDATE commissions SET status = 'VALIDATED' WHERE status = 'PENDING' RETURNING type, amount
+      )
+      SELECT type, SUM(amount) as total FROM updated_comm GROUP BY type;
+    `);
+
+    let totalSeedBonus = 0;
+    commTotals.forEach(c => {
+      if (c.type === 'SEED_BONUS') totalSeedBonus = Number(c.total) || 0;
+    });
+
+    // Update closure with Seed Bonus info
+    await prisma.weeklyClosure.update({
+      where: { id: closure.id },
+      data: { totalSeedBonus }
+    });
 
     // 2. Mover fondos de Pending a Validated en una sola operación atómica de base de datos
-    // Esto evita el timeout de Prisma al procesar miles de wallets una por una.
-    await prisma.$executeRaw`
+    // Capturar el total pagado en el proceso
+    const paidResult = await prisma.$queryRawUnsafe<any[]>(`
       WITH updated_tx AS (
         UPDATE wallet_transactions 
         SET status = 'VALIDATED' 
@@ -216,17 +374,21 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
         GROUP BY wallet_id
       ) sub
       WHERE wallets.id = sub.wallet_id
-    `;
+      RETURNING (SELECT SUM(total) FROM (SELECT SUM(amount) as total FROM updated_tx GROUP BY wallet_id) s) as total_paid;
+    `);
+
+    const totalPaid = Number(paidResult[0]?.total_paid) || 0;
 
     await prisma.weeklyClosure.update({
       where: { id: closure.id },
       data: {
         status: 'PROCESSED',
         validationEnded: new Date(),
+        totalPaid: totalPaid
       },
     });
 
-    console.log(`[CLOSURE] Cierre ${closure.id} completado exitosamente.`);
+    console.log(`[CLOSURE] Cierre ${closure.id} completado exitosamente. Total pagado: $${totalPaid}`);
   } catch (error) {
     await prisma.weeklyClosure.update({
       where: { id: closure.id },

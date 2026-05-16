@@ -1207,6 +1207,7 @@ exports.FidelityStatus = exports.$Enums.FidelityStatus = {
 
 exports.ClosureStatus = exports.$Enums.ClosureStatus = {
   DETECTING: 'DETECTING',
+  PROCESSING: 'PROCESSING',
   VALIDATING: 'VALIDATING',
   PENDING: 'PENDING',
   PROCESSED: 'PROCESSED',

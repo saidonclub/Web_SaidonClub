@@ -117,6 +117,13 @@ export async function calculateRoyalties(
   const currentMonth = now.getMonth() + 1;
   const currentYear = now.getFullYear();
 
+  // Pre-cargar billeteras para evitar N+1
+  const userIds = tree.map(node => node.userId);
+  const existingWallets = await tx.wallet.findMany({
+    where: { userId: { in: userIds } }
+  });
+  const walletMap = new Map(existingWallets.map(w => [w.userId, w]));
+
   for (const node of tree) {
     const pct = Number(levelPercentages[`mlm_royalty_l${node.level}_pct`] ?? 0);
     if (pct <= 0) continue;
@@ -135,8 +142,8 @@ export async function calculateRoyalties(
       });
       totalCalculated += amountFixed;
       
-      // CREATE COMMISSION IN DB
-      await tx.commission.create({
+      // 1. CREATE COMMISSION IN DB
+      const comm = await tx.commission.create({
         data: {
           userId: node.userId,
           orderId,
@@ -148,6 +155,46 @@ export async function calculateRoyalties(
           cycleMonth: currentMonth,
           cycleYear: currentYear,
           status: 'PENDING',
+        }
+      });
+
+      // 2. GET OR CREATE WALLET
+      let wallet = walletMap.get(node.userId);
+      if (!wallet) {
+        wallet = await tx.wallet.create({
+          data: {
+            userId: node.userId,
+            balancePending: 0,
+            balanceAvailable: 0,
+            balanceValidated: 0,
+          }
+        });
+        walletMap.set(node.userId, wallet);
+      }
+
+      // 3. UPDATE WALLET BALANCE (PENDING)
+      await tx.wallet.update({
+        where: { id: wallet.id },
+        data: {
+          balancePending: { increment: amountFixed },
+          totalEarned: { increment: amountFixed }
+        }
+      });
+
+      // 4. CREATE WALLET TRANSACTION
+      await tx.walletTransaction.create({
+        data: {
+          walletId: wallet.id,
+          type: 'COMMISSION',
+          amount: amountFixed,
+          status: 'PENDING',
+          description: `Regalías - Nivel ${node.level} - Orden #${orderId.slice(0, 8)}`,
+          metadata: {
+            commissionId: comm.id,
+            orderId,
+            level: node.level,
+            source: 'ROYALTY'
+          }
         }
       });
     }

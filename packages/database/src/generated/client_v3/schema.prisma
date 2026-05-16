@@ -1494,6 +1494,7 @@ enum FidelityStatus {
 
 enum ClosureStatus {
   DETECTING
+  PROCESSING
   VALIDATING
   PENDING
   PROCESSED

@@ -42,13 +42,12 @@ export async function evaluateRank(
   userId: string,
   cycleMonth: number,
   cycleYear: number,
-  preFetchedRequirements?: any[],
-  preFetchedVolumes?: Record<string, number[]>
+  preFetchedRequirements: any[],
+  preFetchedVolumes: Record<string, number[]>,
+  ranksEnabled: boolean = true,
+  rule35Enabled: boolean = true
 ): Promise<RankEvaluation | null> {
-  const ranksEnabled = await config.get<boolean>('mlm_ranks_enabled', true);
   if (!ranksEnabled) return null;
-
-  const rule35Enabled = await config.get<boolean>('mlm_rank_35_rule_enabled', true);
 
   let lineVolumes: number[] = [];
   

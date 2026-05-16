@@ -49,19 +49,38 @@ async function main() {
   try {
     // ── Limpieza ──────────────────────────────────────────────────
     console.log('[AUDIT] Limpiando corridas anteriores...');
+    
+    // Primero borrar lo que depende de usuarios
+    const stressUsers = await prisma.user.findMany({
+      where: { email: { startsWith: PREFIX } },
+      select: { id: true }
+    });
+    const stressUserIds = stressUsers.map(u => u.id);
+
+    await prisma.walletTransaction.deleteMany({
+      where: { wallet: { userId: { in: stressUserIds } } }
+    });
     await prisma.commission.deleteMany({
-      where: { orderId: { startsWith: 'RANK-' } },
+      where: { userId: { in: stressUserIds } }
+    });
+    await prisma.seedBonus.deleteMany({
+      where: { userId: { in: stressUserIds } }
     });
     await prisma.rank.deleteMany({
-      where: { user: { email: { startsWith: PREFIX } } },
+      where: { userId: { in: stressUserIds } }
     });
     await prisma.pointsLedger.deleteMany({
-      where: { user: { email: { startsWith: PREFIX } } },
+      where: { userId: { in: stressUserIds } }
     });
     await prisma.volumeCache.deleteMany({
-      where: { cycleMonth: new Date().getMonth() + 1 },
+      where: { userId: { in: stressUserIds } }
     });
-    await prisma.user.deleteMany({ where: { email: { startsWith: PREFIX } } });
+    await prisma.weeklyClosure.deleteMany({
+      where: { status: { in: ['DETECTING', 'VALIDATING', 'PENDING', 'PROCESSED', 'PAUSED'] } }
+    });
+    
+    // Finalmente borrar los usuarios
+    await prisma.user.deleteMany({ where: { id: { in: stressUserIds } } });
 
     // ── 1. Usuario Maestro ────────────────────────────────────────
     const master = await prisma.user.create({
@@ -175,17 +194,36 @@ async function main() {
 
     const commBefore = await prisma.commission.count();
     const rankBefore  = await prisma.rank.count();
+    const txBefore    = await prisma.walletTransaction.count();
+    
+    // Guardar balances actuales para comparar después
+    const sampleWallet = await prisma.wallet.findFirst({
+      where: { user: { email: { startsWith: PREFIX } }, totalEarned: { gt: 0 } }
+    });
+    const balanceBefore = sampleWallet ? Number(sampleWallet.balanceValidated) : 0;
 
     await executeWeeklyClosure(new Date());
 
     const commAfter  = await prisma.commission.count();
     const rankAfter   = await prisma.rank.count();
+    const txAfter    = await prisma.walletTransaction.count();
+    
+    const sampleWalletAfter = sampleWallet 
+      ? await prisma.wallet.findUnique({ where: { id: sampleWallet.id } })
+      : null;
+    const balanceAfter = sampleWalletAfter ? Number(sampleWalletAfter.balanceValidated) : 0;
 
     console.log(
       `[IDEMPOTENCY] Comisiones → antes: ${commBefore}  después: ${commAfter}`
     );
     console.log(
       `[IDEMPOTENCY] Rangos      → antes: ${rankBefore}   después: ${rankAfter}`
+    );
+    console.log(
+      `[IDEMPOTENCY] Transacc.   → antes: ${txBefore}     después: ${txAfter}`
+    );
+    console.log(
+      `[IDEMPOTENCY] Balance Ref → antes: ${balanceBefore} después: ${balanceAfter}`
     );
 
     assert(
@@ -197,6 +235,16 @@ async function main() {
       rankAfter === rankBefore,
       'Sin rangos duplicados en segunda ejecución',
       `antes=${rankBefore} después=${rankAfter}`
+    );
+    assert(
+      txAfter === txBefore,
+      'Sin transacciones de billetera duplicadas',
+      `antes=${txBefore} después=${txAfter}`
+    );
+    assert(
+      balanceAfter === balanceBefore,
+      'El balance no debe duplicarse en ejecuciones repetidas',
+      `antes=${balanceBefore} después=${balanceAfter}`
     );
 
   } catch (err) {
