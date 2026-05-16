@@ -5,9 +5,9 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc && xcopy /E /I /Y src\\generated\\client_v3 dist\\generated\\client_v3",
-    "db:generate": "prisma generate && xcopy /E /I /Y src\\generated\\client_v3 dist\\generated\\client_v3",
-    "db:migrate": "prisma migrate dev",
+    "build": "tsc && node scripts/copy-generated.js",
+    "db:generate": "pnpm exec prisma generate && node scripts/copy-generated.js",
+    "db:migrate": "pnpm exec prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
     "db:seed-maestro": "tsx prisma/seed_maestro.ts",
     "db:seed-omega": "tsx prisma/seed_omega.ts",
@@ -18,7 +18,8 @@
     "@supabase/supabase-js": "^2.42.0",
     "@types/pg": "^8.20.0",
     "dotenv": "^17.4.2",
-    "pg": "^8.20.0"
+    "pg": "^8.20.0",
+    "typescript": "^5.4.0"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",

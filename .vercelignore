@@ -1,0 +1,41 @@
+# Build outputs
+node_modules
+.next
+.turbo
+dist
+build
+*.log
+
+# Large non-code directories
+/agency
+/agency_venv
+/agent-browser
+/artifacts
+/assets
+/audit-visual-forense
+/audit_results
+/backups
+/backup_*
+/data
+/docs
+/reports
+/scratch
+/screenshots
+/test-results
+/tests
+/temp_*
+/videos
+/visual-audit-forense.js
+/visual-audit.js
+/fix_imports.ps1
+/fix_prisma_imports.ps1
+/fix_relative.ps1
+/restore.ps1
+/refactor_css.py
+/replace_dashboard.py
+/audit_visual_completo.py
+/exclude_list.txt
+/API-Key Open Router.txt
+/Datos relevantes, Credenciales y APIs de SaidonClub (5).txt
+/Datos_relevantes_SaidonClub.txt
+/Documento Maestro definitivo de SAIDONCLUB.txt

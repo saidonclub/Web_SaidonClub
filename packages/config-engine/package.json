@@ -10,7 +10,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@saidonclub/database": "workspace:*"
+    "@saidonclub/database": "workspace:*",
+    "typescript": "^5.4.0"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",

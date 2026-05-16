@@ -20,6 +20,10 @@
   margin-bottom: 8px;
 }
 
+.exportHeader {
+  margin-left: auto;
+}
+
 .headerTitle h1 {
   font-size: clamp(24px, 4vw, 32px);
   font-weight: 900;

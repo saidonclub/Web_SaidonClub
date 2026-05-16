@@ -30,7 +30,7 @@ export default function MobileMenu({ menuOpen, setMenuOpen }: MobileMenuProps) {
           {SUBNAV_CATEGORIES.filter(c => c.type !== 'divider').map(c => (
             <Link 
               key={c.slug} 
-              href={c.isAll ? (c.type === 'service' ? '/servicios' : '/productos') : (c.type === 'service' ? `/servicios?category=${c.slug}` : `/productos?category=${c.slug}`)}
+              href={c.type === 'service' ? `/servicios?category=${c.slug}` : `/productos?category=${c.slug}`}
               className={styles.mobileGridItem}
               onClick={() => setMenuOpen(false)}
             >

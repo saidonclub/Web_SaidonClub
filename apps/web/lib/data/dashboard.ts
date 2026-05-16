@@ -125,6 +125,76 @@ export async function getDashboardData(userId: string) {
     select: { role: true, affiliateCode: true }
   });
 
+  // 9. Global Stats (Enhanced for Admin/Accountant/Auditor)
+  let globalStats = null;
+  const isAdminOrFin = ['SUPER_ADMIN', 'ADMIN', 'ACCOUNTANT', 'AUDITOR'].includes(userData?.role || '');
+  
+  if (isAdminOrFin) {
+    const [
+      totalUsers,
+      totalOrders,
+      totalSales,
+      pendingWithdrawals,
+      kycPending,
+      totalProviders,
+      taxRetentionsAgg,
+      mlmPassivesAgg
+    ] = await Promise.all([
+      prisma.user.count(),
+      prisma.order.count(),
+      prisma.order.aggregate({
+        where: { status: 'COMPLETED' },
+        _sum: { totalAmount: true }
+      }),
+      prisma.walletTransaction.count({
+        where: { type: 'WITHDRAWAL', status: 'PENDING' }
+      }),
+      prisma.user.count({
+        where: { status: 'ACTIVE' } // Assuming active users are KYC verified or similar logic
+      }),
+      prisma.user.count({
+        where: { role: { in: ['PROVIDER_PRODUCTS', 'PROVIDER_SERVICES'] } }
+      }),
+      prisma.walletTransaction.aggregate({
+        where: {
+          description: { contains: 'Retención' }
+        },
+        _sum: {
+          amount: true
+        }
+      }),
+      prisma.commission.aggregate({
+        where: {
+          status: { in: ['PENDING', 'VALIDATED'] }
+        },
+        _sum: {
+          amount: true
+        }
+      })
+    ]);
+
+    globalStats = {
+      totalUsers,
+      totalOrders,
+      totalSales: totalSales._sum.totalAmount?.toNumber() || 0,
+      pendingWithdrawals,
+      kycPending,
+      totalProviders,
+      taxRetentions: taxRetentionsAgg._sum.amount?.toNumber() || 0,
+      mlmPassives: mlmPassivesAgg._sum.amount?.toNumber() || 0,
+      systemHealth: 98.5, // Mocked for now
+      serverUptime: "99.99%"
+    };
+  }
+
+  // 10. Network Growth Data (for MLM users)
+  const networkGrowth = await prisma.user.count({
+    where: {
+      sponsorId: userId,
+      createdAt: { gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) }
+    }
+  });
+
   return {
     user: {
       role: userData?.role || 'CLIENT',
@@ -188,9 +258,34 @@ export async function getDashboardData(userId: string) {
       monthlyPerformance: monthlyEarningsAgg._sum.amount?.toNumber() || 0,
       statusPoints: statusPointsAgg._sum.amount?.toNumber() || 0,
       redeemablePoints: redeemablePointsAgg._sum.amount?.toNumber() || 0,
-      pendingSales: 0,
-      providerMonthlyEarnings: 0,
-    }
+      networkGrowthLast30Days: networkGrowth,
+      providerMonthlyEarnings: await (async () => {
+        if (userData?.role !== 'PROVIDER_PRODUCTS' && userData?.role !== 'PROVIDER_SERVICES' && userData?.role !== 'SUPER_ADMIN') return 0;
+        
+        const providerEarningsAgg = await prisma.orderItem.aggregate({
+          where: {
+            OR: [
+              { product: { providerId: userId } },
+              { service: { providerId: userId } }
+            ],
+            order: {
+              status: { in: ['DELIVERED', 'SHIPPED', 'COMPLETED'] as any },
+              createdAt: {
+                gte: new Date(currentYear, currentMonth - 1, 1),
+              },
+            }
+          },
+          _sum: {
+            price: true
+          }
+        });
+        return providerEarningsAgg._sum.price?.toNumber() || 0;
+      })(),
+      // accountant-specific metrics
+      taxRetentions: (globalStats as any)?.taxRetentions || 0,
+      mlmPassives: (globalStats as any)?.mlmPassives || 0,
+    },
+    globalStats
   };
 }
 

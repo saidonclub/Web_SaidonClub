@@ -12,25 +12,25 @@ import {
 import styles from "./CategoryBar.module.css";
 
 const PRODUCT_CATEGORIES = [
-  { label: "Electrónica", slug: "electronica", count: 142, icon: <Laptop size={20} />, bg: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&q=80&w=800" },
-  { label: "Hogar", slug: "hogar", count: 78, icon: <Home size={20} />, bg: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" },
-  { label: "Belleza", slug: "belleza", count: 55, icon: <Sparkles size={20} />, bg: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800" },
-  { label: "Automotriz", slug: "automotriz", count: 21, icon: <Car size={20} />, bg: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800" },
-  { label: "Deportes", slug: "deportes", count: 43, icon: <Trophy size={20} />, bg: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800" },
-  { label: "Gaming", slug: "gaming", count: 34, icon: <Gamepad2 size={20} />, bg: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800" },
-  { label: "Mascotas", slug: "mascotas", count: 19, icon: <PawPrint size={20} />, bg: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800" },
-  { label: "Moda", slug: "moda", count: 89, icon: <Shirt size={20} />, bg: "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&q=80&w=800" },
+  { label: "Tecnología", slug: "tecnologia-innovacion", count: 142, icon: <Laptop size={20} />, bg: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" },
+  { label: "Hogar", slug: "hogar-electrodomesticos", count: 78, icon: <Home size={20} />, bg: "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&q=80&w=800" },
+  { label: "Belleza", slug: "salud-cuidado-personal", count: 55, icon: <Sparkles size={20} />, bg: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=800" },
+  { label: "Moda", slug: "moda-calzado", count: 89, icon: <Shirt size={20} />, bg: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" },
+  { label: "Deportes", slug: "deporte-aventura", count: 43, icon: <Trophy size={20} />, bg: "https://images.unsplash.com/photo-1526508006240-5bb956c3230a?auto=format&fit=crop&q=80&w=800" },
+  { label: "Joyería", slug: "relojeria-joyeria", count: 34, icon: <Sparkles size={20} />, bg: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&q=80&w=800" },
+  { label: "Gastronomía", slug: "gastronomia-gourmet", count: 19, icon: <HeartPulse size={20} />, bg: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800" },
+  { label: "Mascotas", slug: "mascotas-premium", count: 21, icon: <PawPrint size={20} />, bg: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=800" },
 ];
 
 const SERVICE_CATEGORIES = [
-  { label: "Calzado", slug: "calzado", count: 52, icon: <Footprints size={20} />, bg: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800" },
-  { label: "Juguetes", slug: "juguetes", count: 41, icon: <ToyBrick size={20} />, bg: "https://images.unsplash.com/photo-1532330393533-443990a51d10?auto=format&fit=crop&q=80&w=800" },
-  { label: "Herramientas", slug: "herramientas", count: 63, icon: <Hammer size={20} />, bg: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=800" },
-  { label: "Móviles", slug: "moviles", count: 95, icon: <Smartphone size={20} />, bg: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800" },
-  { label: "Servicios Pro", slug: "profesionales", count: 210, icon: <Briefcase size={20} />, bg: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" },
-  { label: "Salud", slug: "salud", count: 55, icon: <HeartPulse size={20} />, bg: "https://images.unsplash.com/photo-1505751172107-573225a91703?auto=format&fit=crop&q=80&w=800" },
-  { label: "Viajes", slug: "viajes", count: 31, icon: <Plane size={20} />, bg: "https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=800" },
-  { label: "Educación", slug: "educacion", count: 42, icon: <GraduationCap size={20} />, bg: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" },
+  { label: "Asesoría Financiera", slug: "servicio-asesoria-financiera", count: 52, icon: <Briefcase size={20} />, bg: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800" },
+  { label: "Transf. Digital", slug: "servicio-transformacion-digital", count: 41, icon: <Laptop size={20} />, bg: "https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=800" },
+  { label: "Arquitectura", slug: "servicio-arquitectura-diseno", count: 63, icon: <Home size={20} />, bg: "https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=800" },
+  { label: "Educación", slug: "servicio-educacion-capacitacion", count: 42, icon: <GraduationCap size={20} />, bg: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" },
+  { label: "Salud", slug: "servicio-salud-bienestar", count: 55, icon: <HeartPulse size={20} />, bg: "https://images.unsplash.com/photo-1505751172107-573225a91703?auto=format&fit=crop&q=80&w=800" },
+  { label: "Asesoría Legal", slug: "servicio-asesoria-legal", count: 31, icon: <Briefcase size={20} />, bg: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800" },
+  { label: "Turismo", slug: "servicio-turismo-experiencias", count: 95, icon: <Plane size={20} />, bg: "https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=800" },
+  { label: "Mantenimiento", slug: "servicio-mantenimiento-hogar", count: 210, icon: <Hammer size={20} />, bg: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=800" },
 ];
 
 export default function CategoryBar() {

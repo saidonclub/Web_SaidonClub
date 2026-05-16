@@ -3,8 +3,7 @@
  * Dashboard Main Entry Point.
  * Orchestrates role-based layouts and session validation.
  * Estética: Obsidian & Safety Orange.
- */
-import { createClient } from "@/utils/supabase/server";
+ */import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -30,9 +29,15 @@ import {
   Database,
   CheckCircle2,
   Star,
+  Cpu,
+  MessageSquare,
+  HelpCircle,
+  LayoutDashboard,
+  Settings,
+  ChevronRight,
+  ShieldCheck,
   Zap,
   User,
-  Settings,
   Scale,
   Percent,
   Lock,
@@ -40,13 +45,14 @@ import {
   FileText,
   CreditCard,
   Briefcase,
-  Cpu,
+  Database as DatabaseIcon,
 } from "lucide-react";
 import styles from "./Dashboard.module.css";
 import { getDashboardData } from "@/lib/data/dashboard";
 import CopyButton from "./network/CopyButton";
 import KPIGrid from "./kpis/KPIGrid";
 import TerminalWrapper from "@/components/terminal/TerminalWrapper";
+import { SmallBox, InfoCard, Timeline, RecentOrdersTable, MiniChart } from "./DashboardWidgets";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -71,35 +77,43 @@ export default async function DashboardPage() {
       }).format(data.wallet.totalEarned),
       icon: <Wallet size={24} />,
       color: "var(--clr-orange)",
+      link: "/dashboard/ledger",
+      trend: { value: "12%", isUp: true }
     },
     {
       label: "Red Total",
       value: data.network.totalCount.toString(),
       icon: <Users size={24} />,
       color: "var(--clr-success)",
+      link: "/dashboard/network",
+      trend: { value: "5%", isUp: true }
     },
     {
-      label: "Rendimiento Mes",
+      label: "Ventas Mes",
       value: new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
       }).format(data.stats.monthlyPerformance),
-      icon: <TrendingUp size={24} />,
+      icon: <BarChart3 size={24} />,
       color: "var(--clr-info)",
-    },
-    {
-      label: "Puntos de Estatus",
-      value: `${data.stats.statusPoints.toLocaleString()} pts`,
-      icon: <TrendingUp size={24} />,
-      color: "var(--clr-info)",
+      link: "/dashboard/kpis",
+      trend: { value: "8%", isUp: true }
     },
     {
       label: "SaidonPoints",
       value: `${data.stats.redeemablePoints.toLocaleString()} pts`,
       icon: <Gift size={24} />,
       color: "var(--clr-warn)",
+      link: "/dashboard/exchange-points"
     },
   ];
+
+  const transactionTimeline = data.wallet.transactions.slice(0, 5).map(item => ({
+    date: new Date(item.createdAt).toLocaleDateString(),
+    title: item.type,
+    description: `${item.description || "Transacción"} - ${item.amount >= 0 ? "+" : ""}${item.amount.toFixed(2)} USD`,
+    type: item.amount >= 0 ? 'success' : 'error'
+  }));
 
   return (
     <div className={`${styles.container} ${styles[`theme${role}`] || ''}`}>
@@ -139,18 +153,17 @@ export default async function DashboardPage() {
           </div>
         )}
 
-        {/* Stats Grid */}
+        {/* Stats Grid - AdminLTE Small Boxes */}
         <div className={styles.statsGrid}>
           {stats.map((stat, i) => (
-            <div key={i} className={styles.statCard}>
-              <div className={styles.statHeader}>
-                <div className={styles.statIcon} style={{ color: stat.color }}>
-                  {stat.icon}
-                </div>
-                <span className={styles.statLabel}>{stat.label}</span>
-              </div>
-              <h2 className={styles.statValue}>{stat.value}</h2>
-            </div>
+            <SmallBox 
+              key={i}
+              label={stat.label}
+              value={stat.value}
+              icon={stat.icon}
+              color={stat.color}
+              link={stat.link}
+            />
           ))}
         </div>
 
@@ -160,201 +173,152 @@ export default async function DashboardPage() {
           role === "ACCOUNTANT" ||
           role === "AUDITOR") && (
           <section className={styles.systemMetricsSection}>
-            <h3 className={styles.systemMetricsTitle}>
-              Métricas del Sistema
-            </h3>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.systemMetricsTitle}>Métricas del Sistema</h3>
+              <div className={styles.liveIndicator}>
+                <span className={styles.pulse} /> LIVE
+              </div>
+            </div>
             <KPIGrid />
           </section>
         )}
 
-        {/* Terminal de Reportes en Tiempo Real */}
-        <section className={styles.terminalSection}>
-          <TerminalWrapper />
-        </section>
-
         <div className={styles.mainGrid}>
           {/* Section 1: Role-Specific Primary Widget */}
           {role === "SUPER_ADMIN" && (
-            <div className={`${styles.card} ${styles.fullWidth}`}>
-              <div className={styles.cardHeader}>
-                <Cpu size={20} color="var(--clr-orange)" />
-                <h3 className={styles.cardTitle}>Núcleo de Administración Maestro</h3>
-              </div>
-              <div className={styles.adminGrid}>
-                {/* Control de Precios & Descuentos */}
-                <div className={styles.adminCategory}>
-                  <div className={styles.categoryHeader}>
-                    <Percent size={18} />
-                    <h4>Precios & Descuentos Globales</h4>
+            <div className={styles.fullWidth}>
+              <InfoCard title="Núcleo de Administración Maestro" icon={<Cpu size={20} />}>
+                <div className={styles.adminDashboardGrid}>
+                  <div className={styles.adminMainStats}>
+                    <div className={styles.adminStatItem}>
+                      <label>Usuarios Totales</label>
+                      <div className={styles.statRow}>
+                        <span className={styles.statValue}>{data.globalStats?.totalUsers}</span>
+                        <MiniChart data={[10, 20, 15, 30, 45, 40, 55]} color="var(--clr-orange)" />
+                      </div>
+                    </div>
+                    <div className={styles.adminStatItem}>
+                      <label>Ventas Globales (Netas)</label>
+                      <div className={styles.statRow}>
+                        <span className={styles.statValue}>${data.globalStats?.totalSales.toFixed(2)}</span>
+                        <MiniChart data={[50, 40, 60, 80, 75, 90, 110]} color="var(--clr-success)" />
+                      </div>
+                    </div>
+                    <div className={styles.adminStatItem}>
+                      <label>Ordenes Totales</label>
+                      <div className={styles.statRow}>
+                        <span className={styles.statValue}>{data.globalStats?.totalOrders}</span>
+                        <MiniChart data={[5, 10, 8, 15, 20, 18, 25]} color="var(--clr-info)" />
+                      </div>
+                    </div>
                   </div>
-                  <div className={styles.buttonGroup}>
-                    <Link href="/admin/prices" className={styles.btnSecondary}>
-                      Ajustar Precios
-                    </Link>
-                    <Link href="/admin/discounts" className={styles.btnSecondary}>
-                      Cupones & Ofertas
-                    </Link>
-                  </div>
-                </div>
 
-                {/* Usuarios & Privilegios */}
-                <div className={styles.adminCategory}>
-                  <div className={styles.categoryHeader}>
-                    <Lock size={18} />
-                    <h4>Usuarios & Privilegios de Acceso</h4>
-                  </div>
-                  <div className={styles.buttonGroup}>
-                    <Link href="/admin/users" className={styles.btnSecondary}>
-                      Directorio de Usuarios
-                    </Link>
-                    <Link href="/admin/roles" className={styles.btnSecondary}>
-                      Gestión de Roles
-                    </Link>
-                  </div>
-                </div>
+                  <div className={styles.adminActionsGrid}>
+                    <div className={styles.adminCategory}>
+                      <div className={styles.categoryHeader}>
+                        <Percent size={18} />
+                        <h4>Precios & Descuentos</h4>
+                      </div>
+                      <div className={styles.buttonGroup}>
+                        <Link href="/admin/prices" className={styles.btnSecondary}>Ajustar Precios</Link>
+                        <Link href="/admin/discounts" className={styles.btnSecondary}>Cupones</Link>
+                      </div>
+                    </div>
 
-                {/* Infraestructura MLM */}
-                <div className={styles.adminCategory}>
-                  <div className={styles.categoryHeader}>
-                    <Globe size={18} />
-                    <h4>Configuración del Ecosistema MLM</h4>
-                  </div>
-                  <div className={styles.buttonGroup}>
-                    <Link href="/admin/mlm-config" className={styles.btnSecondary}>
-                      Reglas de Rango
-                    </Link>
-                    <Link href="/admin/puntos" className={styles.btnSecondary}>
-                      SaidonPoints Config
-                    </Link>
-                  </div>
-                </div>
+                    <div className={styles.adminCategory}>
+                      <div className={styles.categoryHeader}>
+                        <Lock size={18} />
+                        <h4>Seguridad & Roles</h4>
+                      </div>
+                      <div className={styles.buttonGroup}>
+                        <Link href="/admin/users" className={styles.btnSecondary}>Usuarios</Link>
+                        <Link href="/admin/roles" className={styles.btnSecondary}>Privilegios</Link>
+                      </div>
+                    </div>
 
-                {/* Contabilidad Maestro */}
-                <div className={styles.adminCategory}>
-                  <div className={styles.categoryHeader}>
-                    <Scale size={18} />
-                    <h4>Contabilidad & Tesorería</h4>
-                  </div>
-                  <div className={styles.buttonGroup}>
-                    <Link href="/dashboard/ledger" className={styles.btnPrimary}>
-                      Ver Libro Mayor
-                    </Link>
-                    <Link href="/dashboard/commissions/audit" className={styles.btnSecondary}>
-                      Auditar Comisiones
-                    </Link>
+                    <div className={styles.adminCategory}>
+                      <div className={styles.categoryHeader}>
+                        <Globe size={18} />
+                        <h4>Ecosistema MLM</h4>
+                      </div>
+                      <div className={styles.buttonGroup}>
+                        <Link href="/admin/mlm-config" className={styles.btnSecondary}>Reglas Rango</Link>
+                        <Link href="/admin/puntos" className={styles.btnSecondary}>Puntos</Link>
+                      </div>
+                    </div>
+
+                    <div className={styles.adminCategory}>
+                      <div className={styles.categoryHeader}>
+                        <Scale size={18} />
+                        <h4>Tesorería</h4>
+                      </div>
+                      <div className={styles.buttonGroup}>
+                        <Link href="/dashboard/ledger" className={styles.btnPrimary}>Libro Mayor</Link>
+                        <Link href="/dashboard/commissions/audit" className={styles.btnSecondary}>Auditar</Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </InfoCard>
             </div>
           )}
 
-          {(role === "ACCOUNTANT" || role === "SUPER_ADMIN") && (
-            <div className={styles.card}>
-              <div className={styles.cardHeader}>
-                <Briefcase size={20} color="var(--clr-info)" />
-                <h3 className={styles.cardTitle}>Área Contable & Fiscal</h3>
+          {(role === "PROVIDER_PRODUCTS" || role === "PROVIDER_SERVICES" || role === "SUPER_ADMIN") && (
+            <InfoCard title="Gestión de Proveedor" icon={<Briefcase size={20} />}>
+              <div className={styles.providerContent}>
+                <div className={styles.providerEarnings}>
+                  <div className={styles.earningsInfo}>
+                    <label>Ganancias del Mes</label>
+                    <h2 className={styles.earningsValue}>
+                      {new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                      }).format(data.stats.providerMonthlyEarnings)}
+                    </h2>
+                  </div>
+                  <div className={styles.earningsChart}>
+                    <MiniChart data={[30, 45, 35, 60, 70, 65, 85]} color="var(--clr-success)" />
+                  </div>
+                </div>
+                <div className={styles.providerLinks}>
+                  <Link href={role === "PROVIDER_SERVICES" ? "/dashboard/provider/services" : "/dashboard/provider/products"} className={styles.btnPrimary}>
+                    Mis {role === "PROVIDER_SERVICES" ? "Servicios" : "Productos"}
+                  </Link>
+                  <Link href="/dashboard/provider/orders" className={styles.btnSecondary}>
+                    Ver Pedidos Recibidos
+                  </Link>
+                </div>
               </div>
+            </InfoCard>
+          )}
+
+          {(role === "ACCOUNTANT" || role === "SUPER_ADMIN") && (
+            <InfoCard title="Área Contable & Fiscal" icon={<Briefcase size={20} />}>
               <div className={styles.accountantContent}>
                 <div className={styles.accountantStats}>
                   <div className={styles.statMini}>
                     <label>Pasivos MLM</label>
-                    <span>$4,120.00</span>
+                    <span>{new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(data.stats.mlmPassives || 0)}</span>
                   </div>
                   <div className={styles.statMini}>
                     <label>Retenciones</label>
-                    <span>$840.20</span>
+                    <span>{new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(data.stats.taxRetentions || 0)}</span>
                   </div>
                 </div>
                 <div className={styles.buttonGroup}>
-                  <Link href="/dashboard/accounting/reports" className={styles.btnPrimary}>
-                    Generar Reporte Fiscal
-                  </Link>
-                  <Link href="/dashboard/accounting/settlements" className={styles.btnSecondary}>
-                    Liquidaciones
-                  </Link>
+                  <Link href="/dashboard/accounting/reports" className={styles.btnPrimary}>Generar Reporte</Link>
+                  <Link href="/dashboard/accounting/settlements" className={styles.btnSecondary}>Liquidaciones</Link>
                 </div>
               </div>
-            </div>
+            </InfoCard>
           )}
 
-          {(role === "PROVIDER_PRODUCTS" || role === "PROVIDER_SERVICES") && (
-            <div className={`${styles.card} ${styles.fullWidth}`}>
-              <div className={styles.cardHeader}>
-                <ShoppingBag size={20} color="var(--clr-orange)" />
-                <h3 className={styles.cardTitle}>Panel de Proveedor</h3>
-              </div>
-              <div className={styles.providerGrid}>
-                <div className={styles.metric}>
-                  <label>Ventas Pendientes</label>
-                  <span>{data.stats.pendingSales || 0}</span>
-                </div>
-                <div className={styles.metric}>
-                  <label>Ingresos del Mes</label>
-                  <span>
-                    ${(data.stats.providerMonthlyEarnings || 0).toFixed(2)}
-                  </span>
-                </div>
-                <div className={styles.buttonGroup}>
-                  <Link href="/dashboard/ventas" className={styles.btnPrimary}>
-                    Ver Mis Ventas
-                  </Link>
-                  <Link
-                    href="/dashboard/productos"
-                    className={styles.btnSecondary}
-                  >
-                    Gestionar Catálogo
-                  </Link>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {(role === "PREFERENTE" || role === "PIONERO") && (
-            <div className={`${styles.card} ${styles.membershipCard}`}>
-              <div className={styles.cardHeader}>
-                <Star size={20} color="var(--clr-warn)" />
-                <h3 className={styles.cardTitle}>Estatus {role}</h3>
-              </div>
-              <div className={styles.membershipBody}>
-                <p>
-                  Tu membresía te otorga un multiplicador de x1.5 en puntos de
-                  fidelidad.
-                </p>
-                <div className={styles.perksList}>
-                  <div className={styles.perk}>
-                    <CheckCircle2 size={16} color="var(--clr-success)" />
-                    <span>Envíos prioritarios</span>
-                  </div>
-                  <div className={styles.perk}>
-                    <CheckCircle2 size={16} color="var(--clr-success)" />
-                    <span>Soporte 24/7</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* MLM Section (Violeta) */}
-          <div className={`${styles.card} ${styles.mlmCard}`}>
-            <div className={styles.cardHeader}>
-              <Users size={20} color="var(--clr-mlm)" />
-              <h3 className={styles.mlmCardTitle}>
-                Mi Red de Socios
-              </h3>
-              <Link href="/dashboard/network" className={styles.viewAll}>
-                Ver red completa
-              </Link>
-            </div>
-
+          {/* MLM Section */}
+          <InfoCard title="Mi Red de Socios" icon={<Users size={20} />} footer={<Link href="/dashboard/network" className={styles.viewAll}>Ver red completa</Link>}>
             <div className={styles.referralSection}>
               <div className={styles.referralTitle}>Enlace de Invitación</div>
               <div className={styles.referralInputGroup}>
-                <input
-                  type="text"
-                  readOnly
-                  value={referralLink}
-                  className={styles.referralInput}
-                />
+                <input type="text" readOnly value={referralLink} className={styles.referralInput} />
                 <CopyButton text={referralLink} />
               </div>
             </div>
@@ -362,43 +326,34 @@ export default async function DashboardPage() {
             <div className={styles.networkStats}>
               <div className={styles.networkItem}>
                 <span className={styles.netLabel}>Directos (L1)</span>
-                <span className={styles.netValue}>
-                  {data.network.directCount}
-                </span>
+                <span className={styles.netValue}>{data.network.directCount}</span>
               </div>
               <div className={styles.networkItem}>
                 <span className={styles.netLabel}>Red Total</span>
-                <span className={styles.netValue}>
-                  {data.network.totalCount}
-                </span>
+                <span className={styles.netValue}>{data.network.totalCount}</span>
               </div>
               <div className={styles.networkItem}>
                 <span className={styles.netLabel}>Rango</span>
                 <span className={styles.netRank}>{data.rank.name}</span>
               </div>
             </div>
+            
             <div className={styles.rankProgress}>
               <div className={styles.rankInfo}>
                 <span>Progreso a {data.rank.nextRank || "Máximo"}</span>
                 <span>{data.rank.progress.toFixed(1)}%</span>
               </div>
               <div className={styles.progressBar}>
-                <div
-                  className={styles.progressFill}
-                  style={{ width: `${data.rank.progress}%` }}
-                />
+                <div className={styles.progressFill} style={{ width: `${data.rank.progress}%` }} />
               </div>
             </div>
-          </div>
+          </InfoCard>
 
-          {/* Common Widgets: Wallet, Network, History */}
-          <div className={styles.card}>
-            <h3 className={styles.cardTitle}>Tesorería & Fondos</h3>
+          {/* Wallet Widget */}
+          <InfoCard title="Tesorería & Fondos" icon={<Wallet size={20} />}>
             <div className={styles.walletContent}>
               <div className={styles.walletBalance}>
-                <span className={styles.balanceLabel}>
-                  Disponible para retirar
-                </span>
+                <span className={styles.balanceLabel}>Disponible para retirar</span>
                 <span className={styles.balanceValue}>
                   {new Intl.NumberFormat("en-US", {
                     style: "currency",
@@ -408,119 +363,58 @@ export default async function DashboardPage() {
               </div>
               <div className={styles.buttonGroup}>
                 <Link href="/dashboard/transfer" className={styles.btnPrimary}>
-                  <ArrowUpRight size={18} />
-                  Transferir
+                  <ArrowUpRight size={18} /> Transferir
                 </Link>
-                <Link
-                  href="/dashboard/withdraw"
-                  className={styles.btnSecondary}
-                >
-                  <ArrowDownLeft size={18} />
-                  Retirar
-                </Link>
-                <Link
-                  href="/dashboard/exchange-points"
-                  className={styles.btnPoints}
-                >
-                  <Gift size={18} />
-                  Canjear
+                <Link href="/dashboard/withdraw" className={styles.btnSecondary}>
+                  <ArrowDownLeft size={18} /> Retirar
                 </Link>
               </div>
             </div>
+          </InfoCard>
+
+          {/* History Timeline */}
+          <InfoCard title="Actividad Reciente" icon={<Clock size={20} />}>
+            {transactionTimeline.length > 0 ? (
+              <Timeline items={transactionTimeline} />
+            ) : (
+              <p className={styles.noData}>Sin actividad reciente.</p>
+            )}
+          </InfoCard>
+
+          {/* Terminal de Reportes */}
+          <div className={styles.fullWidth}>
+            <TerminalWrapper />
           </div>
 
-          {/* Activity List */}
-          <div className={styles.card}>
-            <div className={styles.activityHeader}>
-              <Clock size={20} color="var(--clr-text-dim)" />
-              <h3 className={styles.activityTitle}>Historial Reciente</h3>
-            </div>
-            <div className={styles.activityList}>
-              {data.wallet.transactions.length > 0 ? (
-                data.wallet.transactions.map((item) => (
-                  <div key={item.id} className={styles.activityItem}>
-                    <div className={styles.activityInfo}>
-                      <span className={styles.activityType}>{item.type}</span>
-                      <h4>{item.description || "Transacción"}</h4>
-                      <p className={styles.activityDate}>
-                        {new Date(item.createdAt).toLocaleDateString()}
-                      </p>
-                    </div>
-                    <p
-                      className={`${styles.activityAmount} ${item.amount >= 0 ? styles.pos : styles.neg}`}
-                    >
-                      {item.amount >= 0 ? "+" : ""}${item.amount.toFixed(2)}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <p className={styles.noData}>Sin actividad reciente.</p>
-              )}
-            </div>
-          </div>
-
-          {/* Sales Scripts Quick Access */}
-          <div className={styles.card}>
-            <div className={styles.activityHeader}>
-              <h3 className={styles.activityTitle}>Scripts de Ventas</h3>
-            </div>
+          {/* Sales Scripts */}
+          <InfoCard title="Scripts de Ventas" icon={<MessageSquare size={20} />}>
             <p className={styles.scriptsDescription}>
-              Guiones probados para WhatsApp, Instagram y más. Cópialos y cierra más ventas.
+              Guiones probados para cerrar más ventas.
             </p>
             <div className={styles.buttonGroup}>
-              <Link href="/dashboard/scripts" className={styles.btnPrimary}>
-                Abrir Scripts
-              </Link>
-              <Link href="/dashboard/scripts?category=presentacion" className={styles.btnSecondary}>
-                Presentación
-              </Link>
+              <Link href="/dashboard/scripts" className={styles.btnPrimary}>Abrir Scripts</Link>
+              <Link href="/dashboard/scripts?category=presentacion" className={styles.btnSecondary}>Presentación</Link>
             </div>
-          </div>
+          </InfoCard>
 
-          {/* Orders Card */}
-          <div className={styles.card}>
-            <div className={styles.activityHeader}>
-              <ShoppingBag size={20} color="#3b82f6" />
-              <h3 className={styles.activityTitle}>Últimos Pedidos</h3>
-            </div>
-            <div className={styles.activityList}>
-              {data.orders.recent.length > 0 ? (
-                data.orders.recent.map((order) => (
-                  <div key={order.id} className={styles.activityItem}>
-                    <div className={styles.activityInfo}>
-                      <span className={styles.orderStatus}>{order.status}</span>
-                      <h4>Pedido #{order.id.slice(0, 8)}</h4>
-                    </div>
-                    <p className={styles.activityAmount}>
-                      ${order.total.toFixed(2)}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <p className={styles.noData}>No hay pedidos.</p>
-              )}
-            </div>
-          </div>
+          {/* Orders */}
+          <InfoCard title="Últimos Pedidos" icon={<ShoppingBag size={20} />} footer={<Link href="/dashboard/orders" className={styles.viewAll}>Ver todos los pedidos</Link>}>
+            {data.orders.recent.length > 0 ? (
+              <RecentOrdersTable orders={data.orders.recent} />
+            ) : (
+              <p className={styles.noData}>No hay pedidos.</p>
+            )}
+          </InfoCard>
         </div>
       </div>
 
-      {/* Quick Actions Bar */}
+      {/* Quick Actions Bar (Mobile) */}
       <nav className={styles.quickActionsBar}>
-        <Link href="/dashboard" className={styles.quickActionBtn} title="Inicio">
-          <Activity size={22} />
-        </Link>
-        <Link href="/tienda" className={styles.quickActionBtn} title="Mercado">
-          <ShoppingBag size={22} />
-        </Link>
-        <Link href="/dashboard/network" className={styles.quickActionBtn} title="Mi Red">
-          <Users size={22} />
-        </Link>
-        <Link href="/dashboard/settings" className={styles.quickActionBtn} title="Perfil">
-          <User size={22} />
-        </Link>
-        <Link href="/dashboard/config" className={styles.quickActionBtn} title="Configuración">
-          <Settings size={22} />
-        </Link>
+        <Link href="/dashboard" className={styles.quickActionBtn} title="Inicio"><Activity size={22} /></Link>
+        <Link href="/tienda" className={styles.quickActionBtn} title="Mercado"><ShoppingBag size={22} /></Link>
+        <Link href="/dashboard/network" className={styles.quickActionBtn} title="Mi Red"><Users size={22} /></Link>
+        <Link href="/dashboard/settings" className={styles.quickActionBtn} title="Perfil"><User size={22} /></Link>
+        <Link href="/dashboard/config" className={styles.quickActionBtn} title="Configuración"><Settings size={22} /></Link>
       </nav>
     </div>
   );

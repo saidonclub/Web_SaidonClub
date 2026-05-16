@@ -1,6 +1,7 @@
 import HomeCarousel from '@/components/home/HomeCarousel';
 import CategoryBar from '@/components/home/CategoryBar';
 import FeaturedProducts from '@/components/home/FeaturedProducts';
+import FeaturedServices from '@/components/home/FeaturedServices';
 import MotivationSection from '@/components/home/MotivationSection';
 import ValueProposition from '@/components/home/ValueProposition';
 import TrustSection from '@/components/home/TrustSection';
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function HomePage() {
+  // --- FETCH PRODUCTS ---
   const allProducts = await prisma.product.findMany({
     take: 20,
     orderBy: { createdAt: 'desc' },
@@ -61,6 +63,41 @@ export default async function HomePage() {
     return pB - pA;
   }).slice(0, 10);
 
+  // --- FETCH SERVICES ---
+  const allServices = await prisma.service.findMany({
+    take: 20,
+    orderBy: { createdAt: 'desc' },
+    where: { isActive: true },
+    select: {
+      id: true,
+      name: true,
+      slug: true,
+      description: true,
+      priceSaidon: true,
+      pointsEarned: true,
+      images: true,
+      status: true,
+      location: true,
+      city: { select: { name: true } },
+      category: { select: { id: true, name: true, slug: true } },
+      provider: { select: { id: true, name: true } },
+    }
+  });
+
+  const plainServices = allServices.map(s => ({
+    ...s,
+    priceSaidon: Number(s.priceSaidon),
+    pointsEarned: Number(s.pointsEarned),
+    // TODO: Map actual ratings and reviews when available via ProviderProfile or Review models
+    rating: 5.0, 
+    reviewsCount: 0,
+    isVerified: s.status === 'APPROVED', // Ensure this maps to something real or remove
+  }));
+
+  const featuredServices = [...plainServices].filter(s => s.isVerified).slice(0, 10);
+  const popularServices = [...plainServices].sort((a, b) => (b.reviewsCount || 0) - (a.reviewsCount || 0)).slice(0, 10);
+  const highlyRatedServices = [...plainServices].sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 10);
+
   return (
     <>
       {/* 1. Hero Section — Platform experience preview */}
@@ -79,13 +116,20 @@ export default async function HomePage() {
         discounts={top10Discounts}
       />
 
-      {/* 5. How It Works — 3 steps animated */}
+      {/* 5. Featured Services — Verified, popular, highly rated */}
+      <FeaturedServices
+        featured={featuredServices.length > 0 ? featuredServices : plainServices.slice(0, 10)}
+        popular={popularServices.length > 0 ? popularServices : plainServices.slice(0, 10)}
+        highlyRated={highlyRatedServices.length > 0 ? highlyRatedServices : plainServices.slice(0, 10)}
+      />
+
+      {/* 6. How It Works — 3 steps animated */}
       <HowItWorks />
 
-      {/* 6. Motivation Section — 3 paths (buyer, pro, partner) */}
+      {/* 7. Motivation Section — 3 paths (buyer, pro, partner) */}
       <MotivationSection />
 
-      {/* 7. Value Proposition — Split layout with stats */}
+      {/* 8. Value Proposition — Split layout with stats */}
       <ValueProposition />
 
       {/* 9. Trust Section — Testimonials + final CTA */}

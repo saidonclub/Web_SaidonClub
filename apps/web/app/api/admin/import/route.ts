@@ -1,227 +1,204 @@
-// ============================================================
-// API: admin/import
-// PURPOSE: Endpoint de importación de datos al ecosistema
-// POST /api/admin/import
-// Headers: X-Import-Mode: merge|replace, X-Dry-Run: true|false
-// ============================================================
-
 import { NextRequest, NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
 import { getUser } from '@/lib/auth/core';
-import { Role } from '@saidonclub/rbac';
-import { executeImport, createImportLog, validateImport } from '@/lib/services/import';
+import { Role, Permission, hasPermission } from '@saidonclub/rbac';
+import slugify from 'slugify';
 
-const ALLOWED_ROLES: Role[] = [Role.ADMIN, Role.SUPER_ADMIN];
-const MAX_FILE_SIZE = 50 * 1024 * 1024;
-const RATE_LIMIT_WINDOW = 60 * 1000;
-const RATE_LIMIT_MAX = 5;
-
-const rateLimitStore = new Map<string, { count: number; timestamp: number }>();
-
-function checkRateLimit(userId: string): boolean {
-  const now = Date.now();
-  const record = rateLimitStore.get(userId);
-
-  if (!record || now - record.timestamp > RATE_LIMIT_WINDOW) {
-    rateLimitStore.set(userId, { count: 1, timestamp: now });
-    return true;
-  }
-
-  if (record.count >= RATE_LIMIT_MAX) {
-    return false;
-  }
-
-  record.count++;
-  return true;
-}
-
-export async function POST(request: NextRequest) {
-  const startTime = Date.now();
-  console.log('[Import API] Starting import request');
-
+export async function POST(req: NextRequest) {
   try {
     const user = await getUser();
-    if (!user || !ALLOWED_ROLES.includes(user.role)) {
-      console.warn('[Import API] Unauthorized access attempt');
-      return NextResponse.json(
-        { error: 'Unauthorized. Admin role required.' },
-        { status: 403 }
-      );
+    if (!user) {
+      return NextResponse.json({ message: 'No autorizado' }, { status: 401 });
     }
 
-    if (!checkRateLimit(user.id)) {
-      console.warn('[Import API] Rate limit exceeded');
-      return NextResponse.json(
-        { error: 'Rate limit exceeded. Maximum 5 imports per minute.' },
-        { status: 429 }
-      );
+    const role = user.role as Role;
+    if (!hasPermission(role, Permission.MANAGE_USERS)) {
+      return NextResponse.json({ message: 'Permisos insuficientes' }, { status: 403 });
     }
 
-    const importMode = request.headers.get('X-Import-Mode')?.toLowerCase();
-    const dryRunHeader = request.headers.get('X-Dry-Run')?.toLowerCase();
-    const isDryRun = dryRunHeader === 'true' || dryRunHeader === '1';
+    const body = await req.json();
+    const { type, data } = body;
 
-    if (importMode && !['merge', 'replace'].includes(importMode)) {
-      return NextResponse.json(
-        { error: 'Invalid X-Import-Mode. Use "merge" or "replace".' },
-        { status: 400 }
-      );
+    if (!type || !data || !Array.isArray(data)) {
+      return NextResponse.json({ message: 'Datos inválidos' }, { status: 400 });
     }
 
-    const mode = (importMode as 'merge' | 'replace') || 'merge';
-    console.log(`[Import API] Mode: ${mode}, DryRun: ${isDryRun}`);
+    let results = { created: 0, updated: 0, failed: 0 };
 
-    const contentType = request.headers.get('content-type') || '';
+    if (type === 'products') {
+      for (const item of data) {
+        try {
+          const slug = item.slug || slugify(item.name, { lower: true });
+          
+          // Find category
+          let categoryId = item.categoryId;
+          if (!categoryId && item.category_slug) {
+            const cat = await prisma.category.findUnique({ where: { slug: item.category_slug } });
+            categoryId = cat?.id;
+          }
+          
+          if (!categoryId) {
+            // Default category or fail
+            const defaultCat = await prisma.category.findFirst();
+            categoryId = defaultCat?.id;
+          }
 
-    if (!contentType.includes('multipart/form-data') && !contentType.includes('application/json')) {
-      return NextResponse.json(
-        { error: 'Content-Type must be multipart/form-data or application/json' },
-        { status: 400 }
-      );
-    }
+          // Find provider
+          let providerId = item.providerId;
+          if (!providerId) {
+            // Default to current admin or a specific system user
+            providerId = user.id;
+          }
 
-    let fileContent: string;
-    let fileSize = 0;
+          const productData = {
+            name: String(item.name),
+            description: String(item.description || ''),
+            slug,
+            pricePVP: Number(item.pricePVP || 0),
+            priceSaidon: Number(item.priceSaidon || 0),
+            pointsEarned: Number(item.pointsEarned || 0),
+            cost: Number(item.cost || 0),
+            stock: Number(item.stock || 0),
+            margin: Number((item.priceSaidon || 0) - (item.cost || 0)),
+            categoryId,
+            providerId,
+            isActive: item.isActive !== undefined ? Boolean(item.isActive) : true,
+          };
 
-    if (contentType.includes('multipart/form-data')) {
-      const formData = await request.formData();
-      const file = formData.get('file') as File | null;
-      
-      if (!file) {
-        return NextResponse.json(
-          { error: 'No file provided' },
-          { status: 400 }
-        );
+          await prisma.product.upsert({
+            where: { slug },
+            update: productData,
+            create: productData,
+          });
+          
+          // Logic to determine if it was created or updated for stats
+          const existing = await prisma.product.findUnique({ where: { slug } });
+          if (existing) results.updated++;
+          else results.created++;
+          
+        } catch (err) {
+          console.error('Error importing product:', err);
+          results.failed++;
+        }
       }
+    } else if (type === 'services') {
+       for (const item of data) {
+        try {
+          const slug = item.slug || slugify(item.name, { lower: true });
+          
+          // Find category
+          let categoryId = item.categoryId;
+          if (!categoryId && item.category_slug) {
+            const cat = await prisma.category.findUnique({ where: { slug: item.category_slug } });
+            categoryId = cat?.id;
+          }
 
-      fileSize = file.size;
-      
-      if (fileSize > MAX_FILE_SIZE) {
-        return NextResponse.json(
-          { error: `File too large. Maximum size is ${MAX_FILE_SIZE / 1024 / 1024}MB` },
-          { status: 413 }
-        );
+          const serviceData = {
+            name: String(item.name),
+            description: String(item.description || ''),
+            slug,
+            pricePVP: Number(item.pricePVP || 0),
+            priceSaidon: Number(item.priceSaidon || 0),
+            pointsEarned: Number(item.pointsEarned || 0),
+            cost: Number(item.cost || 0),
+            categoryId: categoryId || '',
+            providerId: item.providerId || user.id,
+            isActive: item.isActive !== undefined ? Boolean(item.isActive) : true,
+          };
+
+          await prisma.service.upsert({
+            where: { slug },
+            update: serviceData,
+            create: serviceData,
+          });
+          results.updated++; // Simplifying results
+        } catch (err) {
+          results.failed++;
+        }
       }
-
-      fileContent = await file.text();
-    } else {
-      fileContent = await request.text();
-      fileSize = Buffer.byteLength(fileContent, 'utf8');
-
-      if (fileSize > MAX_FILE_SIZE) {
-        return NextResponse.json(
-          { error: `File too large. Maximum size is ${MAX_FILE_SIZE / 1024 / 1024}MB` },
-          { status: 413 }
-        );
+    } else if (type === 'balances') {
+      for (const item of data) {
+        try {
+          if (!item.email) { results.failed++; continue; }
+          const u = await prisma.user.findUnique({ 
+            where: { email: item.email },
+            include: { wallet: true }
+          });
+          
+          if (!u) { results.failed++; continue; }
+          
+          await prisma.wallet.update({
+            where: { userId: u.id },
+            data: {
+              balanceAvailable: item.balanceAvailable !== undefined ? Number(item.balanceAvailable) : undefined,
+              balancePending: item.balancePending !== undefined ? Number(item.balancePending) : undefined,
+              balanceDebt: item.balanceDebt !== undefined ? Number(item.balanceDebt) : undefined,
+            }
+          });
+          results.updated++;
+        } catch (err) {
+          results.failed++;
+        }
       }
-    }
-
-    if (!fileContent || fileContent.trim().length === 0) {
-      return NextResponse.json(
-        { error: 'Empty file' },
-        { status: 400 }
-      );
-    }
-
-    console.log(`[Import API] Processing file: ${fileSize} bytes`);
-
-    const validationResult = await validateImport(fileContent, fileSize);
-    
-    if (!validationResult.valid) {
-      console.warn('[Import API] Validation failed:', validationResult.errors);
-      
-      await createImportLog(user.id, 'import', {
-        mode,
-        success: false,
-        error: `Validation failed: ${validationResult.errors.join(', ')}`
-      });
-
-      return NextResponse.json({
-        success: false,
-        errors: validationResult.errors,
-        warnings: validationResult.warnings,
-        message: 'Import validation failed'
-      }, { status: 422 });
-    }
-
-    if (isDryRun) {
-      console.log('[Import API] Dry-run mode: simulating import');
-      
-      return NextResponse.json({
-        success: true,
-        dryRun: true,
-        message: 'Dry-run completed. No changes applied.',
-        preview: validationResult.data ? {
-          totalRecords: (Object.values(validationResult.data.metadata.recordCounts) as number[]).reduce((a, b) => a + b, 0),
-          recordCounts: validationResult.data.metadata.recordCounts,
-          wouldImport: (Object.values(validationResult.data.metadata.recordCounts) as number[]).reduce((a, b) => a + b, 0)
-        } : null,
-        warnings: validationResult.warnings
-      });
-    }
-
-    const importResult = await executeImport(fileContent, mode);
-
-    await createImportLog(user.id, 'import', {
-      mode,
-      success: importResult.success,
-      recordCount: importResult.imported + importResult.updated,
-      error: importResult.errors.length > 0 ? importResult.errors[0].error : undefined
-    });
-
-    const elapsed = Date.now() - startTime;
-    console.log(`[Import API] Completed in ${elapsed}ms. Imported: ${importResult.imported}, Updated: ${importResult.updated}, Skipped: ${importResult.skipped}`);
-
-    return NextResponse.json({
-      success: importResult.success,
-      imported: importResult.imported,
-      updated: importResult.updated,
-      skipped: importResult.skipped,
-      errors: importResult.errors.length > 0 ? importResult.errors : undefined,
-      conflicts: importResult.conflicts,
-      message: importResult.success 
-        ? `Import completed successfully`
-        : `Import completed with ${importResult.errors.length} errors`,
-      warnings: validationResult.warnings
-    });
-
-  } catch (error) {
-    console.error('[Import API] Error:', error);
-
-    return NextResponse.json(
-      { 
-        success: false,
-        error: `Import failed: ${error instanceof Error ? error.message : 'Unknown error'}` 
-      },
-      { status: 500 }
-    );
-  }
-}
-
-export async function GET() {
-  return NextResponse.json({
-    message: 'Import API',
-    headers: {
-      'X-Import-Mode': 'merge | replace (default: merge)',
-      'X-Dry-Run': 'true | false (default: false)'
-    },
-    modes: {
-      merge: 'Add new records, skip existing (recommended)',
-      replace: 'Update existing records, add new ones'
-    },
-    methods: {
-      POST: {
-        description: 'Import data from exported file',
-        contentType: 'multipart/form-data or application/json',
-        body: 'file: File (JSON export file)',
-        returns: {
-          success: 'boolean',
-          imported: 'number of new records created',
-          updated: 'number of existing records modified',
-          skipped: 'number of records skipped (merge mode)',
-          errors: 'array of error details',
-          dryRun: 'boolean (if X-Dry-Run header was true)'
+    } else if (type === 'transactions') {
+      for (const item of data) {
+        try {
+          if (!item.email || !item.amount || !item.type) { results.failed++; continue; }
+          const u = await prisma.user.findUnique({ 
+            where: { email: item.email },
+            include: { wallet: true }
+          });
+          
+          if (!u || !u.wallet) { results.failed++; continue; }
+          
+          await prisma.walletTransaction.create({
+            data: {
+              walletId: u.wallet.id,
+              type: item.type,
+              amount: Number(item.amount),
+              status: item.status || 'COMPLETED',
+              description: item.description || 'Importación masiva',
+            }
+          });
+          results.created++;
+        } catch (err) {
+          results.failed++;
+        }
+      }
+    } else if (type === 'users') {
+      for (const item of data) {
+        try {
+          if (!item.email) { results.failed++; continue; }
+          await prisma.user.upsert({
+            where: { email: item.email },
+            update: {
+              name: item.name,
+              phone: item.phone,
+              role: item.role || 'CLIENT',
+            },
+            create: {
+              email: item.email,
+              username: item.username || item.email.split('@')[0],
+              name: item.name,
+              phone: item.phone,
+              role: item.role || 'CLIENT',
+              affiliateCode: item.affiliateCode || Math.random().toString(36).substring(2, 8).toUpperCase(),
+            },
+          });
+          results.updated++;
+        } catch (err) {
+          results.failed++;
         }
       }
     }
-  });
+
+    return NextResponse.json({ 
+      message: 'Proceso finalizado',
+      details: results
+    });
+
+  } catch (error: any) {
+    console.error('Import API error:', error);
+    return NextResponse.json({ message: error.message || 'Internal server error' }, { status: 500 });
+  }
 }

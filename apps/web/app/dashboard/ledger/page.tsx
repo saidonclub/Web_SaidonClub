@@ -13,6 +13,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 import Link from "next/link";
+import { ExportButton } from "@/components/shared/ExportButton";
 import styles from "./Ledger.module.css";
 
 export default async function LedgerPage() {
@@ -30,11 +31,45 @@ export default async function LedgerPage() {
     redirect("/dashboard");
   }
 
-  // Fetch some dummy/initial data for the ledger
-  const transactions = await prisma.transaction.findMany({
+  // Fetch real data for KPIs
+  const now = new Date();
+  const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+  const [
+    revenue7dAgg,
+    commissionsPaidAgg,
+    totalWalletBalanceAgg
+  ] = await Promise.all([
+    prisma.order.aggregate({
+      where: {
+        status: { in: ['COMPLETED', 'DELIVERED', 'SHIPPED'] as any },
+        createdAt: { gte: sevenDaysAgo }
+      },
+      _sum: { totalAmount: true }
+    }),
+    prisma.commission.aggregate({
+      where: { status: { in: ['PAID', 'VALIDATED'] as any } },
+      _sum: { amount: true }
+    }),
+    prisma.wallet.aggregate({
+      _sum: { balanceAvailable: true }
+    })
+  ]);
+
+  const revenue7d = revenue7dAgg._sum.totalAmount?.toNumber() || 0;
+  const commissionsPaid = commissionsPaidAgg._sum.amount?.toNumber() || 0;
+  const treasuryReserve = totalWalletBalanceAgg._sum.balanceAvailable?.toNumber() || 0;
+
+  // Fetch transactions
+  const transactions = await prisma.walletTransaction.findMany({
     take: 20,
     orderBy: { createdAt: "desc" },
     include: { wallet: { include: { user: true } } }
+  });
+
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   });
 
   return (
@@ -49,15 +84,18 @@ export default async function LedgerPage() {
             <p className={styles.subtitle}>Control centralizado de flujos de caja y comisiones MLM.</p>
           </div>
           <div className={styles.headerActions}>
-            <button className={styles.actionBtn}>
-              <Download size={18} /> Exportar CSV
-            </button>
+            <ExportButton 
+              data={transactions} 
+              filename="Historial_Financiero_SaidonClub" 
+              sheetName="Transacciones"
+              label="Exportar Excel"
+            />
             <button className={styles.actionBtnPrimary}>
               <Calendar size={18} /> Cierre de Mes
             </button>
           </div>
         </header>
-
+ 
         <div className={styles.kpiGrid}>
           <div className={styles.kpiCard}>
             <div className={styles.kpiIcon} style={{ color: "var(--clr-success)" }}>
@@ -65,8 +103,8 @@ export default async function LedgerPage() {
             </div>
             <div className={styles.kpiInfo}>
               <label>Ingresos Brutos (7d)</label>
-              <h3>$45,280.00</h3>
-              <span className={styles.trendUp}>+12.5% vs semana anterior</span>
+              <h3>{formatter.format(revenue7d)}</h3>
+              <span className={styles.trendUp}>Actualizado en tiempo real</span>
             </div>
           </div>
           <div className={styles.kpiCard}>
@@ -74,9 +112,9 @@ export default async function LedgerPage() {
               <TrendingDown size={24} />
             </div>
             <div className={styles.kpiInfo}>
-              <label>Comisiones Pagadas</label>
-              <h3>$12,450.00</h3>
-              <span className={styles.trendDown}>-2.1% vs semana anterior</span>
+              <label>Comisiones Liquidadas</label>
+              <h3>{formatter.format(commissionsPaid)}</h3>
+              <span className={styles.trendNeutral}>Histórico total</span>
             </div>
           </div>
           <div className={styles.kpiCard}>
@@ -85,8 +123,8 @@ export default async function LedgerPage() {
             </div>
             <div className={styles.kpiInfo}>
               <label>Reserva de Tesorería</label>
-              <h3>$128,900.00</h3>
-              <span className={styles.trendNeutral}>Estatus: Estable</span>
+              <h3>{formatter.format(treasuryReserve)}</h3>
+              <span className={styles.trendNeutral}>Fondos disponibles en wallets</span>
             </div>
           </div>
         </div>
@@ -115,24 +153,29 @@ export default async function LedgerPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {transactions.map((tx) => (
-                    <tr key={tx.id}>
-                      <td>{new Date(tx.createdAt).toLocaleDateString()}</td>
-                      <td>{tx.wallet.user.username || tx.wallet.user.email}</td>
-                      <td>
-                        <span className={`${styles.typeTag} ${styles[tx.type.toLowerCase()] || ''}`}>
-                          {tx.type}
-                        </span>
-                      </td>
-                      <td>{tx.description}</td>
-                      <td className={tx.amount >= 0 ? styles.pos : styles.neg}>
-                        {tx.amount >= 0 ? "+" : ""}${Math.abs(tx.amount).toFixed(2)}
-                      </td>
-                      <td>
-                        <span className={styles.statusOk}>Completado</span>
-                      </td>
-                    </tr>
-                  ))}
+                  {transactions.map((tx) => {
+                    const amount = Number(tx.amount);
+                    return (
+                      <tr key={tx.id}>
+                        <td>{new Date(tx.createdAt).toLocaleDateString()}</td>
+                        <td>{tx.wallet.user.username || tx.wallet.user.email}</td>
+                        <td>
+                          <span className={`${styles.typeTag} ${styles[tx.type.toLowerCase()] || ''}`}>
+                            {tx.type}
+                          </span>
+                        </td>
+                        <td>{tx.description || "Sin descripción"}</td>
+                        <td className={amount >= 0 ? styles.pos : styles.neg}>
+                          {amount >= 0 ? "+" : ""}{formatter.format(Math.abs(amount))}
+                        </td>
+                        <td>
+                          <span className={tx.status === 'PAID' || tx.status === 'VALIDATED' ? styles.statusOk : styles.statusPending}>
+                            {tx.status}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

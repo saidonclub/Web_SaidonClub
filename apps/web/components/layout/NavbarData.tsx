@@ -49,18 +49,18 @@ export const TOP_NAV_DATA = [
     label: 'Productos',
     href: '/productos',
     subcategories: [
-      { label: 'Tecnología', href: '/productos?cat=tecnologia' },
-      { label: 'Hogar', href: '/productos?cat=hogar' },
-      { label: 'Moda', href: '/productos?cat=moda' },
+      { label: 'Tecnología', href: '/productos?category=tecnologia' },
+      { label: 'Hogar', href: '/productos?category=hogar' },
+      { label: 'Moda', href: '/productos?category=moda' },
     ]
   },
   {
     label: 'Servicios',
     href: '/servicios',
     subcategories: [
-      { label: 'Salud y Bienestar', href: '/servicios?cat=salud' },
-      { label: 'Tech & Dev', href: '/servicios?cat=tech' },
-      { label: 'Asesoría y Consultoría', href: '/servicios?cat=consultoria' },
+      { label: 'Salud y Bienestar', href: '/servicios?category=salud' },
+      { label: 'Tech & Dev', href: '/servicios?category=tech' },
+      { label: 'Asesoría y Consultoría', href: '/servicios?category=consultoria' },
     ]
   },
   {

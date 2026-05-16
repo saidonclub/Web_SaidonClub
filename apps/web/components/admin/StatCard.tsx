@@ -1,9 +1,10 @@
 // ============================================================
 // MODULE:     components/admin/StatCard
-// PURPOSE:    Card de estadísticas para dashboards administrativos
+// PURPOSE:    Card de estadísticas para dashboards administrativos (AdminLTE Style)
 // ============================================================
 
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import styles from './StatCard.module.css';
 
 interface StatCardProps {
@@ -37,34 +38,31 @@ export function StatCard({
   trend,
 }: StatCardProps) {
   const cardContent = (
-    <div className={`${styles.card} ${colorMap[color]}`}>
-      <div className={styles.header}>
-        <span className={styles.title}>{title}</span>
-        {icon && <div className={styles.icon}>{icon}</div>}
+    <div className={`${styles.smallBox} ${colorMap[color]}`}>
+      <div className={styles.inner}>
+        <div className={styles.valueRow}>
+          <h3>{typeof value === 'number' ? value.toLocaleString() : value}</h3>
+          {trend && (
+            <span
+              className={`${styles.trend} ${trend.isPositive ? styles.trendUp : styles.trendDown}`}
+            >
+              {trend.isPositive ? '+' : '-'}
+              {Math.abs(trend.value)}%
+            </span>
+          )}
+        </div>
+        <p>{title}</p>
       </div>
-      <div className={styles.valueRow}>
-        <span className={styles.value}>
-          {typeof value === 'number' ? value.toLocaleString() : value}
-        </span>
-        {trend && (
-          <span
-            className={`${styles.trend} ${trend.isPositive ? styles.trendUp : styles.trendDown}`}
-          >
-            {trend.isPositive ? '+' : '-'}
-            {Math.abs(trend.value)}%
-          </span>
-        )}
-      </div>
+      {icon && <div className={styles.icon}>{icon}</div>}
+      {href ? (
+        <Link href={href} className={styles.smallBoxFooter}>
+          Más información <ArrowRight size={16} className={styles.footerIcon} />
+        </Link>
+      ) : (
+        <div className={styles.smallBoxFooterEmpty}></div>
+      )}
     </div>
   );
-
-  if (href) {
-    return (
-      <Link href={href} className={styles.link}>
-        {cardContent}
-      </Link>
-    );
-  }
 
   return cardContent;
 }

@@ -1,0 +1,28 @@
+.exportBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--clr-bg-glass);
+  border: 1px solid var(--clr-border-glass);
+  border-radius: 6px;
+  color: var(--clr-text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exportBtn:hover {
+  background: var(--clr-border-glass);
+  color: var(--clr-orange);
+  border-color: var(--clr-orange);
+}
+
+.exportBtn:active {
+  transform: translateY(1px);
+}
+
+.exportBtn svg {
+  color: var(--clr-orange);
+}

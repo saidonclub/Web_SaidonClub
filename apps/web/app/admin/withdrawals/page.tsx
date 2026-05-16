@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import styles from './withdrawals.module.css';
 import { Prisma, TransactionStatus } from '@saidonclub/database';
+import { ExportButton } from '@/components/shared/ExportButton';
 
 export const dynamic = "force-dynamic";
 
@@ -82,11 +83,21 @@ async function WithdrawalsContent({ searchParams }: { searchParams: Promise<{ q?
   return (
     <div className={styles.page}>
       <header className={styles.header}>
-        <div>
-          <h1 className={styles.title}>Gestión de Retiros</h1>
-          <p className={styles.subtitle}>
-            Aprueba y procesa solicitudes de retiro de usuarios
-          </p>
+        <div className={styles.headerTitle}>
+          <div>
+            <h1 className={styles.title}>Gestión de Retiros</h1>
+            <p className={styles.subtitle}>
+              Aprueba y procesa solicitudes de retiro de usuarios
+            </p>
+          </div>
+          {transactions.length > 0 && (
+            <ExportButton 
+              data={transactions} 
+              filename="Retiros_SaidonClub" 
+              sheetName="Retiros"
+              label="Exportar Retiros"
+            />
+          )}
         </div>
       </header>
 

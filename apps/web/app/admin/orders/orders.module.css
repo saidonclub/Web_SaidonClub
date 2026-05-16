@@ -1,5 +1,5 @@
 /* ============================================================
-   withdrawals.module.css
+   orders.module.css
    ============================================================ */
 
 .page {
@@ -129,7 +129,7 @@
 
 .amount {
   font-weight: 600;
-  color: var(--clr-success, #10b981) !important;
+  color: var(--clr-orange, #f97316) !important;
 }
 
 /* ============================================================
@@ -226,57 +226,6 @@
 }
 
 /* ============================================================
-   ACTIONS
-   ============================================================ */
-.actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.approveBtn, .rejectBtn, .payBtn {
-  padding: 0.5rem 0.875rem;
-  border-radius: var(--radius-md);
-  font-size: 0.75rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.approveBtn {
-  background-color: var(--clr-success-dim, rgba(16, 185, 129, 0.15));
-  color: var(--clr-success, #10b981);
-}
-
-.approveBtn:hover {
-  background-color: var(--clr-success, #10b981);
-  color: black;
-}
-
-.rejectBtn {
-  background-color: var(--clr-error-dim, rgba(239, 68, 68, 0.15));
-  color: var(--clr-error, #ef4444);
-}
-
-.rejectBtn:hover {
-  background-color: var(--clr-error, #ef4444);
-  color: white;
-}
-
-.payBtn {
-  background-color: var(--clr-orange-dim, rgba(249, 115, 22, 0.15));
-  color: var(--clr-orange, #f97316);
-}
-
-.payBtn:hover {
-  background-color: var(--clr-orange, #f97316);
-  color: black;
-}
-
-/* ============================================================
    RESPONSIVE: Mobile Card Table
    ============================================================ */
 @media (max-width: 768px) {
@@ -367,9 +316,5 @@
 
   .filterBtn {
     width: 100%;
-  }
-
-  .actions {
-    justify-content: flex-end;
   }
 }

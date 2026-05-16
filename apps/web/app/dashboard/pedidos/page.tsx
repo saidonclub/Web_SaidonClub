@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { ShoppingBag, ChevronRight, Clock, CheckCircle2, XCircle, Package } from 'lucide-react'
 import { getUserOrders } from '@/lib/data/dashboard'
+import { ExportButton } from '@/components/shared/ExportButton'
 import styles from './Pedidos.module.css'
 
 export default async function PedidosPage() {
@@ -43,6 +44,15 @@ export default async function PedidosPage() {
         <div className={styles.headerTitle}>
           <ShoppingBag size={24} color="var(--clr-orange)" />
           <h1>Mis Pedidos</h1>
+          {orders.length > 0 && (
+            <ExportButton 
+              data={orders} 
+              filename="Mis_Pedidos_SaidonClub" 
+              sheetName="Pedidos"
+              label="Descargar Historial"
+              className={styles.exportHeader}
+            />
+          )}
         </div>
         <p className={styles.subtitle}>Gestiona tus compras y rastrea tus envíos.</p>
       </div>

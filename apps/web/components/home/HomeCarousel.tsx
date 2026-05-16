@@ -12,7 +12,7 @@ import styles from "./HomeCarousel.module.css";
 const SLIDES = [
   {
     id: "economia-colaborativa",
-    image: "/images/carousel/ecuadorian_collaborative_economy_1778816287497.png",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80",
     badge: "Economía Colaborativa Ecuador",
     title: "Consumo Inteligente,",
     titleAccent: "Impacto Real.",
@@ -27,7 +27,7 @@ const SLIDES = [
   },
   {
     id: "bienestar-integral",
-    image: "/images/carousel/ecuadorian_health_wellness_1778816342269.png",
+    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1600&q=80",
     badge: "Salud y Bienestar Familiar",
     title: "Tu bienestar es nuestra",
     titleAccent: "prioridad absoluta.",
@@ -42,7 +42,7 @@ const SLIDES = [
   },
   {
     id: "red-emprendedores",
-    image: "/images/carousel/ecuadorian_entrepreneurs_network_1778816355719.png",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80",
     badge: "Liderazgo y Emprendimiento",
     title: "Lidera la Nueva Era",
     titleAccent: "Digital en Ecuador.",
@@ -57,7 +57,7 @@ const SLIDES = [
   },
   {
     id: "marketplace-premium",
-    image: "/images/carousel/ecuadorian_premium_marketplace_1778816449683.png",
+    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80",
     badge: "Marketplace de Excelencia",
     title: "Lo Mejor de Ecuador,",
     titleAccent: "en un solo lugar.",
@@ -69,6 +69,36 @@ const SLIDES = [
     linkSecondary: "/servicios",
     points: ["Calidad Certificada", "Logística Rápida", "Garantía de Satisfacción"],
     stat: { value: "10k+", label: "Productos Únicos" },
+  },
+  {
+    id: "comunidad-digital",
+    image: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=1600&q=80",
+    badge: "Comunidad Inteligente",
+    title: "Conectando Personas,",
+    titleAccent: "Creando Valor.",
+    description:
+      "Nuestra red se basa en la confianza y el crecimiento mutuo. Únete a una comunidad vibrante de ecuatorianos que comparten la visión de prosperidad compartida.",
+    cta: "Conoce la Comunidad",
+    ctaSecondary: "Nuestra Visión",
+    link: "/nosotros",
+    linkSecondary: "/membresias",
+    points: ["Networking Efectivo", "Eventos Exclusivos", "Crecimiento Mutuo"],
+    stat: { value: "50k+", label: "Miembros Activos" },
+  },
+  {
+    id: "estilo-de-vida",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
+    badge: "Recompensas y Estilo de Vida",
+    title: "Disfruta de un",
+    titleAccent: "Estilo de Vida Premium.",
+    description:
+      "Tus esfuerzos se transforman en recompensas excepcionales. Accede a viajes, experiencias VIP y beneficios exclusivos diseñados para líderes de alto impacto.",
+    cta: "Ver Recompensas",
+    ctaSecondary: "Plan de Carrera",
+    link: "/membresias",
+    linkSecondary: "/nosotros",
+    points: ["Experiencias VIP", "Viajes Exclusivos", "Reconocimiento"],
+    stat: { value: "VIP", label: "Acceso Total" },
   },
 ];
 
@@ -186,50 +216,7 @@ export default function HomeCarousel() {
 
         {/* Right Visual — Floating Card */}
         <div className={`${styles.visual} ${isAnimating ? styles.visualOut : styles.visualIn}`}>
-          <div className={styles.floatingCard}>
-            <div className={styles.cardHeader}>
-              <div className={styles.dots}>
-                <span style={{ background: "#ef4444" }} />
-                <span style={{ background: "#f59e0b" }} />
-                <span style={{ background: "#22c55e" }} />
-              </div>
-              <span className={styles.cardTitle}>Mi Dashboard SaidonClub</span>
-            </div>
-            <div className={styles.cardBody}>
-              {[
-                { icon: "💰", label: "Ahorro Acumulado", value: "$1,240.50", color: "#22c55e" },
-                { icon: "👥", label: "Mi Red", value: "47 miembros", color: "#FF6B00" },
-                { icon: "⭐", label: "Puntos Disponibles", value: "3,850 pts", color: "#f59e0b" },
-              ].map((item) => (
-                <div key={item.label} className={styles.cardStat}>
-                  <span className={styles.cardStatIcon}>{item.icon}</span>
-                  <div>
-                    <div className={styles.cardStatValue} style={{ color: item.color }}>
-                      {item.value}
-                    </div>
-                    <div className={styles.cardStatLabel}>{item.label}</div>
-                  </div>
-                </div>
-              ))}
-              <div className={styles.progressSection}>
-                <div className={styles.progressRow}>
-                  <span>Nivel: <strong>Pionero</strong></span>
-                  <span className={styles.progressPct}>82%</span>
-                </div>
-                <div className={styles.progressBar}>
-                  <div className={styles.progressFill} style={{ width: "82%" }} />
-                </div>
-              </div>
-              <div className={styles.activityRow}>
-                <span className={styles.actText}>Regalías por Red</span>
-                <span className={styles.actPos}>+$45.20</span>
-              </div>
-              <div className={styles.activityRow}>
-                <span className={styles.actText}>Bono Semilla</span>
-                <span className={styles.actPos}>+$50.00</span>
-              </div>
-            </div>
-          </div>
+
 
           {/* Floating badges */}
           <div className={styles.floatBadge1}>
