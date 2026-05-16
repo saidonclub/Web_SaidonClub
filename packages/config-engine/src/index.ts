@@ -172,7 +172,7 @@ class ConfigManager {
         },
       });
       if (dependents.length > 0) {
-        const names = dependents.map(d => d.key).join(', ');
+        const names = dependents.map((d: { key: string }) => d.key).join(', ');
         throw new Error(`No puedes desactivar '${key}' porque es requerido por: ${names}`);
       }
     }

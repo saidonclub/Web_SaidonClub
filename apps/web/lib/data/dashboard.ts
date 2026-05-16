@@ -143,7 +143,7 @@ export async function getDashboardData(userId: string) {
       prisma.user.count(),
       prisma.order.count(),
       prisma.order.aggregate({
-        where: { status: 'COMPLETED' },
+        where: { status: 'DELIVERED' },
         _sum: { totalAmount: true }
       }),
       prisma.walletTransaction.count({
@@ -269,17 +269,17 @@ export async function getDashboardData(userId: string) {
               { service: { providerId: userId } }
             ],
             order: {
-              status: { in: ['DELIVERED', 'SHIPPED', 'COMPLETED'] as any },
+              status: { in: ['DELIVERED', 'SHIPPED'] },
               createdAt: {
                 gte: new Date(currentYear, currentMonth - 1, 1),
               },
             }
           },
           _sum: {
-            price: true
+            totalPrice: true
           }
         });
-        return providerEarningsAgg._sum.price?.toNumber() || 0;
+        return providerEarningsAgg._sum.totalPrice?.toNumber() || 0;
       })(),
       // accountant-specific metrics
       taxRetentions: (globalStats as any)?.taxRetentions || 0,

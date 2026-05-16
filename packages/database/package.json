@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc && node scripts/copy-generated.js",
+    "build": "node -e \"try{require('fs').unlinkSync('tsconfig.tsbuildinfo')}catch(e){}\" && tsc && node scripts/copy-generated.js",
     "db:generate": "pnpm exec prisma generate && node scripts/copy-generated.js",
     "db:migrate": "pnpm exec prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
