@@ -4,10 +4,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "lib": ["ES2022"],
-    "types": ["node"],
-    "paths": {
-      "@saidonclub/database": ["../database/src/index.ts"]
-    }
+    "types": ["node"]
   },
   "include": ["src"],
   "references": [
