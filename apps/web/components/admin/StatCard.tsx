@@ -13,6 +13,7 @@ interface StatCardProps {
   href?: string;
   icon?: React.ReactNode;
   color?: 'blue' | 'orange' | 'green' | 'red' | 'purple' | 'cyan' | 'yellow';
+  subtitle?: string;
   trend?: {
     value: number;
     isPositive: boolean;
@@ -35,6 +36,7 @@ export function StatCard({
   href,
   icon,
   color = 'blue',
+  subtitle,
   trend,
 }: StatCardProps) {
   const cardContent = (
@@ -52,6 +54,7 @@ export function StatCard({
           )}
         </div>
         <p>{title}</p>
+        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       </div>
       {icon && <div className={styles.icon}>{icon}</div>}
       {href ? (

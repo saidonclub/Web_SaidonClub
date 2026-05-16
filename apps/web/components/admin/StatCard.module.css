@@ -45,6 +45,12 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+.subtitle {
+  font-size: 0.75rem !important;
+  margin-top: 0.25rem !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
 .trend {
   font-size: 0.75rem;
   font-weight: 600;
