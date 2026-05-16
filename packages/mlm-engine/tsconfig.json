@@ -2,24 +2,22 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "composite": false,
+    "declarationDir": "./dist",
+    "paths": {
+      "@saidonclub/database": ["../database/src/index.ts"],
+      "@saidonclub/config-engine": ["../config-engine/src/index.ts"]
+    }
   },
   "include": [
     "src"
   ],
   "exclude": [
-    "src/stress_test.ts"
-  ],
-  "references": [
-    {
-      "path": "../database"
-    },
-    {
-      "path": "../config-engine"
-    }
+    "src/stress_test.ts",
+    "src/__tests__"
   ]
 }
