@@ -4,6 +4,9 @@
 // ============================================================
 
 import { NextRequest, NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
+
 import { getUser } from '@/lib/auth/core';
 import { Role, hasPermission, Permission } from '@saidonclub/rbac';
 import { StorageCleanerService } from '@/lib/multimedia/storage-cleaner';

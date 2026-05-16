@@ -11,6 +11,8 @@ import { Role } from '@saidonclub/rbac';
 import { createImportLog } from '@/lib/services/import';
 import type { ExportType, ExportFormat } from '@/lib/services/export-types';
 
+export const dynamic = 'force-dynamic';
+
 const ALLOWED_ROLES: Role[] = [Role.ADMIN, Role.SUPER_ADMIN];
 const MAX_FILE_SIZE = 100 * 1024 * 1024;
 
