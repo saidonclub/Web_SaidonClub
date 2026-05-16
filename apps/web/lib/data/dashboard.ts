@@ -126,7 +126,19 @@ export async function getDashboardData(userId: string) {
   });
 
   // 9. Global Stats (Enhanced for Admin/Accountant/Auditor)
-  let globalStats = null;
+  interface GlobalStats {
+    totalUsers: number;
+    totalOrders: number;
+    totalSales: number;
+    pendingWithdrawals: number;
+    kycPending: number;
+    totalProviders: number;
+    taxRetentions: number;
+    mlmPassives: number;
+    systemHealth: number;
+    serverUptime: string;
+  }
+  let globalStats: GlobalStats | null = null;
   const isAdminOrFin = ['SUPER_ADMIN', 'ADMIN', 'ACCOUNTANT', 'AUDITOR'].includes(userData?.role || '');
   
   if (isAdminOrFin) {
@@ -282,8 +294,8 @@ export async function getDashboardData(userId: string) {
         return providerEarningsAgg._sum.totalPrice?.toNumber() || 0;
       })(),
       // accountant-specific metrics
-      taxRetentions: (globalStats as any)?.taxRetentions || 0,
-      mlmPassives: (globalStats as any)?.mlmPassives || 0,
+      taxRetentions: globalStats?.taxRetentions || 0,
+      mlmPassives: globalStats?.mlmPassives || 0,
     },
     globalStats
   };

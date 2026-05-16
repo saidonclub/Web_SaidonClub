@@ -3,10 +3,8 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { 
-  BarChart3, 
   TrendingUp, 
   TrendingDown, 
-  Download, 
   Filter, 
   Calendar,
   DollarSign,
@@ -42,13 +40,13 @@ export default async function LedgerPage() {
   ] = await Promise.all([
     prisma.order.aggregate({
       where: {
-        status: { in: ['COMPLETED', 'DELIVERED', 'SHIPPED'] as any },
+        status: { in: ['COMPLETED', 'DELIVERED', 'SHIPPED'] },
         createdAt: { gte: sevenDaysAgo }
       },
       _sum: { totalAmount: true }
     }),
     prisma.commission.aggregate({
-      where: { status: { in: ['PAID', 'VALIDATED'] as any } },
+      where: { status: { in: ['PAID', 'VALIDATED'] } },
       _sum: { amount: true }
     }),
     prisma.wallet.aggregate({

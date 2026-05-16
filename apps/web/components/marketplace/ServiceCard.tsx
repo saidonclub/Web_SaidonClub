@@ -12,7 +12,7 @@ import Image from 'next/image';
 import HireServiceButton from './HireServiceButton';
 import styles from './ServiceCard.module.css';
 
-interface Service {
+export interface Service {
   id: string;
   slug: string;
   name: string;

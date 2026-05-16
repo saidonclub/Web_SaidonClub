@@ -11,8 +11,8 @@ export default function AdminImportPage() {
   const [file, setFile] = useState<File | null>(null);
   const [importType, setImportType] = useState<ImportType>('products');
   const [isUploading, setIsUploading] = useState(false);
-  const [results, setResults] = useState<{ success: boolean; message: string; details?: any } | null>(null);
-  const [preview, setPreview] = useState<any[]>([]);
+  const [results, setResults] = useState<{ success: boolean; message: string; details?: { created?: number; updated?: number; failed?: number } } | null>(null);
+  const [preview, setPreview] = useState<unknown[][]>([]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
@@ -164,15 +164,15 @@ export default function AdminImportPage() {
               <table className={styles.previewTable}>
                 <thead>
                   <tr>
-                    {preview[0]?.map((header: any, i: number) => (
+                    {preview[0]?.map((header, i) => (
                       <th key={i}>{header}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
-                  {preview.slice(1).map((row: any[], i: number) => (
+                  {preview.slice(1).map((row, i) => (
                     <tr key={i}>
-                      {row.map((cell: any, j: number) => (
+                      {(row as unknown[]).map((cell, j) => (
                         <td key={j}>{cell}</td>
                       ))}
                     </tr>

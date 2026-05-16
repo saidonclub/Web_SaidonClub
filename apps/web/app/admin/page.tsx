@@ -9,7 +9,7 @@ import { getUser } from '@/lib/auth/core';
 import { Role, hasPermission, Permission } from '@saidonclub/rbac';
 import { StatCard } from '@/components/admin/StatCard';
 import { StatusBadge } from '@/components/admin/StatusBadge';
-import { Users, Package, Briefcase, Shield, Wallet, TrendingUp, CreditCard } from 'lucide-react';
+import { Users, Package, Shield, Wallet, TrendingUp, CreditCard } from 'lucide-react';
 import Link from 'next/link';
 import styles from './admin.module.css';
 

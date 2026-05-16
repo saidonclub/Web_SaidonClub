@@ -1,0 +1,206 @@
+﻿
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\admin\balances\page.tsx
+   12:32   warning  'ArrowUpRight' is defined but never used       @typescript-eslint/no-unused-vars
+   12:46   warning  'ArrowDownLeft' is defined but never used      @typescript-eslint/no-unused-vars
+   12:102  warning  'Download' is defined but never used           @typescript-eslint/no-unused-vars
+   16:18   warning  'TransactionStatus' is defined but never used  @typescript-eslint/no-unused-vars
+  266:40   error    Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+  308:36   error    Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\admin\kyc\page.tsx
+  10:1  warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\admin\orders\page.tsx
+   9:16  warning  'hasPermission' is defined but never used       @typescript-eslint/no-unused-vars
+   9:31  warning  'Permission' is defined but never used          @typescript-eslint/no-unused-vars
+  12:43  warning  'XCircle' is defined but never used             @typescript-eslint/no-unused-vars
+  84:37  warning  'cancelled' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\admin\page.tsx
+  12:17  warning  'Package' is defined but never used                   @typescript-eslint/no-unused-vars
+  12:54  warning  'CreditCard' is defined but never used                @typescript-eslint/no-unused-vars
+  28:5   warning  'pendingUsers' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  29:5   warning  'pendingProducts' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  30:5   warning  'pendingServices' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\api\admin\import\route.ts
+  118:18  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  142:18  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  167:18  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  192:18  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  203:19  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\api\test\simulation\route.ts
+  467:13  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\dashboard\DashboardWidgets.tsx
+  3:24  warning  'MoreVertical' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\dashboard\Sidebar.tsx
+  12:3  warning  'Heart' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\dashboard\citas\[id]\page.tsx
+  39:13  warning  '_error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\dashboard\ledger\page.tsx
+   6:3   warning  'BarChart3' is defined but never used     @typescript-eslint/no-unused-vars
+   9:3   warning  'Download' is defined but never used      @typescript-eslint/no-unused-vars
+  45:64  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  51:55  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\dashboard\page.tsx
+  21:3   warning  'TrendingUp' is defined but never used       @typescript-eslint/no-unused-vars
+  30:3   warning  'Database' is defined but never used         @typescript-eslint/no-unused-vars
+  31:3   warning  'CheckCircle2' is defined but never used     @typescript-eslint/no-unused-vars
+  32:3   warning  'Star' is defined but never used             @typescript-eslint/no-unused-vars
+  35:3   warning  'HelpCircle' is defined but never used       @typescript-eslint/no-unused-vars
+  36:3   warning  'LayoutDashboard' is defined but never used  @typescript-eslint/no-unused-vars
+  38:3   warning  'ChevronRight' is defined but never used     @typescript-eslint/no-unused-vars
+  39:3   warning  'ShieldCheck' is defined but never used      @typescript-eslint/no-unused-vars
+  46:3   warning  'FileText' is defined but never used         @typescript-eslint/no-unused-vars
+  47:3   warning  'CreditCard' is defined but never used       @typescript-eslint/no-unused-vars
+  49:15  warning  'DatabaseIcon' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\dashboard\profile\ProfileClient.tsx
+  15:3  warning  'Globe' is defined but never used      @typescript-eslint/no-unused-vars
+  16:3  warning  'Settings2' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\dashboard\settings\SecurityClient.tsx
+  157:14  warning  'err' is defined but never used                                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+  182:14  warning  'err' is defined but never used                                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+  202:14  warning  'err' is defined but never used                                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+  340:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\dashboard\ticker\page.tsx
+  81:14  warning  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\dashboard\ventas\page.tsx
+  4:63  warning  'ArrowLeft' is defined but never used  @typescript-eslint/no-unused-vars
+  7:8   warning  'Link' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\global-error.tsx
+  8:46  warning  '_error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\membresias\page.tsx
+  11:3  warning  'ShoppingBag' is defined but never used  @typescript-eslint/no-unused-vars
+  12:3  warning  'Headset' is defined but never used      @typescript-eslint/no-unused-vars
+  13:3  warning  'ShieldCheck' is defined but never used  @typescript-eslint/no-unused-vars
+  15:3  warning  'ArrowRight' is defined but never used   @typescript-eslint/no-unused-vars
+  18:3  warning  'Star' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\nosotros\page.tsx
+   4:3  warning  'Users' is defined but never used        @typescript-eslint/no-unused-vars
+   7:3  warning  'Zap' is defined but never used          @typescript-eslint/no-unused-vars
+   8:3  warning  'ShieldCheck' is defined but never used  @typescript-eslint/no-unused-vars
+  14:8  warning  'Image' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\page.tsx
+  1:8  warning  'HomeCarousel' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\productos\page.tsx
+  2:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\proveedor\[id]\client-page.tsx
+   86:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  221:27  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\provider\appointments\AppointmentsClient.tsx
+   96:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  111:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\provider\products\page.tsx
+  104:31  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\app\provider\services\page.tsx
+  106:31  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\admin\AdminShell.tsx
+  25:3  warning  'X' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\admin\MultimediaDashboard.tsx
+  131:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  159:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  185:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\appointments\QRConfirmationModal.tsx
+  57:14  warning  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\chatbot\MayChat.tsx
+    4:10  warning  'useRouter' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  135:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  158:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  202:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  213:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\checkout\SaidonPointsPayment.tsx
+  40:6   warning  React Hook useEffect has a missing dependency: 'fetchPointsData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  56:14  warning  'err' is defined but never used                                                                                     @typescript-eslint/no-unused-vars
+  88:14  warning  'err' is defined but never used                                                                                     @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\checkout\StripePayment.tsx
+  32:6   warning  React Hook useEffect has a missing dependency: 'createPaymentIntent'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  60:14  warning  'err' is defined but never used                                                                                         @typescript-eslint/no-unused-vars
+  92:14  warning  'err' is defined but never used                                                                                         @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\home\CategoryBar.tsx
+  8:27  warning  'Car' is defined but never used         @typescript-eslint/no-unused-vars
+  8:40  warning  'Gamepad2' is defined but never used    @typescript-eslint/no-unused-vars
+  9:3   warning  'Footprints' is defined but never used  @typescript-eslint/no-unused-vars
+  9:15  warning  'ToyBrick' is defined but never used    @typescript-eslint/no-unused-vars
+  9:33  warning  'Smartphone' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\home\FeaturedServices.tsx
+  18:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  19:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  20:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  96:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\home\HomeCarousel.tsx
+  131:6  warning  React Hook useEffect has a missing dependency: 'goTo'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\home\ValueProposition.tsx
+  59:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\layout\NavbarData.tsx
+  3:31  warning  'Layers' is defined but never used  @typescript-eslint/no-unused-vars
+  4:61  warning  'Zap' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\marketplace\CompareTable.tsx
+  11:55  warning  'AlertTriangle' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\marketplace\ServiceList.tsx
+  14:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\shared\ExportButton.tsx
+  9:9  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\shared\LocationSearch.tsx
+  53:6  warning  React Hook useEffect has a missing dependency: 'countryCode'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\components\shared\MediaUpload.tsx
+  234:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  346:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\hooks\useOptimizedUpload.ts
+  59:9  warning  The 'opts' object makes the dependencies of useCallback Hook (at line 154) change on every render. To fix this, wrap the initialization of 'opts' in its own useMemo() Hook  react-hooks/exhaustive-deps
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\hooks\useWishlist.ts
+  155:22  warning  '_id' is defined but never used  @typescript-eslint/no-unused-vars
+  181:22  warning  '_id' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\lib\data\dashboard.ts
+  285:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  286:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\lib\multimedia\storage-cleaner.ts
+  71:18  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\public\sw.js
+  36:14  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web\utils\export.ts
+  9:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Ô£û 110 problems (13 errors, 97 warnings)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+

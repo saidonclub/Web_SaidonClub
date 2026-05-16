@@ -29,7 +29,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json(chatCompletion);
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Groq API Error:', error);
     return NextResponse.json(
       { error: 'Error procesando la solicitud con el Agente IA.' },

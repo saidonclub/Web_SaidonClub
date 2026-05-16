@@ -107,8 +107,24 @@ async function getProducts(filters: FilterParams): Promise<ProductPublic[]> {
     };
 
     // Helper to convert Prisma items to ProductPublic
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const mapToPublic = (item: any): ProductPublic => ({
+    type PrismaProductWithIncludes = Prisma.ProductGetPayload<{
+      include: {
+        category: {
+          select: {
+            id: true;
+            name: true;
+            slug: true;
+            type: true;
+            description: true;
+          };
+        };
+        city: {
+          select: { name: true };
+        };
+      };
+    }>;
+
+    const mapToPublic = (item: PrismaProductWithIncludes): ProductPublic => ({
       id: item.id,
       slug: item.slug,
       name: item.name,

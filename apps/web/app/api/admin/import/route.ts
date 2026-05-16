@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Datos inválidos' }, { status: 400 });
     }
 
-    let results = { created: 0, updated: 0, failed: 0 };
+    const results = { created: 0, updated: 0, failed: 0 };
 
     if (type === 'products') {
       for (const item of data) {
@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
             create: serviceData,
           });
           results.updated++; // Simplifying results
-        } catch (err) {
+        } catch {
           results.failed++;
         }
       }
@@ -139,7 +139,7 @@ export async function POST(req: NextRequest) {
             }
           });
           results.updated++;
-        } catch (err) {
+        } catch {
           results.failed++;
         }
       }
@@ -164,7 +164,7 @@ export async function POST(req: NextRequest) {
             }
           });
           results.created++;
-        } catch (err) {
+        } catch {
           results.failed++;
         }
       }
@@ -189,7 +189,7 @@ export async function POST(req: NextRequest) {
             },
           });
           results.updated++;
-        } catch (err) {
+        } catch {
           results.failed++;
         }
       }
@@ -200,8 +200,9 @@ export async function POST(req: NextRequest) {
       details: results
     });
 
-  } catch (error: any) {
-    console.error('Import API error:', error);
-    return NextResponse.json({ message: error.message || 'Internal server error' }, { status: 500 });
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('Import API error:', err);
+    return NextResponse.json({ message: err.message || 'Internal server error' }, { status: 500 });
   }
 }

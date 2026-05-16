@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./FeaturedProducts.module.css";
-import ServiceCard from "../marketplace/ServiceCard";
+import ServiceCard, { Service } from "../marketplace/ServiceCard";
 
 // ── Swiper dynamic import (avoids SSR issues) ──────────────
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,9 +15,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 type Props = {
-  featured: any[];
-  popular: any[];
-  highlyRated: any[];
+  featured: Service[];
+  popular: Service[];
+  highlyRated: Service[];
 };
 
 const TABS = [
@@ -93,7 +93,7 @@ export default function FeaturedServices({ featured, popular, highlyRated }: Pro
               }}
               className={styles.swiper}
             >
-              {items.map((s: any, i: number) => (
+              {items.map((s, i) => (
                 <SwiperSlide key={`${s.id}-${activeTab}`} className={styles.slide}>
                   <ServiceCard service={s} priority={i < 3} />
                 </SwiperSlide>

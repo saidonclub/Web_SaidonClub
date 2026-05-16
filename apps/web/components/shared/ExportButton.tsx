@@ -6,7 +6,7 @@ import { exportToExcel } from '@/utils/export';
 import styles from './ExportButton.module.css';
 
 interface ExportButtonProps {
-  data: any[];
+  data: Record<string, any>[];
   filename?: string;
   sheetName?: string;
   label?: string;

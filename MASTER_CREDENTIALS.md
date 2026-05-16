@@ -44,5 +44,9 @@ Este documento contiene una copia consolidada de todas las APIs y credenciales c
 - **Supabase URL**: (Ver `.env`)
 - **Supabase Anon Key**: (Ver `.env`)
 
+## 🛠️ DESARROLLO (GitHub)
+
+- **GitHub Token**: `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` (Classic Personal Access Token)
+
 ---
 *Documento generado por Antigravity v5.0 — 2026-05-15*

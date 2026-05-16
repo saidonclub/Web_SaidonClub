@@ -50,7 +50,21 @@ async function BalancesContent({ searchParams }: { searchParams: Promise<{ q?: s
   const [pendingWithdrawals, rejectedWithdrawals] = transactionsStats;
 
   // Data for the selected view
-  let data: any[] = [];
+  type WalletWithUser = Prisma.WalletGetPayload<{
+    include: { user: { select: { email: true, name: true, username: true } } }
+  }>;
+
+  type TransactionWithWallet = Prisma.WalletTransactionGetPayload<{
+    include: {
+      wallet: {
+        include: {
+          user: { select: { email: true, name: true } }
+        }
+      }
+    }
+  }>;
+
+  let data: (WalletWithUser | TransactionWithWallet)[] = [];
   if (view === 'wallets') {
     const where: Prisma.WalletWhereInput = query ? {
       user: {
@@ -249,7 +263,7 @@ async function BalancesContent({ searchParams }: { searchParams: Promise<{ q?: s
                     </tr>
                   </thead>
                   <tbody>
-                    {data.map((wallet) => (
+                    {(data as WalletWithUser[]).map((wallet) => (
                       <tr key={wallet.id}>
                         <td data-label="Usuario">
                           <div className={styles.userInfo}>
@@ -291,7 +305,7 @@ async function BalancesContent({ searchParams }: { searchParams: Promise<{ q?: s
                     </tr>
                   </thead>
                   <tbody>
-                    {data.map((tx) => (
+                    {(data as TransactionWithWallet[]).map((tx) => (
                       <tr key={tx.id}>
                         <td data-label="ID" className={styles.txId}>{tx.id.slice(0, 8)}...</td>
                         <td data-label="Usuario">

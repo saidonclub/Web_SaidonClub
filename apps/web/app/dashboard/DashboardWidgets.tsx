@@ -16,7 +16,7 @@ interface SmallBoxProps {
 
 export function SmallBox({ label, value, icon, color, trend, link }: SmallBoxProps) {
   return (
-    <div className={styles.smallBox} style={{ '--accent-color': color } as any}>
+    <div className={styles.smallBox} style={{ '--accent-color': color } as React.CSSProperties}>
       <div className={styles.smallBoxInner}>
         <div className={styles.smallBoxInfo}>
           <span className={styles.smallBoxLabel}>{label}</span>
@@ -86,7 +86,7 @@ export function Timeline({ items }: { items: { date: string, title: string, desc
   );
 }
 
-export function RecentOrdersTable({ orders }: { orders: any[] }) {
+export function RecentOrdersTable({ orders }: { orders: { id: string, status: string, itemCount: number, total: number }[] }) {
   return (
     <div className={styles.tableContainer}>
       <table className={styles.table}>
