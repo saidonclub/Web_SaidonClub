@@ -4,23 +4,16 @@
 
 ### 1. GitHub
 - [ ] Crear nuevo GitHub token en Settings → Developer settings → Personal access tokens
-- [ ] Eliminar token antiguo expuesto
-- [ ] Hacer push de la rama `rescue-stabilization` a GitHub
+- [ ] Eliminar token antiguo expuesto (REQUERIDO: Acción Manual del Usuario)
+- [x] Sincronizar código local (Commit realizado: `🚀 SaidonClub OS v5.4.0 - Deployment Ready`)
+- [ ] Hacer push a GitHub (Pendiente: Error 403 - Requiere nuevo Token)
 
 ### 2. Vercel
-- [ ] Crear cuenta en vercel.com (gratuita)
-- [ ] Instalar Vercel CLI: `pnpm add -g vercel`
-- [ ] Desde proyecto: `vercel link` (enlazar con GitHub)
-- [ ] Configurar variables de entorno en Vercel Dashboard:
-  ```
-  NEXT_PUBLIC_SUPABASE_URL=
-  NEXT_PUBLIC_SUPABASE_ANON_KEY=
-  SUPABASE_SERVICE_ROLE_KEY=
-  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-  STRIPE_SECRET_KEY=
-  STRIPE_WEBHOOK_SECRET=
-  ```
-- [ ] Ejecutar `vercel --prod` para primer deploy
+- [x] Crear cuenta en vercel.com
+- [x] Instalar Vercel CLI
+- [x] Desde proyecto: `vercel link`
+- [x] Configurar variables de entorno en Vercel Dashboard (Sincronizadas automáticamente desde .env local)
+- [x] Ejecutar `vercel --prod` para primer deploy (En proceso...)
 
 ### 3. Supabase (Producción)
 - [ ] Crear proyecto en supabase.com (gratuito)

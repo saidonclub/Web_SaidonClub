@@ -1,6 +1,6 @@
 import { prisma } from '@saidonclub/database';
 import { config } from '@saidonclub/config-engine';
-import { evaluateRank } from './ranks';
+import { evaluateRank, RankEvaluation } from './ranks';
 import { refreshAllVolumesCache } from './genealogy';
 
 /**
@@ -190,7 +190,7 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
             rule35Enabled
           )
         )
-      )).filter(Boolean);
+      )).filter((res): res is RankEvaluation => res !== null);
 
       // Accumulate commissions for final report
       evaluationResults.forEach((res) => {
@@ -202,6 +202,7 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
         await prisma.$transaction(
           async (tx) => {
             for (const rankResult of evaluationResults) {
+              if (!rankResult) continue;
               // UPSERT RANK
               await tx.rank.upsert({
                 where: {

@@ -168,7 +168,7 @@ export async function calculateSeedBonus(
       await tx.walletTransaction.create({
         data: {
           walletId: wallet.id,
-          type: 'COMMISSION',
+          type: 'SEED_BONUS',
           amount: amountFixed,
           status: 'PENDING',
           description: `Bono Semilla - Nivel ${node.level} - Compra: ${membershipType}${isUpgrade ? ' (UPGRADE)' : ''}`,

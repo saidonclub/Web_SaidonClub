@@ -185,7 +185,7 @@ export async function calculateRoyalties(
       await tx.walletTransaction.create({
         data: {
           walletId: wallet.id,
-          type: 'COMMISSION',
+          type: 'ROYALTY',
           amount: amountFixed,
           status: 'PENDING',
           description: `Regalías - Nivel ${node.level} - Orden #${orderId.slice(0, 8)}`,
