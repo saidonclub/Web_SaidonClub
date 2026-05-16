@@ -92,7 +92,15 @@ async function WithdrawalsContent({ searchParams }: { searchParams: Promise<{ q?
           </div>
           {transactions.length > 0 && (
             <ExportButton 
-              data={transactions} 
+              data={transactions.map(tx => ({
+                ID: tx.id,
+                Usuario: tx.wallet?.user?.name || 'Usuario',
+                Email: tx.wallet?.user?.email,
+                Monto: Number(tx.amount),
+                Descripcion: tx.description || '',
+                Estado: tx.status,
+                Fecha: tx.createdAt.toISOString()
+              }))} 
               filename="Retiros_SaidonClub" 
               sheetName="Retiros"
               label="Exportar Retiros"

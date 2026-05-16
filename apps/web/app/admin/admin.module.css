@@ -223,3 +223,78 @@
   }
 }
 
+/* Finance Summary */
+.financeSummary {
+  margin-bottom: 2rem;
+}
+
+.financeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.financeItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.financeLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--clr-text-secondary, #9ca3af);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.financeValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.positive {
+  color: #10b981;
+}
+
+.neutral {
+  color: var(--clr-orange, #ff6b00);
+}
+
+.negative {
+  color: #ef4444;
+}
+
+.cardActions {
+  padding: 1rem 1.5rem;
+  display: flex;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.actionBtn {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--clr-orange, #ff6b00);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 107, 0, 0.08);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.actionBtn:hover {
+  background-color: rgba(255, 107, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.headerTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+

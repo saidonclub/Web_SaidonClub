@@ -1,8 +1,10 @@
 import React from 'react'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
-import { ShoppingCart, Clock, CheckCircle2, XCircle, Package } from 'lucide-react'
+import { ShoppingCart, Clock, CheckCircle2, XCircle, Package, ArrowLeft } from 'lucide-react'
 import { getProviderSalesItems } from '@/lib/data/dashboard'
+import { ExportButton } from '@/components/shared/ExportButton'
+import Link from 'next/link'
 import styles from './Ventas.module.css'
 import StatusSelector from './StatusSelector'
 
@@ -43,6 +45,15 @@ export default async function VentasPage() {
         <div className={styles.headerTitle}>
           <ShoppingCart size={24} color="var(--clr-orange)" />
           <h1>Gestión de Ventas y Servicios</h1>
+          {salesItems.length > 0 && (
+            <ExportButton 
+              data={salesItems} 
+              filename="Mis_Ventas_SaidonClub" 
+              sheetName="Ventas"
+              label="Exportar Excel"
+              className={styles.exportBtn}
+            />
+          )}
         </div>
         <p className={styles.subtitle}>Administra los pedidos de tus productos y servicios contratados.</p>
       </div>
