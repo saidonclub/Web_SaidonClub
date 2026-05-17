@@ -1,17 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import { 
-  Users, 
+import {
   Target, 
   Globe, 
-  Zap, 
-  ShieldCheck, 
   Trophy, 
   Heart,
   ArrowRight
 } from "lucide-react";
 import styles from "./Nosotros.module.css";
-import Image from "next/image";
+
 
 export const metadata = {
   title: "Sobre Nosotros | SaidonClub - El Ecosistema de Élite en Ecuador",

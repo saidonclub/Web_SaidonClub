@@ -6,10 +6,12 @@ import { Search, Plus, Loader2 } from "lucide-react";
 import { useCompareContext } from "@/contexts/CompareContext";
 import { searchProductsForCompare } from "@/app/productos/comparar/actions";
 import { ProductPublic } from "@saidonclub/types";
+import { useToast } from "@/components/shared/Toast";
 import styles from "./CompareSelector.module.css";
 
 export default function CompareSelector() {
   const { addToCompare, isInCompare, canAddMore, compareCount } = useCompareContext();
+  const { warning } = useToast();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<ProductPublic[]>([]);
   const [isSearching, setIsSearching] = useState(false);
@@ -45,7 +47,7 @@ export default function CompareSelector() {
 
   const handleAdd = (product: ProductPublic) => {
     if (!canAddMore) {
-      alert("No puedes agregar más productos para comparar (Máximo 4).");
+      warning("Límite de Comparación", "No puedes agregar más productos para comparar (Máximo 4).");
       return;
     }
     const added = addToCompare(product);

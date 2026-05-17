@@ -36,7 +36,7 @@ export default async function CitaDetailPage({ params }: CitaDetailPageProps) {
   let appointment;
   try {
     appointment = await getAppointment(id);
-   } catch (_error) {
+   } catch {
      notFound();
    }
 

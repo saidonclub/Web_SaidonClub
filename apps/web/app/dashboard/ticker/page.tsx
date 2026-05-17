@@ -35,8 +35,8 @@ export default function TickerAdminPage() {
             isActive: m.isActive ?? true
           })));
         }
-      } catch (err) {
-        console.error('Error loading messages:', err);
+      } catch {
+        console.error('Error loading messages');
       } finally {
         setLoading(false);
       }
@@ -78,7 +78,7 @@ export default function TickerAdminPage() {
         const err = await res.json();
         setStatus({ type: 'error', msg: err.error || 'Error al guardar los cambios' });
       }
-    } catch (err) {
+    } catch {
       setStatus({ type: 'error', msg: 'Error de conexión con el servidor' });
     } finally {
       setSaving(false);

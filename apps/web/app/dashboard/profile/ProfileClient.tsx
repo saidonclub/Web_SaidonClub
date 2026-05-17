@@ -12,8 +12,6 @@ import {
   AlertCircle,
   Key,
   Fingerprint,
-  Globe,
-  Settings2,
   Trophy,
   ExternalLink,
   Lock,

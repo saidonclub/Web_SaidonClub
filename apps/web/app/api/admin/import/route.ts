@@ -159,7 +159,7 @@ export async function POST(req: NextRequest) {
               walletId: u.wallet.id,
               type: item.type,
               amount: Number(item.amount),
-              status: item.status || 'COMPLETED',
+              status: item.status || 'PAID',
               description: item.description || 'Importación masiva',
             }
           });

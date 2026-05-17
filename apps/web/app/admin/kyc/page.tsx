@@ -7,7 +7,6 @@ import { prisma, Prisma } from '@saidonclub/database';
 import { redirect } from 'next/navigation';
 import { getUser } from '@/lib/auth/core';
 import { Role, hasPermission, Permission } from '@saidonclub/rbac';
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 import { StatCard } from '@/components/admin/StatCard';
 import { StatusBadge } from '@/components/admin/StatusBadge';
 import { Shield, CheckCircle, XCircle, Clock, Search, Filter } from 'lucide-react';

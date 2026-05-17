@@ -464,7 +464,7 @@ export async function GET() {
       appointments: stats[3],
       invoices: stats[4],
     });
-   } catch (error: unknown) {
+   } catch {
      return NextResponse.json(
        { error: "Error al obtener estadísticas" },
        { status: 500 },

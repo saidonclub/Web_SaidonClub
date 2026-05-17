@@ -17,7 +17,7 @@ export default function OrderActions({ orderId, status }: OrderActionsProps) {
   if (status !== 'PENDING') return null;
 
   const handleCancel = async () => {
-    if (!confirm('¿Estás seguro de que deseas cancelar este pedido? Esta acción no se puede deshacer.')) {
+    if (!window.confirm('¿Estás seguro de que deseas cancelar este pedido? Esta acción no se puede deshacer.')) {
       return;
     }
 

@@ -53,6 +53,13 @@ export async function middleware(request: NextRequest) {
     return response;
   }
 
+  // Inicializamos una respuesta base para las rutas privadas
+  let response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  });
+
   // Session checking con @supabase/ssr
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -62,10 +69,17 @@ export async function middleware(request: NextRequest) {
         getAll() {
           return request.cookies.getAll();
         },
-        setAll(cookiesToSet: { name: string; value: string; options?: unknown }[]) {
-          cookiesToSet.forEach(({ name, value }: { name: string; value: string }) =>
-            request.cookies.set(name, value)
-          );
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) => {
+            request.cookies.set(name, value);
+          });
+          response = NextResponse.next({
+            request,
+          });
+          cookiesToSet.forEach(({ name, value, options }) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            response.cookies.set(name, value, options as any);
+          });
         },
       },
     }
@@ -76,10 +90,14 @@ export async function middleware(request: NextRequest) {
   if (!user) {
     const loginUrl = new URL("/auth/login", request.url);
     loginUrl.searchParams.set("redirect", pathname);
-    return NextResponse.redirect(loginUrl);
+    
+    // Si no hay usuario, redirigimos pero manteniendo las cookies actualizadas de la sesión
+    const redirectResponse = NextResponse.redirect(loginUrl);
+    response.cookies.getAll().forEach((cookie) => {
+      redirectResponse.cookies.set(cookie.name, cookie.value);
+    });
+    return redirectResponse;
   }
-
-  const response = NextResponse.next();
   
   // ============================================================
   // SECURITY PROTOCOL: Enterprise-Grade HTTP Headers

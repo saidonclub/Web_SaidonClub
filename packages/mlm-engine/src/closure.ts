@@ -1,4 +1,4 @@
-import { prisma } from '@saidonclub/database';
+import { prisma, Prisma } from '@saidonclub/database';
 import { config } from '@saidonclub/config-engine';
 import { evaluateRank, RankEvaluation } from './ranks';
 import { refreshAllVolumesCache } from './genealogy';
@@ -122,7 +122,7 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
       const batch = pioneers.slice(i, i + batchSize);
       console.log(`[CLOSURE] Procesando lote ${i / batchSize + 1} (${batch.length} usuarios)...`);
 
-      const batchUserIds = batch.map((u) => u.id);
+      const batchUserIds = batch.map((u: { id: string }) => u.id);
 
       // 1. Pre-fetch ALL required data for this batch in parallel
       const [allCachedVolumes, existingCommissions, existingWallets] = await Promise.all([
@@ -147,13 +147,13 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
       ]);
 
       const volumeMap: Record<string, number[]> = {};
-      allCachedVolumes.forEach((v) => {
+      allCachedVolumes.forEach((v: { userId: string; volume: { toString(): string } | number | bigint }) => {
         if (!volumeMap[v.userId]) volumeMap[v.userId] = [];
         volumeMap[v.userId].push(Number(v.volume));
       });
 
-      const commissionMap = new Map(existingCommissions.map(c => [c.userId, c]));
-      const walletMap = new Map(existingWallets.map(w => [w.userId, w]));
+      const commissionMap = new Map(existingCommissions.map((c: { userId: string; id: string }) => [c.userId, c]));
+      const walletMap = new Map(existingWallets.map((w: { userId: string; id: string }) => [w.userId, w]));
 
       // Pre-fetch transactions for these wallets that match the criteria
       const walletIds = existingWallets.map(w => w.id);
@@ -169,11 +169,11 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
       });
       
       // Map transactions by their commissionId (stored in metadata)
-      const transactionMap = new Map();
-      existingTransactions.forEach(tx => {
-        const metadata = tx.metadata as any;
-        if (metadata && metadata.commissionId) {
-          transactionMap.set(metadata.commissionId, tx);
+      const transactionMap = new Map<string, { id: string; amount: { toString(): string } | number }>();
+      existingTransactions.forEach((tx: { metadata: unknown; id: string; amount: { toString(): string } | number }) => {
+        const metadata = tx.metadata as Record<string, unknown>;
+        if (metadata && metadata['commissionId']) {
+          transactionMap.set(metadata['commissionId'] as string, tx);
         }
       });
 
@@ -200,7 +200,7 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
       // 3. Persist results in a clean, fast transaction
       if (evaluationResults.length > 0) {
         await prisma.$transaction(
-          async (tx) => {
+          async (tx: Prisma.TransactionClient) => {
             for (const rankResult of evaluationResults) {
               if (!rankResult) continue;
               // UPSERT RANK
@@ -256,7 +256,8 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
                 }
 
                 // UPSERT WALLET (Ensure exists)
-                let wallet = walletMap.get(rankResult.userId);
+                type WalletRecord = { id: string };
+                let wallet = walletMap.get(rankResult.userId) as WalletRecord | undefined;
                 if (!wallet) {
                   wallet = await tx.wallet.create({
                     data: {
@@ -265,7 +266,7 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
                       balanceAvailable: 0,
                       balanceValidated: 0,
                     }
-                  });
+                  }) as WalletRecord;
                 }
 
                 // IDEMPOTENT TRANSACTION
@@ -346,7 +347,7 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
     `);
 
     let totalSeedBonus = 0;
-    commTotals.forEach(c => {
+    commTotals.forEach((c: { type: string; total: unknown }) => {
       if (c.type === 'SEED_BONUS') totalSeedBonus = Number(c.total) || 0;
     });
 

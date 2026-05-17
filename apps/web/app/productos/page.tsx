@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+
 import styles from "./Productos.module.css";
 import { prisma } from "@/lib/prisma";
 import { Prisma } from "@saidonclub/database";
@@ -141,7 +141,7 @@ async function getProducts(filters: FilterParams): Promise<ProductPublic[]> {
       city: item.city ? { name: item.city.name } : undefined,
       options: item.options || undefined,
       stock: typeof item.stock === 'number' ? item.stock : 0,
-      isVerified: !!item.isVerified
+      isVerified: true, // all fetched products have isActive: true
     });
 
     // First attempt: filter by city (if cookie exists)

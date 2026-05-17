@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Briefcase, Check, Loader2, Plus } from "lucide-react";
 import { addServiceToCart } from "@/app/carrito/actions";
+import { useToast } from "@/components/shared/Toast";
 import styles from "./HireServiceButton.module.css";
  
 interface HireServiceButtonProps {
@@ -20,6 +21,7 @@ export default function HireServiceButton({
 }: HireServiceButtonProps) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const { error } = useToast();
  
   const handleHire = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -35,14 +37,14 @@ export default function HireServiceButton({
         // Dispatch custom event for cart refresh if needed, 
         // though revalidatePath usually handles it on next load
         setTimeout(() => {
-          setSuccess(false);
+        setSuccess(false);
         }, 2000);
       } else if (result.error) {
-        alert(result.error);
+        error("Error", result.error);
       }
-    } catch (error) {
-      console.error(`Error hiring service ${serviceName}:`, error);
-      alert("Ocurrió un error al procesar tu solicitud.");
+    } catch (err) {
+      console.error(`Error hiring service ${serviceName}:`, err);
+      error("Error", "Ocurrió un error al procesar tu solicitud.");
     } finally {
       setLoading(false);
     }

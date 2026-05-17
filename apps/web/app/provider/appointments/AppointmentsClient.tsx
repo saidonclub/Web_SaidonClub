@@ -12,6 +12,7 @@ import styles from './appointments.module.css';
 import type { SerializableAppointment } from './page';
 import { verifyAppointmentByQR, startAppointment } from '@/lib/actions/appointment';
 import { useRouter } from 'next/navigation';
+import { useToast } from "@/components/shared/Toast";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -60,6 +61,7 @@ export default function AppointmentsClient({ appointments }: Props) {
   const [verifiedAppointment, setVerifiedAppointment] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { error } = useToast();
 
   // ── Derived list ────────────────────────────────────────────────────────────
 
@@ -108,8 +110,8 @@ export default function AppointmentsClient({ appointments }: Props) {
       setVerifiedAppointment(null);
       setQrInput('');
       router.refresh();
-    } catch (error) {
-      alert('Error al iniciar la cita');
+    } catch (err) {
+      error("Error", 'Error al iniciar la cita');
     } finally {
       setLoading(false);
     }

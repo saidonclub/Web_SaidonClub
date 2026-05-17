@@ -50,8 +50,8 @@ export default function SecuritySettingsClient() {
       const res = await fetch("/api/push", { method: "GET" });
       const data = await res.json();
       setPushEnabled(data.subscribed);
-    } catch (err) {
-      console.error("Error checking push status:", err);
+    } catch {
+      console.error("Error checking push status");
     }
   };
 
@@ -104,8 +104,8 @@ export default function SecuritySettingsClient() {
         setPushEnabled(true);
         setSuccess("Notificaciones push activadas");
       }
-    } catch (err) {
-      console.error("Push error:", err);
+    } catch {
+      console.error("Push error");
       setError("Error al gestionar notificaciones push");
     } finally {
       setPushLoading(false);
@@ -130,8 +130,8 @@ export default function SecuritySettingsClient() {
       const res = await fetch("/api/2fa", { method: "GET" });
       const data = await res.json();
       setStatus(data);
-    } catch (err) {
-      console.error("Error fetching 2FA status:", err);
+    } catch {
+      console.error("Error fetching 2FA status");
     } finally {
       setLoading(false);
     }
@@ -154,7 +154,7 @@ export default function SecuritySettingsClient() {
       } else if (data.error) {
         setError(data.error);
       }
-    } catch (err) {
+    } catch {
       setError("Error al generar código QR");
     } finally {
       setGenerating(false);
@@ -179,7 +179,7 @@ export default function SecuritySettingsClient() {
       } else {
         setError(data.error || "Código inválido");
       }
-    } catch (err) {
+    } catch {
       setError("Error al verificar código");
     } finally {
       setVerifying(false);
@@ -187,7 +187,7 @@ export default function SecuritySettingsClient() {
   };
 
   const disable2FA = async () => {
-    if (!confirm("¿Estás seguro de que quieres desactivar 2FA?")) return;
+    if (!window.confirm("¿Estás seguro de que quieres desactivar 2FA?")) return;
     try {
       const res = await fetch("/api/2fa", {
         method: "POST",
@@ -199,7 +199,7 @@ export default function SecuritySettingsClient() {
         setSuccess("2FA desactivado");
         fetchStatus();
       }
-    } catch (err) {
+    } catch {
       setError("Error al desactivar 2FA");
     }
   };

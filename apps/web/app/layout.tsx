@@ -11,6 +11,7 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import { LocaleProvider } from '@/context/LocaleContext';
 import { LocationProvider } from '@/context/LocationContext';
 import { ToastProvider } from '@/components/shared/Toast';
+import { ConfirmProvider } from '@/components/shared/ConfirmDialog';
 import { CompareProvider } from '@/contexts/CompareContext';
 import { Inter } from 'next/font/google';
 
@@ -85,15 +86,17 @@ export default function RootLayout({
             <LocationProvider>
               <CartProvider>
                 <ToastProvider>
-                  <CompareProvider>
-                    <Navbar />
-                    <main style={{ paddingTop: 'var(--nav-height)' }}>
-                      {children}
-                    </main>
-                    <CartReminder />
-                    <MayChat />
-                  </CompareProvider>
-                  <Footer />
+                  <ConfirmProvider>
+                    <CompareProvider>
+                      <Navbar />
+                      <main style={{ paddingTop: 'var(--nav-height)' }}>
+                        {children}
+                      </main>
+                      <CartReminder />
+                      <MayChat />
+                    </CompareProvider>
+                    <Footer />
+                  </ConfirmProvider>
                 </ToastProvider>
               </CartProvider>
             </LocationProvider>

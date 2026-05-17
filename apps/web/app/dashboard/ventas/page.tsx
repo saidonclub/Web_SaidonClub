@@ -1,10 +1,10 @@
 import React from 'react'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
-import { ShoppingCart, Clock, CheckCircle2, XCircle, Package, ArrowLeft } from 'lucide-react'
+import { ShoppingCart, Clock, CheckCircle2, XCircle, Package } from 'lucide-react'
 import { getProviderSalesItems } from '@/lib/data/dashboard'
 import { ExportButton } from '@/components/shared/ExportButton'
-import Link from 'next/link'
+
 import styles from './Ventas.module.css'
 import StatusSelector from './StatusSelector'
 

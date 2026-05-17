@@ -19,7 +19,7 @@ export default defineConfig({
     environment: 'node',
     globals: true,
     // Excluir el stress test de Vitest — corre con tsx directamente
-    include: ['tests/**/*.test.{ts,tsx}'],
+    include: ['tests/**/*.test.{ts,tsx}', 'packages/**/*.test.{ts,tsx}'],
     exclude: ['tests/stress_standalone.ts', 'tests/e2e/**'],
     setupFiles: ['./tests/setup.ts'],
     testTimeout: 30000,
@@ -30,6 +30,7 @@ export default defineConfig({
       '@saidonclub/rbac': path.resolve(__dirname, './packages/rbac/src'),
       '@saidonclub/config-engine': path.resolve(__dirname, './packages/config-engine/src'),
       '@saidonclub/types': path.resolve(__dirname, './packages/types/src'),
+      'chai': path.resolve(__dirname, './tests/chai-wrapper.mjs'),
     },
     // `forks` usa child_process en lugar de worker_threads, compatible con Node 24
     pool: 'forks',
@@ -45,7 +46,7 @@ export default defineConfig({
           /\.node$/,
         ],
         interopDefault: true,
-        inline: ['chai', /@vitest\/expect/],
+        inline: [/@vitest\/expect/],
       },
     },
   },

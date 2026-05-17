@@ -1,4 +1,4 @@
-import { prisma } from '../../database/src/client';
+import { prisma } from '@saidonclub/database';
 import { executeWeeklyClosure } from './closure';
 import { v4 as uuidv4 } from 'uuid';
 import type { UserRole, PointSource, UserStatus } from '@saidonclub/database';

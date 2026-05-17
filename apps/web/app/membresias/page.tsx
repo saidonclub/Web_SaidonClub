@@ -8,14 +8,9 @@ import {
   Crown,
   Zap,
   Users,
-  ShoppingBag,
-  Headset,
-  ShieldCheck,
   TrendingUp,
-  ArrowRight,
   X,
   DollarSign,
-  Star,
   Award,
 } from "lucide-react";
 import styles from "./Membresias.module.css";

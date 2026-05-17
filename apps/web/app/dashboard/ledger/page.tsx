@@ -40,7 +40,7 @@ export default async function LedgerPage() {
   ] = await Promise.all([
     prisma.order.aggregate({
       where: {
-        status: { in: ['COMPLETED', 'DELIVERED', 'SHIPPED'] },
+        status: { in: ['DELIVERED', 'SHIPPED', 'PROCESSING'] },
         createdAt: { gte: sevenDaysAgo }
       },
       _sum: { totalAmount: true }

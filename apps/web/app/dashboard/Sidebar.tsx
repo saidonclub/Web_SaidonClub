@@ -9,13 +9,13 @@ import {
   Briefcase, 
   Activity,
   User,
-  Heart,
   Package,
   FileText,
   TrendingUp,
   MessageSquare,
   LogOut,
-  ChevronRight
+  ChevronRight,
+  Cpu
 } from 'lucide-react';
 import styles from './Sidebar.module.css';
 import { Role } from '@saidonclub/rbac';
@@ -32,6 +32,13 @@ export default function Sidebar({ role, userEmail }: SidebarProps) {
       links: [
         { href: '/dashboard', label: 'Centro de Comando', icon: <LayoutDashboard size={20} />, roles: ['*'] },
         { href: '/tienda', label: 'Mercado Saidon', icon: <ShoppingBag size={20} />, roles: ['*'] },
+      ]
+    },
+    {
+      title: 'Inteligencia Artificial',
+      links: [
+        { href: '/dashboard/ai-trading', label: 'Mesa Financiera Cuántica', icon: <TrendingUp size={20} />, roles: ['*'] },
+        { href: '/dashboard/ai-agency', label: 'Agencia de Desarrollo IA', icon: <Cpu size={20} />, roles: ['*'] },
       ]
     },
     {

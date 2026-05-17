@@ -1,4 +1,4 @@
-import { prisma } from '../../database/src';
+import { prisma } from '@saidonclub/database';
 import { executeWeeklyClosure } from '../src/closure';
 import { refreshAllVolumesCache } from '../src/genealogy';
 

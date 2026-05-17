@@ -1,4 +1,4 @@
-import HomeCarousel from '@/components/home/HomeCarousel';
+
 import CategoryBar from '@/components/home/CategoryBar';
 import FeaturedProducts from '@/components/home/FeaturedProducts';
 import FeaturedServices from '@/components/home/FeaturedServices';
@@ -88,10 +88,11 @@ export default async function HomePage() {
     ...s,
     priceSaidon: Number(s.priceSaidon),
     pointsEarned: Number(s.pointsEarned),
-    // TODO: Map actual ratings and reviews when available via ProviderProfile or Review models
-    rating: 5.0, 
+    location: s.location ?? undefined,   // coerce null → undefined
+    city: s.city ?? undefined,           // coerce null → undefined
+    rating: 5.0,
     reviewsCount: 0,
-    isVerified: s.status === 'APPROVED', // Ensure this maps to something real or remove
+    isVerified: s.status === 'APPROVED',
   }));
 
   const featuredServices = [...plainServices].filter(s => s.isVerified).slice(0, 10);

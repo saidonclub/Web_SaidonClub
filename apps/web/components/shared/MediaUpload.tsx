@@ -19,6 +19,7 @@ import {
   Zap,
 } from "lucide-react";
 import styles from "./MediaUpload.module.css";
+import { useToast } from "./Toast";
 
 interface MediaFile {
   id: string;
@@ -51,6 +52,7 @@ export const MediaUpload: React.FC<MediaUploadProps> = ({
   const [isDragging, setIsDragging] = useState(false);
   const [previewId, setPreviewId] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { error, warning } = useToast();
 
   // Inicializar con URLs existentes
   useEffect(() => {
@@ -73,8 +75,7 @@ export const MediaUpload: React.FC<MediaUploadProps> = ({
     const isVideo = file.type.startsWith("video/");
 
     if (isVideo && !acceptVideo) {
-      // Usar un feedback más elegante en el futuro, por ahora alert
-      alert("Los videos no están permitidos en este campo.");
+      error("Formato no permitido", "Los videos no están permitidos en este campo.");
       return;
     }
 
@@ -138,7 +139,7 @@ export const MediaUpload: React.FC<MediaUploadProps> = ({
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = Array.from(e.target.files || []);
     if (files.length + selectedFiles.length > maxFiles) {
-      alert(`Máximo ${maxFiles} archivos permitidos.`);
+      warning("Límite alcanzado", `Máximo ${maxFiles} archivos permitidos.`);
       return;
     }
     selectedFiles.forEach(uploadFile);
@@ -149,7 +150,7 @@ export const MediaUpload: React.FC<MediaUploadProps> = ({
     setIsDragging(false);
     const droppedFiles = Array.from(e.dataTransfer.files);
     if (files.length + droppedFiles.length > maxFiles) {
-      alert(`Máximo ${maxFiles} archivos permitidos.`);
+      warning("Límite alcanzado", `Máximo ${maxFiles} archivos permitidos.`);
       return;
     }
     droppedFiles.forEach(uploadFile);

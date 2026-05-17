@@ -6,10 +6,10 @@
 import { prisma } from '@saidonclub/database';
 import { redirect } from 'next/navigation';
 import { getUser } from '@/lib/auth/core';
-import { Role, hasPermission, Permission } from '@saidonclub/rbac';
+import { Role } from '@saidonclub/rbac';
 import { StatCard } from '@/components/admin/StatCard';
 import { StatusBadge } from '@/components/admin/StatusBadge';
-import { ShoppingBag, Clock, CheckCircle, XCircle, Search, Filter, X, CreditCard } from 'lucide-react';
+import { ShoppingBag, Clock, CheckCircle, Search, Filter, X, CreditCard } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import styles from './orders.module.css';
@@ -81,7 +81,7 @@ async function OrdersContent({ searchParams }: { searchParams: Promise<{ q?: str
     ]),
   ]);
 
-  const [total, pending, delivered, cancelled, revenue] = stats;
+  const [total, pending, delivered, , revenue] = stats;
 
   return (
     <div className={styles.page}>

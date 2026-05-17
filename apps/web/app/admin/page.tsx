@@ -9,7 +9,7 @@ import { getUser } from '@/lib/auth/core';
 import { Role, hasPermission, Permission } from '@saidonclub/rbac';
 import { StatCard } from '@/components/admin/StatCard';
 import { StatusBadge } from '@/components/admin/StatusBadge';
-import { Users, Package, Shield, Wallet, TrendingUp, CreditCard } from 'lucide-react';
+import { Users, Shield, Wallet, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import styles from './admin.module.css';
 
@@ -25,9 +25,6 @@ export default async function AdminDashboard() {
   // Obtener métricas en paralelo
   const [
     totalUsers,
-    pendingUsers,
-    pendingProducts,
-    pendingServices,
     pendingKyc,
     pendingWithdrawals,
     recentTransactions,
@@ -37,9 +34,6 @@ export default async function AdminDashboard() {
     deliveredOrders,
   ] = await Promise.all([
     prisma.user.count(),
-    prisma.user.count({ where: { status: 'PENDING_APPROVAL' } }),
-    prisma.product.count({ where: { status: 'PENDING' } }),
-    prisma.service.count({ where: { status: 'PENDING' } }),
     prisma.kYC.count({ where: { status: 'EN_REVISION' } }),
     prisma.walletTransaction.count({
       where: {

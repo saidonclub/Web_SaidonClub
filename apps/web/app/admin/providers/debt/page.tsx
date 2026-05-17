@@ -18,6 +18,8 @@ import {
   Building,
 } from "lucide-react";
 import styles from "./debt.module.css";
+import { useToast } from "@/components/shared/Toast";
+import { useConfirm } from "@/components/shared/ConfirmDialog";
 
 interface ProviderDebt {
   id: string;
@@ -47,6 +49,8 @@ interface SummaryInfo {
 }
 
 export default function DebtManagementPage() {
+  const { success, error: toastError } = useToast();
+  const { confirm } = useConfirm();
   const [providers, setProviders] = useState<ProviderDebt[]>([]);
   const [pagination, setPagination] = useState<PaginationInfo>({
     page: 1,
@@ -104,11 +108,14 @@ export default function DebtManagementPage() {
     providerId: string,
     action: "block" | "unblock" | "waive",
   ) => {
-    if (
-      !confirm(
-        `¿Estás seguro de ${action === "block" ? "bloquear" : action === "unblock" ? "desbloquear" : "condonar"} este proveedor?`,
-      )
-    ) {
+    const isConfirmed = await confirm({
+      title: "Confirmar acción",
+      message: `¿Estás seguro de ${action === "block" ? "bloquear" : action === "unblock" ? "desbloquear" : "condonar"} este proveedor?`,
+      isDanger: action === "block" || action === "waive",
+      confirmText: action === "block" ? "Bloquear" : action === "unblock" ? "Desbloquear" : "Condonar"
+    });
+
+    if (!isConfirmed) {
       return;
     }
 
@@ -125,16 +132,17 @@ export default function DebtManagementPage() {
         throw new Error(data.error);
       }
 
-      alert(
+      success(
+        action === "block" ? "Bloqueado" : action === "unblock" ? "Desbloqueado" : "Condonado",
         action === "block"
           ? "Proveedor bloqueado"
           : action === "unblock"
             ? "Proveedor desbloqueado"
-            : "Deuda condonada",
+            : "Deuda condonada"
       );
       fetchDebts();
     } catch (err: unknown) {
-      alert(err instanceof Error ? err.message : 'Error desconocido');
+      toastError("Error", err instanceof Error ? err.message : 'Error desconocido');
     } finally {
       setSubmitting(false);
     }
@@ -166,14 +174,14 @@ export default function DebtManagementPage() {
       }
 
       const data = await response.json();
-      alert(`Deuda ajustada. Nueva deuda: $${data.newDebt.toFixed(2)}`);
+      success("Ajuste completado", `Deuda ajustada. Nueva deuda: $${data.newDebt.toFixed(2)}`);
       setShowAdjustModal(false);
       setAdjustAmount("");
       setAdjustNotes("");
       setSelectedProvider(null);
       fetchDebts();
     } catch (err: unknown) {
-      alert(err instanceof Error ? err.message : 'Error desconocido');
+      toastError("Error", err instanceof Error ? err.message : 'Error desconocido');
     } finally {
       setSubmitting(false);
     }

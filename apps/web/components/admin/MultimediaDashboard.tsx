@@ -20,6 +20,7 @@ import {
   Maximize2,
   AlertTriangle,
 } from "lucide-react";
+import { useToast } from "@/components/shared/Toast";
 
 interface MediaFile {
   id: string;
@@ -60,6 +61,7 @@ export function MultimediaDashboard({ initialPage = 1 }: Props) {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [processing, setProcessing] = useState(false);
   const [processingType, setProcessingType] = useState<string>("");
+  const { success, error: toastError } = useToast();
 
   const fetchFiles = useCallback(async () => {
     setLoading(true);
@@ -120,7 +122,8 @@ export function MultimediaDashboard({ initialPage = 1 }: Props) {
       });
 
       const data = await res.json();
-      alert(
+      success(
+        "Optimización Exitosa",
         `Optimizado: ${data.optimized?.length || 0} archivos\nAhorro: ${(
           (data.totalSaved || 0) /
           1024
@@ -129,7 +132,7 @@ export function MultimediaDashboard({ initialPage = 1 }: Props) {
       setSelected(new Set());
       fetchFiles();
     } catch (error) {
-      alert("Error al optimizar");
+      toastError("Error", "Error al optimizar");
     } finally {
       setProcessing(false);
       setProcessingType("");
@@ -153,11 +156,11 @@ export function MultimediaDashboard({ initialPage = 1 }: Props) {
       });
 
       const data = await res.json();
-      alert(`Generados: ${data.regenerated?.length || 0} tamaños`);
+      success("Tamaños Regenerados", `Generados: ${data.regenerated?.length || 0} tamaños`);
       setSelected(new Set());
       fetchFiles();
     } catch (error) {
-      alert("Error al regenerar");
+      toastError("Error", "Error al regenerar");
     } finally {
       setProcessing(false);
       setProcessingType("");
@@ -166,7 +169,7 @@ export function MultimediaDashboard({ initialPage = 1 }: Props) {
 
   const handleDelete = async () => {
     if (selected.size === 0) return;
-    if (!confirm(`¿Eliminar ${selected.size} archivos?`)) return;
+    if (!window.confirm(`¿Eliminar ${selected.size} archivos?`)) return;
 
     setProcessing(true);
     setProcessingType("deleting");
@@ -179,11 +182,11 @@ export function MultimediaDashboard({ initialPage = 1 }: Props) {
       });
 
       const data = await res.json();
-      alert(`Eliminados: ${data.deleted?.length || 0} archivos`);
+      success("Archivos Eliminados", `Eliminados: ${data.deleted?.length || 0} archivos`);
       setSelected(new Set());
       fetchFiles();
     } catch (error) {
-      alert("Error al eliminar");
+      toastError("Error", "Error al eliminar");
     } finally {
       setProcessing(false);
       setProcessingType("");

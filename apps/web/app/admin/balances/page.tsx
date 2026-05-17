@@ -9,11 +9,11 @@ import { getUser } from '@/lib/auth/core';
 import { Role } from '@saidonclub/rbac';
 import { StatCard } from '@/components/admin/StatCard';
 import { StatusBadge } from '@/components/admin/StatusBadge';
-import { Wallet as WalletIcon, ArrowUpRight, ArrowDownLeft, Clock, AlertTriangle, Search, Filter, X, Download } from 'lucide-react';
+import { Wallet as WalletIcon, Clock, AlertTriangle, Search, Filter, X } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import styles from './balances.module.css';
-import { Prisma, TransactionStatus, TransactionType } from '@saidonclub/database';
+import { Prisma, TransactionType } from '@saidonclub/database';
 import { ExportButton } from '@/components/shared/ExportButton';
 
 export const dynamic = "force-dynamic";
@@ -132,23 +132,25 @@ async function BalancesContent({ searchParams }: { searchParams: Promise<{ q?: s
             <ExportButton 
               data={data.map(item => {
                 if (view === 'wallets') {
+                  const w = item as WalletWithUser;
                   return {
-                    Usuario: item.user.name || item.user.username,
-                    Email: item.user.email,
-                    Disponible: Number(item.balanceAvailable),
-                    Pendiente: Number(item.balancePending),
-                    Deuda: Number(item.balanceDebt),
-                    Total_Ganado: Number(item.totalEarned)
+                    Usuario: w.user.name || w.user.username,
+                    Email: w.user.email,
+                    Disponible: Number(w.balanceAvailable),
+                    Pendiente: Number(w.balancePending),
+                    Deuda: Number(w.balanceDebt),
+                    Total_Ganado: Number(w.totalEarned)
                   };
                 } else {
+                  const tx = item as TransactionWithWallet;
                   return {
-                    ID: item.id,
-                    Usuario: item.wallet.user.name || item.wallet.user.email,
-                    Tipo: item.type,
-                    Monto: Number(item.amount),
-                    Estado: item.status,
-                    Fecha: item.createdAt.toISOString(),
-                    Descripcion: item.description
+                    ID: tx.id,
+                    Usuario: tx.wallet.user.name || tx.wallet.user.email,
+                    Tipo: tx.type,
+                    Monto: Number(tx.amount),
+                    Estado: tx.status,
+                    Fecha: tx.createdAt.toISOString(),
+                    Descripcion: tx.description
                   };
                 }
               })}
@@ -315,7 +317,7 @@ async function BalancesContent({ searchParams }: { searchParams: Promise<{ q?: s
                           </div>
                         </td>
                         <td data-label="Tipo">{tx.type}</td>
-                        <td data-label="Monto" className={`${styles.amount} ${tx.amount > 0 ? styles.amountPositive : styles.amountNegative}`}>
+                        <td data-label="Monto" className={`${styles.amount} ${Number(tx.amount) > 0 ? styles.amountPositive : styles.amountNegative}`}>
                           ${Number(tx.amount).toFixed(2)}
                         </td>
                         <td data-label="Estado">

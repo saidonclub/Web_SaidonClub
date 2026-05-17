@@ -12,10 +12,14 @@
 
 import { PrismaClient } from './generated/client_v3';
 
+console.log('[DEBUG] database/src/client.ts: PrismaClient is', typeof PrismaClient);
+
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 
 export const prisma = globalForPrisma.prisma || new PrismaClient({
   log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
 });
+
+console.log('[DEBUG] database/src/client.ts: prisma instance is', typeof prisma);
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;

@@ -2,16 +2,13 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist",
+    "rootDir": "src",
     "lib": [
       "ES2022",
       "dom"
     ],
     "composite": false,
     "declarationDir": "./dist",
-    "paths": {
-      "@saidonclub/database": ["../database/src/index.ts"],
-      "@saidonclub/config-engine": ["../config-engine/src/index.ts"]
-    }
   },
   "include": [
     "src"
@@ -21,3 +18,4 @@
     "src/__tests__"
   ]
 }
+

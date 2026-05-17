@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styles from './DashboardWidgets.module.css';
-import { ChevronRight, MoreVertical, Maximize2, X } from 'lucide-react';
+import { ChevronRight, Maximize2, X } from 'lucide-react';
 
 interface SmallBoxProps {
   label: string;

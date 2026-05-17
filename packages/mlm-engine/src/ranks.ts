@@ -83,7 +83,7 @@ export async function evaluateRank(
 
   // Usar requerimientos pre-cargados o cargarlos ahora (con cache local)
   const rankRequirements = preFetchedRequirements || await Promise.all(
-    RANK_HIERARCHY.map(async (r) => ({
+    RANK_HIERARCHY.map(async (r: (typeof RANK_HIERARCHY)[number]) => ({
       ...r,
       points: await config.get<number>(r.pointsKey, Infinity),
       bonus: await config.get<number>(r.bonusKey, 0),

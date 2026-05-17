@@ -1,7 +1,13 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { prisma } from '@saidonclub/database';
+
 import { executeWeeklyClosure } from '../closure';
 import { refreshAllVolumesCache } from '../genealogy';
+
+console.log('[AUDIT] Prisma instance type:', typeof prisma);
+if (!prisma) {
+  throw new Error('[FATAL] Prisma instance is undefined at module load time.');
+}
 
 /**
  * TEST DE ESTRÉS OFENSIVO - MOTOR MLM
@@ -17,8 +23,19 @@ describe('MLM Engine Performance & Integrity Audit', () => {
   beforeAll(async () => {
     console.log(`\n[AUDIT] Preparando entorno para ${USER_COUNT} usuarios...`);
     
-    // 1. Limpiar auditorías previas
-    await prisma.user.deleteMany({ where: { email: { startsWith: PREFIX } } });
+    // 1. Limpiar auditorías previas de forma segura (cascada manual)
+    const auditUsers = await prisma.user.findMany({ 
+      where: { email: { startsWith: PREFIX } },
+      select: { id: true }
+    });
+    const auditUserIds = auditUsers.map((u: { id: string }) => u.id);
+
+    if (auditUserIds.length > 0) {
+      await prisma.commission.deleteMany({ where: { userId: { in: auditUserIds } } });
+      await prisma.pointsLedger.deleteMany({ where: { userId: { in: auditUserIds } } });
+      await prisma.volumeCache.deleteMany({ where: { userId: { in: auditUserIds } } });
+      await prisma.user.deleteMany({ where: { id: { in: auditUserIds } } });
+    }
 
     // 2. Crear un usuario raíz (Patrocinador Maestro)
     const master = await prisma.user.create({
@@ -49,7 +66,7 @@ describe('MLM Engine Performance & Integrity Audit', () => {
 
     // 4. Inyectar puntos para activar a todos
     console.log(`[AUDIT] Inyectando volumen de puntos masivo...`);
-    const ledgerData = allUsers.map(u => ({
+    const ledgerData = allUsers.map((u: { id: string }) => ({
       userId: u.id,
       amount: 100,
       sourceType: 'MARKETPLACE' as any,
@@ -64,8 +81,18 @@ describe('MLM Engine Performance & Integrity Audit', () => {
 
   afterAll(async () => {
     console.log(`\n[AUDIT] Limpiando rastros de auditoría...`);
-    // Borrado en cascada (Prisma handle it)
-    await prisma.user.deleteMany({ where: { email: { startsWith: PREFIX } } });
+    const auditUsers = await prisma.user.findMany({ 
+      where: { email: { startsWith: PREFIX } },
+      select: { id: true }
+    });
+    const auditUserIds = auditUsers.map((u: { id: string }) => u.id);
+
+    if (auditUserIds.length > 0) {
+      await prisma.commission.deleteMany({ where: { userId: { in: auditUserIds } } });
+      await prisma.pointsLedger.deleteMany({ where: { userId: { in: auditUserIds } } });
+      await prisma.volumeCache.deleteMany({ where: { userId: { in: auditUserIds } } });
+      await prisma.user.deleteMany({ where: { id: { in: auditUserIds } } });
+    }
   });
 
   it('FASE 1: Benchmark de Recursive CTE (Volúmenes)', async () => {

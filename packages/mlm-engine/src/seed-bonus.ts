@@ -71,7 +71,7 @@ export async function calculateSeedBonus(
   const existingWallets = await tx.wallet.findMany({
     where: { userId: { in: userIds } }
   });
-  const walletMap = new Map(existingWallets.map(w => [w.userId, w]));
+  const walletMap = new Map(existingWallets.map((w: { userId: string; id: string }) => [w.userId, w]));
 
   const now = new Date();
   const currentMonth = now.getMonth() + 1;
@@ -142,7 +142,8 @@ export async function calculateSeedBonus(
       // --- INTEGRACIÓN DE BILLETERA ---
       
       // 1. GET OR CREATE WALLET
-      let wallet = walletMap.get(node.userId);
+      type WalletRecord = { id: string };
+      let wallet = walletMap.get(node.userId) as WalletRecord | undefined;
       if (!wallet) {
         wallet = await tx.wallet.create({
           data: {
@@ -151,8 +152,8 @@ export async function calculateSeedBonus(
             balanceAvailable: 0,
             balanceValidated: 0,
           }
-        });
-        walletMap.set(node.userId, wallet);
+        }) as WalletRecord;
+        walletMap.set(node.userId, wallet as ReturnType<typeof walletMap.get> extends undefined ? never : NonNullable<ReturnType<typeof walletMap.get>>);
       }
 
       // 2. UPDATE WALLET BALANCE (PENDING)

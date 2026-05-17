@@ -73,7 +73,7 @@ export async function getGenealogyTree(
 
   const results = await prisma.$queryRawUnsafe<any[]>(query, userId, levels, compressionEnabled);
 
-  return results.map(row => ({
+  return results.map((row: { userId: string; username: string; level: unknown; isActive: unknown }) => ({
     userId: row.userId,
     username: row.username,
     level: Number(row.level),
@@ -119,7 +119,7 @@ export async function getUserLinesVolumes(
   `;
 
   const results = await prisma.$queryRawUnsafe<any[]>(query, userId, cycleMonth, cycleYear);
-  return results.map(row => ({
+  return results.map((row: { lineId: string; volume: unknown }) => ({
     lineId: row.lineId,
     volume: Number(row.volume)
   }));

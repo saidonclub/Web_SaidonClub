@@ -97,9 +97,13 @@ export default function WishlistClient() {
           <div className={styles.clearAllContainer}>
             <button
               className={styles.clearAllBtn}
-              onClick={() => {
+              onClick={async () => {
                 if (window.confirm("¿Eliminar todos los favoritos?")) {
-                  clearWishlist();
+                  try {
+                    clearWishlist();
+                  } catch (e) {
+                    console.error("Error clearing wishlist", e);
+                  }
                 }
               }}
             >

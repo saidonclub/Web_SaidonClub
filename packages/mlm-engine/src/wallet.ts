@@ -25,7 +25,7 @@ export async function exchangeBalanceToPoints(userId: string, amount: number) {
   // Obtener tasa de conversión (por defecto 100 puntos por 1 USD)
   const exchangeRate = await config.get<number>('POINTS_EXCHANGE_RATE', 100);
 
-  return await prisma.$transaction(async (tx) => {
+  return await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
     // 1. Obtener wallet con lock (implicit in update or select for update if needed)
     // Usamos findUnique primero para validar existencia
     const wallet = await tx.wallet.findUnique({

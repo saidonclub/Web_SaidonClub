@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // ============================================================
 // COMPONENT: BookingModal
 // PURPOSE: Multi-step appointment booking flow
@@ -10,14 +9,15 @@
 import { useState } from "react";
 import { X, Calendar, Clock, User, MessageSquare, Loader2, CheckCircle } from "lucide-react";
 import { createAppointment } from "@/lib/actions/appointment";
+import { Prisma } from "@saidonclub/database";
 import styles from "./BookingModal.module.css";
 
 interface Service {
   id: string;
   name: string;
   description: string;
-  pricePVP: any;
-  priceSaidon: any;
+  pricePVP: number | string | Prisma.Decimal;
+  priceSaidon: number | string | Prisma.Decimal;
 }
 
 interface Provider {
@@ -97,8 +97,9 @@ export default function BookingModal({
         clientNotes: notes,
       });
       setSuccess(true);
-    } catch (err: any) {
-      setError(err.message || "Error al crear la solicitud. Intenta de nuevo.");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Error al crear la solicitud. Intenta de nuevo.";
+      setError(msg);
     } finally {
       setIsSubmitting(false);
     }

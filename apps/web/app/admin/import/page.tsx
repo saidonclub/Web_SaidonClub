@@ -4,10 +4,12 @@ import React, { useState } from 'react';
 import { Upload, FileSpreadsheet, AlertCircle, CheckCircle2, Loader2, Info } from 'lucide-react';
 import styles from './Import.module.css';
 import * as XLSX from 'xlsx';
+import { useToast } from '@/components/shared/Toast';
 
 type ImportType = 'products' | 'services' | 'users' | 'balances' | 'transactions';
 
 export default function AdminImportPage() {
+  const { error: toastError } = useToast();
   const [file, setFile] = useState<File | null>(null);
   const [importType, setImportType] = useState<ImportType>('products');
   const [isUploading, setIsUploading] = useState(false);
@@ -28,12 +30,12 @@ export default function AdminImportPage() {
           const wb = XLSX.read(bstr, { type: 'binary' });
           const wsname = wb.SheetNames[0];
           const ws = wb.Sheets[wsname];
-          const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
+          const data = XLSX.utils.sheet_to_json(ws, { header: 1 }) as unknown[][];
           setPreview(data.slice(0, 6)); // Show first 5 rows
         };
         reader.readAsBinaryString(selectedFile);
       } else {
-        alert('Por favor selecciona un archivo Excel (.xlsx, .xls) o CSV');
+        toastError('Archivo inválido', 'Por favor selecciona un archivo Excel (.xlsx, .xls) o CSV');
       }
     }
   };
@@ -165,7 +167,7 @@ export default function AdminImportPage() {
                 <thead>
                   <tr>
                     {preview[0]?.map((header, i) => (
-                      <th key={i}>{header}</th>
+                      <th key={i}>{String(header)}</th>
                     ))}
                   </tr>
                 </thead>
@@ -173,7 +175,7 @@ export default function AdminImportPage() {
                   {preview.slice(1).map((row, i) => (
                     <tr key={i}>
                       {(row as unknown[]).map((cell, j) => (
-                        <td key={j}>{cell}</td>
+                        <td key={j}>{String(cell)}</td>
                       ))}
                     </tr>
                   ))}

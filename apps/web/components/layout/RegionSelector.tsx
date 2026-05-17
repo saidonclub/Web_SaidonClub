@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // ============================================================
 // COMPONENT: Region Selector
 // PURPOSE: Dropdown to select country/region for pricing and content
@@ -30,6 +29,7 @@ import {
   getProvinces,
   getNearestCity,
 } from "@/lib/actions/location";
+import { useToast } from "@/components/shared/Toast";
 import styles from "./RegionSelector.module.css";
 import LocationSearch from "../shared/LocationSearch";
 
@@ -69,6 +69,7 @@ const RegionSelector = () => {
   } = useLocation();
 
   const router = useRouter();
+  const { warning, error: toastError } = useToast();
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
     "pais" | "provincia" | "ciudad" | "distrito"
@@ -216,18 +217,16 @@ const RegionSelector = () => {
               setProvinces(p);
               await refreshCities(nearestCity.provinceId || "");
             } else {
-              alert(
-                "No se pudo encontrar una ciudad cercana en nuestra base de datos.",
-              );
+              warning("Ubicación", "No se pudo encontrar una ciudad cercana en nuestra base de datos.");
             }
           } catch (error) {
             console.error("Error detectando ubicación:", error);
-            alert("Error al detectar la ubicación.");
+            toastError("Ubicación", "Error al detectar la ubicación.");
           } finally {
             setIsOpen(false);
           }
         },
-        () => alert("Activa los permisos de GPS para detección automática."),
+        () => warning("Ubicación", "Activa los permisos de GPS para detección automática."),
       );
     }
   };
@@ -254,6 +253,9 @@ const RegionSelector = () => {
           d.name.toLowerCase().includes(query) &&
           (!selectedCity || d.cityId === selectedCity),
       );
+    }
+    if (activeTab === "distrito") {
+      return districts.filter((d) => d.name.toLowerCase().includes(query));
     }
     return [];
   }, [
@@ -356,7 +358,7 @@ const RegionSelector = () => {
             )}
 
             {filteredOptions.length > 0 ? (
-              filteredOptions.map((opt: any) => (
+              filteredOptions.map((opt) => (
                 <div
                   key={opt.id}
                   className={`${styles.option} ${
@@ -388,7 +390,7 @@ const RegionSelector = () => {
                     } else {
                       const city = cities.find((c) => c.id === selectedCity);
                       if (city) {
-                        setDistrict(opt);
+                        setDistrict(opt as { id: string; name: string; cityId: string });
                         setIsOpen(false);
                         // Trigger server refresh
                         setTimeout(() => router.refresh(), 100);
@@ -398,8 +400,8 @@ const RegionSelector = () => {
                   }}
                 >
                   <div className={styles.optionContent}>
-                    {activeTab === "pais" && (
-                      <span className={styles.flag}>{opt.flag || "🌍"}</span>
+                    {activeTab === "pais" && "flag" in opt && (
+                      <span className={styles.flag}>{(opt as Country).flag || "🌍"}</span>
                     )}
                     <span>{opt.name}</span>
                   </div>
