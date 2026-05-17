@@ -50,8 +50,6 @@ export {
   NotificationType,
 } from './generated/client_v3';
 
-console.log('[DEBUG] database/src/index.ts: EXECUTING');
-
 export { prisma, supabaseAdmin, supabaseAnon, createUserClient };
 
 export default {

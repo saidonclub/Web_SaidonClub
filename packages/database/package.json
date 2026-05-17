@@ -4,6 +4,12 @@
   "description": "Prisma + Supabase infrastructure with Multi-schema support.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "node -e \"try{require('fs').unlinkSync('tsconfig.tsbuildinfo')}catch(e){}\" && tsc && node scripts/copy-generated.js",
     "db:generate": "pnpm exec prisma generate --schema=prisma/schema.prisma && node scripts/copy-generated.js",
