@@ -3,12 +3,14 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "src",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "lib": [
       "ES2022",
       "dom"
     ],
     "composite": false,
-    "declarationDir": "./dist",
+    "declarationDir": "./dist"
   },
   "include": [
     "src"
@@ -18,4 +20,3 @@
     "src/__tests__"
   ]
 }
-
