@@ -16,4 +16,4 @@ Gestión completa del ciclo de vida del usuario: Registro, Login, Recuperación 
 - **Rate Limiting:** Protección contra ataques de fuerza bruta.
 
 ---
-**© 2026 SaidonClub — Propiedad Intelectual de Víctor Hugo Villegas.**
+**© 2026 SaidonClub — Propiedad Intelectual de SaidonClub.**

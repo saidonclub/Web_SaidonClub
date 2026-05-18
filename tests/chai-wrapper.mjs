@@ -1,4 +1,7 @@
-import pkg from 'chai';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const pkg = require('chai');
+
 export const assert = pkg.assert;
 export const expect = pkg.expect;
 export const should = pkg.should;

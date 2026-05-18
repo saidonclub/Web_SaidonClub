@@ -30,7 +30,6 @@ export default defineConfig({
       '@saidonclub/rbac': path.resolve(__dirname, './packages/rbac/src'),
       '@saidonclub/config-engine': path.resolve(__dirname, './packages/config-engine/src'),
       '@saidonclub/types': path.resolve(__dirname, './packages/types/src'),
-      'chai': path.resolve(__dirname, './tests/chai-wrapper.mjs'),
     },
     // `forks` usa child_process en lugar de worker_threads, compatible con Node 24
     pool: 'forks',

@@ -9,7 +9,7 @@
 | Campo | Valor |
 |-------|-------|
 | **Nombre** | SaidonClub OS v5.2 |
-| **Propietario** | Víctor Hugo Villegas |
+| **Propietario** | SaidonClub Global |
 | **Contacto oficial** | +593 98 378 8477 |
 | **Email admin** | admin@saidonclub.com |
 | **Naturaleza** | Marketplace + MLM + Servicios (todo en uno) |
@@ -280,6 +280,6 @@ test(scope): descripción
 
 ---
 
-*Owner: Víctor Hugo Villegas | +593 98 378 8477*
+*Owner: SaidonClub Global | admin@saidonclub.com*
 *Antigravity — SaidonClub OS v5.2 | Última actualización: 2026-04-25*
 *Testing Engine: chrome-devtools-mcp (Playwright CDP) — PROTOCOLO OFICIAL*

@@ -15,4 +15,4 @@ Este módulo gestiona todas las vistas personalizadas según el rol del usuario 
 3. **Data Isolation:** Los datos se filtran por `userId` o `role` en la capa de datos.
 
 ---
-**© 2026 SaidonClub — Propiedad Intelectual de Víctor Hugo Villegas.**
+**© 2026 SaidonClub — Propiedad Intelectual de SaidonClub.**

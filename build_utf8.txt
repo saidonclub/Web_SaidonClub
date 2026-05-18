@@ -1,0 +1,66 @@
+﻿node.exe : npm warn Unknown project config "shamefully-hoist". This will stop working in the next major version of npm.
+En línea: 1 Carácter: 1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm warn Unknow...version of npm.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm warn Unknown project config "public-hoist-pattern". This will stop working in the next major version of npm.
+ÔÇó turbo 2.9.6
+
+   ÔÇó Packages in scope: web
+   ÔÇó Running build in 1 packages
+   ÔÇó Remote caching disabled
+
+@saidonclub/database:db:generate: cache bypass, force executing 401964cca2e1ed79
+@saidonclub/rbac:build: cache hit, replaying logs ee0d8c79535375fc
+@saidonclub/rbac:build: 
+@saidonclub/rbac:build: > @saidonclub/rbac@1.0.0 build C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\packages\rbac
+@saidonclub/rbac:build: > tsc
+@saidonclub/rbac:build: 
+@saidonclub/types:build: cache hit, replaying logs 80ed0a8554233d72
+@saidonclub/types:build: 
+@saidonclub/types:build: > @saidonclub/types@5.2.0 build C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\packages\types
+@saidonclub/types:build: > tsc
+@saidonclub/types:build: 
+@saidonclub/database:db:generate: 
+@saidonclub/database:db:generate: > @saidonclub/database@5.2.0 db:generate C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\packages\database
+@saidonclub/database:db:generate: > pnpm exec prisma generate --schema=prisma/schema.prisma && node scripts/copy-generated.js
+@saidonclub/database:db:generate: 
+@saidonclub/database:db:generate: Environment variables loaded from .env
+@saidonclub/database:db:generate: Prisma schema loaded from prisma\schema.prisma
+@saidonclub/database:db:generate: 
+@saidonclub/database:db:generate: Ô£ö Generated Prisma Client (v5.22.0) to .\src\generated\client_v3 in 692ms
+@saidonclub/database:db:generate: 
+@saidonclub/database:db:generate: Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+@saidonclub/database:db:generate: 
+@saidonclub/database:db:generate: Tip: Easily identify and fix slow SQL queries in your app. Optimize helps you enhance your visibility: https://pris.ly/--optimize
+@saidonclub/database:db:generate: 
+@saidonclub/database:db:generate: Copying from C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\packages\database\src\generated\client_v3 to C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\packages\database\dist\generated\client_v3...
+@saidonclub/database:db:generate: Done!
+@saidonclub/database:build: cache hit, replaying logs 97cd50b14a4cd42e
+@saidonclub/database:build: 
+@saidonclub/database:build: > @saidonclub/database@5.2.0 build C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\packages\database
+@saidonclub/database:build: > node -e "try{require('fs').unlinkSync('tsconfig.tsbuildinfo')}catch(e){}" && tsc && node scripts/copy-generated.js
+@saidonclub/database:build: 
+@saidonclub/database:build: Copying from C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\packages\database\src\generated\client_v3 to C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\packages\database\dist\generated\client_v3...
+@saidonclub/database:build: Done!
+@saidonclub/config-engine:build: cache miss, executing 728d7dfdcbb36516
+@saidonclub/config-engine:build: 
+@saidonclub/config-engine:build: > @saidonclub/config-engine@5.2.0 build C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\packages\config-engine
+@saidonclub/config-engine:build: > tsc
+@saidonclub/config-engine:build: 
+@saidonclub/mlm-engine:build: cache miss, executing ac52c3b714c6b82a
+@saidonclub/mlm-engine:build: 
+@saidonclub/mlm-engine:build: > @saidonclub/mlm-engine@5.2.0 build C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\packages\mlm-engine
+@saidonclub/mlm-engine:build: > tsc
+@saidonclub/mlm-engine:build: 
+web:build: cache miss, executing 895d25425d2d4196
+web:build: 
+web:build: > web@0.1.0 build C:\Users\Gatita\OneDrive\Desktop\Web_SaidonClub\apps\web
+web:build: > next build
+web:build: 
+web:build:    Ôû▓ Next.js 15.5.15
+web:build:    - Environments: .env.local
+web:build: 
+web:build:    Creating an optimized production build ...

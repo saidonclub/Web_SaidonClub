@@ -217,7 +217,7 @@ export default function AyudaPage() {
             <div className={styles.footerActions}>
               <a href="https://wa.me/593983788477" target="_blank" rel="noopener noreferrer" className={styles.whatsappBtn}>
                 <MessageCircle size={22} />
-                WhatsApp Directo (Víctor Hugo)
+                WhatsApp Directo (Soporte Oficial)
               </a>
               <a href="https://wa.me/593983788477?text=Hola%2C%20necesito%20ayuda%20con%20un%20ticket%20de%20soporte" target="_blank" rel="noopener noreferrer" className={styles.ticketBtn}>
                 <HelpCircle size={22} />

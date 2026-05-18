@@ -9,7 +9,11 @@
     "types": ["node"],
     "composite": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@saidonclub/database": ["../database/src/index.ts"]
+    }
   },
   "include": ["src"],
   "references": [

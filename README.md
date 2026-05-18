@@ -100,5 +100,5 @@ Our **Security Forensic System** tracks every sensitive interaction (`ADMIN_ACCE
 
 ---
 
-**© 2026 SaidonClub. Proprietary Property of Víctor Hugo Villegas.**  
+**© 2026 SaidonClub. All Rights Reserved. Proprietary Property of SaidonClub.**  
 *Engineered to perfection by Antigravity AI Engine.*
