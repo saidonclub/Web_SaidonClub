@@ -16,7 +16,11 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "composite": true
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@saidonclub/*": ["packages/*/src"]
+    }
   },
   "exclude": ["node_modules", "dist"]
 }

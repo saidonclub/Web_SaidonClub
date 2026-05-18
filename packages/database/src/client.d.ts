@@ -1,3 +1,6 @@
-import { PrismaClient } from './generated/client_v3';
-export declare const prisma: PrismaClient<import("./generated/client_v3").Prisma.PrismaClientOptions, never, import("./generated/client_v3/runtime/library").DefaultArgs>;
+import * as client_v3 from './generated/client_v3';
+type PrismaClient = client_v3.PrismaClient;
+declare const PrismaClient: typeof client_v3.PrismaClient;
+export declare const prisma: PrismaClient;
+export {};
 //# sourceMappingURL=client.d.ts.map

@@ -10,8 +10,9 @@
       "dom"
     ],
     "composite": true,
+    "declaration": true,
     "declarationDir": "./dist",
-    "baseUrl": "."
+    "skipLibCheck": true
   },
   "include": [
     "src"

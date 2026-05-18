@@ -43,6 +43,16 @@
         "SUPABASE_STORAGE_URL"
       ]
     },
+    "@saidonclub/config-engine#build": {
+      "dependsOn": ["@saidonclub/database#build"],
+      "cache": false,
+      "outputs": ["dist/**"]
+    },
+    "@saidonclub/mlm-engine#build": {
+      "dependsOn": ["@saidonclub/config-engine#build", "@saidonclub/database#build"],
+      "cache": false,
+      "outputs": ["dist/**"]
+    },
     "dev": {
       "cache": false,
       "persistent": true

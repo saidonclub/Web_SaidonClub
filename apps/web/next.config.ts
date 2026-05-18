@@ -160,23 +160,6 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["sharp"],
   typedRoutes: false,
 
-  // Deshabilitar eval en webpack para compatibilidad con Edge Runtime sandbox
-  webpack: (config, { nextRuntime }) => {
-    if (nextRuntime === "edge") {
-      config.devtool = false;
-    }
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      "@saidonclub/database": path.resolve(__dirname, "../../packages/database/src/index.ts"),
-      "@saidonclub/rbac": path.resolve(__dirname, "../../packages/rbac/src/index.ts"),
-      "@saidonclub/config-engine": path.resolve(__dirname, "../../packages/config-engine/src/index.ts"),
-      "@saidonclub/types": path.resolve(__dirname, "../../packages/types/src/index.ts"),
-      "@saidonclub/analytics": path.resolve(__dirname, "../../packages/analytics/src/index.ts"),
-      "@saidonclub/media-engine": path.resolve(__dirname, "../../packages/media-engine/src/index.ts"),
-      "@saidonclub/mlm-engine": path.resolve(__dirname, "../../packages/mlm-engine/src/index.ts"),
-    };
-    return config;
-  },
 
   logging: {
     fetches: {
