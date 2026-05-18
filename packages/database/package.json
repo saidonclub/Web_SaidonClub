@@ -11,7 +11,7 @@
     }
   },
   "scripts": {
-    "build": "node -e \"try{require('fs').unlinkSync('tsconfig.tsbuildinfo')}catch(e){}\" && tsc && node scripts/copy-generated.js",
+    "build": "tsc --build && node scripts/copy-generated.js",
     "db:generate": "pnpm exec prisma generate --schema=prisma/schema.prisma && node scripts/copy-generated.js",
     "db:migrate": "pnpm exec prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
