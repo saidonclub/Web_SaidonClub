@@ -156,7 +156,7 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
       const walletMap = new Map(existingWallets.map((w: { userId: string; id: string }) => [w.userId, w]));
 
       // Pre-fetch transactions for these wallets that match the criteria
-      const walletIds = existingWallets.map(w => w.id);
+      const walletIds = existingWallets.map((w: { id: string }) => w.id);
       const existingTransactions = await prisma.walletTransaction.findMany({
         where: {
           walletId: { in: walletIds },
@@ -179,7 +179,7 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
 
       // 2. Evaluate all ranks OUTSIDE the transaction in parallel (CPU intensive but non-blocking)
       const evaluationResults = (await Promise.all(
-        batch.map((user) =>
+        batch.map((user: { id: string }) =>
           evaluateRank(
             user.id,
             currentMonth,
@@ -190,11 +190,11 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
             rule35Enabled
           )
         )
-      )).filter((res): res is RankEvaluation => res !== null);
+      )).filter((res: RankEvaluation | null): res is RankEvaluation => res !== null);
 
       // Accumulate commissions for final report
-      evaluationResults.forEach((res) => {
-        if (res) totalCommissionsAcc += res.bonusAmount;
+      evaluationResults.forEach((res: RankEvaluation) => {
+        totalCommissionsAcc += res.bonusAmount;
       });
 
       // 3. Persist results in a clean, fast transaction
@@ -232,7 +232,8 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
               if (rankResult.bonusAmount > 0) {
                 // UPSERT COMMISSION
                 const existingComm = commissionMap.get(rankResult.userId);
-                let comm;
+                type CommRecord = { id: string };
+                let comm: CommRecord;
                 if (existingComm) {
                   comm = await tx.commission.update({
                     where: { id: existingComm.id },
@@ -240,7 +241,7 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
                       amount: rankResult.bonusAmount,
                       status: 'PENDING'
                     }
-                  });
+                  }) as CommRecord;
                 } else {
                   comm = await tx.commission.create({
                     data: {
@@ -252,7 +253,7 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
                       cycleYear: currentYear,
                       status: 'PENDING',
                     },
-                  });
+                  }) as CommRecord;
                 }
 
                 // UPSERT WALLET (Ensure exists)

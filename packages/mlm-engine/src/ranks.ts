@@ -66,7 +66,7 @@ export async function evaluateRank(
     console.log(`[DEBUG] User ${userId}: cachedLines=${cachedLines.length}`);
 
     if (cachedLines.length > 0) {
-      lineVolumes = cachedLines.map(c => Number(c.volume));
+      lineVolumes = cachedLines.map((c: { volume: number | bigint | { toString(): string } }) => Number(c.volume));
     } else {
       // INTENTO 2: Cálculo dinámico (Fallback o tiempo real)
       const lines = await getUserLinesVolumes(userId, cycleMonth, cycleYear);
