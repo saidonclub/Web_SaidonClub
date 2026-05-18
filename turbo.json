@@ -23,6 +23,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build", "db:generate"],
+      "cache": false,
       "outputs": [".next/**", "!.next/cache/**", "dist/**", "src/generated/**"],
       "env": [
         "DATABASE_URL",
