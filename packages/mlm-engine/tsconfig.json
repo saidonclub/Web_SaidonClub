@@ -10,12 +10,8 @@
       "dom"
     ],
     "composite": true,
-    "declarationDir": "./dist",
-    "baseUrl": ".",
-    "paths": {
-      "@saidonclub/database": ["../database/src/index.ts"],
-      "@saidonclub/config-engine": ["../config-engine/src/index.ts"]
-    }
+    "declaration": true,
+    "declarationDir": "./dist"
   },
   "include": [
     "src"
@@ -23,9 +19,5 @@
   "exclude": [
     "src/stress_test.ts",
     "src/__tests__"
-  ],
-  "references": [
-    { "path": "../database" },
-    { "path": "../config-engine" }
   ]
 }
