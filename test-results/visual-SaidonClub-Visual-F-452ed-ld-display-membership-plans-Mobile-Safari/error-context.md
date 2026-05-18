@@ -1,0 +1,533 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: visual.spec.ts >> SaidonClub Visual & Flow Tests >> Memberships >> should display membership plans
+- Location: tests\e2e\visual.spec.ts:102:9
+
+# Error details
+
+```
+Test timeout of 60000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - img "SaidonClub Logo" [ref=e6]
+    - paragraph [ref=e8]: Cargando Ecosistema...
+  - banner [ref=e9]:
+    - generic [ref=e11]:
+      - generic [ref=e14]: 🚀 ¡Únete a la Revolución! Sé Pionero y gana hasta $500 en bonos.
+      - generic [ref=e15]:
+        - link "Membresías & Beneficios" [ref=e17]:
+          - /url: /membresias
+          - text: Membresías & Beneficios
+          - img [ref=e18]
+        - link "Productos" [ref=e21]:
+          - /url: /productos
+          - text: Productos
+          - img [ref=e22]
+        - link "Servicios" [ref=e25]:
+          - /url: /servicios
+          - text: Servicios
+          - img [ref=e26]
+        - link "SaidonClub" [ref=e29]:
+          - /url: /nosotros
+          - text: SaidonClub
+          - img [ref=e30]
+        - link "Blog" [ref=e33]:
+          - /url: /blog
+          - text: Blog
+          - img [ref=e34]
+        - link "Soporte" [ref=e37]:
+          - /url: /ayuda
+          - text: Soporte
+          - img [ref=e38]
+      - generic [ref=e40]:
+        - link "Iniciar sesión" [ref=e41]:
+          - /url: /auth/login
+          - img [ref=e42]
+          - text: Iniciar sesión
+        - link "Registrarse" [ref=e45]:
+          - /url: /auth/register
+          - img [ref=e46]
+          - text: Registrarse
+    - navigation [ref=e49]:
+      - generic [ref=e50]:
+        - button "Menú móvil" [ref=e51]
+        - link "SaidonClub Logo" [ref=e53]:
+          - /url: /
+          - img "SaidonClub Logo" [ref=e54]
+        - generic [ref=e56]:
+          - generic "Configurar área de búsqueda" [ref=e59]:
+            - img [ref=e61]
+            - generic [ref=e64]: Marketplace en:Detectando...
+            - img [ref=e65]
+          - generic [ref=e67]:
+            - img [ref=e68]
+            - textbox "Buscar productos, servicios, marcas..." [ref=e71]
+          - button "BUSCAR" [ref=e72]
+          - button [ref=e73]:
+            - img [ref=e74]
+        - generic [ref=e78]:
+          - generic "Cambiar a Modo Claro" [ref=e79]:
+            - button "Cambiar ambiente visual" [ref=e80]:
+              - generic [ref=e81]:
+                - img [ref=e82]
+                - img [ref=e88]
+          - generic "Ver carrito de compras" [ref=e90]:
+            - link [ref=e91]:
+              - /url: /carrito
+              - img [ref=e92]
+          - generic "Acceder a tu cuenta" [ref=e96]:
+            - link "Cuenta" [ref=e97]:
+              - /url: /dashboard
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - link "PRODUCTOS" [ref=e101]:
+          - /url: /productos
+          - img [ref=e102]
+          - text: PRODUCTOS
+        - generic [ref=e105]:
+          - link [ref=e107]:
+            - /url: /productos?category=tecnologia
+            - img [ref=e108]
+          - link [ref=e111]:
+            - /url: /productos?category=hogar
+            - img [ref=e112]
+          - link [ref=e116]:
+            - /url: /productos?category=belleza
+            - img [ref=e117]
+          - link [ref=e121]:
+            - /url: /productos?category=automotriz
+            - img [ref=e122]
+          - link [ref=e127]:
+            - /url: /productos?category=deportes
+            - img [ref=e128]
+          - link [ref=e135]:
+            - /url: /productos?category=gaming
+            - img [ref=e136]
+          - link [ref=e139]:
+            - /url: /productos?category=mascotas
+            - img [ref=e140]
+          - link [ref=e145]:
+            - /url: /productos?category=moda
+            - img [ref=e146]
+          - link [ref=e149]:
+            - /url: /productos?category=calzado
+            - img [ref=e150]
+          - link [ref=e154]:
+            - /url: /productos?category=juguetes
+            - img [ref=e155]
+          - link [ref=e160]:
+            - /url: /productos?category=ferreteria
+            - img [ref=e161]
+          - link [ref=e166]:
+            - /url: /productos?category=papeleria
+            - img [ref=e167]
+      - generic [ref=e169]:
+        - link "SERVICIOS" [ref=e170]:
+          - /url: /servicios
+          - img [ref=e171]
+          - text: SERVICIOS
+        - generic [ref=e173]:
+          - link [ref=e175]:
+            - /url: /servicios?category=tech
+            - img [ref=e176]
+          - link [ref=e180]:
+            - /url: /servicios?category=marketing
+            - img [ref=e181]
+          - link [ref=e185]:
+            - /url: /servicios?category=salud
+            - img [ref=e186]
+          - link [ref=e191]:
+            - /url: /servicios?category=legal
+            - img [ref=e192]
+          - link [ref=e197]:
+            - /url: /servicios?category=consultoria
+            - img [ref=e198]
+          - link [ref=e202]:
+            - /url: /servicios?category=educacion
+            - img [ref=e203]
+          - link [ref=e207]:
+            - /url: /servicios?category=reparaciones
+            - img [ref=e208]
+          - link [ref=e211]:
+            - /url: /servicios?category=logistica
+            - img [ref=e212]
+          - link [ref=e218]:
+            - /url: /servicios?category=diseno
+            - img [ref=e219]
+          - link [ref=e226]:
+            - /url: /servicios?category=construccion
+            - img [ref=e227]
+          - link [ref=e232]:
+            - /url: /servicios?category=inmobiliaria
+            - img [ref=e233]
+          - link [ref=e237]:
+            - /url: /servicios?category=eventos
+            - img [ref=e238]
+    - generic [ref=e244]:
+      - generic [ref=e245]:
+        - link "Iniciar sesión" [ref=e246]:
+          - /url: /auth/login
+          - img [ref=e247]
+          - text: Iniciar sesión
+        - link "Registrarse" [ref=e250]:
+          - /url: /auth/register
+          - img [ref=e251]
+          - text: Registrarse
+      - generic [ref=e254]: Categorías
+      - generic [ref=e255]:
+        - link "Tecnología" [ref=e256]:
+          - /url: /productos?category=tecnologia
+          - img [ref=e257]
+          - text: Tecnología
+        - link "Hogar" [ref=e259]:
+          - /url: /productos?category=hogar
+          - img [ref=e260]
+          - text: Hogar
+        - link "Belleza" [ref=e263]:
+          - /url: /productos?category=belleza
+          - img [ref=e264]
+          - text: Belleza
+        - link "Automotriz" [ref=e267]:
+          - /url: /productos?category=automotriz
+          - img [ref=e268]
+          - text: Automotriz
+        - link "Deportes" [ref=e272]:
+          - /url: /productos?category=deportes
+          - img [ref=e273]
+          - text: Deportes
+        - link "Gaming" [ref=e279]:
+          - /url: /productos?category=gaming
+          - img [ref=e280]
+          - text: Gaming
+        - link "Mascotas" [ref=e282]:
+          - /url: /productos?category=mascotas
+          - img [ref=e283]
+          - text: Mascotas
+        - link "Moda" [ref=e287]:
+          - /url: /productos?category=moda
+          - img [ref=e288]
+          - text: Moda
+        - link "Calzado" [ref=e290]:
+          - /url: /productos?category=calzado
+          - img [ref=e291]
+          - text: Calzado
+        - link "Juguetería" [ref=e294]:
+          - /url: /productos?category=juguetes
+          - img [ref=e295]
+          - text: Juguetería
+        - link "Ferretería" [ref=e299]:
+          - /url: /productos?category=ferreteria
+          - img [ref=e300]
+          - text: Ferretería
+        - link "Papelería" [ref=e304]:
+          - /url: /productos?category=papeleria
+          - img [ref=e305]
+          - text: Papelería
+        - link "Tech & Dev" [ref=e307]:
+          - /url: /servicios?category=tech
+          - img [ref=e308]
+          - text: Tech & Dev
+        - link "Marketing" [ref=e311]:
+          - /url: /servicios?category=marketing
+          - img [ref=e312]
+          - text: Marketing
+        - link "Salud" [ref=e315]:
+          - /url: /servicios?category=salud
+          - img [ref=e316]
+          - text: Salud
+        - link "Legal" [ref=e320]:
+          - /url: /servicios?category=legal
+          - img [ref=e321]
+          - text: Legal
+        - link "Consultoría" [ref=e325]:
+          - /url: /servicios?category=consultoria
+          - img [ref=e326]
+          - text: Consultoría
+        - link "Educación" [ref=e329]:
+          - /url: /servicios?category=educacion
+          - img [ref=e330]
+          - text: Educación
+        - link "Reparaciones" [ref=e333]:
+          - /url: /servicios?category=reparaciones
+          - img [ref=e334]
+          - text: Reparaciones
+        - link "Logística" [ref=e336]:
+          - /url: /servicios?category=logistica
+          - img [ref=e337]
+          - text: Logística
+        - link "Diseño" [ref=e342]:
+          - /url: /servicios?category=diseno
+          - img [ref=e343]
+          - text: Diseño
+        - link "Construcción" [ref=e349]:
+          - /url: /servicios?category=construccion
+          - img [ref=e350]
+          - text: Construcción
+        - link "Inmobiliaria" [ref=e354]:
+          - /url: /servicios?category=inmobiliaria
+          - img [ref=e355]
+          - text: Inmobiliaria
+        - link "Eventos" [ref=e358]:
+          - /url: /servicios?category=eventos
+          - img [ref=e359]
+          - text: Eventos
+  - main [ref=e365]:
+    - main [ref=e366]:
+      - generic [ref=e368]:
+        - generic [ref=e369]:
+          - img [ref=e370]
+          - text: Ecosistema de Élite SaidónClub
+        - heading "Tu Puerta al Crecimiento Exponencial" [level=1] [ref=e373]
+        - paragraph [ref=e374]: Únete a la comunidad de socios más exclusiva de Ecuador. Disfruta de beneficios tangibles, ahorro inteligente y un sistema de recompensas diseñado para tu éxito.
+      - generic [ref=e375]:
+        - generic [ref=e376]:
+          - generic [ref=e377]:
+            - img [ref=e379]
+            - heading "Socio Preferente" [level=2] [ref=e381]
+            - paragraph [ref=e382]: Inicia tu camino en el ecosistema con beneficios exclusivos y ahorros garantizados.
+          - generic [ref=e383]:
+            - text: $29
+            - generic [ref=e384]: /año
+          - list [ref=e385]:
+            - listitem [ref=e386]:
+              - img [ref=e387]
+              - text: Descuentos exclusivos (-10%)
+            - listitem [ref=e389]:
+              - img [ref=e390]
+              - text: Puntos por cada compra
+            - listitem [ref=e392]:
+              - img [ref=e393]
+              - text: Cashback Directo (1%)
+            - listitem [ref=e395]:
+              - img [ref=e396]
+              - text: Soporte prioritario 24/7
+            - listitem [ref=e398]:
+              - img [ref=e399]
+              - text: Acceso a ventas privadas
+          - button "Adquirir Membresía" [ref=e401]
+        - generic [ref=e402]:
+          - text: MÁS POPULAR
+          - generic [ref=e403]:
+            - img [ref=e405]
+            - heading "Socio Pionero" [level=2] [ref=e407]
+            - paragraph [ref=e408]: El nivel de élite. Diseñado para líderes que buscan maximizar sus ingresos y red.
+          - generic [ref=e409]:
+            - text: $97
+            - generic [ref=e410]: /año
+          - list [ref=e411]:
+            - listitem [ref=e412]:
+              - img [ref=e413]
+              - text: Descuentos VIP (-20%)
+            - listitem [ref=e415]:
+              - img [ref=e416]
+              - text: Cashback Premium (5%)
+            - listitem [ref=e418]:
+              - img [ref=e419]
+              - text: Regalías por red (8 niveles)
+            - listitem [ref=e421]:
+              - img [ref=e422]
+              - text: Concierge VIP dedicado
+            - listitem [ref=e424]:
+              - img [ref=e425]
+              - text: Eventos & Networking Élite
+            - listitem [ref=e427]:
+              - img [ref=e428]
+              - text: Regalos de aniversario
+          - button "Adquirir Membresía" [ref=e430]
+      - generic [ref=e431]:
+        - generic [ref=e432]:
+          - heading "Economía Colaborativa PRO" [level=2] [ref=e433]
+          - paragraph [ref=e434]: Transforma tu consumo cotidiano en un motor de generación de riqueza para ti y tu red.
+        - generic [ref=e435]:
+          - generic [ref=e436]:
+            - generic [ref=e437]:
+              - generic [ref=e438]: "1"
+              - generic [ref=e439]:
+                - heading "Consume con Propósito" [level=4] [ref=e440]
+                - paragraph [ref=e441]: Usa los productos y servicios del marketplace con descuentos de socio. Cada dólar cuenta.
+            - generic [ref=e442]:
+              - generic [ref=e443]: "2"
+              - generic [ref=e444]:
+                - heading "Expande tu Alcance" [level=4] [ref=e445]
+                - paragraph [ref=e446]: Recomienda el ecosistema Saidón y genera puntos por cada compra realizada en tu red de hasta 8 niveles.
+            - generic [ref=e447]:
+              - generic [ref=e448]: "3"
+              - generic [ref=e449]:
+                - heading "Liquidez Inmediata" [level=4] [ref=e450]
+                - paragraph [ref=e451]: Tus puntos son dinero. Canjéalos por productos, servicios o transfiérelos instantáneamente a otros socios.
+          - generic [ref=e452]:
+            - generic [ref=e453]:
+              - text: Valor Punto
+              - strong [ref=e454]: $0.01
+              - text: USD
+            - generic [ref=e455]:
+              - img [ref=e456]
+              - text: ESCALABILIDAD
+            - generic [ref=e459]:
+              - img [ref=e460]
+              - text: COMUNIDAD
+            - generic [ref=e465]:
+              - img [ref=e466]
+              - text: REGALÍAS
+            - generic [ref=e468]:
+              - img [ref=e469]
+              - text: INSTANTÁNEO
+  - generic [ref=e471]:
+    - button "Chat con May - Asistente IA SaidonClub" [ref=e472]:
+      - text: Hablar con May ✨
+      - img "May — Asistente SaidonClub" [ref=e474]
+      - text: "1"
+    - dialog "Chat May — Asistente IA SaidonClub" [ref=e475]:
+      - generic [ref=e476]:
+        - generic [ref=e477]:
+          - generic [ref=e478]:
+            - img "May" [ref=e479]
+            - generic "En línea"
+          - generic [ref=e480]:
+            - strong [ref=e481]: May
+            - text: Asistente SaidonClub · En líneaIA
+        - generic [ref=e482]:
+          - link "Abrir WhatsApp" [ref=e483]:
+            - /url: https://wa.me/593987958337
+            - img [ref=e484]
+          - button "Cerrar chat" [ref=e486]:
+            - img [ref=e487]
+      - generic [ref=e491]:
+        - img "May" [ref=e492]
+        - generic [ref=e493]:
+          - generic [ref=e494]:
+            - text: Hola 👋 Soy
+            - strong [ref=e495]: May
+            - text: ", asistente virtual de SaidonClub. ¿En qué puedo ayudarte hoy?"
+          - text: • 💳 Membresías
+          - text: • 🌐 Red de socios
+          - text: • 💰 Pagos y Wallet
+          - text: • 🛍️ Marketplace
+      - generic [ref=e496]:
+        - button "Membresías 💳" [ref=e497]
+        - button "Red de socios 🌐" [ref=e498]
+        - button "Métodos de pago 💰" [ref=e499]
+        - button "Hablar con humano 💬" [ref=e500]
+      - generic [ref=e501]:
+        - textbox "Mensaje para May" [ref=e502]:
+          - /placeholder: Escribe tu pregunta…
+        - button "Enviar mensaje" [disabled] [ref=e503]:
+          - img [ref=e504]
+      - generic [ref=e506]:
+        - text: ⚡ SaidonClub AI ·
+        - link "Hablar con humano" [ref=e507]:
+          - /url: https://wa.me/593987958337
+  - contentinfo [ref=e508]:
+    - generic [ref=e510]:
+      - generic [ref=e511]: 10,000+Miembros activos
+      - generic [ref=e512]: $2M+En recompensas entregadas
+      - generic [ref=e513]: 500+Productos premium
+      - generic [ref=e514]: 8 nivelesPlan de carrera
+    - generic [ref=e516]:
+      - generic [ref=e517]:
+        - img "SaidonClub Logo" [ref=e519]
+        - paragraph [ref=e520]: El ecosistema digital más exclusivo de Ecuador. Compra productos premium, construye tu red y obtén beneficios ilimitados.
+        - generic [ref=e521]:
+          - link "facebook" [ref=e522]:
+            - /url: https://facebook.com/saidonclub
+            - img [ref=e523]
+          - link "instagram" [ref=e525]:
+            - /url: https://instagram.com/saidonclub
+            - img [ref=e526]
+          - link "tiktok" [ref=e529]:
+            - /url: https://tiktok.com/@saidonclub
+            - img [ref=e530]
+          - link "whatsapp" [ref=e532]:
+            - /url: https://wa.me/593987958337
+            - img [ref=e533]
+          - link "youtube" [ref=e535]:
+            - /url: https://youtube.com/@saidonclub
+            - img [ref=e536]
+        - generic [ref=e539]:
+          - heading "Newsletter" [level=4] [ref=e540]
+          - paragraph [ref=e541]: Únete a nuestra lista exclusiva y recibe las mejores oportunidades antes que nadie.
+          - generic [ref=e542]:
+            - textbox "Email" [ref=e543]
+            - button "Unirme" [ref=e544]
+          - generic [ref=e545]:
+            - link "📞 +593 98 795 8337" [ref=e546]:
+              - /url: https://wa.me/593987958337
+            - link "📧 saidonclub@gmail.com" [ref=e547]:
+              - /url: mailto:saidonclub@gmail.com
+            - link "📧 fin.saidonclub@gmail.com" [ref=e548]:
+              - /url: mailto:fin.saidonclub@gmail.com
+      - generic [ref=e549]:
+        - generic [ref=e550]:
+          - heading "Marketplace" [level=4] [ref=e551]
+          - list [ref=e552]:
+            - listitem [ref=e553]:
+              - link "Productos" [ref=e554]:
+                - /url: /productos
+            - listitem [ref=e555]:
+              - link "Servicios" [ref=e556]:
+                - /url: /servicios
+            - listitem [ref=e557]:
+              - link "Categorías" [ref=e558]:
+                - /url: /categorias
+            - listitem [ref=e559]:
+              - link "Ofertas del día" [ref=e560]:
+                - /url: /productos?q=ofertas
+        - generic [ref=e561]:
+          - heading "Comunidad" [level=4] [ref=e562]
+          - list [ref=e563]:
+            - listitem [ref=e564]:
+              - link "Membresía Preferente" [ref=e565]:
+                - /url: /membresias#preferente
+            - listitem [ref=e566]:
+              - link "Membresía Pionero" [ref=e567]:
+                - /url: /membresias#pionero
+            - listitem [ref=e568]:
+              - link "Programa de Recompensas" [ref=e569]:
+                - /url: /membresias#beneficios
+            - listitem [ref=e570]:
+              - link "Mi Red de Socios" [ref=e571]:
+                - /url: /dashboard/network
+        - generic [ref=e572]:
+          - heading "Empresa" [level=4] [ref=e573]
+          - list [ref=e574]:
+            - listitem [ref=e575]:
+              - link "Sobre nosotros" [ref=e576]:
+                - /url: /nosotros
+            - listitem [ref=e577]:
+              - link "Oportunidad de Negocio" [ref=e578]:
+                - /url: /nosotros#red
+            - listitem [ref=e579]:
+              - link "Contáctanos" [ref=e580]:
+                - /url: /contacto
+            - listitem [ref=e581]:
+              - link "Ser Proveedor" [ref=e582]:
+                - /url: /nosotros#proveedores
+        - generic [ref=e583]:
+          - heading "Soporte" [level=4] [ref=e584]
+          - list [ref=e585]:
+            - listitem [ref=e586]:
+              - link "Centro de ayuda" [ref=e587]:
+                - /url: /ayuda
+            - listitem [ref=e588]:
+              - link "Términos y condiciones" [ref=e589]:
+                - /url: /terminos
+            - listitem [ref=e590]:
+              - link "Política de privacidad" [ref=e591]:
+                - /url: /privacidad
+            - listitem [ref=e592]:
+              - link "Política de devoluciones" [ref=e593]:
+                - /url: /devoluciones
+    - generic [ref=e595]: © 2026 SaidonClub. Elevando el estándar del comercio digital.Hecho con ❤️ por Saidon Tech Team
+  - region "Notificaciones"
+```

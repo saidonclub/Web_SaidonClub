@@ -1,0 +1,1289 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: visual.spec.ts >> SaidonClub Visual & Flow Tests >> Accessibility >> should have form labels
+- Location: tests\e2e\visual.spec.ts:218:9
+
+# Error details
+
+```
+Test timeout of 60000ms exceeded while running "beforeEach" hook.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - img "SaidonClub Logo" [ref=e6]
+    - paragraph [ref=e10]: Cargando Ecosistema...
+  - banner [ref=e11]:
+    - navigation [ref=e12]:
+      - generic [ref=e13]:
+        - button "Menú móvil" [ref=e14] [cursor=pointer]
+        - link "SaidonClub Logo" [ref=e19] [cursor=pointer]:
+          - /url: /
+          - img "SaidonClub Logo" [ref=e20]
+        - generic [ref=e22]:
+          - generic "Configurar área de búsqueda" [ref=e25] [cursor=pointer]:
+            - img [ref=e27]
+            - generic [ref=e32]: Detectando...
+          - generic [ref=e33]:
+            - img [ref=e34]
+            - textbox "Buscar productos, servicios, marcas..." [ref=e37]
+          - button [ref=e38] [cursor=pointer]:
+            - img [ref=e39]
+        - generic [ref=e43]:
+          - generic "Cambiar a Modo Claro" [ref=e44]:
+            - button "Cambiar ambiente visual" [ref=e45] [cursor=pointer]:
+              - generic [ref=e46]:
+                - img [ref=e47]
+                - img [ref=e53]
+          - generic "Ver carrito de compras" [ref=e55]:
+            - link [ref=e56] [cursor=pointer]:
+              - /url: /carrito
+              - img [ref=e57]
+          - generic "Acceder a tu cuenta" [ref=e61]:
+            - link "Cuenta" [ref=e62] [cursor=pointer]:
+              - /url: /dashboard
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - link "PRODUCTOS" [ref=e66] [cursor=pointer]:
+          - /url: /productos
+          - img [ref=e67]
+          - generic [ref=e70]: PRODUCTOS
+        - generic [ref=e71]:
+          - link [ref=e73] [cursor=pointer]:
+            - /url: /productos?category=tecnologia
+            - img [ref=e74]
+          - link [ref=e77] [cursor=pointer]:
+            - /url: /productos?category=hogar
+            - img [ref=e78]
+          - link [ref=e82] [cursor=pointer]:
+            - /url: /productos?category=belleza
+            - img [ref=e83]
+          - link [ref=e87] [cursor=pointer]:
+            - /url: /productos?category=automotriz
+            - img [ref=e88]
+          - link [ref=e93] [cursor=pointer]:
+            - /url: /productos?category=deportes
+            - img [ref=e94]
+          - link [ref=e101] [cursor=pointer]:
+            - /url: /productos?category=gaming
+            - img [ref=e102]
+          - link [ref=e105] [cursor=pointer]:
+            - /url: /productos?category=mascotas
+            - img [ref=e106]
+          - link [ref=e111] [cursor=pointer]:
+            - /url: /productos?category=moda
+            - img [ref=e112]
+          - link [ref=e115] [cursor=pointer]:
+            - /url: /productos?category=calzado
+            - img [ref=e116]
+          - link [ref=e120] [cursor=pointer]:
+            - /url: /productos?category=juguetes
+            - img [ref=e121]
+          - link [ref=e126] [cursor=pointer]:
+            - /url: /productos?category=ferreteria
+            - img [ref=e127]
+          - link [ref=e132] [cursor=pointer]:
+            - /url: /productos?category=papeleria
+            - img [ref=e133]
+      - generic [ref=e135]:
+        - link "SERVICIOS" [ref=e136] [cursor=pointer]:
+          - /url: /servicios
+          - img [ref=e137]
+          - generic [ref=e139]: SERVICIOS
+        - generic [ref=e140]:
+          - link [ref=e142] [cursor=pointer]:
+            - /url: /servicios?category=tech
+            - img [ref=e143]
+          - link [ref=e147] [cursor=pointer]:
+            - /url: /servicios?category=marketing
+            - img [ref=e148]
+          - link [ref=e152] [cursor=pointer]:
+            - /url: /servicios?category=salud
+            - img [ref=e153]
+          - link [ref=e158] [cursor=pointer]:
+            - /url: /servicios?category=legal
+            - img [ref=e159]
+          - link [ref=e164] [cursor=pointer]:
+            - /url: /servicios?category=consultoria
+            - img [ref=e165]
+          - link [ref=e169] [cursor=pointer]:
+            - /url: /servicios?category=educacion
+            - img [ref=e170]
+          - link [ref=e174] [cursor=pointer]:
+            - /url: /servicios?category=reparaciones
+            - img [ref=e175]
+          - link [ref=e178] [cursor=pointer]:
+            - /url: /servicios?category=logistica
+            - img [ref=e179]
+          - link [ref=e185] [cursor=pointer]:
+            - /url: /servicios?category=diseno
+            - img [ref=e186]
+          - link [ref=e193] [cursor=pointer]:
+            - /url: /servicios?category=construccion
+            - img [ref=e194]
+          - link [ref=e199] [cursor=pointer]:
+            - /url: /servicios?category=inmobiliaria
+            - img [ref=e200]
+          - link [ref=e204] [cursor=pointer]:
+            - /url: /servicios?category=eventos
+            - img [ref=e205]
+    - generic [ref=e211]:
+      - generic [ref=e212]:
+        - link "Iniciar sesión" [ref=e213] [cursor=pointer]:
+          - /url: /auth/login
+          - img [ref=e214]
+          - text: Iniciar sesión
+        - link "Registrarse" [ref=e217] [cursor=pointer]:
+          - /url: /auth/register
+          - img [ref=e218]
+          - text: Registrarse
+      - generic [ref=e221]: Categorías
+      - generic [ref=e222]:
+        - link "Tecnología" [ref=e223] [cursor=pointer]:
+          - /url: /productos?category=tecnologia
+          - img [ref=e224]
+          - generic [ref=e226]: Tecnología
+        - link "Hogar" [ref=e227] [cursor=pointer]:
+          - /url: /productos?category=hogar
+          - img [ref=e228]
+          - generic [ref=e231]: Hogar
+        - link "Belleza" [ref=e232] [cursor=pointer]:
+          - /url: /productos?category=belleza
+          - img [ref=e233]
+          - generic [ref=e236]: Belleza
+        - link "Automotriz" [ref=e237] [cursor=pointer]:
+          - /url: /productos?category=automotriz
+          - img [ref=e238]
+          - generic [ref=e242]: Automotriz
+        - link "Deportes" [ref=e243] [cursor=pointer]:
+          - /url: /productos?category=deportes
+          - img [ref=e244]
+          - generic [ref=e250]: Deportes
+        - link "Gaming" [ref=e251] [cursor=pointer]:
+          - /url: /productos?category=gaming
+          - img [ref=e252]
+          - generic [ref=e254]: Gaming
+        - link "Mascotas" [ref=e255] [cursor=pointer]:
+          - /url: /productos?category=mascotas
+          - img [ref=e256]
+          - generic [ref=e260]: Mascotas
+        - link "Moda" [ref=e261] [cursor=pointer]:
+          - /url: /productos?category=moda
+          - img [ref=e262]
+          - generic [ref=e264]: Moda
+        - link "Calzado" [ref=e265] [cursor=pointer]:
+          - /url: /productos?category=calzado
+          - img [ref=e266]
+          - generic [ref=e269]: Calzado
+        - link "Juguetería" [ref=e270] [cursor=pointer]:
+          - /url: /productos?category=juguetes
+          - img [ref=e271]
+          - generic [ref=e275]: Juguetería
+        - link "Ferretería" [ref=e276] [cursor=pointer]:
+          - /url: /productos?category=ferreteria
+          - img [ref=e277]
+          - generic [ref=e281]: Ferretería
+        - link "Papelería" [ref=e282] [cursor=pointer]:
+          - /url: /productos?category=papeleria
+          - img [ref=e283]
+          - generic [ref=e285]: Papelería
+        - link "Tech & Dev" [ref=e286] [cursor=pointer]:
+          - /url: /servicios?category=tech
+          - img [ref=e287]
+          - generic [ref=e290]: Tech & Dev
+        - link "Marketing" [ref=e291] [cursor=pointer]:
+          - /url: /servicios?category=marketing
+          - img [ref=e292]
+          - generic [ref=e295]: Marketing
+        - link "Salud" [ref=e296] [cursor=pointer]:
+          - /url: /servicios?category=salud
+          - img [ref=e297]
+          - generic [ref=e301]: Salud
+        - link "Legal" [ref=e302] [cursor=pointer]:
+          - /url: /servicios?category=legal
+          - img [ref=e303]
+          - generic [ref=e307]: Legal
+        - link "Consultoría" [ref=e308] [cursor=pointer]:
+          - /url: /servicios?category=consultoria
+          - img [ref=e309]
+          - generic [ref=e312]: Consultoría
+        - link "Educación" [ref=e313] [cursor=pointer]:
+          - /url: /servicios?category=educacion
+          - img [ref=e314]
+          - generic [ref=e317]: Educación
+        - link "Reparaciones" [ref=e318] [cursor=pointer]:
+          - /url: /servicios?category=reparaciones
+          - img [ref=e319]
+          - generic [ref=e321]: Reparaciones
+        - link "Logística" [ref=e322] [cursor=pointer]:
+          - /url: /servicios?category=logistica
+          - img [ref=e323]
+          - generic [ref=e328]: Logística
+        - link "Diseño" [ref=e329] [cursor=pointer]:
+          - /url: /servicios?category=diseno
+          - img [ref=e330]
+          - generic [ref=e336]: Diseño
+        - link "Construcción" [ref=e337] [cursor=pointer]:
+          - /url: /servicios?category=construccion
+          - img [ref=e338]
+          - generic [ref=e342]: Construcción
+        - link "Inmobiliaria" [ref=e343] [cursor=pointer]:
+          - /url: /servicios?category=inmobiliaria
+          - img [ref=e344]
+          - generic [ref=e347]: Inmobiliaria
+        - link "Eventos" [ref=e348] [cursor=pointer]:
+          - /url: /servicios?category=eventos
+          - img [ref=e349]
+          - generic [ref=e355]: Eventos
+  - main [ref=e356]:
+    - generic [ref=e357]:
+      - generic [ref=e363]:
+        - generic [ref=e364]: 🚀 ECONOMÍA COLABORATIVA
+        - heading "Tu Consumo Ahora Genera Beneficios" [level=1] [ref=e365]:
+          - generic [ref=e366]: Tu Consumo Ahora
+          - generic [ref=e367]: Genera Beneficios
+        - paragraph [ref=e368]: Ya estas gastando dinero todos los dias. Y si ese gasto empezara a devolverte beneficios? Unete a la comunidad que transforma el gasto en resultados reales.
+        - generic [ref=e369]:
+          - link "Únete Ahora" [ref=e370] [cursor=pointer]:
+            - /url: /auth/register
+            - text: Únete Ahora
+            - img [ref=e371]
+          - link "Ver Modelo de Negocio" [ref=e373] [cursor=pointer]:
+            - /url: /mlm/plan
+        - generic [ref=e374]:
+          - generic [ref=e375]:
+            - generic [ref=e376]: Cashback
+            - generic [ref=e377]: En cada compra
+          - generic [ref=e378]:
+            - generic [ref=e379]: Red
+            - generic [ref=e380]: Beneficio mutuo
+          - generic [ref=e381]:
+            - generic [ref=e382]: 100%
+            - generic [ref=e383]: Sostenible
+      - generic [ref=e384]:
+        - button "Diapositiva 1" [ref=e385] [cursor=pointer]
+        - button "Diapositiva 2" [ref=e386] [cursor=pointer]
+        - button "Diapositiva 3" [ref=e387] [cursor=pointer]
+    - generic [ref=e389]:
+      - generic [ref=e390]:
+        - generic [ref=e391]: Impacto Real
+        - heading "Números que hablan por sí solos" [level=2] [ref=e392]
+      - generic [ref=e393]:
+        - generic [ref=e394]:
+          - generic [ref=e395]: 👥
+          - generic [ref=e396]:
+            - generic [ref=e397]: "0"
+            - generic [ref=e398]: +
+          - generic [ref=e399]: Miembros Activos
+        - generic [ref=e400]:
+          - generic [ref=e401]: 💰
+          - generic [ref=e402]:
+            - generic [ref=e403]: $
+            - generic [ref=e404]: "0"
+            - generic [ref=e405]: M+
+          - generic [ref=e406]: En Ahorros Generados
+        - generic [ref=e407]:
+          - generic [ref=e408]: 📦
+          - generic [ref=e409]:
+            - generic [ref=e410]: "0"
+            - generic [ref=e411]: +
+          - generic [ref=e412]: Productos Disponibles
+        - generic [ref=e413]:
+          - generic [ref=e414]: ⭐
+          - generic [ref=e415]:
+            - generic [ref=e416]: "0"
+            - generic [ref=e417]: "%"
+          - generic [ref=e418]: Satisfacción de Clientes
+        - generic [ref=e419]:
+          - generic [ref=e420]: 💼
+          - generic [ref=e421]:
+            - generic [ref=e422]: "0"
+            - generic [ref=e423]: +
+          - generic [ref=e424]: Servicios Profesionales
+        - generic [ref=e425]:
+          - generic [ref=e426]: 🎯
+          - generic [ref=e427]:
+            - generic [ref=e428]: "0"
+            - generic [ref=e429]: "%"
+          - generic [ref=e430]: Ahorro Promedio por Compra
+    - generic [ref=e432]:
+      - generic [ref=e433]:
+        - generic [ref=e434]: Ecosistema SaidonClub
+        - heading "Explora nuestro universo de productos y servicios" [level=2] [ref=e435]
+      - generic [ref=e436]:
+        - generic [ref=e438]: Productos con descuentos exclusivos
+        - generic [ref=e440]:
+          - link "Tecnología 142 items" [ref=e441] [cursor=pointer]:
+            - /url: /productos?category=tecnologia-innovacion
+            - generic [ref=e443]:
+              - img [ref=e445]
+              - generic [ref=e447]: Tecnología
+              - generic [ref=e448]: 142 items
+          - link "Hogar 78 items" [ref=e449] [cursor=pointer]:
+            - /url: /productos?category=hogar-electrodomesticos
+            - generic [ref=e451]:
+              - img [ref=e453]
+              - generic [ref=e456]: Hogar
+              - generic [ref=e457]: 78 items
+          - link "Belleza 55 items" [ref=e458] [cursor=pointer]:
+            - /url: /productos?category=salud-cuidado-personal
+            - generic [ref=e460]:
+              - img [ref=e462]
+              - generic [ref=e465]: Belleza
+              - generic [ref=e466]: 55 items
+          - link "Moda 89 items" [ref=e467] [cursor=pointer]:
+            - /url: /productos?category=moda-calzado
+            - generic [ref=e469]:
+              - img [ref=e471]
+              - generic [ref=e473]: Moda
+              - generic [ref=e474]: 89 items
+          - link "Deportes 43 items" [ref=e475] [cursor=pointer]:
+            - /url: /productos?category=deporte-aventura
+            - generic [ref=e477]:
+              - img [ref=e479]
+              - generic [ref=e485]: Deportes
+              - generic [ref=e486]: 43 items
+          - link "Joyería 34 items" [ref=e487] [cursor=pointer]:
+            - /url: /productos?category=relojeria-joyeria
+            - generic [ref=e489]:
+              - img [ref=e491]
+              - generic [ref=e494]: Joyería
+              - generic [ref=e495]: 34 items
+          - link "Gastronomía 19 items" [ref=e496] [cursor=pointer]:
+            - /url: /productos?category=gastronomia-gourmet
+            - generic [ref=e498]:
+              - img [ref=e500]
+              - generic [ref=e503]: Gastronomía
+              - generic [ref=e504]: 19 items
+          - link "Mascotas 21 items" [ref=e505] [cursor=pointer]:
+            - /url: /productos?category=mascotas-premium
+            - generic [ref=e507]:
+              - img [ref=e509]
+              - generic [ref=e514]: Mascotas
+              - generic [ref=e515]: 21 items
+          - link "Tecnología 142 items" [ref=e516] [cursor=pointer]:
+            - /url: /productos?category=tecnologia-innovacion
+            - generic [ref=e518]:
+              - img [ref=e520]
+              - generic [ref=e522]: Tecnología
+              - generic [ref=e523]: 142 items
+          - link "Hogar 78 items" [ref=e524] [cursor=pointer]:
+            - /url: /productos?category=hogar-electrodomesticos
+            - generic [ref=e526]:
+              - img [ref=e528]
+              - generic [ref=e531]: Hogar
+              - generic [ref=e532]: 78 items
+          - link "Belleza 55 items" [ref=e533] [cursor=pointer]:
+            - /url: /productos?category=salud-cuidado-personal
+            - generic [ref=e535]:
+              - img [ref=e537]
+              - generic [ref=e540]: Belleza
+              - generic [ref=e541]: 55 items
+          - link "Moda 89 items" [ref=e542] [cursor=pointer]:
+            - /url: /productos?category=moda-calzado
+            - generic [ref=e544]:
+              - img [ref=e546]
+              - generic [ref=e548]: Moda
+              - generic [ref=e549]: 89 items
+          - link "Deportes 43 items" [ref=e550] [cursor=pointer]:
+            - /url: /productos?category=deporte-aventura
+            - generic [ref=e552]:
+              - img [ref=e554]
+              - generic [ref=e560]: Deportes
+              - generic [ref=e561]: 43 items
+          - link "Joyería 34 items" [ref=e562] [cursor=pointer]:
+            - /url: /productos?category=relojeria-joyeria
+            - generic [ref=e564]:
+              - img [ref=e566]
+              - generic [ref=e569]: Joyería
+              - generic [ref=e570]: 34 items
+          - link "Gastronomía 19 items" [ref=e571] [cursor=pointer]:
+            - /url: /productos?category=gastronomia-gourmet
+            - generic [ref=e573]:
+              - img [ref=e575]
+              - generic [ref=e578]: Gastronomía
+              - generic [ref=e579]: 19 items
+          - link "Mascotas 21 items" [ref=e580] [cursor=pointer]:
+            - /url: /productos?category=mascotas-premium
+            - generic [ref=e582]:
+              - img [ref=e584]
+              - generic [ref=e589]: Mascotas
+              - generic [ref=e590]: 21 items
+          - link "Tecnología 142 items" [ref=e591] [cursor=pointer]:
+            - /url: /productos?category=tecnologia-innovacion
+            - generic [ref=e593]:
+              - img [ref=e595]
+              - generic [ref=e597]: Tecnología
+              - generic [ref=e598]: 142 items
+          - link "Hogar 78 items" [ref=e599] [cursor=pointer]:
+            - /url: /productos?category=hogar-electrodomesticos
+            - generic [ref=e601]:
+              - img [ref=e603]
+              - generic [ref=e606]: Hogar
+              - generic [ref=e607]: 78 items
+          - link "Belleza 55 items" [ref=e608] [cursor=pointer]:
+            - /url: /productos?category=salud-cuidado-personal
+            - generic [ref=e610]:
+              - img [ref=e612]
+              - generic [ref=e615]: Belleza
+              - generic [ref=e616]: 55 items
+          - link "Moda 89 items" [ref=e617] [cursor=pointer]:
+            - /url: /productos?category=moda-calzado
+            - generic [ref=e619]:
+              - img [ref=e621]
+              - generic [ref=e623]: Moda
+              - generic [ref=e624]: 89 items
+          - link "Deportes 43 items" [ref=e625] [cursor=pointer]:
+            - /url: /productos?category=deporte-aventura
+            - generic [ref=e627]:
+              - img [ref=e629]
+              - generic [ref=e635]: Deportes
+              - generic [ref=e636]: 43 items
+          - link "Joyería 34 items" [ref=e637] [cursor=pointer]:
+            - /url: /productos?category=relojeria-joyeria
+            - generic [ref=e639]:
+              - img [ref=e641]
+              - generic [ref=e644]: Joyería
+              - generic [ref=e645]: 34 items
+          - link "Gastronomía 19 items" [ref=e646] [cursor=pointer]:
+            - /url: /productos?category=gastronomia-gourmet
+            - generic [ref=e648]:
+              - img [ref=e650]
+              - generic [ref=e653]: Gastronomía
+              - generic [ref=e654]: 19 items
+          - link "Mascotas 21 items" [ref=e655] [cursor=pointer]:
+            - /url: /productos?category=mascotas-premium
+            - generic [ref=e657]:
+              - img [ref=e659]
+              - generic [ref=e664]: Mascotas
+              - generic [ref=e665]: 21 items
+      - generic [ref=e666]:
+        - generic [ref=e668]: Servicios profesionales verificados
+        - generic [ref=e670]:
+          - link "Asesoría Financiera 52 items" [ref=e671] [cursor=pointer]:
+            - /url: /servicios?category=servicio-asesoria-financiera
+            - generic [ref=e673]:
+              - img [ref=e675]
+              - generic [ref=e678]: Asesoría Financiera
+              - generic [ref=e679]: 52 items
+          - link "Transf. Digital 41 items" [ref=e680] [cursor=pointer]:
+            - /url: /servicios?category=servicio-transformacion-digital
+            - generic [ref=e682]:
+              - img [ref=e684]
+              - generic [ref=e686]: Transf. Digital
+              - generic [ref=e687]: 41 items
+          - link "Arquitectura 63 items" [ref=e688] [cursor=pointer]:
+            - /url: /servicios?category=servicio-arquitectura-diseno
+            - generic [ref=e690]:
+              - img [ref=e692]
+              - generic [ref=e695]: Arquitectura
+              - generic [ref=e696]: 63 items
+          - link "Educación 42 items" [ref=e697] [cursor=pointer]:
+            - /url: /servicios?category=servicio-educacion-capacitacion
+            - generic [ref=e699]:
+              - img [ref=e701]
+              - generic [ref=e704]: Educación
+              - generic [ref=e705]: 42 items
+          - link "Salud 55 items" [ref=e706] [cursor=pointer]:
+            - /url: /servicios?category=servicio-salud-bienestar
+            - generic [ref=e708]:
+              - img [ref=e710]
+              - generic [ref=e713]: Salud
+              - generic [ref=e714]: 55 items
+          - link "Asesoría Legal 31 items" [ref=e715] [cursor=pointer]:
+            - /url: /servicios?category=servicio-asesoria-legal
+            - generic [ref=e717]:
+              - img [ref=e719]
+              - generic [ref=e722]: Asesoría Legal
+              - generic [ref=e723]: 31 items
+          - link "Turismo 95 items" [ref=e724] [cursor=pointer]:
+            - /url: /servicios?category=servicio-turismo-experiencias
+            - generic [ref=e726]:
+              - img [ref=e728]
+              - generic [ref=e730]: Turismo
+              - generic [ref=e731]: 95 items
+          - link "Mantenimiento 210 items" [ref=e732] [cursor=pointer]:
+            - /url: /servicios?category=servicio-mantenimiento-hogar
+            - generic [ref=e734]:
+              - img [ref=e736]
+              - generic [ref=e740]: Mantenimiento
+              - generic [ref=e741]: 210 items
+          - link "Asesoría Financiera 52 items" [ref=e742] [cursor=pointer]:
+            - /url: /servicios?category=servicio-asesoria-financiera
+            - generic [ref=e744]:
+              - img [ref=e746]
+              - generic [ref=e749]: Asesoría Financiera
+              - generic [ref=e750]: 52 items
+          - link "Transf. Digital 41 items" [ref=e751] [cursor=pointer]:
+            - /url: /servicios?category=servicio-transformacion-digital
+            - generic [ref=e753]:
+              - img [ref=e755]
+              - generic [ref=e757]: Transf. Digital
+              - generic [ref=e758]: 41 items
+          - link "Arquitectura 63 items" [ref=e759] [cursor=pointer]:
+            - /url: /servicios?category=servicio-arquitectura-diseno
+            - generic [ref=e761]:
+              - img [ref=e763]
+              - generic [ref=e766]: Arquitectura
+              - generic [ref=e767]: 63 items
+          - link "Educación 42 items" [ref=e768] [cursor=pointer]:
+            - /url: /servicios?category=servicio-educacion-capacitacion
+            - generic [ref=e770]:
+              - img [ref=e772]
+              - generic [ref=e775]: Educación
+              - generic [ref=e776]: 42 items
+          - link "Salud 55 items" [ref=e777] [cursor=pointer]:
+            - /url: /servicios?category=servicio-salud-bienestar
+            - generic [ref=e779]:
+              - img [ref=e781]
+              - generic [ref=e784]: Salud
+              - generic [ref=e785]: 55 items
+          - link "Asesoría Legal 31 items" [ref=e786] [cursor=pointer]:
+            - /url: /servicios?category=servicio-asesoria-legal
+            - generic [ref=e788]:
+              - img [ref=e790]
+              - generic [ref=e793]: Asesoría Legal
+              - generic [ref=e794]: 31 items
+          - link "Turismo 95 items" [ref=e795] [cursor=pointer]:
+            - /url: /servicios?category=servicio-turismo-experiencias
+            - generic [ref=e797]:
+              - img [ref=e799]
+              - generic [ref=e801]: Turismo
+              - generic [ref=e802]: 95 items
+          - link "Mantenimiento 210 items" [ref=e803] [cursor=pointer]:
+            - /url: /servicios?category=servicio-mantenimiento-hogar
+            - generic [ref=e805]:
+              - img [ref=e807]
+              - generic [ref=e811]: Mantenimiento
+              - generic [ref=e812]: 210 items
+          - link "Asesoría Financiera 52 items" [ref=e813] [cursor=pointer]:
+            - /url: /servicios?category=servicio-asesoria-financiera
+            - generic [ref=e815]:
+              - img [ref=e817]
+              - generic [ref=e820]: Asesoría Financiera
+              - generic [ref=e821]: 52 items
+          - link "Transf. Digital 41 items" [ref=e822] [cursor=pointer]:
+            - /url: /servicios?category=servicio-transformacion-digital
+            - generic [ref=e824]:
+              - img [ref=e826]
+              - generic [ref=e828]: Transf. Digital
+              - generic [ref=e829]: 41 items
+          - link "Arquitectura 63 items" [ref=e830] [cursor=pointer]:
+            - /url: /servicios?category=servicio-arquitectura-diseno
+            - generic [ref=e832]:
+              - img [ref=e834]
+              - generic [ref=e837]: Arquitectura
+              - generic [ref=e838]: 63 items
+          - link "Educación 42 items" [ref=e839] [cursor=pointer]:
+            - /url: /servicios?category=servicio-educacion-capacitacion
+            - generic [ref=e841]:
+              - img [ref=e843]
+              - generic [ref=e846]: Educación
+              - generic [ref=e847]: 42 items
+          - link "Salud 55 items" [ref=e848] [cursor=pointer]:
+            - /url: /servicios?category=servicio-salud-bienestar
+            - generic [ref=e850]:
+              - img [ref=e852]
+              - generic [ref=e855]: Salud
+              - generic [ref=e856]: 55 items
+          - link "Asesoría Legal 31 items" [ref=e857] [cursor=pointer]:
+            - /url: /servicios?category=servicio-asesoria-legal
+            - generic [ref=e859]:
+              - img [ref=e861]
+              - generic [ref=e864]: Asesoría Legal
+              - generic [ref=e865]: 31 items
+          - link "Turismo 95 items" [ref=e866] [cursor=pointer]:
+            - /url: /servicios?category=servicio-turismo-experiencias
+            - generic [ref=e868]:
+              - img [ref=e870]
+              - generic [ref=e872]: Turismo
+              - generic [ref=e873]: 95 items
+          - link "Mantenimiento 210 items" [ref=e874] [cursor=pointer]:
+            - /url: /servicios?category=servicio-mantenimiento-hogar
+            - generic [ref=e876]:
+              - img [ref=e878]
+              - generic [ref=e882]: Mantenimiento
+              - generic [ref=e883]: 210 items
+      - link "Volver arriba" [ref=e885] [cursor=pointer]:
+        - /url: "#"
+        - img [ref=e886]
+        - generic [ref=e888]: Volver arriba
+    - generic [ref=e890]:
+      - generic [ref=e891]:
+        - generic [ref=e892]:
+          - generic [ref=e893]: LO MÁS DESTACADO
+          - heading "Nuestros Productos Estrella" [level=2] [ref=e894]
+          - paragraph [ref=e895]: Selección exclusiva de los mejores productos importados para Ecuador. Gana hasta un 30% en puntos por el ahorro generado.
+        - generic [ref=e896]:
+          - button "🔥Los Más Vendidos" [ref=e897] [cursor=pointer]
+          - button "⭐Populares" [ref=e898] [cursor=pointer]
+          - button "💥Mayores Descuentos" [ref=e899] [cursor=pointer]
+      - generic [ref=e900]:
+        - generic [ref=e901]: 📦
+        - paragraph [ref=e902]: No hay productos disponibles en este momento.
+      - link "Ver catálogo completo →" [ref=e904] [cursor=pointer]:
+        - /url: /productos
+    - generic [ref=e906]:
+      - generic [ref=e907]:
+        - generic [ref=e908]:
+          - generic [ref=e909]: SERVICIOS PROFESIONALES
+          - heading "Nuestros Servicios Estrella" [level=2] [ref=e910]
+          - paragraph [ref=e911]: Conecta con los mejores profesionales y agencias del país. Gana puntos y ahorra con cada contratación que realices.
+        - generic [ref=e912]:
+          - button "⭐Destacados" [ref=e913] [cursor=pointer]
+          - button "🔥Populares" [ref=e914] [cursor=pointer]
+          - button "🏆Mejor Calificados" [ref=e915] [cursor=pointer]
+      - generic [ref=e916]:
+        - generic [ref=e917]: 💼
+        - paragraph [ref=e918]: No hay servicios disponibles en este momento.
+      - link "Ver directorio de servicios →" [ref=e920] [cursor=pointer]:
+        - /url: /servicios
+    - generic [ref=e922]:
+      - generic [ref=e923]:
+        - generic [ref=e924]: Simple y Poderoso
+        - heading "¿Cómo funciona SaidonClub?" [level=2] [ref=e925]
+        - paragraph [ref=e926]: Tres pasos para transformar tu forma de consumir y generar beneficios reales cada día.
+      - generic [ref=e927]:
+        - generic [ref=e928]:
+          - generic [ref=e930]: "01"
+          - generic [ref=e932]:
+            - generic [ref=e933]:
+              - generic [ref=e935]: 🚀
+              - generic [ref=e936]: Registro gratuito
+            - heading "Regístrate Gratis" [level=3] [ref=e938]
+            - paragraph [ref=e939]: Crea tu cuenta en menos de 2 minutos. Sin contratos, sin compromisos. Acceso inmediato a todos los beneficios del ecosistema SaidonClub.
+            - list [ref=e940]:
+              - listitem [ref=e941]:
+                - generic [ref=e942]: ✓
+                - text: Sin costo de activación
+              - listitem [ref=e943]:
+                - generic [ref=e944]: ✓
+                - text: Acceso inmediato
+              - listitem [ref=e945]:
+                - generic [ref=e946]: ✓
+                - text: Sin contratos
+        - generic [ref=e947]:
+          - generic [ref=e949]: "02"
+          - generic [ref=e951]:
+            - generic [ref=e952]:
+              - generic [ref=e954]: 🛍️
+              - generic [ref=e955]: Hasta 30% de descuento
+            - heading "Compra con Descuentos" [level=3] [ref=e957]
+            - paragraph [ref=e958]: Accede a miles de productos y servicios con precios preferenciales exclusivos para miembros. Cada compra genera puntos y cashback automático.
+            - list [ref=e959]:
+              - listitem [ref=e960]:
+                - generic [ref=e961]: ✓
+                - text: Precios de importador
+              - listitem [ref=e962]:
+                - generic [ref=e963]: ✓
+                - text: Puntos por compra
+              - listitem [ref=e964]:
+                - generic [ref=e965]: ✓
+                - text: Cashback automático
+        - generic [ref=e966]:
+          - generic [ref=e968]: "03"
+          - generic [ref=e970]:
+            - generic [ref=e971]:
+              - generic [ref=e973]: 💰
+              - generic [ref=e974]: Ingresos pasivos reales
+            - heading "Gana y Crece" [level=3] [ref=e976]
+            - paragraph [ref=e977]: Tus compras generan puntos convertibles en dinero real. Invita a tu red y multiplica tus beneficios con nuestro sistema de economía colaborativa.
+            - list [ref=e978]:
+              - listitem [ref=e979]:
+                - generic [ref=e980]: ✓
+                - text: Puntos convertibles
+              - listitem [ref=e981]:
+                - generic [ref=e982]: ✓
+                - text: Regalías por red
+              - listitem [ref=e983]:
+                - generic [ref=e984]: ✓
+                - text: Bonos mensuales
+      - generic [ref=e985]:
+        - link "Empezar Ahora — Es Gratis" [ref=e986] [cursor=pointer]:
+          - /url: /auth/register
+          - text: Empezar Ahora — Es Gratis
+          - img [ref=e987]
+        - paragraph [ref=e989]: 🔒 Sin tarjeta de crédito · ✅ Sin contratos · ⚡ Acceso inmediato
+    - generic [ref=e991]:
+      - generic [ref=e992]:
+        - generic [ref=e993]: TOMA EL CONTROL
+        - heading "¿Cómo quieres mejorar tu experiencia en SaidonClub?" [level=2] [ref=e994]
+        - paragraph [ref=e995]: En el corazón de la nueva economía ecuatoriana, hemos creado tres caminos para que cada familia alcance su máximo potencial. Elige el tuyo.
+      - generic [ref=e996]:
+        - generic [ref=e997]:
+          - img "Consumo Inteligente SaidonClub" [ref=e999]
+          - generic [ref=e1001]:
+            - img [ref=e1003]
+            - heading "Tu Consumo, Tu Poder" [level=3] [ref=e1006]
+            - paragraph [ref=e1007]: Deja de ser solo un comprador. Aquí, tu consumo diario se se convierte en beneficios reales. Accede a precios de importador en las marcas que amas y servicios de confianza con sello ecuatoriano. Porque ahorrar con inteligencia es la forma más sabia de ganar.
+            - generic [ref=e1008]:
+              - text: "\"Antes el dinero se me escapaba de las manos en compras sin sentido. Ahora, cada centavo que gasto en SaidonClub vuelve a mí en forma de ahorro y beneficios. Es comprar con la mente, no solo con el impulso.\""
+              - generic [ref=e1009]: — Elena M., Clienta Smart en Quito
+            - link "Descubrir privilegios ➔" [ref=e1010] [cursor=pointer]:
+              - /url: /productos
+        - generic [ref=e1011]:
+          - img "Profesional Elite SaidonClub" [ref=e1013]
+          - generic [ref=e1015]:
+            - img [ref=e1017]
+            - heading "Tu Talento, Tu Marca" [level=3] [ref=e1023]
+            - paragraph [ref=e1024]: Eres un experto en lo que haces y Ecuador merece conocerte. SaidonClub es la vitrina premium que conecta tu profesionalismo con una comunidad que valora la calidad sobre el precio. Olvídate de buscar clientes; nosotros los traemos a tu puerta digital.
+            - generic [ref=e1025]:
+              - text: "\"Encontré un ecosistema donde mi talento no es un \"commodity\". Aquí conecto con clientes que valoran la excelencia y la seguridad institucional. Mi negocio finalmente escaló al nivel que siempre soñé.\""
+              - generic [ref=e1026]: — Ing. Marcos V., Proveedor Estratégico
+            - link "Certificar mi talento ➔" [ref=e1027] [cursor=pointer]:
+              - /url: /proveedores
+        - generic [ref=e1028]:
+          - img "Socio Emprendedor SaidonClub" [ref=e1030]
+          - generic [ref=e1032]:
+            - img [ref=e1034]
+            - heading "Tu Red, Tu Comunidad" [level=3] [ref=e1036]
+            - paragraph [ref=e1037]: No camines solo. Construye un equipo de visionarios y genera recompensas compartidas. Con nuestro sistema de recompensas, cada recomendación genera beneficios para ti y tu comunidad. Es hora de construir un futuro sólido para tu familia.
+            - generic [ref=e1038]:
+              - text: "\"La verdadera tranquilidad no es solo cuánto ganas, sino cómo optimizas tus gastos. Con el programa de recompensas de SaidonClub, construimos un fondo de beneficios que nos da el respaldo que nuestra familia merece.\""
+              - generic [ref=e1039]: — Ricardo y Sofia, Socios Fundadores
+            - link "Ver programa de recompensas ➔" [ref=e1040] [cursor=pointer]:
+              - /url: /membresias#beneficios
+    - generic [ref=e1042]:
+      - generic [ref=e1044]:
+        - generic [ref=e1045]:
+          - generic:
+            - img "Comunidad SaidonClub"
+            - img "Comunidad SaidonClub"
+            - img "Comunidad SaidonClub"
+            - img "Comunidad SaidonClub"
+            - img "Comunidad SaidonClub"
+          - generic [ref=e1046]:
+            - generic:
+              - generic [ref=e1047]:
+                - generic: +124%
+                - generic: Crecimiento Anual
+              - generic [ref=e1048]:
+                - generic: 5,000+
+                - generic: Miembros Activos
+              - generic [ref=e1049]:
+                - generic: $2M+
+                - generic: Ahorros Generados
+            - generic [ref=e1050]: 🏆
+        - generic [ref=e1051]:
+          - generic [ref=e1052]: 📈
+          - generic [ref=e1053]:
+            - generic [ref=e1054]: +124%
+            - generic [ref=e1055]: Crecimiento Anual
+      - generic [ref=e1056]:
+        - generic [ref=e1057]: Valor Diferencial
+        - heading "Diseñado para los que no se conforman con lo ordinario" [level=2] [ref=e1058]
+        - paragraph [ref=e1059]: En SaidonClub no solo compras o vendes; eres parte de un ecosistema de crecimiento colaborativo que premia la lealtad y la comunidad.
+        - generic [ref=e1060]:
+          - generic [ref=e1061]:
+            - img [ref=e1063]
+            - generic [ref=e1066]:
+              - heading "Confianza y Respaldo" [level=3] [ref=e1067]
+              - paragraph [ref=e1068]: Operamos con total transparencia. Tu patrimonio y datos están protegidos con cifrado de nivel bancario.
+          - generic [ref=e1069]:
+            - img [ref=e1071]
+            - generic [ref=e1073]:
+              - heading "Resultados Inmediatos" [level=3] [ref=e1074]
+              - paragraph [ref=e1075]: Sin esperas. Acreditamos tus recompensas al instante para que veas el fruto de tu lealtad cuando más lo necesitas.
+          - generic [ref=e1076]:
+            - img [ref=e1078]
+            - generic [ref=e1083]:
+              - heading "Somos una Familia" [level=3] [ref=e1084]
+              - paragraph [ref=e1085]: Al unirte a SaidonClub, entras a un círculo de emprendedores que se apoyan, crecen y celebran cada logro juntos.
+          - generic [ref=e1086]:
+            - img [ref=e1088]
+            - generic [ref=e1090]:
+              - heading "Valor a tu Fidelidad" [level=3] [ref=e1091]
+              - paragraph [ref=e1092]: Nuestro programa de recompensas está diseñado para valorar cada compra y cada persona que invitas a la comunidad.
+        - generic [ref=e1093]:
+          - link "Empezar mi Transformación" [ref=e1094] [cursor=pointer]:
+            - /url: /auth/register
+            - text: Empezar mi Transformación
+            - img [ref=e1095]
+          - link "Conocer más" [ref=e1097] [cursor=pointer]:
+            - /url: /nosotros
+    - generic [ref=e1101]:
+      - generic [ref=e1102]:
+        - generic [ref=e1103]:
+          - img [ref=e1105]
+          - heading "Seguridad de Nivel Bancario" [level=3] [ref=e1108]
+          - paragraph [ref=e1109]: Tus transacciones y datos están protegidos por cifrado de extremo a extremo y protocolos de seguridad internacional.
+        - generic [ref=e1110]:
+          - img [ref=e1112]
+          - heading "Comunidad en Expansión" [level=3] [ref=e1115]
+          - paragraph [ref=e1116]: Nacidos en Ecuador para el mundo. Conectamos miles de usuarios en una red de beneficio mutuo y crecimiento real.
+        - generic [ref=e1117]:
+          - img [ref=e1119]
+          - heading "Calidad Certificada" [level=3] [ref=e1122]
+          - paragraph [ref=e1123]: Cada proveedor y producto en SaidonClub pasa por un riguroso proceso de verificación para garantizar tu satisfacción.
+      - generic [ref=e1124]:
+        - generic [ref=e1125]:
+          - generic [ref=e1126]: Impacto Real
+          - heading "Lo que dice nuestra comunidad" [level=2] [ref=e1127]
+        - generic [ref=e1129]:
+          - generic [ref=e1130]:
+            - generic [ref=e1131]:
+              - img [ref=e1133]
+              - generic [ref=e1136]:
+                - img [ref=e1137]
+                - img [ref=e1139]
+                - img [ref=e1141]
+                - img [ref=e1143]
+                - img [ref=e1145]
+            - blockquote [ref=e1147]: “Convertir mis gastos diarios en una fuente de ingresos fue la mejor decisión. SaidonClub no es solo ahorro, es libertad financiera.”
+            - generic [ref=e1148]:
+              - generic [ref=e1149]:
+                - img "Andrea Vaca" [ref=e1150]
+                - img [ref=e1152]
+              - generic [ref=e1154]:
+                - heading "Andrea Vaca" [level=4] [ref=e1155]
+                - paragraph [ref=e1156]: Socia Fundadora
+              - generic [ref=e1157]: +2,450 pts
+          - generic [ref=e1158]:
+            - generic [ref=e1159]:
+              - img [ref=e1161]
+              - generic [ref=e1164]:
+                - img [ref=e1165]
+                - img [ref=e1167]
+                - img [ref=e1169]
+                - img [ref=e1171]
+                - img [ref=e1173]
+            - blockquote [ref=e1175]: “Como profesional, Saidon me ha permitido llegar a clientes de calidad que valoran mi trabajo. El sistema de comisiones es el más justo del mercado.”
+            - generic [ref=e1176]:
+              - generic [ref=e1177]:
+                - img "Dr. Carlos Ruiz" [ref=e1178]
+                - img [ref=e1180]
+              - generic [ref=e1182]:
+                - heading "Dr. Carlos Ruiz" [level=4] [ref=e1183]
+                - paragraph [ref=e1184]: Proveedor de Servicios
+              - generic [ref=e1185]: ⭐ 5.0
+          - generic [ref=e1186]:
+            - generic [ref=e1187]:
+              - img [ref=e1189]
+              - generic [ref=e1192]:
+                - img [ref=e1193]
+                - img [ref=e1195]
+                - img [ref=e1197]
+                - img [ref=e1199]
+                - img [ref=e1201]
+            - blockquote [ref=e1203]: “La variedad de productos y los descuentos directos son increíbles. Compro lo de siempre, pero pago mucho menos y gano puntos.”
+            - generic [ref=e1204]:
+              - generic [ref=e1205]:
+                - img "Lorena Mendez" [ref=e1206]
+                - img [ref=e1208]
+              - generic [ref=e1210]:
+                - heading "Lorena Mendez" [level=4] [ref=e1211]
+                - paragraph [ref=e1212]: Cliente Inteligente
+              - generic [ref=e1213]: $120 Ahorrados
+          - generic [ref=e1214]:
+            - generic [ref=e1215]:
+              - img [ref=e1217]
+              - generic [ref=e1220]:
+                - img [ref=e1221]
+                - img [ref=e1223]
+                - img [ref=e1225]
+                - img [ref=e1227]
+                - img [ref=e1229]
+            - blockquote [ref=e1231]: “El modelo de economía colaborativa de SaidonClub realmente funciona. He visto a mi equipo crecer y prosperar en pocos meses.”
+            - generic [ref=e1232]:
+              - generic [ref=e1233]:
+                - img "Javier Ortiz" [ref=e1234]
+                - img [ref=e1236]
+              - generic [ref=e1238]:
+                - heading "Javier Ortiz" [level=4] [ref=e1239]
+                - paragraph [ref=e1240]: Líder de Red
+              - generic [ref=e1241]: +5,800 pts
+          - generic [ref=e1242]:
+            - generic [ref=e1243]:
+              - img [ref=e1245]
+              - generic [ref=e1248]:
+                - img [ref=e1249]
+                - img [ref=e1251]
+                - img [ref=e1253]
+                - img [ref=e1255]
+                - img [ref=e1257]
+            - blockquote [ref=e1259]: “La plataforma es intuitiva y el soporte es excelente. Recomiendo SaidonClub a cualquiera que quiera digitalizar sus beneficios.”
+            - generic [ref=e1260]:
+              - generic [ref=e1261]:
+                - img "Sofia Pazmiño" [ref=e1262]
+                - img [ref=e1264]
+              - generic [ref=e1266]:
+                - heading "Sofia Pazmiño" [level=4] [ref=e1267]
+                - paragraph [ref=e1268]: Emprendedora Digital
+              - generic [ref=e1269]: Top Comprador
+          - generic [ref=e1270]:
+            - generic [ref=e1271]:
+              - img [ref=e1273]
+              - generic [ref=e1276]:
+                - img [ref=e1277]
+                - img [ref=e1279]
+                - img [ref=e1281]
+                - img [ref=e1283]
+                - img [ref=e1285]
+            - blockquote [ref=e1287]: “Convertir mis gastos diarios en una fuente de ingresos fue la mejor decisión. SaidonClub no es solo ahorro, es libertad financiera.”
+            - generic [ref=e1288]:
+              - generic [ref=e1289]:
+                - img "Andrea Vaca" [ref=e1290]
+                - img [ref=e1292]
+              - generic [ref=e1294]:
+                - heading "Andrea Vaca" [level=4] [ref=e1295]
+                - paragraph [ref=e1296]: Socia Fundadora
+              - generic [ref=e1297]: +2,450 pts
+          - generic [ref=e1298]:
+            - generic [ref=e1299]:
+              - img [ref=e1301]
+              - generic [ref=e1304]:
+                - img [ref=e1305]
+                - img [ref=e1307]
+                - img [ref=e1309]
+                - img [ref=e1311]
+                - img [ref=e1313]
+            - blockquote [ref=e1315]: “Como profesional, Saidon me ha permitido llegar a clientes de calidad que valoran mi trabajo. El sistema de comisiones es el más justo del mercado.”
+            - generic [ref=e1316]:
+              - generic [ref=e1317]:
+                - img "Dr. Carlos Ruiz" [ref=e1318]
+                - img [ref=e1320]
+              - generic [ref=e1322]:
+                - heading "Dr. Carlos Ruiz" [level=4] [ref=e1323]
+                - paragraph [ref=e1324]: Proveedor de Servicios
+              - generic [ref=e1325]: ⭐ 5.0
+          - generic [ref=e1326]:
+            - generic [ref=e1327]:
+              - img [ref=e1329]
+              - generic [ref=e1332]:
+                - img [ref=e1333]
+                - img [ref=e1335]
+                - img [ref=e1337]
+                - img [ref=e1339]
+                - img [ref=e1341]
+            - blockquote [ref=e1343]: “La variedad de productos y los descuentos directos son increíbles. Compro lo de siempre, pero pago mucho menos y gano puntos.”
+            - generic [ref=e1344]:
+              - generic [ref=e1345]:
+                - img "Lorena Mendez" [ref=e1346]
+                - img [ref=e1348]
+              - generic [ref=e1350]:
+                - heading "Lorena Mendez" [level=4] [ref=e1351]
+                - paragraph [ref=e1352]: Cliente Inteligente
+              - generic [ref=e1353]: $120 Ahorrados
+          - generic [ref=e1354]:
+            - generic [ref=e1355]:
+              - img [ref=e1357]
+              - generic [ref=e1360]:
+                - img [ref=e1361]
+                - img [ref=e1363]
+                - img [ref=e1365]
+                - img [ref=e1367]
+                - img [ref=e1369]
+            - blockquote [ref=e1371]: “El modelo de economía colaborativa de SaidonClub realmente funciona. He visto a mi equipo crecer y prosperar en pocos meses.”
+            - generic [ref=e1372]:
+              - generic [ref=e1373]:
+                - img "Javier Ortiz" [ref=e1374]
+                - img [ref=e1376]
+              - generic [ref=e1378]:
+                - heading "Javier Ortiz" [level=4] [ref=e1379]
+                - paragraph [ref=e1380]: Líder de Red
+              - generic [ref=e1381]: +5,800 pts
+          - generic [ref=e1382]:
+            - generic [ref=e1383]:
+              - img [ref=e1385]
+              - generic [ref=e1388]:
+                - img [ref=e1389]
+                - img [ref=e1391]
+                - img [ref=e1393]
+                - img [ref=e1395]
+                - img [ref=e1397]
+            - blockquote [ref=e1399]: “La plataforma es intuitiva y el soporte es excelente. Recomiendo SaidonClub a cualquiera que quiera digitalizar sus beneficios.”
+            - generic [ref=e1400]:
+              - generic [ref=e1401]:
+                - img "Sofia Pazmiño" [ref=e1402]
+                - img [ref=e1404]
+              - generic [ref=e1406]:
+                - heading "Sofia Pazmiño" [level=4] [ref=e1407]
+                - paragraph [ref=e1408]: Emprendedora Digital
+              - generic [ref=e1409]: Top Comprador
+      - generic [ref=e1411]:
+        - heading "¿Listo para transformar tu economía?" [level=2] [ref=e1412]
+        - paragraph [ref=e1413]:
+          - text: Únete a
+          - strong [ref=e1414]: más de 5,000 ecuatorianos
+          - text: que ya están ahorrando y ganando cada día. El registro es gratuito y los beneficios son inmediatos.
+        - link "Empezar Ahora Gratis" [ref=e1415] [cursor=pointer]:
+          - /url: /auth/register
+          - text: Empezar Ahora Gratis
+          - img [ref=e1416]
+        - generic [ref=e1418]:
+          - generic [ref=e1419]: 🔒 Pago Seguro
+          - generic [ref=e1420]: ✅ Sin Contratos
+          - generic [ref=e1421]: ⚡ Acceso Inmediato
+  - generic:
+    - button "Chat con May - Asistente IA SaidonClub" [ref=e1422] [cursor=pointer]:
+      - img "May — Asistente SaidonClub" [ref=e1424]
+      - generic "1 mensaje sin leer" [ref=e1425]: "1"
+    - dialog "Chat May — Asistente IA SaidonClub":
+      - generic:
+        - generic:
+          - generic:
+            - img "May"
+            - generic "En línea"
+          - generic:
+            - strong: May
+            - generic: Asistente SaidonClub · En línea
+            - generic: IA
+        - generic:
+          - link "Abrir WhatsApp":
+            - /url: https://wa.me/593987958337
+            - img
+          - button "Cerrar chat":
+            - img
+      - generic:
+        - generic:
+          - img "May"
+          - generic:
+            - generic:
+              - text: Hola 👋 Soy
+              - strong: May
+              - text: ", asistente virtual de SaidonClub. ¿En qué puedo ayudarte hoy?"
+            - text: • 💳 Membresías
+            - text: • 🌐 Red de socios
+            - text: • 💰 Pagos y Wallet
+            - text: • 🛍️ Marketplace
+      - generic:
+        - button "Membresías 💳"
+        - button "Red de socios 🌐"
+        - button "Métodos de pago 💰"
+        - button "Hablar con humano 💬"
+      - generic:
+        - textbox "Mensaje para May":
+          - /placeholder: Escribe tu pregunta…
+        - button "Enviar mensaje" [disabled]:
+          - img
+      - generic:
+        - text: ⚡ SaidonClub AI ·
+        - link "Hablar con humano":
+          - /url: https://wa.me/593987958337
+  - contentinfo [ref=e1426]:
+    - generic [ref=e1428]:
+      - generic [ref=e1429]:
+        - img "SaidonClub Logo" [ref=e1431]
+        - paragraph [ref=e1432]: El ecosistema digital más exclusivo de Ecuador. Compra productos premium, construye tu red y obtén beneficios ilimitados.
+        - generic [ref=e1433]:
+          - link "facebook" [ref=e1434] [cursor=pointer]:
+            - /url: https://facebook.com/saidonclub
+            - img [ref=e1435]
+          - link "instagram" [ref=e1437] [cursor=pointer]:
+            - /url: https://instagram.com/saidonclub
+            - img [ref=e1438]
+          - link "tiktok" [ref=e1441] [cursor=pointer]:
+            - /url: https://tiktok.com/@saidonclub
+            - img [ref=e1442]
+          - link "whatsapp" [ref=e1444] [cursor=pointer]:
+            - /url: https://wa.me/593987958337
+            - img [ref=e1445]
+          - link "youtube" [ref=e1447] [cursor=pointer]:
+            - /url: https://youtube.com/@saidonclub
+            - img [ref=e1448]
+        - generic [ref=e1451]:
+          - heading "Newsletter" [level=4] [ref=e1452]
+          - paragraph [ref=e1453]: Únete a nuestra lista exclusiva y recibe las mejores oportunidades antes que nadie.
+          - generic [ref=e1454]:
+            - textbox "Email" [ref=e1455]
+            - button "Unirme" [ref=e1456] [cursor=pointer]
+          - generic [ref=e1457]:
+            - link "📞 +593 98 795 8337" [ref=e1458] [cursor=pointer]:
+              - /url: https://wa.me/593987958337
+              - generic [ref=e1459]: 📞
+              - text: +593 98 795 8337
+            - link "📧 saidonclub@gmail.com" [ref=e1460] [cursor=pointer]:
+              - /url: mailto:saidonclub@gmail.com
+              - generic [ref=e1461]: 📧
+              - text: saidonclub@gmail.com
+            - link "📧 fin.saidonclub@gmail.com" [ref=e1462] [cursor=pointer]:
+              - /url: mailto:fin.saidonclub@gmail.com
+              - generic [ref=e1463]: 📧
+              - text: fin.saidonclub@gmail.com
+      - generic [ref=e1464]:
+        - generic [ref=e1465]:
+          - heading "Marketplace" [level=4] [ref=e1466]
+          - list [ref=e1467]:
+            - listitem [ref=e1468]:
+              - link "→ Productos" [ref=e1469] [cursor=pointer]:
+                - /url: /productos
+            - listitem [ref=e1470]:
+              - link "→ Servicios" [ref=e1471] [cursor=pointer]:
+                - /url: /servicios
+            - listitem [ref=e1472]:
+              - link "→ Categorías" [ref=e1473] [cursor=pointer]:
+                - /url: /categorias
+            - listitem [ref=e1474]:
+              - link "→ Ofertas del día" [ref=e1475] [cursor=pointer]:
+                - /url: /productos?q=ofertas
+        - generic [ref=e1476]:
+          - heading "Comunidad" [level=4] [ref=e1477]
+          - list [ref=e1478]:
+            - listitem [ref=e1479]:
+              - link "→ Membresía Preferente" [ref=e1480] [cursor=pointer]:
+                - /url: /membresias#preferente
+            - listitem [ref=e1481]:
+              - link "→ Membresía Pionero" [ref=e1482] [cursor=pointer]:
+                - /url: /membresias#pionero
+            - listitem [ref=e1483]:
+              - link "→ Programa de Recompensas" [ref=e1484] [cursor=pointer]:
+                - /url: /membresias#beneficios
+            - listitem [ref=e1485]:
+              - link "→ Mi Red de Socios" [ref=e1486] [cursor=pointer]:
+                - /url: /dashboard/network
+        - generic [ref=e1487]:
+          - heading "Empresa" [level=4] [ref=e1488]
+          - list [ref=e1489]:
+            - listitem [ref=e1490]:
+              - link "→ Sobre nosotros" [ref=e1491] [cursor=pointer]:
+                - /url: /nosotros
+            - listitem [ref=e1492]:
+              - link "→ Oportunidad de Negocio" [ref=e1493] [cursor=pointer]:
+                - /url: /nosotros#red
+            - listitem [ref=e1494]:
+              - link "→ Contáctanos" [ref=e1495] [cursor=pointer]:
+                - /url: /contacto
+            - listitem [ref=e1496]:
+              - link "→ Ser Proveedor" [ref=e1497] [cursor=pointer]:
+                - /url: /nosotros#proveedores
+        - generic [ref=e1498]:
+          - heading "Soporte" [level=4] [ref=e1499]
+          - list [ref=e1500]:
+            - listitem [ref=e1501]:
+              - link "→ Centro de ayuda" [ref=e1502] [cursor=pointer]:
+                - /url: /ayuda
+            - listitem [ref=e1503]:
+              - link "→ Términos y condiciones" [ref=e1504] [cursor=pointer]:
+                - /url: /terminos
+            - listitem [ref=e1505]:
+              - link "→ Política de privacidad" [ref=e1506] [cursor=pointer]:
+                - /url: /privacidad
+            - listitem [ref=e1507]:
+              - link "→ Política de devoluciones" [ref=e1508] [cursor=pointer]:
+                - /url: /devoluciones
+    - generic [ref=e1510]:
+      - generic [ref=e1511]: © 2026 SaidonClub. Elevando el estándar del comercio digital.
+      - generic [ref=e1512]: Hecho con ❤️ por Saidon Tech Team
+  - region "Notificaciones"
+```
+
+# Test source
+
+```ts
+  1   | import { test, expect, type Page } from '@playwright/test'
+  2   | 
+  3   | // Tests de validación visual y flujos
+  4   | test.describe('SaidonClub Visual & Flow Tests', () => {
+  5   |   
+> 6   |   test.beforeEach(async ({ page }) => {
+      |        ^ Test timeout of 60000ms exceeded while running "beforeEach" hook.
+  7   |     await page.goto('/')
+  8   |   })
+  9   | 
+  10  |   // ========== HOME PAGE ==========
+  11  |   test.describe('Home Page', () => {
+  12  |     test('should load homepage correctly', async ({ page }) => {
+  13  |       await expect(page.locator('body')).toBeVisible()
+  14  |       await expect(page.locator('h1, h2').first()).toBeVisible()
+  15  |     })
+  16  | 
+  17  |     test('should display navigation bar', async ({ page }) => {
+  18  |       const nav = page.locator('nav').first()
+  19  |       await expect(nav).toBeVisible()
+  20  |     })
+  21  | 
+  22  |     test('should display hero section', async ({ page }) => {
+  23  |       const hero = page.locator('[class*="hero"], section').first()
+  24  |       await expect(hero).toBeVisible()
+  25  |     })
+  26  | 
+  27  |     test('should have working menu navigation', async ({ page }) => {
+  28  |       const menuItems = page.locator('nav a, nav button')
+  29  |       const count = await menuItems.count()
+  30  |       expect(count).toBeGreaterThan(0)
+  31  |     })
+  32  |   })
+  33  | 
+  34  |   // ========== MARKETPLACE ==========
+  35  |   test.describe('Marketplace', () => {
+  36  |     test('should load products page', async ({ page }) => {
+  37  |       await page.goto('/productos')
+  38  |       await expect(page.locator('body')).toBeVisible()
+  39  |     })
+  40  | 
+  41  |     test('should display product grid', async ({ page }) => {
+  42  |       await page.goto('/productos')
+  43  |       const products = page.locator('[class*="product"], [class*="card"]')
+  44  |       await expect(products.first()).toBeVisible()
+  45  |     })
+  46  | 
+  47  |     test('should filter products', async ({ page }) => {
+  48  |       await page.goto('/productos')
+  49  |       const filterButton = page.locator('button').filter({ hasText: /filtro/i }).first()
+  50  |       if (await filterButton.isVisible()) {
+  51  |         await filterButton.click()
+  52  |         await expect(page.locator('[class*="filter"], [class*="sidebar"]')).toBeVisible()
+  53  |       }
+  54  |     })
+  55  |   })
+  56  | 
+  57  |   // ========== SERVICES ==========
+  58  |   test.describe('Services Page', () => {
+  59  |     test('should load services page', async ({ page }) => {
+  60  |       await page.goto('/servicios')
+  61  |       await expect(page.locator('body')).toBeVisible()
+  62  |     })
+  63  | 
+  64  |     test('should display service cards', async ({ page }) => {
+  65  |       await page.goto('/servicios')
+  66  |       const services = page.locator('[class*="service"], [class*="card"]')
+  67  |       await expect(services.first()).toBeVisible()
+  68  |     })
+  69  |   })
+  70  | 
+  71  |   // ========== CART & CHECKOUT ==========
+  72  |   test.describe('Cart & Checkout', () => {
+  73  |     test('should add product to cart', async ({ page }) => {
+  74  |       await page.goto('/productos')
+  75  |       
+  76  |       const addButton = page.locator('button').filter({ hasText: /añadir|agregar|comprar/i }).first()
+  77  |       if (await addButton.isVisible()) {
+  78  |         await addButton.click()
+  79  |         // Should show feedback or open cart
+  80  |         await page.waitForTimeout(500)
+  81  |       }
+  82  |     })
+  83  | 
+  84  |     test('should display cart page', async ({ page }) => {
+  85  |       await page.goto('/carrito')
+  86  |       await expect(page.locator('body')).toBeVisible()
+  87  |     })
+  88  | 
+  89  |     test('should display checkout page', async ({ page }) => {
+  90  |       await page.goto('/checkout')
+  91  |       await expect(page.locator('body')).toBeVisible()
+  92  |     })
+  93  |   })
+  94  | 
+  95  |   // ========== MEMBERSHIPS ==========
+  96  |   test.describe('Memberships', () => {
+  97  |     test('should load memberships page', async ({ page }) => {
+  98  |       await page.goto('/membresias')
+  99  |       await expect(page.locator('body')).toBeVisible()
+  100 |     })
+  101 | 
+  102 |     test('should display membership plans', async ({ page }) => {
+  103 |       await page.goto('/membresias')
+  104 |       const plans = page.locator('[class*="plan"], [class*="card"], [class*="tier"]')
+  105 |       await expect(plans.first()).toBeVisible()
+  106 |     })
+```

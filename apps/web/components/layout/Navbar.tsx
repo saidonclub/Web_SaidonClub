@@ -34,7 +34,7 @@ export default function Navbar() {
       <TopBar />
 
       {/* ── Main Nav ── */}
-      <div className={styles.mainNav}>
+      <nav className={styles.mainNav}>
         <div className={styles.navInner}>
           {/* BOTÓN HAMBURGUESA: Navegación móvil ultra-compacta */}
           <button className={styles.hamburger} onClick={() => setMenuOpen(v => !v)} aria-label="Menú móvil">
@@ -111,7 +111,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </div>
+      </nav>
 
 
       {/* ── Sub-Nav (Quick Categories) ── */}

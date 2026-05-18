@@ -1,0 +1,406 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: visual.spec.ts >> SaidonClub Visual & Flow Tests >> Info Pages >> should load help page
+- Location: tests\e2e\visual.spec.ts:168:9
+
+# Error details
+
+```
+Test timeout of 60000ms exceeded while running "beforeEach" hook.
+```
+
+```
+Tearing down "context" exceeded the test timeout of 60000ms.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - img "SaidonClub Logo" [ref=e6]
+    - paragraph [ref=e10]: Cargando Ecosistema...
+  - banner [ref=e11]:
+    - navigation [ref=e12]:
+      - generic [ref=e13]:
+        - button "Menú móvil" [ref=e14] [cursor=pointer]
+        - link "SaidonClub Logo" [ref=e19] [cursor=pointer]:
+          - /url: /
+          - img "SaidonClub Logo" [ref=e20]
+        - generic [ref=e22]:
+          - generic "Configurar área de búsqueda" [ref=e25] [cursor=pointer]:
+            - img [ref=e27]
+            - generic [ref=e32]: Detectando...
+          - generic [ref=e33]:
+            - img [ref=e34]
+            - textbox "Buscar productos, servicios, marcas..." [ref=e37]
+          - button [ref=e38] [cursor=pointer]:
+            - img [ref=e39]
+        - generic [ref=e43]:
+          - generic "Cambiar a Modo Claro" [ref=e44]:
+            - button "Cambiar ambiente visual" [ref=e45] [cursor=pointer]:
+              - generic [ref=e46]:
+                - img [ref=e47]
+                - img [ref=e53]
+          - generic "Ver carrito de compras" [ref=e55]:
+            - link [ref=e56] [cursor=pointer]:
+              - /url: /carrito
+              - img [ref=e57]
+          - generic "Acceder a tu cuenta" [ref=e61]:
+            - link "Cuenta" [ref=e62] [cursor=pointer]:
+              - /url: /dashboard
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - link "PRODUCTOS" [ref=e66] [cursor=pointer]:
+          - /url: /productos
+          - img [ref=e67]
+          - generic [ref=e70]: PRODUCTOS
+        - generic [ref=e71]:
+          - link [ref=e73] [cursor=pointer]:
+            - /url: /productos?category=tecnologia
+            - img [ref=e74]
+          - link [ref=e77] [cursor=pointer]:
+            - /url: /productos?category=hogar
+            - img [ref=e78]
+          - link [ref=e82] [cursor=pointer]:
+            - /url: /productos?category=belleza
+            - img [ref=e83]
+          - link [ref=e87] [cursor=pointer]:
+            - /url: /productos?category=automotriz
+            - img [ref=e88]
+          - link [ref=e93] [cursor=pointer]:
+            - /url: /productos?category=deportes
+            - img [ref=e94]
+          - link [ref=e101] [cursor=pointer]:
+            - /url: /productos?category=gaming
+            - img [ref=e102]
+          - link [ref=e105] [cursor=pointer]:
+            - /url: /productos?category=mascotas
+            - img [ref=e106]
+          - link [ref=e111] [cursor=pointer]:
+            - /url: /productos?category=moda
+            - img [ref=e112]
+          - link [ref=e115] [cursor=pointer]:
+            - /url: /productos?category=calzado
+            - img [ref=e116]
+          - link [ref=e120] [cursor=pointer]:
+            - /url: /productos?category=juguetes
+            - img [ref=e121]
+          - link [ref=e126] [cursor=pointer]:
+            - /url: /productos?category=ferreteria
+            - img [ref=e127]
+          - link [ref=e132] [cursor=pointer]:
+            - /url: /productos?category=papeleria
+            - img [ref=e133]
+      - generic [ref=e135]:
+        - link "SERVICIOS" [ref=e136] [cursor=pointer]:
+          - /url: /servicios
+          - img [ref=e137]
+          - generic [ref=e139]: SERVICIOS
+        - generic [ref=e140]:
+          - link [ref=e142] [cursor=pointer]:
+            - /url: /servicios?category=tech
+            - img [ref=e143]
+          - link [ref=e147] [cursor=pointer]:
+            - /url: /servicios?category=marketing
+            - img [ref=e148]
+          - link [ref=e152] [cursor=pointer]:
+            - /url: /servicios?category=salud
+            - img [ref=e153]
+          - link [ref=e158] [cursor=pointer]:
+            - /url: /servicios?category=legal
+            - img [ref=e159]
+          - link [ref=e164] [cursor=pointer]:
+            - /url: /servicios?category=consultoria
+            - img [ref=e165]
+          - link [ref=e169] [cursor=pointer]:
+            - /url: /servicios?category=educacion
+            - img [ref=e170]
+          - link [ref=e174] [cursor=pointer]:
+            - /url: /servicios?category=reparaciones
+            - img [ref=e175]
+          - link [ref=e178] [cursor=pointer]:
+            - /url: /servicios?category=logistica
+            - img [ref=e179]
+          - link [ref=e185] [cursor=pointer]:
+            - /url: /servicios?category=diseno
+            - img [ref=e186]
+          - link [ref=e193] [cursor=pointer]:
+            - /url: /servicios?category=construccion
+            - img [ref=e194]
+          - link [ref=e199] [cursor=pointer]:
+            - /url: /servicios?category=inmobiliaria
+            - img [ref=e200]
+          - link [ref=e204] [cursor=pointer]:
+            - /url: /servicios?category=eventos
+            - img [ref=e205]
+    - generic [ref=e211]:
+      - generic [ref=e212]:
+        - link "Iniciar sesión" [ref=e213] [cursor=pointer]:
+          - /url: /auth/login
+          - img [ref=e214]
+          - text: Iniciar sesión
+        - link "Registrarse" [ref=e217] [cursor=pointer]:
+          - /url: /auth/register
+          - img [ref=e218]
+          - text: Registrarse
+      - generic [ref=e221]: Categorías
+      - generic [ref=e222]:
+        - link "Tecnología" [ref=e223] [cursor=pointer]:
+          - /url: /productos?category=tecnologia
+          - img [ref=e224]
+          - generic [ref=e226]: Tecnología
+        - link "Hogar" [ref=e227] [cursor=pointer]:
+          - /url: /productos?category=hogar
+          - img [ref=e228]
+          - generic [ref=e231]: Hogar
+        - link "Belleza" [ref=e232] [cursor=pointer]:
+          - /url: /productos?category=belleza
+          - img [ref=e233]
+          - generic [ref=e236]: Belleza
+        - link "Automotriz" [ref=e237] [cursor=pointer]:
+          - /url: /productos?category=automotriz
+          - img [ref=e238]
+          - generic [ref=e242]: Automotriz
+        - link "Deportes" [ref=e243] [cursor=pointer]:
+          - /url: /productos?category=deportes
+          - img [ref=e244]
+          - generic [ref=e250]: Deportes
+        - link "Gaming" [ref=e251] [cursor=pointer]:
+          - /url: /productos?category=gaming
+          - img [ref=e252]
+          - generic [ref=e254]: Gaming
+        - link "Mascotas" [ref=e255] [cursor=pointer]:
+          - /url: /productos?category=mascotas
+          - img [ref=e256]
+          - generic [ref=e260]: Mascotas
+        - link "Moda" [ref=e261] [cursor=pointer]:
+          - /url: /productos?category=moda
+          - img [ref=e262]
+          - generic [ref=e264]: Moda
+        - link "Calzado" [ref=e265] [cursor=pointer]:
+          - /url: /productos?category=calzado
+          - img [ref=e266]
+          - generic [ref=e269]: Calzado
+        - link "Juguetería" [ref=e270] [cursor=pointer]:
+          - /url: /productos?category=juguetes
+          - img [ref=e271]
+          - generic [ref=e275]: Juguetería
+        - link "Ferretería" [ref=e276] [cursor=pointer]:
+          - /url: /productos?category=ferreteria
+          - img [ref=e277]
+          - generic [ref=e281]: Ferretería
+        - link "Papelería" [ref=e282] [cursor=pointer]:
+          - /url: /productos?category=papeleria
+          - img [ref=e283]
+          - generic [ref=e285]: Papelería
+        - link "Tech & Dev" [ref=e286] [cursor=pointer]:
+          - /url: /servicios?category=tech
+          - img [ref=e287]
+          - generic [ref=e290]: Tech & Dev
+        - link "Marketing" [ref=e291] [cursor=pointer]:
+          - /url: /servicios?category=marketing
+          - img [ref=e292]
+          - generic [ref=e295]: Marketing
+        - link "Salud" [ref=e296] [cursor=pointer]:
+          - /url: /servicios?category=salud
+          - img [ref=e297]
+          - generic [ref=e301]: Salud
+        - link "Legal" [ref=e302] [cursor=pointer]:
+          - /url: /servicios?category=legal
+          - img [ref=e303]
+          - generic [ref=e307]: Legal
+        - link "Consultoría" [ref=e308] [cursor=pointer]:
+          - /url: /servicios?category=consultoria
+          - img [ref=e309]
+          - generic [ref=e312]: Consultoría
+        - link "Educación" [ref=e313] [cursor=pointer]:
+          - /url: /servicios?category=educacion
+          - img [ref=e314]
+          - generic [ref=e317]: Educación
+        - link "Reparaciones" [ref=e318] [cursor=pointer]:
+          - /url: /servicios?category=reparaciones
+          - img [ref=e319]
+          - generic [ref=e321]: Reparaciones
+        - link "Logística" [ref=e322] [cursor=pointer]:
+          - /url: /servicios?category=logistica
+          - img [ref=e323]
+          - generic [ref=e328]: Logística
+        - link "Diseño" [ref=e329] [cursor=pointer]:
+          - /url: /servicios?category=diseno
+          - img [ref=e330]
+          - generic [ref=e336]: Diseño
+        - link "Construcción" [ref=e337] [cursor=pointer]:
+          - /url: /servicios?category=construccion
+          - img [ref=e338]
+          - generic [ref=e342]: Construcción
+        - link "Inmobiliaria" [ref=e343] [cursor=pointer]:
+          - /url: /servicios?category=inmobiliaria
+          - img [ref=e344]
+          - generic [ref=e347]: Inmobiliaria
+        - link "Eventos" [ref=e348] [cursor=pointer]:
+          - /url: /servicios?category=eventos
+          - img [ref=e349]
+          - generic [ref=e355]: Eventos
+  - main [ref=e356]:
+    - generic [ref=e358]:
+      - img "SaidonClub Logo" [ref=e361]
+      - paragraph [ref=e365]: Cargando Ecosistema...
+  - generic:
+    - button "Chat con May - Asistente IA SaidonClub" [ref=e366] [cursor=pointer]:
+      - img "May — Asistente SaidonClub" [ref=e368]
+      - generic "1 mensaje sin leer" [ref=e369]: "1"
+    - dialog "Chat May — Asistente IA SaidonClub":
+      - generic:
+        - generic:
+          - generic:
+            - img "May"
+            - generic "En línea"
+          - generic:
+            - strong: May
+            - generic: Asistente SaidonClub · En línea
+            - generic: IA
+        - generic:
+          - link "Abrir WhatsApp":
+            - /url: https://wa.me/593987958337
+            - img
+          - button "Cerrar chat":
+            - img
+      - generic:
+        - generic:
+          - img "May"
+          - generic:
+            - generic:
+              - text: Hola 👋 Soy
+              - strong: May
+              - text: ", asistente virtual de SaidonClub. ¿En qué puedo ayudarte hoy?"
+            - text: • 💳 Membresías
+            - text: • 🌐 Red de socios
+            - text: • 💰 Pagos y Wallet
+            - text: • 🛍️ Marketplace
+      - generic:
+        - button "Membresías 💳"
+        - button "Red de socios 🌐"
+        - button "Métodos de pago 💰"
+        - button "Hablar con humano 💬"
+      - generic:
+        - textbox "Mensaje para May":
+          - /placeholder: Escribe tu pregunta…
+        - button "Enviar mensaje" [disabled]:
+          - img
+      - generic:
+        - text: ⚡ SaidonClub AI ·
+        - link "Hablar con humano":
+          - /url: https://wa.me/593987958337
+  - contentinfo [ref=e370]:
+    - generic [ref=e372]:
+      - generic [ref=e373]:
+        - img "SaidonClub Logo" [ref=e375]
+        - paragraph [ref=e376]: El ecosistema digital más exclusivo de Ecuador. Compra productos premium, construye tu red y obtén beneficios ilimitados.
+        - generic [ref=e377]:
+          - link "facebook" [ref=e378] [cursor=pointer]:
+            - /url: https://facebook.com/saidonclub
+            - img [ref=e379]
+          - link "instagram" [ref=e381] [cursor=pointer]:
+            - /url: https://instagram.com/saidonclub
+            - img [ref=e382]
+          - link "tiktok" [ref=e385] [cursor=pointer]:
+            - /url: https://tiktok.com/@saidonclub
+            - img [ref=e386]
+          - link "whatsapp" [ref=e388] [cursor=pointer]:
+            - /url: https://wa.me/593987958337
+            - img [ref=e389]
+          - link "youtube" [ref=e391] [cursor=pointer]:
+            - /url: https://youtube.com/@saidonclub
+            - img [ref=e392]
+        - generic [ref=e395]:
+          - heading "Newsletter" [level=4] [ref=e396]
+          - paragraph [ref=e397]: Únete a nuestra lista exclusiva y recibe las mejores oportunidades antes que nadie.
+          - generic [ref=e398]:
+            - textbox "Email" [ref=e399]
+            - button "Unirme" [ref=e400] [cursor=pointer]
+          - generic [ref=e401]:
+            - link "📞 +593 98 795 8337" [ref=e402] [cursor=pointer]:
+              - /url: https://wa.me/593987958337
+              - generic [ref=e403]: 📞
+              - text: +593 98 795 8337
+            - link "📧 saidonclub@gmail.com" [ref=e404] [cursor=pointer]:
+              - /url: mailto:saidonclub@gmail.com
+              - generic [ref=e405]: 📧
+              - text: saidonclub@gmail.com
+            - link "📧 fin.saidonclub@gmail.com" [ref=e406] [cursor=pointer]:
+              - /url: mailto:fin.saidonclub@gmail.com
+              - generic [ref=e407]: 📧
+              - text: fin.saidonclub@gmail.com
+      - generic [ref=e408]:
+        - generic [ref=e409]:
+          - heading "Marketplace" [level=4] [ref=e410]
+          - list [ref=e411]:
+            - listitem [ref=e412]:
+              - link "→ Productos" [ref=e413] [cursor=pointer]:
+                - /url: /productos
+            - listitem [ref=e414]:
+              - link "→ Servicios" [ref=e415] [cursor=pointer]:
+                - /url: /servicios
+            - listitem [ref=e416]:
+              - link "→ Categorías" [ref=e417] [cursor=pointer]:
+                - /url: /categorias
+            - listitem [ref=e418]:
+              - link "→ Ofertas del día" [ref=e419] [cursor=pointer]:
+                - /url: /productos?q=ofertas
+        - generic [ref=e420]:
+          - heading "Comunidad" [level=4] [ref=e421]
+          - list [ref=e422]:
+            - listitem [ref=e423]:
+              - link "→ Membresía Preferente" [ref=e424] [cursor=pointer]:
+                - /url: /membresias#preferente
+            - listitem [ref=e425]:
+              - link "→ Membresía Pionero" [ref=e426] [cursor=pointer]:
+                - /url: /membresias#pionero
+            - listitem [ref=e427]:
+              - link "→ Programa de Recompensas" [ref=e428] [cursor=pointer]:
+                - /url: /membresias#beneficios
+            - listitem [ref=e429]:
+              - link "→ Mi Red de Socios" [ref=e430] [cursor=pointer]:
+                - /url: /dashboard/network
+        - generic [ref=e431]:
+          - heading "Empresa" [level=4] [ref=e432]
+          - list [ref=e433]:
+            - listitem [ref=e434]:
+              - link "→ Sobre nosotros" [ref=e435] [cursor=pointer]:
+                - /url: /nosotros
+            - listitem [ref=e436]:
+              - link "→ Oportunidad de Negocio" [ref=e437] [cursor=pointer]:
+                - /url: /nosotros#red
+            - listitem [ref=e438]:
+              - link "→ Contáctanos" [ref=e439] [cursor=pointer]:
+                - /url: /contacto
+            - listitem [ref=e440]:
+              - link "→ Ser Proveedor" [ref=e441] [cursor=pointer]:
+                - /url: /nosotros#proveedores
+        - generic [ref=e442]:
+          - heading "Soporte" [level=4] [ref=e443]
+          - list [ref=e444]:
+            - listitem [ref=e445]:
+              - link "→ Centro de ayuda" [ref=e446] [cursor=pointer]:
+                - /url: /ayuda
+            - listitem [ref=e447]:
+              - link "→ Términos y condiciones" [ref=e448] [cursor=pointer]:
+                - /url: /terminos
+            - listitem [ref=e449]:
+              - link "→ Política de privacidad" [ref=e450] [cursor=pointer]:
+                - /url: /privacidad
+            - listitem [ref=e451]:
+              - link "→ Política de devoluciones" [ref=e452] [cursor=pointer]:
+                - /url: /devoluciones
+    - generic [ref=e454]:
+      - generic [ref=e455]: © 2026 SaidonClub. Elevando el estándar del comercio digital.
+      - generic [ref=e456]: Hecho con ❤️ por Saidon Tech Team
+  - region "Notificaciones"
+```

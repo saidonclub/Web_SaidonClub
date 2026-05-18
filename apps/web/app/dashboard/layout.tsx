@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { redirect } from "next/navigation";
 import { getUser } from "@/lib/auth/core";
 import { Role, canAccessRoute } from "@saidonclub/rbac";

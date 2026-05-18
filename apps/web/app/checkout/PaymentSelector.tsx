@@ -757,7 +757,7 @@ export default function PaymentSelector({
                   </div>
                 </div>
                 <div className={styles.bankGuide}>
-                  <h4>Guía de Transferencia:</h4>
+                  <h4>Guía de Transferencia (Instrucciones de Envío):</h4>
                   <ul>
                     <li>
                       Desde la banca web, elige{" "}
