@@ -10,11 +10,11 @@ import path from 'path'
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default defineConfig({
-  resolve: {
+  /* resolve: {
     // Forzar resolución en modo CJS para evitar problemas con imports nombrados
     // de módulos CJS en contextos ESM estrictos (Node 20+).
     conditions: ['node', 'require', 'default'],
-  },
+  }, */
   test: {
     environment: 'node',
     globals: true,

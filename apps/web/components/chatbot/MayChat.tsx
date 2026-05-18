@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { useRouter } from "next/navigation";
 import styles from "./MayChat.module.css";
 import { SITE_CONFIG } from "@/config/site";
 

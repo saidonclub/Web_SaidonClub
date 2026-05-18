@@ -3,5 +3,11 @@
   "installCommand": "pnpm install --no-frozen-lockfile",
   "buildCommand": "turbo run build --filter=web...",
   "outputDirectory": "apps/web/.next",
-  "regions": ["iad1"]
+  "regions": ["iad1"],
+  "crons": [
+    {
+      "path": "/api/cron/backup",
+      "schedule": "0 2 * * *"
+    }
+  ]
 }

@@ -18,7 +18,7 @@ Implementación de un sistema de permisos dinámico que transforme el dashboard 
     - **Miembro:** Foco en beneficios, red (MLM) y compras.
     - **Proveedor:** Foco en ventas, inventario, métricas y herramientas de marketing.
     - **Admin:** Visión macro del sistema, logs y auditoría global.
-- [ ] **Middleware de Seguridad:** Validación de permisos en cada ruta para evitar accesos no autorizados.
+- [x] **Middleware de Seguridad:** Validación de permisos en cada ruta para evitar accesos no autorizados.
 
 ## 3. Empoderamiento del Proveedor (Sistemas y Herramientas)
 Transformación del área de proveedores en un centro de negocios de alta potencia.

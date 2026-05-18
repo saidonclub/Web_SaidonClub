@@ -297,3 +297,90 @@
   outline-offset: 2px;
   border-radius: 3px;
 }
+
+/* ── Password Strength Meter ── */
+.strengthContainer {
+  margin-top: -4px;
+  margin-bottom: 2px;
+}
+
+.strengthBarContainer {
+  display: flex;
+  gap: 4px;
+  height: 4px;
+  margin-bottom: 6px;
+}
+
+.strengthBar {
+  flex: 1;
+  height: 100%;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  transition: background-color 0.3s ease;
+}
+
+.strengthBarActive0 { background: #ef4444; } /* Red */
+.strengthBarActive1 { background: #f59e0b; } /* Orange/Yellow */
+.strengthBarActive2 { background: #3b82f6; } /* Blue */
+.strengthBarActive3 { background: #10b981; } /* Green */
+
+.strengthLabel {
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  color: var(--clr-text-muted);
+}
+
+.strengthStatusText {
+  color: var(--clr-text-secondary);
+}
+
+/* ── Feedback Messages ── */
+.feedbackMessage {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.feedbackSuccess {
+  color: #10b981;
+}
+
+.feedbackError {
+  color: #ef4444;
+}
+
+.feedbackInfo {
+  color: var(--clr-text-muted);
+}
+
+.feedbackWarning {
+  color: #f59e0b;
+}
+
+.affiliateChecking {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--clr-text-muted);
+  margin-top: 4px;
+}
+
+.affiliateSpinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--clr-orange);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

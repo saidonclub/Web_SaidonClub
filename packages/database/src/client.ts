@@ -10,7 +10,10 @@
 //       Supabase para evitar agotar conexiones.
 // ============================================================
 
-import { PrismaClient } from './generated/client_v3';
+import * as client_v3 from './generated/client_v3';
+
+type PrismaClient = client_v3.PrismaClient;
+const PrismaClient = client_v3.PrismaClient;
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 

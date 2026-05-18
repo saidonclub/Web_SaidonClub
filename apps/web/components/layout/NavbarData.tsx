@@ -1,7 +1,7 @@
 import { 
   Laptop, Home, Sparkles, Car, Trophy, Gamepad2, Dog, Shirt, Footprints, 
-  ToyBrick, Hammer, BookOpen, Layers, Code, Megaphone, Stethoscope, Scale, 
-  Briefcase, GraduationCap, Wrench, Truck, Palette, MapPin, Zap
+  ToyBrick, Hammer, BookOpen, Code, Megaphone, Stethoscope, Scale, 
+  Briefcase, GraduationCap, Wrench, Truck, Palette, MapPin
 } from 'lucide-react';
 
 export const SUBNAV_CATEGORIES = [

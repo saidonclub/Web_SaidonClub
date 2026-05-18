@@ -1,6 +1,8 @@
-
-
-const TOKEN = 'sbp_f92ce82ac622fa61e3745bcc412523de696c9207';
+const TOKEN = process.env.SUPABASE_ACCESS_TOKEN;
+if (!TOKEN) {
+  console.error("Error: SUPABASE_ACCESS_TOKEN environment variable is not defined.");
+  process.exit(1);
+}
 
 async function getProjectInfo() {
   try {

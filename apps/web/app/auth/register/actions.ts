@@ -101,3 +101,24 @@ export async function register(_prevState: unknown, formData: FormData) {
 
   redirect('/auth/login?message=' + encodeURIComponent('¡Cuenta creada! Revisa tu correo para confirmarla, luego inicia sesión.'))
 }
+
+export async function validateAffiliateCode(code: string) {
+  if (!code || code.trim() === '') {
+    return { valid: false, sponsorName: null }
+  }
+
+  try {
+    const sponsor = await prisma.user.findUnique({
+      where: { affiliateCode: code.trim().toUpperCase() },
+      select: { name: true },
+    })
+
+    if (sponsor) {
+      return { valid: true, sponsorName: sponsor.name || 'Miembro de SaidonClub' }
+    }
+  } catch (error) {
+    console.error('Error validating affiliate code:', error)
+  }
+
+  return { valid: false, sponsorName: null }
+}

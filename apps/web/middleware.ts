@@ -11,6 +11,7 @@
 
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import { Role, canAccessRoute } from "@saidonclub/rbac";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -93,6 +94,19 @@ export async function middleware(request: NextRequest) {
     
     // Si no hay usuario, redirigimos pero manteniendo las cookies actualizadas de la sesión
     const redirectResponse = NextResponse.redirect(loginUrl);
+    response.cookies.getAll().forEach((cookie) => {
+      redirectResponse.cookies.set(cookie.name, cookie.value);
+    });
+    return redirectResponse;
+  }
+
+  // Extraer el rol del usuario desde user_metadata (con fallback a Role.CLIENT)
+  const userRole = (user.user_metadata?.role || Role.CLIENT) as Role;
+
+  // Comprobar si el usuario tiene acceso a la ruta privada actual
+  if (!canAccessRoute(userRole, pathname)) {
+    const dashboardUrl = new URL("/dashboard", request.url);
+    const redirectResponse = NextResponse.redirect(dashboardUrl);
     response.cookies.getAll().forEach((cookie) => {
       redirectResponse.cookies.set(cookie.name, cookie.value);
     });
