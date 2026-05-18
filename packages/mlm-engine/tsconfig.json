@@ -11,11 +11,7 @@
     ],
     "composite": true,
     "declarationDir": "./dist",
-    "baseUrl": ".",
-    "paths": {
-      "@saidonclub/database": ["../database/src/index.ts"],
-      "@saidonclub/config-engine": ["../config-engine/src/index.ts"]
-    }
+    "baseUrl": "."
   },
   "include": [
     "src"

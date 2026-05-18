@@ -10,10 +10,7 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "baseUrl": ".",
-    "paths": {
-      "@saidonclub/database": ["../database/src/index.ts"]
-    }
+    "baseUrl": "."
   },
   "include": ["src"],
   "references": [
