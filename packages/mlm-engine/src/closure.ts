@@ -152,8 +152,12 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
         volumeMap[v.userId].push(Number(v.volume));
       });
 
-      const commissionMap = new Map(existingCommissions.map((c: { userId: string; id: string }) => [c.userId, c]));
-      const walletMap = new Map(existingWallets.map((w: { userId: string; id: string }) => [w.userId, w]));
+      const commissionMap = new Map<string, { userId: string; id: string }>(
+        existingCommissions.map((c: { userId: string; id: string }) => [c.userId, c])
+      );
+      const walletMap = new Map<string, { userId: string; id: string }>(
+        existingWallets.map((w: { userId: string; id: string }) => [w.userId, w])
+      );
 
       // Pre-fetch transactions for these wallets that match the criteria
       const walletIds = existingWallets.map((w: { id: string }) => w.id);
