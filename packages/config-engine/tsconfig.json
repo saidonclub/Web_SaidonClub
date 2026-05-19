@@ -1,19 +1,28 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "target": "ES2022",
     "module": "CommonJS",
     "moduleResolution": "node",
     "lib": ["ES2022"],
     "types": ["node"],
-    "composite": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
-    "skipLibCheck": true
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@saidonclub/database": ["../database/dist/index"]
+    }
   },
-  "include": ["src"],
-  "references": [
-    { "path": "../database" }
-  ]
+  "include": ["src"]
 }

@@ -1,18 +1,29 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "src",
+    "target": "ES2022",
     "module": "CommonJS",
     "moduleResolution": "node",
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
-    "composite": true,
+    "lib": ["ES2022", "dom"],
+    "outDir": "./dist",
+    "rootDir": "src",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "declaration": true,
     "declarationDir": "./dist",
-    "skipLibCheck": true
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@saidonclub/database": ["../database/dist/index"],
+      "@saidonclub/config-engine": ["../config-engine/dist/index"]
+    }
   },
   "include": [
     "src"
@@ -20,9 +31,5 @@
   "exclude": [
     "src/stress_test.ts",
     "src/__tests__"
-  ],
-  "references": [
-    { "path": "../database" },
-    { "path": "../config-engine" }
   ]
 }
