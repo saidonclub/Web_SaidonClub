@@ -122,7 +122,7 @@ export async function getDashboardData(userId: string) {
   // 8. User Data
   const userData = await prisma.user.findUnique({
     where: { id: userId },
-    select: { role: true, affiliateCode: true }
+    select: { role: true, affiliateCode: true, twoFactorEnabled: true }
   });
 
   // 9. Global Stats (Enhanced for Admin/Accountant/Auditor)
@@ -211,6 +211,7 @@ export async function getDashboardData(userId: string) {
     user: {
       role: userData?.role || 'CLIENT',
       affiliateCode: userData?.affiliateCode || null,
+      twoFactorEnabled: userData?.twoFactorEnabled ?? false,
     },
     wallet: {
       available: wallet?.balanceAvailable?.toNumber() || 0,

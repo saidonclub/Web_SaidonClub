@@ -1,34 +1,51 @@
+"use client";
+
 import React from 'react';
 import styles from './ProductDetail.module.css';
+import { ProductDetailSkeleton, BreadcrumbSkeleton } from '@/components/shared/Skeleton';
 
 export default function Loading() {
   return (
-    <div className={styles.container}>
-      {/* Breadcrumb Skeleton */}
-      <div className={`${styles.skeleton} ${styles.skeletonTextSmall}`} style={{ margin: '20px auto', width: '200px' }}></div>
+    <div className={styles.container} style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Cyber-Grid Background Effect */}
+      <div 
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `
+            linear-gradient(rgba(var(--clr-orange-rgb), 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(var(--clr-orange-rgb), 0.02) 1px, transparent 1px)
+          `,
+          backgroundSize: "30px 30px",
+          maskImage: "radial-gradient(ellipse at top center, black 0%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse at top center, black 0%, transparent 80%)",
+          pointerEvents: "none",
+          zIndex: 0
+        }}
+      />
+      
+      {/* Glow Effect */}
+      <div 
+        style={{
+          position: 'absolute',
+          top: '0',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '60%',
+          height: '200px',
+          background: 'radial-gradient(ellipse at top, rgba(var(--clr-orange-rgb), 0.1) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+      />
 
-      <div className={styles.mainContent}>
-        {/* Gallery Skeleton */}
-        <div className={styles.gallerySection}>
-          <div className={`${styles.skeleton} ${styles.skeletonImage}`} style={{ aspectRatio: '1/1', borderRadius: '16px' }}></div>
-          <div className={styles.thumbnails}>
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className={`${styles.skeleton} ${styles.skeletonImage}`} style={{ height: '80px', borderRadius: '12px' }}></div>
-            ))}
-          </div>
+      <div style={{ position: 'relative', zIndex: 1, paddingTop: '2rem' }}>
+        <div style={{ marginBottom: '2rem', padding: '0 1rem', maxWidth: '1200px', margin: '0 auto' }}>
+          <BreadcrumbSkeleton />
         </div>
 
-        {/* Info Skeleton */}
-        <div className={styles.infoSection}>
-          <div className={`${styles.skeleton} ${styles.skeletonTextSmall}`} style={{ width: '100px', marginBottom: '8px' }}></div>
-          <div className={`${styles.skeleton} ${styles.skeletonTextLarge}`} style={{ height: '40px', width: '80%', marginBottom: '16px' }}></div>
-          <div className={`${styles.skeleton} ${styles.skeletonTextSmall}`} style={{ width: '120px', marginBottom: '24px' }}></div>
-          
-          <div className={`${styles.skeleton}`} style={{ height: '80px', width: '100%', borderRadius: '16px', marginBottom: '32px' }}></div>
-          
-          <div className={`${styles.skeleton} ${styles.skeletonTextLarge}`} style={{ height: '100px', width: '100%', marginBottom: '24px' }}></div>
-          
-          <div className={`${styles.skeleton}`} style={{ height: '60px', width: '100%', borderRadius: '16px' }}></div>
+        <div className={styles.mainContent}>
+          <ProductDetailSkeleton />
         </div>
       </div>
     </div>

@@ -126,21 +126,56 @@
 /* ── 2FA Badge ── */
 .badge2fa {
   padding: 10px 18px;
-  background: linear-gradient(135deg, rgba(var(--clr-orange-rgb), 0.12), rgba(var(--clr-orange-rgb), 0.04));
   border-radius: var(--radius-md);
-  border: 1px solid rgba(var(--clr-orange-rgb), 0.25);
   display: flex;
   align-items: center;
   gap: 10px;
   backdrop-filter: blur(8px);
-  box-shadow: 0 4px 16px rgba(var(--clr-orange-rgb), 0.06);
   flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+/* Active Premium State */
+.badge2fa.active {
+  background: linear-gradient(135deg, rgba(var(--clr-success-rgb), 0.15), rgba(var(--clr-orange-rgb), 0.05));
+  border: 1px solid rgba(var(--clr-success-rgb), 0.3);
+  box-shadow: 0 4px 20px rgba(var(--clr-success-rgb), 0.12), 0 0 15px rgba(var(--clr-orange-rgb), 0.05);
+}
+
+.badge2fa.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(var(--clr-success-rgb), 0.2), 0 0 20px rgba(var(--clr-orange-rgb), 0.1);
+  border-color: rgba(var(--clr-success-rgb), 0.5);
+}
+
+/* Alert State */
+.badge2fa.alert {
+  background: linear-gradient(135deg, rgba(var(--clr-error-rgb), 0.15), rgba(var(--clr-warn-rgb), 0.05));
+  border: 1px solid rgba(var(--clr-error-rgb), 0.3);
+  box-shadow: 0 4px 16px rgba(var(--clr-error-rgb), 0.08);
+  cursor: pointer;
+}
+
+.badge2fa.alert:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(var(--clr-error-rgb), 0.25), 0 0 15px rgba(var(--clr-warn-rgb), 0.1);
+  border-color: var(--clr-error);
 }
 
 .badgeText {
-  color: var(--clr-orange);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badgeText.active {
+  color: var(--clr-success);
+}
+
+.badgeText.alert {
+  color: var(--clr-error);
 }
 
 /* ── Admin Alert ── */

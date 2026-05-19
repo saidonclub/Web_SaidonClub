@@ -18,6 +18,7 @@ import {
   Wallet,
   Users,
   Shield,
+  ShieldAlert,
   Clock,
   ArrowUpRight,
   ArrowDownLeft,
@@ -122,12 +123,25 @@ export default async function DashboardPage() {
             </p>
           </div>
           <div className={styles.headerActions}>
-            <div className={styles.badge2fa}>
-              <Shield size={20} color="var(--clr-orange)" />
-              <span className={styles.badgeText}>
-                Verificado {data.rank.name}
-              </span>
-            </div>
+            {data.user.twoFactorEnabled ? (
+              <div className={`${styles.badge2fa} ${styles.active}`} title={`Verificado: ${data.rank.name}`}>
+                <Shield size={20} color="var(--clr-success)" />
+                <span className={`${styles.badgeText} ${styles.active}`}>
+                  2FA Activo — {data.rank.name}
+                </span>
+              </div>
+            ) : (
+              <Link
+                href="/dashboard/settings"
+                className={`${styles.badge2fa} ${styles.alert}`}
+                title="Activa 2FA para proteger tu cuenta"
+              >
+                <ShieldAlert size={20} color="var(--clr-error)" />
+                <span className={`${styles.badgeText} ${styles.alert}`}>
+                  2FA Inactivo (Activar)
+                </span>
+              </Link>
+            )}
           </div>
         </header>
 
