@@ -1,7 +1,7 @@
 {
   "framework": "nextjs",
   "installCommand": "pnpm install --no-frozen-lockfile",
-  "buildCommand": "turbo run build --filter=web...",
+  "buildCommand": "cd apps/web && pnpm next build",
   "outputDirectory": "apps/web/.next",
   "regions": ["iad1"],
   "crons": [

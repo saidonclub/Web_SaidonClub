@@ -5,7 +5,6 @@
   "description": "SaidonClub OS — Advanced Marketplace, MLM & Services Platform. Multi-country, Multi-city, Multi-schema.",
   "scripts": {
     "build": "turbo run build",
-    "prebuild": "pnpm db:generate",
     "postinstall": "pnpm db:generate",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
@@ -20,7 +19,8 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:stress": "tsx tests/stress_standalone.ts",
-    "test:audit": "pnpm test:stress"
+    "test:audit": "pnpm test:stress",
+    "test:sheets": "tsx scripts/test-google-sheets.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.59.1",
