@@ -7,6 +7,27 @@
   padding-top: 0;
 }
 
+.footer::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/hero-luxury-bg.png');
+  background-size: cover;
+  background-position: bottom center;
+  mask-image: linear-gradient(to top, black 0%, transparent 60%);
+  -webkit-mask-image: linear-gradient(to top, black 0%, transparent 60%);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+html[data-theme="light"] .footer::before {
+  opacity: 0.06;
+}
+
 /* ── Stats Banner ── */
 .statsBanner {
   background: linear-gradient(135deg, var(--clr-bg-elevated) 0%, var(--clr-bg-hover) 100%);

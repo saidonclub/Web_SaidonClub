@@ -37,6 +37,7 @@ export default function FeaturedServices({ featured, popular, highlyRated }: Pro
 
   return (
     <section className={styles.section}>
+      <div className={styles.textureOverlay} />
       <div className={styles.inner}>
 
         {/* ── Header ── */}
@@ -84,6 +85,7 @@ export default function FeaturedServices({ featured, popular, highlyRated }: Pro
                 el: `.${styles.swiperProgress}`,
                 type: "progressbar",
               }}
+              dir="rtl"
               a11y={{ prevSlideMessage: "Servicio anterior", nextSlideMessage: "Servicio siguiente" }}
               breakpoints={{
                 480:  { slidesPerView: 2,   spaceBetween: 16 },

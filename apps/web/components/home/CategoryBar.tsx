@@ -87,7 +87,7 @@ export default function CategoryBar() {
           </div>
 
           <div className={styles.marqueeContainer}>
-            <div className={styles.marqueeRow}>
+            <div className={styles.marqueeRowReverse}>
               {extendedServices.map((cat, i) => (
                 <Link
                   key={`serv-${cat.slug}-${i}`}

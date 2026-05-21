@@ -43,6 +43,7 @@ export default function FeaturedProducts({ bestSelling, popular, discounts }: Pr
 
   return (
     <section className={styles.section}>
+      <div className={styles.textureOverlay} />
       <div className={styles.inner}>
 
         {/* ── Header ── */}

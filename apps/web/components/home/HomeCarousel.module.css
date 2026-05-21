@@ -30,6 +30,21 @@
   transform: scale(1);
 }
 
+html[data-theme="light"] .bgOverlay {
+  background: linear-gradient(
+    105deg,
+    rgba(255,255,255,0.15) 0%,
+    rgba(255,255,255,0.10) 45%,
+    rgba(255,255,255,0.05) 100%
+  );
+}
+
+html[data-theme="light"] .bgGradient {
+  background:
+    radial-gradient(ellipse at 15% 60%, rgba(var(--clr-orange-rgb), 0.08) 0%, transparent 55%),
+    linear-gradient(to bottom, transparent 60%, rgba(255,255,255,0.12) 100%);
+}
+
 /* ── Overlays ── */
 .bgOverlay {
   position: absolute;

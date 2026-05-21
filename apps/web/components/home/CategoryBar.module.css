@@ -117,9 +117,25 @@
   animation-play-state: paused;
 }
 
+.marqueeRowReverse {
+  display: inline-flex;
+  gap: 10px;
+  animation: marqueeReverse 45s linear infinite;
+  will-change: transform;
+}
+
+.marqueeRowReverse:hover {
+  animation-play-state: paused;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.33%); }
+}
+
+@keyframes marqueeReverse {
+  0% { transform: translateX(-33.33%); }
+  100% { transform: translateX(0); }
 }
 
 /* ── Cards ── */
@@ -161,6 +177,16 @@
   opacity: 0.35;
   transform: scale(1.1);
   filter: grayscale(0.3) brightness(0.5);
+}
+
+html[data-theme="light"] .watermark {
+  opacity: 0.35;
+  filter: grayscale(0.4) brightness(0.7);
+}
+
+html[data-theme="light"] .card:hover .watermark {
+  opacity: 0.55;
+  filter: grayscale(0.2) brightness(0.9);
 }
 
 .content {

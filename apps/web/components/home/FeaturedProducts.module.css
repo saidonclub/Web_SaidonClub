@@ -7,6 +7,20 @@
   overflow: hidden;
 }
 
+/* Texture pattern overlay */
+.textureOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/banners/products_banner_bg_1778816540969.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* Decorative radial glows on red section */
 .section::before {
   content: '';
@@ -368,7 +382,8 @@
     overflow: visible;
   }
   .section::before,
-  .section::after { display: none; }
+  .section::after,
+  .textureOverlay { display: none; }
 
   .inner { padding: 0 12px; overflow: visible; }
 
