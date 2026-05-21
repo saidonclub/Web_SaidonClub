@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "tsc --build && node scripts/copy-generated.js",
-    "db:generate": "pnpm exec prisma generate --schema=prisma/schema.prisma && node scripts/copy-generated.js",
+    "db:generate": "node -e \"require('fs').rmSync('src/generated/client_v3',{recursive:true,force:true}); require('fs').rmSync('tsconfig.tsbuildinfo',{force:true})\" && pnpm exec prisma generate --schema=prisma/schema.prisma && node scripts/copy-generated.js",
     "db:migrate": "pnpm exec prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
     "db:seed-maestro": "tsx prisma/seed_maestro.ts",

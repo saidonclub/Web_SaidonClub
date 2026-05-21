@@ -105,6 +105,7 @@ model User {
   services          Service[]
   notifications     SystemNotification[]
   legalAcceptances  UserLegalAcceptance[]
+  aiTickets         AITicket[]
   city              City?                 @relation(fields: [cityId], references: [id])
   sponsor           User?                 @relation("SponsorRelation", fields: [sponsorId], references: [id])
   referrals         User[]                @relation("SponsorRelation")
@@ -1696,5 +1697,32 @@ enum PaymentMethodType {
   CARD
   PLATFORM_WALLET
 
+  @@schema("public")
+}
+
+enum AITicketStatus {
+  RESOLVED
+  REQUIRES_HUMAN_SUPPORT
+  PENDING
+  FAILED
+
+  @@schema("public")
+}
+
+model AITicket {
+  id           String         @id @default(uuid())
+  userId       String?        @map("user_id")
+  sessionId    String?        @map("session_id")
+  prompt       String         @db.Text
+  response     String         @db.Text
+  modelUsed    String         @map("model_used")
+  status       AITicketStatus @default(RESOLVED)
+  createdAt    DateTime       @default(now())
+
+  user         User?          @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([createdAt])
+  @@map("ai_tickets")
   @@schema("public")
 }

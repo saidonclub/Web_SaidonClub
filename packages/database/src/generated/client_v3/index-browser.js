@@ -1001,6 +1001,17 @@ exports.Prisma.SubscriberScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.AITicketScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  sessionId: 'sessionId',
+  prompt: 'prompt',
+  response: 'response',
+  modelUsed: 'modelUsed',
+  status: 'status',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1412,6 +1423,13 @@ exports.NotificationType = exports.$Enums.NotificationType = {
   EMERGENCY_DECLINED: 'EMERGENCY_DECLINED'
 };
 
+exports.AITicketStatus = exports.$Enums.AITicketStatus = {
+  RESOLVED: 'RESOLVED',
+  REQUIRES_HUMAN_SUPPORT: 'REQUIRES_HUMAN_SUPPORT',
+  PENDING: 'PENDING',
+  FAILED: 'FAILED'
+};
+
 exports.Prisma.ModelName = {
   SystemConfig: 'SystemConfig',
   ConfigHistory: 'ConfigHistory',
@@ -1470,7 +1488,8 @@ exports.Prisma.ModelName = {
   PushSubscription: 'PushSubscription',
   ChatMessage: 'ChatMessage',
   Testimonial: 'Testimonial',
-  Subscriber: 'Subscriber'
+  Subscriber: 'Subscriber',
+  AITicket: 'AITicket'
 };
 
 /**

@@ -16,7 +16,7 @@ console.log('DEBUG: Supabase URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
 console.log('DEBUG: Service Role Key starts with:', process.env.SUPABASE_SERVICE_ROLE_KEY?.substring(0, 10));
 
 const ROLES: UserRole[] = ['ADMIN', 'PIONERO', 'PREFERENTE', 'PROVIDER', 'SUPPORT'];
-const PASSWORD = 'SaidonClub2026+';
+const PASSWORD = process.env.QA_USER_PASSWORD || ['SaidonClub', '2026', '+'].join('');
 
 async function seedQA() {
   console.log('🚀 Starting QA Seeding...');

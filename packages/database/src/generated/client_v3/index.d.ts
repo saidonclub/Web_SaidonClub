@@ -303,6 +303,11 @@ export type Testimonial = $Result.DefaultSelection<Prisma.$TestimonialPayload>
  * 
  */
 export type Subscriber = $Result.DefaultSelection<Prisma.$SubscriberPayload>
+/**
+ * Model AITicket
+ * 
+ */
+export type AITicket = $Result.DefaultSelection<Prisma.$AITicketPayload>
 
 /**
  * Enums
@@ -809,6 +814,16 @@ export const NotificationType: {
 
 export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType]
 
+
+export const AITicketStatus: {
+  RESOLVED: 'RESOLVED',
+  REQUIRES_HUMAN_SUPPORT: 'REQUIRES_HUMAN_SUPPORT',
+  PENDING: 'PENDING',
+  FAILED: 'FAILED'
+};
+
+export type AITicketStatus = (typeof AITicketStatus)[keyof typeof AITicketStatus]
+
 }
 
 export type ConfigType = $Enums.ConfigType
@@ -970,6 +985,10 @@ export const WarningSeverity: typeof $Enums.WarningSeverity
 export type NotificationType = $Enums.NotificationType
 
 export const NotificationType: typeof $Enums.NotificationType
+
+export type AITicketStatus = $Enums.AITicketStatus
+
+export const AITicketStatus: typeof $Enums.AITicketStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -1673,6 +1692,16 @@ export class PrismaClient<
     * ```
     */
   get subscriber(): Prisma.SubscriberDelegate<ExtArgs>;
+
+  /**
+   * `prisma.aITicket`: Exposes CRUD operations for the **AITicket** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AITickets
+    * const aITickets = await prisma.aITicket.findMany()
+    * ```
+    */
+  get aITicket(): Prisma.AITicketDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -2171,7 +2200,8 @@ export namespace Prisma {
     PushSubscription: 'PushSubscription',
     ChatMessage: 'ChatMessage',
     Testimonial: 'Testimonial',
-    Subscriber: 'Subscriber'
+    Subscriber: 'Subscriber',
+    AITicket: 'AITicket'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2187,7 +2217,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "systemConfig" | "configHistory" | "user" | "verificationToken" | "providerProfile" | "membership" | "activationStatus" | "category" | "product" | "service" | "cart" | "cartItem" | "order" | "orderItem" | "pointsLedger" | "wallet" | "walletTransaction" | "commission" | "seedBonus" | "rank" | "fidelityTracking" | "volumeCache" | "weeklyClosure" | "eventLog" | "fundsReserve" | "externalClientSession" | "cityDiscount" | "country" | "province" | "city" | "district" | "tickerMessage" | "kYC" | "auditLog" | "serviceProvider" | "serviceListing" | "familyBeneficiary" | "appointment" | "appointmentAuditLog" | "bipartiteForm" | "serviceInvoice" | "serviceAccountingEntry" | "transactionVerification" | "debtSettlement" | "providerReview" | "clientReview" | "providerWarning" | "clientWarning" | "providerSchedule" | "providerBlockedDate" | "systemNotification" | "legalDocument" | "userLegalAcceptance" | "systemEvent" | "pushSubscription" | "chatMessage" | "testimonial" | "subscriber"
+      modelProps: "systemConfig" | "configHistory" | "user" | "verificationToken" | "providerProfile" | "membership" | "activationStatus" | "category" | "product" | "service" | "cart" | "cartItem" | "order" | "orderItem" | "pointsLedger" | "wallet" | "walletTransaction" | "commission" | "seedBonus" | "rank" | "fidelityTracking" | "volumeCache" | "weeklyClosure" | "eventLog" | "fundsReserve" | "externalClientSession" | "cityDiscount" | "country" | "province" | "city" | "district" | "tickerMessage" | "kYC" | "auditLog" | "serviceProvider" | "serviceListing" | "familyBeneficiary" | "appointment" | "appointmentAuditLog" | "bipartiteForm" | "serviceInvoice" | "serviceAccountingEntry" | "transactionVerification" | "debtSettlement" | "providerReview" | "clientReview" | "providerWarning" | "clientWarning" | "providerSchedule" | "providerBlockedDate" | "systemNotification" | "legalDocument" | "userLegalAcceptance" | "systemEvent" | "pushSubscription" | "chatMessage" | "testimonial" | "subscriber" | "aITicket"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -6251,6 +6281,76 @@ export namespace Prisma {
           }
         }
       }
+      AITicket: {
+        payload: Prisma.$AITicketPayload<ExtArgs>
+        fields: Prisma.AITicketFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AITicketFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITicketPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AITicketFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITicketPayload>
+          }
+          findFirst: {
+            args: Prisma.AITicketFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITicketPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AITicketFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITicketPayload>
+          }
+          findMany: {
+            args: Prisma.AITicketFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITicketPayload>[]
+          }
+          create: {
+            args: Prisma.AITicketCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITicketPayload>
+          }
+          createMany: {
+            args: Prisma.AITicketCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AITicketCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITicketPayload>[]
+          }
+          delete: {
+            args: Prisma.AITicketDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITicketPayload>
+          }
+          update: {
+            args: Prisma.AITicketUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITicketPayload>
+          }
+          deleteMany: {
+            args: Prisma.AITicketDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AITicketUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AITicketUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITicketPayload>
+          }
+          aggregate: {
+            args: Prisma.AITicketAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAITicket>
+          }
+          groupBy: {
+            args: Prisma.AITicketGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AITicketGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AITicketCountArgs<ExtArgs>
+            result: $Utils.Optional<AITicketCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -6461,6 +6561,7 @@ export namespace Prisma {
     services: number
     notifications: number
     legalAcceptances: number
+    aiTickets: number
     referrals: number
   }
 
@@ -6483,6 +6584,7 @@ export namespace Prisma {
     services?: boolean | UserCountOutputTypeCountServicesArgs
     notifications?: boolean | UserCountOutputTypeCountNotificationsArgs
     legalAcceptances?: boolean | UserCountOutputTypeCountLegalAcceptancesArgs
+    aiTickets?: boolean | UserCountOutputTypeCountAiTicketsArgs
     referrals?: boolean | UserCountOutputTypeCountReferralsArgs
   }
 
@@ -6621,6 +6723,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountLegalAcceptancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserLegalAcceptanceWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountAiTicketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AITicketWhereInput
   }
 
   /**
@@ -9683,6 +9792,7 @@ export namespace Prisma {
     services?: boolean | User$servicesArgs<ExtArgs>
     notifications?: boolean | User$notificationsArgs<ExtArgs>
     legalAcceptances?: boolean | User$legalAcceptancesArgs<ExtArgs>
+    aiTickets?: boolean | User$aiTicketsArgs<ExtArgs>
     city?: boolean | User$cityArgs<ExtArgs>
     sponsor?: boolean | User$sponsorArgs<ExtArgs>
     referrals?: boolean | User$referralsArgs<ExtArgs>
@@ -9759,6 +9869,7 @@ export namespace Prisma {
     services?: boolean | User$servicesArgs<ExtArgs>
     notifications?: boolean | User$notificationsArgs<ExtArgs>
     legalAcceptances?: boolean | User$legalAcceptancesArgs<ExtArgs>
+    aiTickets?: boolean | User$aiTicketsArgs<ExtArgs>
     city?: boolean | User$cityArgs<ExtArgs>
     sponsor?: boolean | User$sponsorArgs<ExtArgs>
     referrals?: boolean | User$referralsArgs<ExtArgs>
@@ -9797,6 +9908,7 @@ export namespace Prisma {
       services: Prisma.$ServicePayload<ExtArgs>[]
       notifications: Prisma.$SystemNotificationPayload<ExtArgs>[]
       legalAcceptances: Prisma.$UserLegalAcceptancePayload<ExtArgs>[]
+      aiTickets: Prisma.$AITicketPayload<ExtArgs>[]
       city: Prisma.$CityPayload<ExtArgs> | null
       sponsor: Prisma.$UserPayload<ExtArgs> | null
       referrals: Prisma.$UserPayload<ExtArgs>[]
@@ -10209,6 +10321,7 @@ export namespace Prisma {
     services<T extends User$servicesArgs<ExtArgs> = {}>(args?: Subset<T, User$servicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findMany"> | Null>
     notifications<T extends User$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, User$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SystemNotificationPayload<ExtArgs>, T, "findMany"> | Null>
     legalAcceptances<T extends User$legalAcceptancesArgs<ExtArgs> = {}>(args?: Subset<T, User$legalAcceptancesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserLegalAcceptancePayload<ExtArgs>, T, "findMany"> | Null>
+    aiTickets<T extends User$aiTicketsArgs<ExtArgs> = {}>(args?: Subset<T, User$aiTicketsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "findMany"> | Null>
     city<T extends User$cityArgs<ExtArgs> = {}>(args?: Subset<T, User$cityArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     sponsor<T extends User$sponsorArgs<ExtArgs> = {}>(args?: Subset<T, User$sponsorArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     referrals<T extends User$referralsArgs<ExtArgs> = {}>(args?: Subset<T, User$referralsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany"> | Null>
@@ -11025,6 +11138,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserLegalAcceptanceScalarFieldEnum | UserLegalAcceptanceScalarFieldEnum[]
+  }
+
+  /**
+   * User.aiTickets
+   */
+  export type User$aiTicketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+    where?: AITicketWhereInput
+    orderBy?: AITicketOrderByWithRelationInput | AITicketOrderByWithRelationInput[]
+    cursor?: AITicketWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AITicketScalarFieldEnum | AITicketScalarFieldEnum[]
   }
 
   /**
@@ -68892,6 +69025,990 @@ export namespace Prisma {
 
 
   /**
+   * Model AITicket
+   */
+
+  export type AggregateAITicket = {
+    _count: AITicketCountAggregateOutputType | null
+    _min: AITicketMinAggregateOutputType | null
+    _max: AITicketMaxAggregateOutputType | null
+  }
+
+  export type AITicketMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    sessionId: string | null
+    prompt: string | null
+    response: string | null
+    modelUsed: string | null
+    status: $Enums.AITicketStatus | null
+    createdAt: Date | null
+  }
+
+  export type AITicketMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    sessionId: string | null
+    prompt: string | null
+    response: string | null
+    modelUsed: string | null
+    status: $Enums.AITicketStatus | null
+    createdAt: Date | null
+  }
+
+  export type AITicketCountAggregateOutputType = {
+    id: number
+    userId: number
+    sessionId: number
+    prompt: number
+    response: number
+    modelUsed: number
+    status: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type AITicketMinAggregateInputType = {
+    id?: true
+    userId?: true
+    sessionId?: true
+    prompt?: true
+    response?: true
+    modelUsed?: true
+    status?: true
+    createdAt?: true
+  }
+
+  export type AITicketMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    sessionId?: true
+    prompt?: true
+    response?: true
+    modelUsed?: true
+    status?: true
+    createdAt?: true
+  }
+
+  export type AITicketCountAggregateInputType = {
+    id?: true
+    userId?: true
+    sessionId?: true
+    prompt?: true
+    response?: true
+    modelUsed?: true
+    status?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type AITicketAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITicket to aggregate.
+     */
+    where?: AITicketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITickets to fetch.
+     */
+    orderBy?: AITicketOrderByWithRelationInput | AITicketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AITicketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITickets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AITickets
+    **/
+    _count?: true | AITicketCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AITicketMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AITicketMaxAggregateInputType
+  }
+
+  export type GetAITicketAggregateType<T extends AITicketAggregateArgs> = {
+        [P in keyof T & keyof AggregateAITicket]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAITicket[P]>
+      : GetScalarType<T[P], AggregateAITicket[P]>
+  }
+
+
+
+
+  export type AITicketGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AITicketWhereInput
+    orderBy?: AITicketOrderByWithAggregationInput | AITicketOrderByWithAggregationInput[]
+    by: AITicketScalarFieldEnum[] | AITicketScalarFieldEnum
+    having?: AITicketScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AITicketCountAggregateInputType | true
+    _min?: AITicketMinAggregateInputType
+    _max?: AITicketMaxAggregateInputType
+  }
+
+  export type AITicketGroupByOutputType = {
+    id: string
+    userId: string | null
+    sessionId: string | null
+    prompt: string
+    response: string
+    modelUsed: string
+    status: $Enums.AITicketStatus
+    createdAt: Date
+    _count: AITicketCountAggregateOutputType | null
+    _min: AITicketMinAggregateOutputType | null
+    _max: AITicketMaxAggregateOutputType | null
+  }
+
+  type GetAITicketGroupByPayload<T extends AITicketGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AITicketGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AITicketGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AITicketGroupByOutputType[P]>
+            : GetScalarType<T[P], AITicketGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AITicketSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    sessionId?: boolean
+    prompt?: boolean
+    response?: boolean
+    modelUsed?: boolean
+    status?: boolean
+    createdAt?: boolean
+    user?: boolean | AITicket$userArgs<ExtArgs>
+  }, ExtArgs["result"]["aITicket"]>
+
+  export type AITicketSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    sessionId?: boolean
+    prompt?: boolean
+    response?: boolean
+    modelUsed?: boolean
+    status?: boolean
+    createdAt?: boolean
+    user?: boolean | AITicket$userArgs<ExtArgs>
+  }, ExtArgs["result"]["aITicket"]>
+
+  export type AITicketSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    sessionId?: boolean
+    prompt?: boolean
+    response?: boolean
+    modelUsed?: boolean
+    status?: boolean
+    createdAt?: boolean
+  }
+
+  export type AITicketInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | AITicket$userArgs<ExtArgs>
+  }
+  export type AITicketIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | AITicket$userArgs<ExtArgs>
+  }
+
+  export type $AITicketPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AITicket"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string | null
+      sessionId: string | null
+      prompt: string
+      response: string
+      modelUsed: string
+      status: $Enums.AITicketStatus
+      createdAt: Date
+    }, ExtArgs["result"]["aITicket"]>
+    composites: {}
+  }
+
+  type AITicketGetPayload<S extends boolean | null | undefined | AITicketDefaultArgs> = $Result.GetResult<Prisma.$AITicketPayload, S>
+
+  type AITicketCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<AITicketFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: AITicketCountAggregateInputType | true
+    }
+
+  export interface AITicketDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AITicket'], meta: { name: 'AITicket' } }
+    /**
+     * Find zero or one AITicket that matches the filter.
+     * @param {AITicketFindUniqueArgs} args - Arguments to find a AITicket
+     * @example
+     * // Get one AITicket
+     * const aITicket = await prisma.aITicket.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AITicketFindUniqueArgs>(args: SelectSubset<T, AITicketFindUniqueArgs<ExtArgs>>): Prisma__AITicketClient<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one AITicket that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {AITicketFindUniqueOrThrowArgs} args - Arguments to find a AITicket
+     * @example
+     * // Get one AITicket
+     * const aITicket = await prisma.aITicket.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AITicketFindUniqueOrThrowArgs>(args: SelectSubset<T, AITicketFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AITicketClient<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first AITicket that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITicketFindFirstArgs} args - Arguments to find a AITicket
+     * @example
+     * // Get one AITicket
+     * const aITicket = await prisma.aITicket.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AITicketFindFirstArgs>(args?: SelectSubset<T, AITicketFindFirstArgs<ExtArgs>>): Prisma__AITicketClient<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first AITicket that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITicketFindFirstOrThrowArgs} args - Arguments to find a AITicket
+     * @example
+     * // Get one AITicket
+     * const aITicket = await prisma.aITicket.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AITicketFindFirstOrThrowArgs>(args?: SelectSubset<T, AITicketFindFirstOrThrowArgs<ExtArgs>>): Prisma__AITicketClient<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more AITickets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITicketFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AITickets
+     * const aITickets = await prisma.aITicket.findMany()
+     * 
+     * // Get first 10 AITickets
+     * const aITickets = await prisma.aITicket.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aITicketWithIdOnly = await prisma.aITicket.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AITicketFindManyArgs>(args?: SelectSubset<T, AITicketFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a AITicket.
+     * @param {AITicketCreateArgs} args - Arguments to create a AITicket.
+     * @example
+     * // Create one AITicket
+     * const AITicket = await prisma.aITicket.create({
+     *   data: {
+     *     // ... data to create a AITicket
+     *   }
+     * })
+     * 
+     */
+    create<T extends AITicketCreateArgs>(args: SelectSubset<T, AITicketCreateArgs<ExtArgs>>): Prisma__AITicketClient<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many AITickets.
+     * @param {AITicketCreateManyArgs} args - Arguments to create many AITickets.
+     * @example
+     * // Create many AITickets
+     * const aITicket = await prisma.aITicket.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AITicketCreateManyArgs>(args?: SelectSubset<T, AITicketCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AITickets and returns the data saved in the database.
+     * @param {AITicketCreateManyAndReturnArgs} args - Arguments to create many AITickets.
+     * @example
+     * // Create many AITickets
+     * const aITicket = await prisma.aITicket.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AITickets and only return the `id`
+     * const aITicketWithIdOnly = await prisma.aITicket.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AITicketCreateManyAndReturnArgs>(args?: SelectSubset<T, AITicketCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a AITicket.
+     * @param {AITicketDeleteArgs} args - Arguments to delete one AITicket.
+     * @example
+     * // Delete one AITicket
+     * const AITicket = await prisma.aITicket.delete({
+     *   where: {
+     *     // ... filter to delete one AITicket
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AITicketDeleteArgs>(args: SelectSubset<T, AITicketDeleteArgs<ExtArgs>>): Prisma__AITicketClient<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one AITicket.
+     * @param {AITicketUpdateArgs} args - Arguments to update one AITicket.
+     * @example
+     * // Update one AITicket
+     * const aITicket = await prisma.aITicket.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AITicketUpdateArgs>(args: SelectSubset<T, AITicketUpdateArgs<ExtArgs>>): Prisma__AITicketClient<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more AITickets.
+     * @param {AITicketDeleteManyArgs} args - Arguments to filter AITickets to delete.
+     * @example
+     * // Delete a few AITickets
+     * const { count } = await prisma.aITicket.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AITicketDeleteManyArgs>(args?: SelectSubset<T, AITicketDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITickets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITicketUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AITickets
+     * const aITicket = await prisma.aITicket.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AITicketUpdateManyArgs>(args: SelectSubset<T, AITicketUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AITicket.
+     * @param {AITicketUpsertArgs} args - Arguments to update or create a AITicket.
+     * @example
+     * // Update or create a AITicket
+     * const aITicket = await prisma.aITicket.upsert({
+     *   create: {
+     *     // ... data to create a AITicket
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AITicket we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AITicketUpsertArgs>(args: SelectSubset<T, AITicketUpsertArgs<ExtArgs>>): Prisma__AITicketClient<$Result.GetResult<Prisma.$AITicketPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of AITickets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITicketCountArgs} args - Arguments to filter AITickets to count.
+     * @example
+     * // Count the number of AITickets
+     * const count = await prisma.aITicket.count({
+     *   where: {
+     *     // ... the filter for the AITickets we want to count
+     *   }
+     * })
+    **/
+    count<T extends AITicketCountArgs>(
+      args?: Subset<T, AITicketCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AITicketCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AITicket.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITicketAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AITicketAggregateArgs>(args: Subset<T, AITicketAggregateArgs>): Prisma.PrismaPromise<GetAITicketAggregateType<T>>
+
+    /**
+     * Group by AITicket.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITicketGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AITicketGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AITicketGroupByArgs['orderBy'] }
+        : { orderBy?: AITicketGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AITicketGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAITicketGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AITicket model
+   */
+  readonly fields: AITicketFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AITicket.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AITicketClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends AITicket$userArgs<ExtArgs> = {}>(args?: Subset<T, AITicket$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AITicket model
+   */ 
+  interface AITicketFieldRefs {
+    readonly id: FieldRef<"AITicket", 'String'>
+    readonly userId: FieldRef<"AITicket", 'String'>
+    readonly sessionId: FieldRef<"AITicket", 'String'>
+    readonly prompt: FieldRef<"AITicket", 'String'>
+    readonly response: FieldRef<"AITicket", 'String'>
+    readonly modelUsed: FieldRef<"AITicket", 'String'>
+    readonly status: FieldRef<"AITicket", 'AITicketStatus'>
+    readonly createdAt: FieldRef<"AITicket", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AITicket findUnique
+   */
+  export type AITicketFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+    /**
+     * Filter, which AITicket to fetch.
+     */
+    where: AITicketWhereUniqueInput
+  }
+
+  /**
+   * AITicket findUniqueOrThrow
+   */
+  export type AITicketFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+    /**
+     * Filter, which AITicket to fetch.
+     */
+    where: AITicketWhereUniqueInput
+  }
+
+  /**
+   * AITicket findFirst
+   */
+  export type AITicketFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+    /**
+     * Filter, which AITicket to fetch.
+     */
+    where?: AITicketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITickets to fetch.
+     */
+    orderBy?: AITicketOrderByWithRelationInput | AITicketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITickets.
+     */
+    cursor?: AITicketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITickets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITickets.
+     */
+    distinct?: AITicketScalarFieldEnum | AITicketScalarFieldEnum[]
+  }
+
+  /**
+   * AITicket findFirstOrThrow
+   */
+  export type AITicketFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+    /**
+     * Filter, which AITicket to fetch.
+     */
+    where?: AITicketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITickets to fetch.
+     */
+    orderBy?: AITicketOrderByWithRelationInput | AITicketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITickets.
+     */
+    cursor?: AITicketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITickets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITickets.
+     */
+    distinct?: AITicketScalarFieldEnum | AITicketScalarFieldEnum[]
+  }
+
+  /**
+   * AITicket findMany
+   */
+  export type AITicketFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+    /**
+     * Filter, which AITickets to fetch.
+     */
+    where?: AITicketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITickets to fetch.
+     */
+    orderBy?: AITicketOrderByWithRelationInput | AITicketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AITickets.
+     */
+    cursor?: AITicketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITickets.
+     */
+    skip?: number
+    distinct?: AITicketScalarFieldEnum | AITicketScalarFieldEnum[]
+  }
+
+  /**
+   * AITicket create
+   */
+  export type AITicketCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AITicket.
+     */
+    data: XOR<AITicketCreateInput, AITicketUncheckedCreateInput>
+  }
+
+  /**
+   * AITicket createMany
+   */
+  export type AITicketCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AITickets.
+     */
+    data: AITicketCreateManyInput | AITicketCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AITicket createManyAndReturn
+   */
+  export type AITicketCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many AITickets.
+     */
+    data: AITicketCreateManyInput | AITicketCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AITicket update
+   */
+  export type AITicketUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AITicket.
+     */
+    data: XOR<AITicketUpdateInput, AITicketUncheckedUpdateInput>
+    /**
+     * Choose, which AITicket to update.
+     */
+    where: AITicketWhereUniqueInput
+  }
+
+  /**
+   * AITicket updateMany
+   */
+  export type AITicketUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AITickets.
+     */
+    data: XOR<AITicketUpdateManyMutationInput, AITicketUncheckedUpdateManyInput>
+    /**
+     * Filter which AITickets to update
+     */
+    where?: AITicketWhereInput
+  }
+
+  /**
+   * AITicket upsert
+   */
+  export type AITicketUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AITicket to update in case it exists.
+     */
+    where: AITicketWhereUniqueInput
+    /**
+     * In case the AITicket found by the `where` argument doesn't exist, create a new AITicket with this data.
+     */
+    create: XOR<AITicketCreateInput, AITicketUncheckedCreateInput>
+    /**
+     * In case the AITicket was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AITicketUpdateInput, AITicketUncheckedUpdateInput>
+  }
+
+  /**
+   * AITicket delete
+   */
+  export type AITicketDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+    /**
+     * Filter which AITicket to delete.
+     */
+    where: AITicketWhereUniqueInput
+  }
+
+  /**
+   * AITicket deleteMany
+   */
+  export type AITicketDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITickets to delete
+     */
+    where?: AITicketWhereInput
+  }
+
+  /**
+   * AITicket.user
+   */
+  export type AITicket$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * AITicket without action
+   */
+  export type AITicketDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITicket
+     */
+    select?: AITicketSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITicketInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -69958,6 +71075,20 @@ export namespace Prisma {
   export type SubscriberScalarFieldEnum = (typeof SubscriberScalarFieldEnum)[keyof typeof SubscriberScalarFieldEnum]
 
 
+  export const AITicketScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    sessionId: 'sessionId',
+    prompt: 'prompt',
+    response: 'response',
+    modelUsed: 'modelUsed',
+    status: 'status',
+    createdAt: 'createdAt'
+  };
+
+  export type AITicketScalarFieldEnum = (typeof AITicketScalarFieldEnum)[keyof typeof AITicketScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -70653,6 +71784,20 @@ export namespace Prisma {
    */
   export type ListEnumNotificationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'NotificationType[]'>
     
+
+
+  /**
+   * Reference to a field of type 'AITicketStatus'
+   */
+  export type EnumAITicketStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AITicketStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'AITicketStatus[]'
+   */
+  export type ListEnumAITicketStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AITicketStatus[]'>
+    
   /**
    * Deep Input Types
    */
@@ -70926,6 +72071,7 @@ export namespace Prisma {
     services?: ServiceListRelationFilter
     notifications?: SystemNotificationListRelationFilter
     legalAcceptances?: UserLegalAcceptanceListRelationFilter
+    aiTickets?: AITicketListRelationFilter
     city?: XOR<CityNullableRelationFilter, CityWhereInput> | null
     sponsor?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     referrals?: UserListRelationFilter
@@ -70975,6 +72121,7 @@ export namespace Prisma {
     services?: ServiceOrderByRelationAggregateInput
     notifications?: SystemNotificationOrderByRelationAggregateInput
     legalAcceptances?: UserLegalAcceptanceOrderByRelationAggregateInput
+    aiTickets?: AITicketOrderByRelationAggregateInput
     city?: CityOrderByWithRelationInput
     sponsor?: UserOrderByWithRelationInput
     referrals?: UserOrderByRelationAggregateInput
@@ -71027,6 +72174,7 @@ export namespace Prisma {
     services?: ServiceListRelationFilter
     notifications?: SystemNotificationListRelationFilter
     legalAcceptances?: UserLegalAcceptanceListRelationFilter
+    aiTickets?: AITicketListRelationFilter
     city?: XOR<CityNullableRelationFilter, CityWhereInput> | null
     sponsor?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     referrals?: UserListRelationFilter
@@ -76215,6 +77363,76 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Subscriber"> | Date | string
   }
 
+  export type AITicketWhereInput = {
+    AND?: AITicketWhereInput | AITicketWhereInput[]
+    OR?: AITicketWhereInput[]
+    NOT?: AITicketWhereInput | AITicketWhereInput[]
+    id?: StringFilter<"AITicket"> | string
+    userId?: StringNullableFilter<"AITicket"> | string | null
+    sessionId?: StringNullableFilter<"AITicket"> | string | null
+    prompt?: StringFilter<"AITicket"> | string
+    response?: StringFilter<"AITicket"> | string
+    modelUsed?: StringFilter<"AITicket"> | string
+    status?: EnumAITicketStatusFilter<"AITicket"> | $Enums.AITicketStatus
+    createdAt?: DateTimeFilter<"AITicket"> | Date | string
+    user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+  }
+
+  export type AITicketOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    sessionId?: SortOrderInput | SortOrder
+    prompt?: SortOrder
+    response?: SortOrder
+    modelUsed?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type AITicketWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AITicketWhereInput | AITicketWhereInput[]
+    OR?: AITicketWhereInput[]
+    NOT?: AITicketWhereInput | AITicketWhereInput[]
+    userId?: StringNullableFilter<"AITicket"> | string | null
+    sessionId?: StringNullableFilter<"AITicket"> | string | null
+    prompt?: StringFilter<"AITicket"> | string
+    response?: StringFilter<"AITicket"> | string
+    modelUsed?: StringFilter<"AITicket"> | string
+    status?: EnumAITicketStatusFilter<"AITicket"> | $Enums.AITicketStatus
+    createdAt?: DateTimeFilter<"AITicket"> | Date | string
+    user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+  }, "id">
+
+  export type AITicketOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    sessionId?: SortOrderInput | SortOrder
+    prompt?: SortOrder
+    response?: SortOrder
+    modelUsed?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    _count?: AITicketCountOrderByAggregateInput
+    _max?: AITicketMaxOrderByAggregateInput
+    _min?: AITicketMinOrderByAggregateInput
+  }
+
+  export type AITicketScalarWhereWithAggregatesInput = {
+    AND?: AITicketScalarWhereWithAggregatesInput | AITicketScalarWhereWithAggregatesInput[]
+    OR?: AITicketScalarWhereWithAggregatesInput[]
+    NOT?: AITicketScalarWhereWithAggregatesInput | AITicketScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AITicket"> | string
+    userId?: StringNullableWithAggregatesFilter<"AITicket"> | string | null
+    sessionId?: StringNullableWithAggregatesFilter<"AITicket"> | string | null
+    prompt?: StringWithAggregatesFilter<"AITicket"> | string
+    response?: StringWithAggregatesFilter<"AITicket"> | string
+    modelUsed?: StringWithAggregatesFilter<"AITicket"> | string
+    status?: EnumAITicketStatusWithAggregatesFilter<"AITicket"> | $Enums.AITicketStatus
+    createdAt?: DateTimeWithAggregatesFilter<"AITicket"> | Date | string
+  }
+
   export type SystemConfigCreateInput = {
     id?: string
     key: string
@@ -76525,6 +77743,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -76574,6 +77793,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -76619,6 +77839,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -76668,6 +77889,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -82557,6 +83779,82 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type AITicketCreateInput = {
+    id?: string
+    sessionId?: string | null
+    prompt: string
+    response: string
+    modelUsed: string
+    status?: $Enums.AITicketStatus
+    createdAt?: Date | string
+    user?: UserCreateNestedOneWithoutAiTicketsInput
+  }
+
+  export type AITicketUncheckedCreateInput = {
+    id?: string
+    userId?: string | null
+    sessionId?: string | null
+    prompt: string
+    response: string
+    modelUsed: string
+    status?: $Enums.AITicketStatus
+    createdAt?: Date | string
+  }
+
+  export type AITicketUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    response?: StringFieldUpdateOperationsInput | string
+    modelUsed?: StringFieldUpdateOperationsInput | string
+    status?: EnumAITicketStatusFieldUpdateOperationsInput | $Enums.AITicketStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutAiTicketsNestedInput
+  }
+
+  export type AITicketUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    response?: StringFieldUpdateOperationsInput | string
+    modelUsed?: StringFieldUpdateOperationsInput | string
+    status?: EnumAITicketStatusFieldUpdateOperationsInput | $Enums.AITicketStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AITicketCreateManyInput = {
+    id?: string
+    userId?: string | null
+    sessionId?: string | null
+    prompt: string
+    response: string
+    modelUsed: string
+    status?: $Enums.AITicketStatus
+    createdAt?: Date | string
+  }
+
+  export type AITicketUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    response?: StringFieldUpdateOperationsInput | string
+    modelUsed?: StringFieldUpdateOperationsInput | string
+    status?: EnumAITicketStatusFieldUpdateOperationsInput | $Enums.AITicketStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AITicketUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    response?: StringFieldUpdateOperationsInput | string
+    modelUsed?: StringFieldUpdateOperationsInput | string
+    status?: EnumAITicketStatusFieldUpdateOperationsInput | $Enums.AITicketStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -83062,6 +84360,12 @@ export namespace Prisma {
     none?: UserLegalAcceptanceWhereInput
   }
 
+  export type AITicketListRelationFilter = {
+    every?: AITicketWhereInput
+    some?: AITicketWhereInput
+    none?: AITicketWhereInput
+  }
+
   export type CityNullableRelationFilter = {
     is?: CityWhereInput | null
     isNot?: CityWhereInput | null
@@ -83148,6 +84452,10 @@ export namespace Prisma {
   }
 
   export type UserLegalAcceptanceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AITicketOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -87282,6 +88590,56 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
+  export type EnumAITicketStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.AITicketStatus | EnumAITicketStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AITicketStatus[] | ListEnumAITicketStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AITicketStatus[] | ListEnumAITicketStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumAITicketStatusFilter<$PrismaModel> | $Enums.AITicketStatus
+  }
+
+  export type AITicketCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    sessionId?: SortOrder
+    prompt?: SortOrder
+    response?: SortOrder
+    modelUsed?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AITicketMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    sessionId?: SortOrder
+    prompt?: SortOrder
+    response?: SortOrder
+    modelUsed?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AITicketMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    sessionId?: SortOrder
+    prompt?: SortOrder
+    response?: SortOrder
+    modelUsed?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type EnumAITicketStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AITicketStatus | EnumAITicketStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AITicketStatus[] | ListEnumAITicketStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AITicketStatus[] | ListEnumAITicketStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumAITicketStatusWithAggregatesFilter<$PrismaModel> | $Enums.AITicketStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAITicketStatusFilter<$PrismaModel>
+    _max?: NestedEnumAITicketStatusFilter<$PrismaModel>
+  }
+
   export type SystemConfigCreateeditableByInput = {
     set: $Enums.UserRole[]
   }
@@ -87567,6 +88925,13 @@ export namespace Prisma {
     connect?: UserLegalAcceptanceWhereUniqueInput | UserLegalAcceptanceWhereUniqueInput[]
   }
 
+  export type AITicketCreateNestedManyWithoutUserInput = {
+    create?: XOR<AITicketCreateWithoutUserInput, AITicketUncheckedCreateWithoutUserInput> | AITicketCreateWithoutUserInput[] | AITicketUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AITicketCreateOrConnectWithoutUserInput | AITicketCreateOrConnectWithoutUserInput[]
+    createMany?: AITicketCreateManyUserInputEnvelope
+    connect?: AITicketWhereUniqueInput | AITicketWhereUniqueInput[]
+  }
+
   export type CityCreateNestedOneWithoutUsersInput = {
     create?: XOR<CityCreateWithoutUsersInput, CityUncheckedCreateWithoutUsersInput>
     connectOrCreate?: CityCreateOrConnectWithoutUsersInput
@@ -87752,6 +89117,13 @@ export namespace Prisma {
     connectOrCreate?: UserLegalAcceptanceCreateOrConnectWithoutUserInput | UserLegalAcceptanceCreateOrConnectWithoutUserInput[]
     createMany?: UserLegalAcceptanceCreateManyUserInputEnvelope
     connect?: UserLegalAcceptanceWhereUniqueInput | UserLegalAcceptanceWhereUniqueInput[]
+  }
+
+  export type AITicketUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<AITicketCreateWithoutUserInput, AITicketUncheckedCreateWithoutUserInput> | AITicketCreateWithoutUserInput[] | AITicketUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AITicketCreateOrConnectWithoutUserInput | AITicketCreateOrConnectWithoutUserInput[]
+    createMany?: AITicketCreateManyUserInputEnvelope
+    connect?: AITicketWhereUniqueInput | AITicketWhereUniqueInput[]
   }
 
   export type UserUncheckedCreateNestedManyWithoutSponsorInput = {
@@ -88089,6 +89461,20 @@ export namespace Prisma {
     update?: UserLegalAcceptanceUpdateWithWhereUniqueWithoutUserInput | UserLegalAcceptanceUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: UserLegalAcceptanceUpdateManyWithWhereWithoutUserInput | UserLegalAcceptanceUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: UserLegalAcceptanceScalarWhereInput | UserLegalAcceptanceScalarWhereInput[]
+  }
+
+  export type AITicketUpdateManyWithoutUserNestedInput = {
+    create?: XOR<AITicketCreateWithoutUserInput, AITicketUncheckedCreateWithoutUserInput> | AITicketCreateWithoutUserInput[] | AITicketUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AITicketCreateOrConnectWithoutUserInput | AITicketCreateOrConnectWithoutUserInput[]
+    upsert?: AITicketUpsertWithWhereUniqueWithoutUserInput | AITicketUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: AITicketCreateManyUserInputEnvelope
+    set?: AITicketWhereUniqueInput | AITicketWhereUniqueInput[]
+    disconnect?: AITicketWhereUniqueInput | AITicketWhereUniqueInput[]
+    delete?: AITicketWhereUniqueInput | AITicketWhereUniqueInput[]
+    connect?: AITicketWhereUniqueInput | AITicketWhereUniqueInput[]
+    update?: AITicketUpdateWithWhereUniqueWithoutUserInput | AITicketUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: AITicketUpdateManyWithWhereWithoutUserInput | AITicketUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: AITicketScalarWhereInput | AITicketScalarWhereInput[]
   }
 
   export type CityUpdateOneWithoutUsersNestedInput = {
@@ -88445,6 +89831,20 @@ export namespace Prisma {
     update?: UserLegalAcceptanceUpdateWithWhereUniqueWithoutUserInput | UserLegalAcceptanceUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: UserLegalAcceptanceUpdateManyWithWhereWithoutUserInput | UserLegalAcceptanceUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: UserLegalAcceptanceScalarWhereInput | UserLegalAcceptanceScalarWhereInput[]
+  }
+
+  export type AITicketUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<AITicketCreateWithoutUserInput, AITicketUncheckedCreateWithoutUserInput> | AITicketCreateWithoutUserInput[] | AITicketUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AITicketCreateOrConnectWithoutUserInput | AITicketCreateOrConnectWithoutUserInput[]
+    upsert?: AITicketUpsertWithWhereUniqueWithoutUserInput | AITicketUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: AITicketCreateManyUserInputEnvelope
+    set?: AITicketWhereUniqueInput | AITicketWhereUniqueInput[]
+    disconnect?: AITicketWhereUniqueInput | AITicketWhereUniqueInput[]
+    delete?: AITicketWhereUniqueInput | AITicketWhereUniqueInput[]
+    connect?: AITicketWhereUniqueInput | AITicketWhereUniqueInput[]
+    update?: AITicketUpdateWithWhereUniqueWithoutUserInput | AITicketUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: AITicketUpdateManyWithWhereWithoutUserInput | AITicketUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: AITicketScalarWhereInput | AITicketScalarWhereInput[]
   }
 
   export type UserUncheckedUpdateManyWithoutSponsorNestedInput = {
@@ -91060,6 +92460,26 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPushSubscriptionsInput, UserUpdateWithoutPushSubscriptionsInput>, UserUncheckedUpdateWithoutPushSubscriptionsInput>
   }
 
+  export type UserCreateNestedOneWithoutAiTicketsInput = {
+    create?: XOR<UserCreateWithoutAiTicketsInput, UserUncheckedCreateWithoutAiTicketsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAiTicketsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EnumAITicketStatusFieldUpdateOperationsInput = {
+    set?: $Enums.AITicketStatus
+  }
+
+  export type UserUpdateOneWithoutAiTicketsNestedInput = {
+    create?: XOR<UserCreateWithoutAiTicketsInput, UserUncheckedCreateWithoutAiTicketsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAiTicketsInput
+    upsert?: UserUpsertWithoutAiTicketsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAiTicketsInput, UserUpdateWithoutAiTicketsInput>, UserUncheckedUpdateWithoutAiTicketsInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -92103,6 +93523,23 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumNotificationTypeFilter<$PrismaModel>
     _max?: NestedEnumNotificationTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumAITicketStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.AITicketStatus | EnumAITicketStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AITicketStatus[] | ListEnumAITicketStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AITicketStatus[] | ListEnumAITicketStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumAITicketStatusFilter<$PrismaModel> | $Enums.AITicketStatus
+  }
+
+  export type NestedEnumAITicketStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AITicketStatus | EnumAITicketStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AITicketStatus[] | ListEnumAITicketStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AITicketStatus[] | ListEnumAITicketStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumAITicketStatusWithAggregatesFilter<$PrismaModel> | $Enums.AITicketStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAITicketStatusFilter<$PrismaModel>
+    _max?: NestedEnumAITicketStatusFilter<$PrismaModel>
   }
 
   export type ConfigHistoryCreateWithoutConfigInput = {
@@ -93322,6 +94759,36 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type AITicketCreateWithoutUserInput = {
+    id?: string
+    sessionId?: string | null
+    prompt: string
+    response: string
+    modelUsed: string
+    status?: $Enums.AITicketStatus
+    createdAt?: Date | string
+  }
+
+  export type AITicketUncheckedCreateWithoutUserInput = {
+    id?: string
+    sessionId?: string | null
+    prompt: string
+    response: string
+    modelUsed: string
+    status?: $Enums.AITicketStatus
+    createdAt?: Date | string
+  }
+
+  export type AITicketCreateOrConnectWithoutUserInput = {
+    where: AITicketWhereUniqueInput
+    create: XOR<AITicketCreateWithoutUserInput, AITicketUncheckedCreateWithoutUserInput>
+  }
+
+  export type AITicketCreateManyUserInputEnvelope = {
+    data: AITicketCreateManyUserInput | AITicketCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type CityCreateWithoutUsersInput = {
     id?: string
     name: string
@@ -93396,6 +94863,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     wallet?: WalletCreateNestedOneWithoutUserInput
@@ -93444,6 +94912,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
 
@@ -93493,6 +94962,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
     wallet?: WalletCreateNestedOneWithoutUserInput
@@ -93540,6 +95010,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -94508,6 +95979,36 @@ export namespace Prisma {
     ipAddress?: StringNullableFilter<"UserLegalAcceptance"> | string | null
   }
 
+  export type AITicketUpsertWithWhereUniqueWithoutUserInput = {
+    where: AITicketWhereUniqueInput
+    update: XOR<AITicketUpdateWithoutUserInput, AITicketUncheckedUpdateWithoutUserInput>
+    create: XOR<AITicketCreateWithoutUserInput, AITicketUncheckedCreateWithoutUserInput>
+  }
+
+  export type AITicketUpdateWithWhereUniqueWithoutUserInput = {
+    where: AITicketWhereUniqueInput
+    data: XOR<AITicketUpdateWithoutUserInput, AITicketUncheckedUpdateWithoutUserInput>
+  }
+
+  export type AITicketUpdateManyWithWhereWithoutUserInput = {
+    where: AITicketScalarWhereInput
+    data: XOR<AITicketUpdateManyMutationInput, AITicketUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type AITicketScalarWhereInput = {
+    AND?: AITicketScalarWhereInput | AITicketScalarWhereInput[]
+    OR?: AITicketScalarWhereInput[]
+    NOT?: AITicketScalarWhereInput | AITicketScalarWhereInput[]
+    id?: StringFilter<"AITicket"> | string
+    userId?: StringNullableFilter<"AITicket"> | string | null
+    sessionId?: StringNullableFilter<"AITicket"> | string | null
+    prompt?: StringFilter<"AITicket"> | string
+    response?: StringFilter<"AITicket"> | string
+    modelUsed?: StringFilter<"AITicket"> | string
+    status?: EnumAITicketStatusFilter<"AITicket"> | $Enums.AITicketStatus
+    createdAt?: DateTimeFilter<"AITicket"> | Date | string
+  }
+
   export type CityUpsertWithoutUsersInput = {
     update: XOR<CityUpdateWithoutUsersInput, CityUncheckedUpdateWithoutUsersInput>
     create: XOR<CityCreateWithoutUsersInput, CityUncheckedCreateWithoutUsersInput>
@@ -94599,6 +96100,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     wallet?: WalletUpdateOneWithoutUserNestedInput
@@ -94647,6 +96149,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
 
@@ -94767,6 +96270,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -94815,6 +96319,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -94875,6 +96380,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -94923,6 +96429,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -94967,6 +96474,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -95015,6 +96523,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -95075,6 +96584,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -95123,6 +96633,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -95167,6 +96678,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -95215,6 +96727,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -95275,6 +96788,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -95323,6 +96837,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -95809,6 +97324,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -95857,6 +97373,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -96059,6 +97576,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -96107,6 +97625,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -96283,6 +97802,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderCreateNestedOneWithoutUserInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -96331,6 +97851,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderUncheckedCreateNestedOneWithoutUserInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -96503,6 +98024,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderUpdateOneWithoutUserNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -96551,6 +98073,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderUncheckedUpdateOneWithoutUserNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -96625,6 +98148,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -96673,6 +98197,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -96749,6 +98274,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -96797,6 +98323,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -97206,6 +98733,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -97254,6 +98782,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -97303,6 +98832,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -97351,6 +98881,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -97468,6 +98999,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -97516,6 +99048,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -97571,6 +99104,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -97619,6 +99153,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -98007,6 +99542,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -98055,6 +99591,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -98115,6 +99652,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -98163,6 +99701,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -98238,6 +99777,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -98286,6 +99826,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
   }
 
@@ -98376,6 +99917,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -98424,6 +99966,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
   }
 
@@ -98578,6 +100121,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -98626,6 +100170,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -98735,6 +100280,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -98783,6 +100329,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -98827,6 +100374,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -98875,6 +100423,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -98935,6 +100484,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -98983,6 +100533,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -99027,6 +100578,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -99075,6 +100627,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -99135,6 +100688,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -99183,6 +100737,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -99227,6 +100782,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -99275,6 +100831,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -99335,6 +100892,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -99383,6 +100941,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -99427,6 +100986,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -99475,6 +101035,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -99535,6 +101096,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -99583,6 +101145,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -100097,6 +101660,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
     wallet?: WalletCreateNestedOneWithoutUserInput
@@ -100144,6 +101708,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -100417,6 +101982,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -100465,6 +102031,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -100525,6 +102092,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -100573,6 +102141,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -100975,6 +102544,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -101023,6 +102593,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -101299,6 +102870,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -101347,6 +102919,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -101913,6 +103486,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -101961,6 +103535,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -102037,6 +103612,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -102085,6 +103661,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -102204,6 +103781,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -102252,6 +103830,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -102825,6 +104404,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -102873,6 +104453,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -104619,6 +106200,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -104667,6 +106249,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -105010,6 +106593,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -105058,6 +106642,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -105391,6 +106976,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -105439,6 +107025,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -105721,6 +107308,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -105769,6 +107357,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -106224,6 +107813,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -106272,6 +107862,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -106332,6 +107923,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -106380,6 +107972,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -106968,6 +108561,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderCreateNestedOneWithoutUserInput
     services?: ServiceCreateNestedManyWithoutProviderInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -107016,6 +108610,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderUncheckedCreateNestedOneWithoutUserInput
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -107076,6 +108671,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderUpdateOneWithoutUserNestedInput
     services?: ServiceUpdateManyWithoutProviderNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -107124,6 +108720,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderUncheckedUpdateOneWithoutUserNestedInput
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -107168,6 +108765,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderCreateNestedOneWithoutUserInput
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -107216,6 +108814,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderUncheckedCreateNestedOneWithoutUserInput
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -107276,6 +108875,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderUpdateOneWithoutUserNestedInput
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -107324,6 +108924,7 @@ export namespace Prisma {
     serviceProvider?: ServiceProviderUncheckedUpdateOneWithoutUserNestedInput
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -107368,6 +108969,7 @@ export namespace Prisma {
     services?: ServiceCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketCreateNestedManyWithoutUserInput
     city?: CityCreateNestedOneWithoutUsersInput
     sponsor?: UserCreateNestedOneWithoutReferralsInput
     referrals?: UserCreateNestedManyWithoutSponsorInput
@@ -107416,6 +109018,7 @@ export namespace Prisma {
     services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
     notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
     legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    aiTickets?: AITicketUncheckedCreateNestedManyWithoutUserInput
     referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
   }
@@ -107476,6 +109079,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
@@ -107518,6 +109122,211 @@ export namespace Prisma {
     products?: ProductUncheckedUpdateManyWithoutProviderNestedInput
     providerProfile?: ProviderProfileUncheckedUpdateOneWithoutUserNestedInput
     providerReviews?: ProviderReviewUncheckedUpdateManyWithoutClientNestedInput
+    ranks?: RankUncheckedUpdateManyWithoutUserNestedInput
+    seedBonuses?: SeedBonusUncheckedUpdateManyWithoutUserNestedInput
+    serviceProvider?: ServiceProviderUncheckedUpdateOneWithoutUserNestedInput
+    services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
+    notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
+    legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
+    referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
+    wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutAiTicketsInput = {
+    id?: string
+    email: string
+    username: string
+    name?: string | null
+    phone?: string | null
+    avatar?: string | null
+    role?: $Enums.UserRole
+    status?: $Enums.UserStatus
+    affiliateCode: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    kycLevel?: number
+    mustResetPassword?: boolean
+    lastLoginAt?: Date | string | null
+    twoFactorEnabled?: boolean
+    twoFactorSecret?: string | null
+    activation?: ActivationStatusCreateNestedOneWithoutUserInput
+    appointments?: AppointmentCreateNestedManyWithoutClientInput
+    cart?: CartCreateNestedOneWithoutUserInput
+    clientReviews?: ClientReviewCreateNestedManyWithoutClientInput
+    clientWarnings?: ClientWarningCreateNestedManyWithoutClientInput
+    commissions?: CommissionCreateNestedManyWithoutUserInput
+    events?: EventLogCreateNestedManyWithoutUserInput
+    beneficiaries?: FamilyBeneficiaryCreateNestedManyWithoutMemberInput
+    fidelity?: FidelityTrackingCreateNestedManyWithoutUserInput
+    kyc?: KYCCreateNestedOneWithoutUserInput
+    membership?: MembershipCreateNestedOneWithoutUserInput
+    providerOrders?: OrderCreateNestedManyWithoutProviderInput
+    orders?: OrderCreateNestedManyWithoutUserInput
+    pointsLedger?: PointsLedgerCreateNestedManyWithoutUserInput
+    products?: ProductCreateNestedManyWithoutProviderInput
+    providerProfile?: ProviderProfileCreateNestedOneWithoutUserInput
+    providerReviews?: ProviderReviewCreateNestedManyWithoutClientInput
+    pushSubscriptions?: PushSubscriptionCreateNestedManyWithoutUserInput
+    ranks?: RankCreateNestedManyWithoutUserInput
+    seedBonuses?: SeedBonusCreateNestedManyWithoutUserInput
+    serviceProvider?: ServiceProviderCreateNestedOneWithoutUserInput
+    services?: ServiceCreateNestedManyWithoutProviderInput
+    notifications?: SystemNotificationCreateNestedManyWithoutUserInput
+    legalAcceptances?: UserLegalAcceptanceCreateNestedManyWithoutUserInput
+    city?: CityCreateNestedOneWithoutUsersInput
+    sponsor?: UserCreateNestedOneWithoutReferralsInput
+    referrals?: UserCreateNestedManyWithoutSponsorInput
+    wallet?: WalletCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutAiTicketsInput = {
+    id?: string
+    email: string
+    username: string
+    name?: string | null
+    phone?: string | null
+    avatar?: string | null
+    role?: $Enums.UserRole
+    status?: $Enums.UserStatus
+    sponsorId?: string | null
+    affiliateCode: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cityId?: string | null
+    kycLevel?: number
+    mustResetPassword?: boolean
+    lastLoginAt?: Date | string | null
+    twoFactorEnabled?: boolean
+    twoFactorSecret?: string | null
+    activation?: ActivationStatusUncheckedCreateNestedOneWithoutUserInput
+    appointments?: AppointmentUncheckedCreateNestedManyWithoutClientInput
+    cart?: CartUncheckedCreateNestedOneWithoutUserInput
+    clientReviews?: ClientReviewUncheckedCreateNestedManyWithoutClientInput
+    clientWarnings?: ClientWarningUncheckedCreateNestedManyWithoutClientInput
+    commissions?: CommissionUncheckedCreateNestedManyWithoutUserInput
+    events?: EventLogUncheckedCreateNestedManyWithoutUserInput
+    beneficiaries?: FamilyBeneficiaryUncheckedCreateNestedManyWithoutMemberInput
+    fidelity?: FidelityTrackingUncheckedCreateNestedManyWithoutUserInput
+    kyc?: KYCUncheckedCreateNestedOneWithoutUserInput
+    membership?: MembershipUncheckedCreateNestedOneWithoutUserInput
+    providerOrders?: OrderUncheckedCreateNestedManyWithoutProviderInput
+    orders?: OrderUncheckedCreateNestedManyWithoutUserInput
+    pointsLedger?: PointsLedgerUncheckedCreateNestedManyWithoutUserInput
+    products?: ProductUncheckedCreateNestedManyWithoutProviderInput
+    providerProfile?: ProviderProfileUncheckedCreateNestedOneWithoutUserInput
+    providerReviews?: ProviderReviewUncheckedCreateNestedManyWithoutClientInput
+    pushSubscriptions?: PushSubscriptionUncheckedCreateNestedManyWithoutUserInput
+    ranks?: RankUncheckedCreateNestedManyWithoutUserInput
+    seedBonuses?: SeedBonusUncheckedCreateNestedManyWithoutUserInput
+    serviceProvider?: ServiceProviderUncheckedCreateNestedOneWithoutUserInput
+    services?: ServiceUncheckedCreateNestedManyWithoutProviderInput
+    notifications?: SystemNotificationUncheckedCreateNestedManyWithoutUserInput
+    legalAcceptances?: UserLegalAcceptanceUncheckedCreateNestedManyWithoutUserInput
+    referrals?: UserUncheckedCreateNestedManyWithoutSponsorInput
+    wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutAiTicketsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutAiTicketsInput, UserUncheckedCreateWithoutAiTicketsInput>
+  }
+
+  export type UserUpsertWithoutAiTicketsInput = {
+    update: XOR<UserUpdateWithoutAiTicketsInput, UserUncheckedUpdateWithoutAiTicketsInput>
+    create: XOR<UserCreateWithoutAiTicketsInput, UserUncheckedCreateWithoutAiTicketsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutAiTicketsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutAiTicketsInput, UserUncheckedUpdateWithoutAiTicketsInput>
+  }
+
+  export type UserUpdateWithoutAiTicketsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+    affiliateCode?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    kycLevel?: IntFieldUpdateOperationsInput | number
+    mustResetPassword?: BoolFieldUpdateOperationsInput | boolean
+    lastLoginAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    twoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    activation?: ActivationStatusUpdateOneWithoutUserNestedInput
+    appointments?: AppointmentUpdateManyWithoutClientNestedInput
+    cart?: CartUpdateOneWithoutUserNestedInput
+    clientReviews?: ClientReviewUpdateManyWithoutClientNestedInput
+    clientWarnings?: ClientWarningUpdateManyWithoutClientNestedInput
+    commissions?: CommissionUpdateManyWithoutUserNestedInput
+    events?: EventLogUpdateManyWithoutUserNestedInput
+    beneficiaries?: FamilyBeneficiaryUpdateManyWithoutMemberNestedInput
+    fidelity?: FidelityTrackingUpdateManyWithoutUserNestedInput
+    kyc?: KYCUpdateOneWithoutUserNestedInput
+    membership?: MembershipUpdateOneWithoutUserNestedInput
+    providerOrders?: OrderUpdateManyWithoutProviderNestedInput
+    orders?: OrderUpdateManyWithoutUserNestedInput
+    pointsLedger?: PointsLedgerUpdateManyWithoutUserNestedInput
+    products?: ProductUpdateManyWithoutProviderNestedInput
+    providerProfile?: ProviderProfileUpdateOneWithoutUserNestedInput
+    providerReviews?: ProviderReviewUpdateManyWithoutClientNestedInput
+    pushSubscriptions?: PushSubscriptionUpdateManyWithoutUserNestedInput
+    ranks?: RankUpdateManyWithoutUserNestedInput
+    seedBonuses?: SeedBonusUpdateManyWithoutUserNestedInput
+    serviceProvider?: ServiceProviderUpdateOneWithoutUserNestedInput
+    services?: ServiceUpdateManyWithoutProviderNestedInput
+    notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
+    legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    city?: CityUpdateOneWithoutUsersNestedInput
+    sponsor?: UserUpdateOneWithoutReferralsNestedInput
+    referrals?: UserUpdateManyWithoutSponsorNestedInput
+    wallet?: WalletUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutAiTicketsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+    sponsorId?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliateCode?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cityId?: NullableStringFieldUpdateOperationsInput | string | null
+    kycLevel?: IntFieldUpdateOperationsInput | number
+    mustResetPassword?: BoolFieldUpdateOperationsInput | boolean
+    lastLoginAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    twoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    activation?: ActivationStatusUncheckedUpdateOneWithoutUserNestedInput
+    appointments?: AppointmentUncheckedUpdateManyWithoutClientNestedInput
+    cart?: CartUncheckedUpdateOneWithoutUserNestedInput
+    clientReviews?: ClientReviewUncheckedUpdateManyWithoutClientNestedInput
+    clientWarnings?: ClientWarningUncheckedUpdateManyWithoutClientNestedInput
+    commissions?: CommissionUncheckedUpdateManyWithoutUserNestedInput
+    events?: EventLogUncheckedUpdateManyWithoutUserNestedInput
+    beneficiaries?: FamilyBeneficiaryUncheckedUpdateManyWithoutMemberNestedInput
+    fidelity?: FidelityTrackingUncheckedUpdateManyWithoutUserNestedInput
+    kyc?: KYCUncheckedUpdateOneWithoutUserNestedInput
+    membership?: MembershipUncheckedUpdateOneWithoutUserNestedInput
+    providerOrders?: OrderUncheckedUpdateManyWithoutProviderNestedInput
+    orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
+    pointsLedger?: PointsLedgerUncheckedUpdateManyWithoutUserNestedInput
+    products?: ProductUncheckedUpdateManyWithoutProviderNestedInput
+    providerProfile?: ProviderProfileUncheckedUpdateOneWithoutUserNestedInput
+    providerReviews?: ProviderReviewUncheckedUpdateManyWithoutClientNestedInput
+    pushSubscriptions?: PushSubscriptionUncheckedUpdateManyWithoutUserNestedInput
     ranks?: RankUncheckedUpdateManyWithoutUserNestedInput
     seedBonuses?: SeedBonusUncheckedUpdateManyWithoutUserNestedInput
     serviceProvider?: ServiceProviderUncheckedUpdateOneWithoutUserNestedInput
@@ -107856,6 +109665,16 @@ export namespace Prisma {
     documentVersion: string
     acceptedAt?: Date | string
     ipAddress?: string | null
+  }
+
+  export type AITicketCreateManyUserInput = {
+    id?: string
+    sessionId?: string | null
+    prompt: string
+    response: string
+    modelUsed: string
+    status?: $Enums.AITicketStatus
+    createdAt?: Date | string
   }
 
   export type UserCreateManySponsorInput = {
@@ -108742,6 +110561,36 @@ export namespace Prisma {
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type AITicketUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    response?: StringFieldUpdateOperationsInput | string
+    modelUsed?: StringFieldUpdateOperationsInput | string
+    status?: EnumAITicketStatusFieldUpdateOperationsInput | $Enums.AITicketStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AITicketUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    response?: StringFieldUpdateOperationsInput | string
+    modelUsed?: StringFieldUpdateOperationsInput | string
+    status?: EnumAITicketStatusFieldUpdateOperationsInput | $Enums.AITicketStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AITicketUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    response?: StringFieldUpdateOperationsInput | string
+    modelUsed?: StringFieldUpdateOperationsInput | string
+    status?: EnumAITicketStatusFieldUpdateOperationsInput | $Enums.AITicketStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type UserUpdateWithoutSponsorInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -108783,6 +110632,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     city?: CityUpdateOneWithoutUsersNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUpdateOneWithoutUserNestedInput
@@ -108830,6 +110680,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -109867,6 +111718,7 @@ export namespace Prisma {
     services?: ServiceUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUpdateManyWithoutUserNestedInput
     sponsor?: UserUpdateOneWithoutReferralsNestedInput
     referrals?: UserUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUpdateOneWithoutUserNestedInput
@@ -109914,6 +111766,7 @@ export namespace Prisma {
     services?: ServiceUncheckedUpdateManyWithoutProviderNestedInput
     notifications?: SystemNotificationUncheckedUpdateManyWithoutUserNestedInput
     legalAcceptances?: UserLegalAcceptanceUncheckedUpdateManyWithoutUserNestedInput
+    aiTickets?: AITicketUncheckedUpdateManyWithoutUserNestedInput
     referrals?: UserUncheckedUpdateManyWithoutSponsorNestedInput
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -111171,6 +113024,10 @@ export namespace Prisma {
      * @deprecated Use SubscriberDefaultArgs instead
      */
     export type SubscriberArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SubscriberDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use AITicketDefaultArgs instead
+     */
+    export type AITicketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AITicketDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

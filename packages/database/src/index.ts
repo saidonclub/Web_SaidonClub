@@ -47,8 +47,9 @@ export import BipartiteFormStatus = client_v3.BipartiteFormStatus;
 export import InvoiceStatus = client_v3.InvoiceStatus;
 export import VerificationStatus = client_v3.VerificationStatus;
 export import PaymentMethodType = client_v3.PaymentMethodType;
-export import WarningSeverity = client_v3.WarningSeverity;
 export import NotificationType = client_v3.NotificationType;
+export import AITicketStatus = client_v3.AITicketStatus;
+export import PrismaClient = client_v3.PrismaClient;
 
 export { prisma, supabaseAdmin, supabaseAnon, createUserClient };
 
