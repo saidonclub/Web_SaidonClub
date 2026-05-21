@@ -6,33 +6,33 @@ import {
 
 export const SUBNAV_CATEGORIES = [
   // ─── PRODUCTOS (12 Categorías + Botón Especial) ───
-  { label: 'Tecnología', slug: 'tecnologia', type: 'product', icon: <Laptop size={18} /> },
-  { label: 'Hogar', slug: 'hogar', type: 'product', icon: <Home size={18} /> },
-  { label: 'Belleza', slug: 'belleza', type: 'product', icon: <Sparkles size={18} /> },
-  { label: 'Automotriz', slug: 'automotriz', type: 'product', icon: <Car size={18} /> },
-  { label: 'Deportes', slug: 'deportes', type: 'product', icon: <Trophy size={18} /> },
-  { label: 'Gaming', slug: 'gaming', type: 'product', icon: <Gamepad2 size={18} /> },
-  { label: 'Mascotas', slug: 'mascotas', type: 'product', icon: <Dog size={18} /> },
-  { label: 'Moda', slug: 'moda', type: 'product', icon: <Shirt size={18} /> },
-  { label: 'Calzado', slug: 'calzado', type: 'product', icon: <Footprints size={18} /> },
-  { label: 'Juguetería', slug: 'juguetes', type: 'product', icon: <ToyBrick size={18} /> },
-  { label: 'Ferretería', slug: 'ferreteria', type: 'product', icon: <Hammer size={18} /> },
-  { label: 'Papelería', slug: 'papeleria', type: 'product', icon: <BookOpen size={18} /> },
+  { label: 'Tecnología', slug: 'tecnologia', type: 'product', icon: <Laptop size={16} /> },
+  { label: 'Hogar', slug: 'hogar', type: 'product', icon: <Home size={16} /> },
+  { label: 'Belleza', slug: 'belleza', type: 'product', icon: <Sparkles size={16} /> },
+  { label: 'Automotriz', slug: 'automotriz', type: 'product', icon: <Car size={16} /> },
+  { label: 'Deportes', slug: 'deportes', type: 'product', icon: <Trophy size={16} /> },
+  { label: 'Gaming', slug: 'gaming', type: 'product', icon: <Gamepad2 size={16} /> },
+  { label: 'Mascotas', slug: 'mascotas', type: 'product', icon: <Dog size={16} /> },
+  { label: 'Moda', slug: 'moda', type: 'product', icon: <Shirt size={16} /> },
+  { label: 'Calzado', slug: 'calzado', type: 'product', icon: <Footprints size={16} /> },
+  { label: 'Juguetería', slug: 'juguetes', type: 'product', icon: <ToyBrick size={16} /> },
+  { label: 'Ferretería', slug: 'ferreteria', type: 'product', icon: <Hammer size={16} /> },
+  { label: 'Papelería', slug: 'papeleria', type: 'product', icon: <BookOpen size={16} /> },
   { type: 'divider', slug: 'div-1' },
 
   // ─── SERVICIOS (12 Categorías + Botón Especial) ───
-  { label: 'Tech & Dev', slug: 'tech', type: 'service', icon: <Code size={18} /> },
-  { label: 'Marketing', slug: 'marketing', type: 'service', icon: <Megaphone size={18} /> },
-  { label: 'Salud', slug: 'salud', type: 'service', icon: <Stethoscope size={18} /> },
-  { label: 'Legal', slug: 'legal', type: 'service', icon: <Scale size={18} /> },
-  { label: 'Consultoría', slug: 'consultoria', type: 'service', icon: <Briefcase size={18} /> },
-  { label: 'Educación', slug: 'educacion', type: 'service', icon: <GraduationCap size={18} /> },
-  { label: 'Reparaciones', slug: 'reparaciones', type: 'service', icon: <Wrench size={18} /> },
-  { label: 'Logística', slug: 'logistica', type: 'service', icon: <Truck size={18} /> },
-  { label: 'Diseño', slug: 'diseno', type: 'service', icon: <Palette size={18} /> },
-  { label: 'Construcción', slug: 'construccion', type: 'service', icon: <Hammer size={18} /> },
-  { label: 'Inmobiliaria', slug: 'inmobiliaria', type: 'service', icon: <MapPin size={18} /> },
-  { label: 'Eventos', slug: 'eventos', type: 'service', icon: <Trophy size={18} /> }
+  { label: 'Tech & Dev', slug: 'tech', type: 'service', icon: <Code size={16} /> },
+  { label: 'Marketing', slug: 'marketing', type: 'service', icon: <Megaphone size={16} /> },
+  { label: 'Salud', slug: 'salud', type: 'service', icon: <Stethoscope size={16} /> },
+  { label: 'Legal', slug: 'legal', type: 'service', icon: <Scale size={16} /> },
+  { label: 'Consultoría', slug: 'consultoria', type: 'service', icon: <Briefcase size={16} /> },
+  { label: 'Educación', slug: 'educacion', type: 'service', icon: <GraduationCap size={16} /> },
+  { label: 'Reparaciones', slug: 'reparaciones', type: 'service', icon: <Wrench size={16} /> },
+  { label: 'Logística', slug: 'logistica', type: 'service', icon: <Truck size={16} /> },
+  { label: 'Diseño', slug: 'diseno', type: 'service', icon: <Palette size={16} /> },
+  { label: 'Construcción', slug: 'construccion', type: 'service', icon: <Hammer size={16} /> },
+  { label: 'Inmobiliaria', slug: 'inmobiliaria', type: 'service', icon: <MapPin size={16} /> },
+  { label: 'Eventos', slug: 'eventos', type: 'service', icon: <Trophy size={16} /> }
 ];
 
 export const TOP_NAV_DATA = [

@@ -3,6 +3,7 @@ import styles from "./Servicios.module.css";
 import { prisma } from "@/lib/prisma";
 import { Prisma } from "@saidonclub/database";
 import { cookies } from "next/headers";
+import SectionHeader from "@/components/shared/SectionHeader";
 import ServiceFilterSidebar from "@/components/marketplace/ServiceFilterSidebar";
 import ServiceTopBar from "@/components/marketplace/ServiceTopBar";
 import ServiceList from "@/components/marketplace/ServiceList";
@@ -262,12 +263,12 @@ export default async function ServiciosPage({
 
         <section className={styles.content}>
           <div className={styles.contentHeader}>
-            <div className={styles.categoryTitle}>
+            <SectionHeader className={styles.categoryTitle}>
               <span className={styles.categoryIcon}>
                 <TrendingUp size={20} />
               </span>
               <h2>{categoryLabel}</h2>
-            </div>
+            </SectionHeader>
             <ServiceTopBar />
           </div>
 

@@ -10,7 +10,12 @@ const Preloader: React.FC = () => {
 
   useEffect(() => {
     // Check if it's the first time in this session to avoid annoyance
-    const hasSeenIntro = sessionStorage.getItem('saidon_intro_seen');
+    let hasSeenIntro = false;
+    try {
+      hasSeenIntro = !!sessionStorage.getItem('saidon_intro_seen');
+    } catch (e) {
+      console.warn("Storage access blocked in Preloader:", e);
+    }
 
     if (hasSeenIntro) {
       setLoading(false);
@@ -23,7 +28,11 @@ const Preloader: React.FC = () => {
     // 4.5s: Start exit transition
     const timer = setTimeout(() => {
       setLoading(false);
-      sessionStorage.setItem('saidon_intro_seen', 'true');
+      try {
+        sessionStorage.setItem('saidon_intro_seen', 'true');
+      } catch (e) {
+        console.warn("Storage write blocked in Preloader:", e);
+      }
     }, 5000);
 
     return () => clearTimeout(timer);

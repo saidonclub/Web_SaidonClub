@@ -16,6 +16,7 @@ import {
   BellOff,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Settings.module.css";
 
 interface TwoFactorStatus {
@@ -337,12 +338,12 @@ export default function SecuritySettingsClient() {
                     (Google Authenticator, Authy, etc.)
                   </p>
                   {qrCode && (
-                    <img
+                    <Image
                       src={qrCode}
                       alt="QR Code"
+                      width={200}
+                      height={200}
                       style={{
-                        width: "200px",
-                        height: "200px",
                         borderRadius: "12px",
                         border: "2px solid #e0e0e0",
                       }}

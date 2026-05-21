@@ -3,6 +3,7 @@ import { createClient } from '@/utils/supabase/server';
 import { redirect, notFound } from 'next/navigation';
 import { getOrderDetails } from '@/lib/data';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   ChevronLeft, 
   Package, 
@@ -106,7 +107,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
                   <div className={styles.itemImage}>
                     {item.product?.images[0] ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={item.product.images[0]} alt={item.product.name} />
+                      <Image src={item.product.images[0]} alt={item.product.name} width={64} height={64} style={{ objectFit: 'cover' }} />
                     ) : (
                       <Package size={32} color="var(--clr-border-glass)" />
                     )}

@@ -6,6 +6,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import CartReminder from '@/components/marketplace/CartReminder';
 import Preloader from '@/components/common/Preloader';
+import ScrollToTop from '@/components/common/ScrollToTop';
 import { CartProvider } from '@/context/CartContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { LocaleProvider } from '@/context/LocaleContext';
@@ -74,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${inter.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${inter.variable}`} data-theme="light" suppressHydrationWarning>
       <body style={{ margin: 0 }}>
         <script
           type="application/ld+json"
@@ -94,6 +95,7 @@ export default function RootLayout({
                       </main>
                       <CartReminder />
                       <MayChat />
+                      <ScrollToTop />
                     </CompareProvider>
                     <Footer />
                   </ConfirmProvider>

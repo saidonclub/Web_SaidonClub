@@ -8,7 +8,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { X, ShoppingCart, Star, CheckCircle, XCircle, AlertTriangle } from "lucide-react";
+import { X, ShoppingCart, Star, CheckCircle, XCircle } from "lucide-react";
 import { useCompareContext } from "@/contexts/CompareContext";
 import { calculateDiscount } from "@/lib/data/marketplace";
 import CompareSelector from "./CompareSelector";

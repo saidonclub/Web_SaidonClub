@@ -24,6 +24,7 @@ import styles from "./Calendar.module.css";
 interface CalendarProps {
   appointments?: Appointment[];
   onDateSelect?: (date: Date) => void;
+  onDateClick?: (date: Date) => void;
   onAccept?: (id: string) => void;
   onReject?: (id: string) => void;
   view?: "month" | "week" | "day";

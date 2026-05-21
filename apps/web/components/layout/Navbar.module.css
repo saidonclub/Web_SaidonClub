@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10000; /* Supreme level to be above all section content */
+  z-index: var(--z-navbar);
   transition: all var(--transition);
   background: var(--clr-bg-glass);
   backdrop-filter: blur(16px);
@@ -37,18 +37,29 @@
 
 /* ── Top Bar ── */
 .topBar {
-  background: var(--clr-nav-top);
-  background-image: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.15) 100%);
-  padding: var(--space-1) 0;
-  font-size: clamp(0.65rem, 0.8vw, 0.75rem);
-  font-weight: 600;
-  color: var(--clr-text-muted);
-  border-bottom: 1px solid var(--clr-border);
+  background: var(--clr-topbar-bg);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.15) 100%);
+  padding: 5px 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--clr-topbar-text);
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  position: relative;
+  letter-spacing: 0.01em;
+}
+
+/* Force all text/icons inside TopBar to inherit topbar text color */
+.topBar a,
+.topBar span,
+.topBar svg {
+  color: var(--clr-topbar-text) !important;
+  fill: none;
+  stroke: var(--clr-topbar-text);
 }
 
 @media (max-width: 768px) {
   .topBar {
-    display: none; /* Erradicar ruido visual en móvil */
+    display: none;
   }
 }
 
@@ -59,23 +70,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
 }
 
 .topLinks {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: 2px;
 }
 
 .topLinkItem {
-  padding: 0 var(--space-1);
-  min-height: 32px;
+  padding: 4px 10px;
+  min-height: 28px;
   border-radius: var(--radius-sm);
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  gap: var(--space-05);
+  gap: 4px;
   cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--clr-topbar-text) !important;
+  text-decoration: none;
+  border: 1px solid transparent;
 }
 
 .topLinkWrap {
@@ -100,6 +118,17 @@
   margin-top: 6px;
 }
 
+/* Puente invisible para evitar perder el hover al pasar el ratón */
+.topDropdown::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: transparent;
+}
+
 .topDropdownScrollable {
   max-height: 250px;
   overflow-y: auto;
@@ -112,7 +141,7 @@
   padding: 6px 12px;
   border-radius: var(--radius-sm);
   color: var(--clr-text-secondary);
-  font-size: 0.65rem; /* Very compact */
+  font-size: 0.65rem;
   line-height: 1.1;
   font-weight: 600;
   transition: all 0.2s;
@@ -126,64 +155,121 @@
 
 /* ── Tooltips handled in globals.css ── */
 
+/* Dark mode hover: white text on slightly darker red */
 .topLinkItem:hover {
-  background: var(--clr-bg-hover);
-  color: var(--clr-text-primary);
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255,255,255,0.2);
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
 }
 
-/* Top Actions (Login & Register) - Transparent, close together, dotted divider */
+/* Top Actions — Login & Register as styled pill buttons */
 .topActions {
   display: flex;
   align-items: center;
-  gap: var(--space-05);
+  gap: 6px;
 }
 
-.topLogin, .topRegister {
+/* DARK MODE buttons: white outline style on red */
+.topLogin {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
-  font-size: 0.75rem;
-  font-weight: 700;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 6px 12px;
-  background: transparent !important;
-  border: none !important;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  background: rgba(255,255,255,0.15) !important;
+  border: 1px solid rgba(255,255,255,0.5) !important;
+  border-radius: var(--radius-full);
+  transition: all 0.25s ease;
   text-decoration: none;
-  color: var(--clr-text-muted);
-  position: relative;
+  color: #FFFFFF !important;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-/* REACTIVE TEXT COLORS for TopBar buttons */
+.topRegister {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 14px;
+  background: #FFFFFF !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--radius-full);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: var(--clr-topbar-bg) !important;  /* Dynamic text on white pill */
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
 .topLogin:hover {
-  color: var(--clr-orange); /* Orange reactive color */
+  background: rgba(255,255,255,0.28) !important;
+  border-color: rgba(255,255,255,0.8) !important;
+  color: #FFFFFF !important;
   transform: translateY(-1px);
-  text-shadow: 0 0 15px var(--clr-orange-glow);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .topRegister:hover {
-  color: var(--clr-mlm-light); /* Violet reactive color */
+  background: rgba(255,255,255,0.92) !important;
   transform: translateY(-1px);
-  text-shadow: 0 0 15px var(--clr-mlm-glow);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
-
 
 .topDivider {
   width: 1px;
-  height: 12px;
-  border-left: 1px dotted var(--clr-text-muted);
-  opacity: 0.5;
+  height: 14px;
+  background: rgba(255,255,255,0.35);
   margin: 0 2px;
 }
 
 /* ── Main Nav ── */
 .mainNav {
-  padding: 2px 0; /* Ultra tight main nav */
+  padding: 4px 0;
   border-bottom: 1px solid var(--clr-border-subtle);
   display: flex;
   align-items: center;
+  position: relative;
+  /* overflow: hidden; removed to allow tooltips to show */
+  /* Premium dark-mode watermark: fades to black on the left (logo zone) */
+}
+
+/* Marca de Agua Principal: degradado suave de derecha a izquierda */
+.mainNav::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 60%;
+  background:
+    radial-gradient(ellipse at 90% 50%, rgba(255,107,0,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse at 70% 50%, rgba(99,102,241,0.05) 0%, transparent 55%);
+  mask-image: linear-gradient(to left, black 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dot-grid texture fading to edge */
+.mainNav::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 30%;
+  background-image: radial-gradient(rgba(255,107,0,0.18) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.35;
+  mask-image: linear-gradient(to left, black, transparent 90%);
+  -webkit-mask-image: linear-gradient(to left, black, transparent 90%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .navInner {
@@ -196,6 +282,8 @@
   justify-content: space-between;
   gap: var(--space-1);
   overflow: visible; /* Importante para dropdowns */
+  position: relative;
+  z-index: 1; /* Por encima de las marcas de agua */
 }
 
 .hamburger {
@@ -353,6 +441,14 @@
   gap: var(--space-1);
 }
 
+/* Tooltip container: must be overflow:visible for tooltip not to be clipped */
+.tooltipContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
 .themeToggleBtn {
   width: 44px;
   height: 44px;
@@ -446,16 +542,11 @@
 
 .cartBtn:hover {
   transform: scale(1.1);
-  animation: happyCart 0.6s ease-in-out infinite;
   box-shadow: 0 6px 18px var(--clr-product-glow);
 }
 
-@keyframes happyCart {
-  0%, 100% { transform: rotate(0) scale(1.1); }
-  25% { transform: rotate(15deg) scale(1.15); }
-  50% { transform: rotate(-15deg) scale(1.15); }
-  75% { transform: rotate(10deg) scale(1.1); }
-}
+/* CORREGIDO: Animación infinita removida - causaba fatiga visual */
+/* El hover ahora solo escala suavemente sin rotación continua */
 
 .cartBadge {
   position: absolute;
@@ -483,20 +574,20 @@
 }
 
 .btnPrimary {
-  background: linear-gradient(135deg, var(--clr-mlm), var(--clr-mlm-light));
+  background: var(--clr-orange); /* Orange background */
   color: #fff !important;
-  padding: 0 clamp(12px, 1.5vw, 24px);
+  padding: 0 clamp(16px, 2vw, 32px);
   height: var(--space-5);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm); /* More rectangular */
   font-weight: 800;
-  font-size: clamp(0.65rem, 0.8vw, 0.75rem);
+  font-size: clamp(0.7rem, 0.9vw, 0.8rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px var(--clr-mlm-glow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px var(--clr-orange-glow);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
   flex-shrink: 1; /* for auto-ajuste */
@@ -522,7 +613,7 @@
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.4),
     transparent
   );
   transition: all 0.6s;
@@ -534,8 +625,10 @@
 
 .btnPrimary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--clr-mlm-glow);
-  filter: brightness(1.15);
+  box-shadow: 0 8px 20px var(--clr-orange-glow);
+  background: #fff !important;
+  color: var(--clr-orange) !important;
+  border-color: var(--clr-orange);
 }
 
 /* ── Mobile Optimization: 2-Row Grid Layout ── */
@@ -600,9 +693,9 @@
   }
 
   .logoImage {
-    height: clamp(38px, 10vw, 52px); /* Restored to a better size as requested */
+    height: clamp(32px, 8vw, 44px); /* Ajustado para prevenir que rompa el layout en móviles muy pequeños */
     width: auto;
-    max-width: 160px;
+    max-width: 140px;
     object-fit: contain;
     filter: none;
   }
@@ -666,14 +759,14 @@
   }
 
   .btnPrimary {
-    padding: 0 8px;
-    height: 28px; /* Increased from 20px for better touch target */
-    font-size: clamp(0.6rem, 2vw, 0.7rem); /* Readable but still compact */
+    padding: 0 12px;
+    height: 32px;
+    font-size: 0.75rem;
     min-width: unset;
     border-radius: var(--radius-sm);
     flex-shrink: 0;
     white-space: nowrap;
-    background: var(--clr-mlm) !important;
+    background: var(--clr-orange) !important;
     letter-spacing: 0.02em;
     line-height: 1;
     overflow: hidden; /* FIX: Prevents ::before from creating a transparent intercept strip */
@@ -699,15 +792,19 @@
     gap: 4px;
   }
 
+  /* CORREGIDO: Touch targets aumentados a 44px mínimo (WCAG) */
   .themeToggleBtn, .cartBtn {
-    width: 30px;
-    height: 30px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .btnPrimary {
-    padding: 0 6px;
-    height: 26px;
-    font-size: 0.58rem;
+    padding: 0 8px;
+    height: 44px;
+    min-height: 44px;
+    font-size: 0.7rem;
   }
 }
 /* SubNav — Mobile: Optimized Rows to prevent overlap */
@@ -736,10 +833,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
-    justify-content: center; /* Center to look professional */
+    gap: 6px;
+    justify-content: flex-start; 
     min-width: 0;
-    overflow: visible;
+    /* overflow removed to prevent cutting off tooltips or dropdowns */
     flex: 0 0 auto;
   }
   .subGroup:last-child {
@@ -749,36 +846,36 @@
   .subGroupItems {
     display: flex;
     flex-direction: row;
-    gap: 2px; /* Reduced gap to fit more buttons and prevent overlap */
+    gap: 4px; /* Increased slightly for touch targets */
     flex: 1;
-    justify-content: flex-start; /* Changed from space-between to allow natural scroll */
+    justify-content: flex-start;
     min-width: 0;
     flex-wrap: nowrap;
-    overflow-x: auto; /* Enable horizontal scrolling to prevent blowout */
-    scrollbar-width: none; /* Hide scrollbar Firefox */
+    overflow-x: auto;
+    scrollbar-width: none;
     padding: 0;
     align-items: center;
-    -webkit-overflow-scrolling: touch; /* Smooth scroll */
+    -webkit-overflow-scrolling: touch;
   }
   .subGroupItems::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
+    display: none;
   }
   .subGroupLabel {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2px 6px;
-    font-size: 8px; /* Increased from 5px for legibility */
+    padding: 4px 8px;
+    font-size: 10px; /* Increased for better legibility */
     flex: 0 0 auto;
     white-space: nowrap;
     border-radius: var(--radius-xs);
-    font-weight: 900;
+    font-weight: 800;
     color: var(--clr-orange);
     text-transform: uppercase;
     background: rgba(255, 107, 0, 0.1);
   }
   .subNavItemWrapper {
-    flex: 0 0 auto; /* Prevent overlapping */
+    flex: 0 0 auto;
     display: flex;
     justify-content: center;
     min-width: 0;
@@ -985,4 +1082,136 @@
 .searchBtn:focus-visible {
   outline: 2px solid var(--clr-orange);
   outline-offset: 2px;
+}
+
+/* ── Light Mode Overrides ── */
+:global(html[data-theme="light"]) .navbar {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom-color: #E5E7EB;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(255, 87, 34, 0.04), transparent 30%),
+    radial-gradient(circle at 85% 50%, rgba(37, 99, 235, 0.03), transparent 30%);
+}
+
+:global(html[data-theme="light"]) .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Light Mode TopBar: Orange background — dark elements for maximum contrast */
+:global(html[data-theme="light"]) .topBar {
+  background: var(--clr-orange) !important;
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(0,0,0,0.08) 100%) !important;
+  border-bottom: 2px solid rgba(0,0,0,0.18) !important;
+}
+
+/* Only force the ticker/span text to black — NOT the buttons */
+:global(html[data-theme="light"]) .topBar .topLinks a,
+:global(html[data-theme="light"]) .topBar .topLinks span,
+:global(html[data-theme="light"]) .topBar .topLinks svg {
+  color: #1A0A00 !important;
+  stroke: #1A0A00;
+}
+
+/* Nav link hover: dark bg with dark text on orange */
+:global(html[data-theme="light"]) .topLinkItem {
+  color: #1A0A00 !important;
+  border-color: transparent;
+}
+:global(html[data-theme="light"]) .topLinkItem:hover {
+  background: rgba(0, 0, 0, 0.12) !important;
+  border-color: rgba(0,0,0,0.2) !important;
+  color: #000000 !important;
+  text-shadow: none;
+}
+
+/* LOGIN button in light mode: dark outline pill on orange */
+:global(html[data-theme="light"]) .topLogin {
+  background: rgba(0,0,0,0.1) !important;
+  border: 1px solid rgba(0,0,0,0.35) !important;
+  color: #000000 !important;
+  border-radius: var(--radius-full);
+}
+:global(html[data-theme="light"]) .topLogin:hover {
+  background: rgba(0,0,0,0.22) !important;
+  border-color: rgba(0,0,0,0.6) !important;
+  color: #000000 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* REGISTER button in light mode: solid black pill with white text */
+:global(html[data-theme="light"]) .topRegister {
+  background: #000000 !important;
+  border: 1px solid transparent !important;
+  color: #FFFFFF !important;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+:global(html[data-theme="light"]) .topRegister:hover {
+  background: #1A1A1A !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+
+/* Divider adapts to orange background */
+:global(html[data-theme="light"]) .topDivider {
+  background: rgba(0,0,0,0.3);
+}
+
+:global(html[data-theme="light"]) .topDropdown {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: #E5E7EB;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+:global(html[data-theme="light"]) .topDropdownItem:hover {
+  background: rgba(255, 87, 34, 0.06);
+}
+
+:global(html[data-theme="light"]) .searchBar {
+  background: #F9FAFB;
+  border-color: #D1D5DB;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+:global(html[data-theme="light"]) .searchBar:focus-within {
+  background: #FFFFFF;
+  border-color: #FF5722;
+  box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.12);
+}
+
+/* Fix: searchBtn hover was using var(--clr-obsidian-950) which is near-black */
+:global(html[data-theme="light"]) .searchBtn:hover,
+:global(html[data-theme="light"]) .searchBtnMobile:hover {
+  background: #E64A19;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 87, 34, 0.35);
+  filter: none;
+}
+
+/* Light mode subNav: orange accent line at bottom */
+:global(html[data-theme="light"]) .subNav {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 3px solid var(--clr-orange) !important;
+}
+
+/* Dark mode subNav: red accent line at bottom */
+:global(html[data-theme="dark"]) .subNav,
+.subNav {
+  border-bottom: 3px solid #CC0000;
+}
+
+:global(html[data-theme="light"]) .subGroup:last-child {
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Watermark for Light Mode mainNav: fades from white on left to subtle warm tones on right */
+:global(html[data-theme="light"]) .mainNav::before {
+  background:
+    radial-gradient(ellipse at 90% 50%, rgba(255,87,34,0.06) 0%, transparent 65%),
+    radial-gradient(ellipse at 70% 50%, rgba(0,0,0,0.02) 0%, transparent 55%);
+}
+:global(html[data-theme="light"]) .mainNav::after {
+  background-image: radial-gradient(rgba(255,87,34,0.12) 1px, transparent 1px);
+  opacity: 0.25;
 }

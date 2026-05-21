@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getMessageForDay, getAllMessages } from "@/lib/services/whatsapp";
+import { getUser } from "@/lib/auth/core";
 
 const MESSAGE_STORAGE: Map<
   number,
@@ -8,6 +9,11 @@ const MESSAGE_STORAGE: Map<
 
 export async function GET() {
   try {
+    const user = await getUser();
+    if (!user || (user.role !== "ADMIN" && user.role !== "SUPER_ADMIN")) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const messages = getAllMessages();
 
     const configuredMessages = messages.map((msg) => {
@@ -31,6 +37,11 @@ export async function GET() {
 
 export async function PUT(request: Request) {
   try {
+    const user = await getUser();
+    if (!user || (user.role !== "ADMIN" && user.role !== "SUPER_ADMIN")) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const body = await request.json();
     const { day, enabled, customMessage } = body;
 

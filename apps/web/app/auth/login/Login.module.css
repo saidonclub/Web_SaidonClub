@@ -226,8 +226,8 @@
 
 /* ── Submit Button ── */
 .submitBtn {
-  background: linear-gradient(135deg, var(--clr-orange) 0%, #e65c00 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--clr-orange) 0%, var(--clr-orange-dark, #e65c00) 100%);
+  color: var(--clr-text-on-brand);
   border: none;
   border-radius: var(--radius-md);
   padding: 14px;

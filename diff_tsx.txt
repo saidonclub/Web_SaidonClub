@@ -1,0 +1,113 @@
+diff --git a/apps/web/components/home/ValueProposition.tsx b/apps/web/components/home/ValueProposition.tsx
+index 347a553..6e1ed85 100644
+--- a/apps/web/components/home/ValueProposition.tsx
++++ b/apps/web/components/home/ValueProposition.tsx
+@@ -5,6 +5,7 @@
+ "use client";
+ 
+ import styles from "./ValueProposition.module.css";
++import Image from "next/image";
+ import Link from "next/link";
+ import { ShieldCheck, Zap, Users, BarChart3, ChevronRight } from "lucide-react";
+ 
+@@ -32,17 +33,22 @@ const POINTS = [
+ ];
+ 
+ const VISUAL_STATS = [
+-  { value: "+124%", label: "Crecimiento Anual", color: "#FF6B00" },
++  { value: "+124%", label: "Crecimiento Anual", color: "#FF6600" },
+   { value: "5,000+", label: "Miembros Activos", color: "#22c55e" },
+-  { value: "$2M+", label: "Ahorros Generados", color: "#9333EA" },
++  { value: "$2M+", label: "Ahorros Generados", color: "#a855f7" },
+ ];
+ 
+ const CAROUSEL_IMAGES = [
+-  "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=800&auto=format&fit=crop", // Latina professional
+-  "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=800&auto=format&fit=crop", // Latin American group
+-  "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop", // Hispanic woman working
+-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop", // Team collaboration
+-  "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop"  // Hispanic male professional
++  "/images/carousel/carousel_ecuadorian_farmer_1779202686228.png",
++  "/images/carousel/carousel_ecuadorian_fisherman_1779202726336.png",
++  "/images/carousel/carousel_ecuadorian_weaver_1779202775574.png",
++  "/images/carousel/carousel_ecuadorian_entrepreneurs_1779202843906.png",
++  "/images/carousel/carousel_ecuadorian_coffee_harvester_1779202858351.png",
++  "/images/carousel/carousel_ecuadorian_biologist_1779202914686.png",
++  "/images/carousel/ecuadorian_entrepreneurs_network_1778816355719.png",
++  "/images/carousel/ecuadorian_collaborative_economy_1778816287497.png",
++  "/images/carousel/ecuadorian_premium_marketplace_1778816449683.png",
++  "/images/carousel/ecuadorian_delivery.png"
+ ];
+ 
+ export default function ValueProposition() {
+@@ -50,41 +56,25 @@ export default function ValueProposition() {
+     <section className={styles.section}>
+       <div className={styles.inner}>
+ 
+-        {/* Visual Side */}
++        {/* Visual Side — Clean, Cinematic Carousel of Ecuadorian Workers */}
+         <div className={styles.visualSide}>
+           <div className={styles.imageCard}>
+             <div className={styles.carouselWrapper}>
+               <div className={styles.carouselImages}>
+                 {CAROUSEL_IMAGES.map((src, i) => (
+-                  <img key={i} src={src} alt="Comunidad SaidonClub" className={styles.carouselImage} />
++                  <Image
++                    key={i}
++                    src={src}
++                    alt="Gente Ecuatoriana Trabajando"
++                    fill
++                    sizes="(max-width: 768px) 100vw, 50vw"
++                    className={styles.carouselImage}
++                    priority={i === 0}
++                  />
+                 ))}
+               </div>
+-
+-              {/* Stats floating over the carousel overlay */}
+-              <div className={styles.carouselOverlay}>
+-                <div className={styles.visualStats}>
+-                  {VISUAL_STATS.map((s, i) => (
+-                    <div key={i} className={styles.visualStat} style={{ "--stat-color": s.color } as React.CSSProperties}>
+-                      <span className={styles.visualStatValue}>{s.value}</span>
+-                      <span className={styles.visualStatLabel}>{s.label}</span>
+-                    </div>
+-                  ))}
+-                </div>
+-
+-                {/* Central icon */}
+-                <div className={styles.centralIcon}>
+-                  <span>🏆</span>
+-                </div>
+-              </div>
+-            </div>
+-
+-            {/* Floating badge */}
+-            <div className={styles.floatingBadge}>
+-              <span className={styles.badgeIcon}>📈</span>
+-              <div>
+-                <div className={styles.badgeValue}>+124%</div>
+-                <div className={styles.badgeLabel}>Crecimiento Anual</div>
+-              </div>
++              {/* Subtle vignette overlay for depth without blocking the central characters */}
++              <div className={styles.carouselOverlay}></div>
+             </div>
+           </div>
+         </div>
+@@ -100,6 +90,16 @@ export default function ValueProposition() {
+             En SaidonClub no solo compras o vendes; eres parte de un ecosistema de crecimiento colaborativo que premia la lealtad y la comunidad.
+           </p>
+ 
++          {/* Premium Horizontal Stats Row */}
++          <div className={styles.statsRow}>
++            {VISUAL_STATS.map((s, i) => (
++              <div key={i} className={styles.statItem}>
++                <span className={styles.statValue} style={{ color: s.color }}>{s.value}</span>
++                <span className={styles.statLabel}>{s.label}</span>
++              </div>
++            ))}
++          </div>
++
+           <div className={styles.grid}>
+             {POINTS.map((p, i) => (
+               <div key={i} className={styles.point}>

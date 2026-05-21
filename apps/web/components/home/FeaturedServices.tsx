@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import styles from "./FeaturedProducts.module.css";
+import styles from "./FeaturedServices.module.css";
 import ServiceCard, { Service } from "../marketplace/ServiceCard";
 
 // ── Swiper dynamic import (avoids SSR issues) ──────────────

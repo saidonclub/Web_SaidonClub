@@ -12,6 +12,7 @@ import { StatCard } from "@/components/admin/StatCard";
 import { StatusBadge } from "@/components/admin/StatusBadge";
 import { Briefcase, Plus } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../products/products.module.css";
 
 export default async function ProviderServicesPage() {
@@ -103,7 +104,7 @@ export default async function ProviderServicesPage() {
                         <div className={styles.productCell}>
                           <div className={styles.productImage}>
                             {s.images?.[0] ? (
-                              <img src={s.images[0]} alt={s.name} />
+                              <Image src={s.images[0]} alt={s.name} width={40} height={40} style={{ objectFit: "cover" }} />
                             ) : (
                               <Briefcase size={20} />
                             )}

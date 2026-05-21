@@ -12,10 +12,12 @@ import {
   Heart,
 } from "lucide-react";
 import styles from "./ProductDetail.module.css";
+import SectionHeader from "@/components/shared/SectionHeader";
 import AddToCartButton from "@/components/marketplace/AddToCartButton";
 import { getUser } from "@/lib/auth/core";
 import ProductGallery from "./ProductGallery";
 import type { Metadata } from "next";
+import ProductDetailInteractive from "./ProductDetailInteractive";
 
 async function getProduct(slug: string) {
   const p = await prisma.product.findUnique({
@@ -183,7 +185,7 @@ export default async function ProductDetailPage({
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} section-bg-products`} data-section="products">
       <HeroBanner 
         title={product.name}
         categoryName={product.category?.name}
@@ -226,132 +228,17 @@ export default async function ProductDetailPage({
           />
 
           {/* Info Section */}
-          <div className={styles.infoSection}>
-            <span className={styles.categoryLabel}>
-              {product.category.name}
-            </span>
-            <h1 className={styles.productName}>{product.name}</h1>
-
-            <div className={styles.ratingRow}>
-              <div className={styles.stars}>
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={s} size={16} fill="currentColor" />
-                ))}
-              </div>
-              <span className={styles.ratingValue}>4.9 (124 reseñas)</span>
-              <span className={styles.stockLabel}>
-                • En Stock ({product.stock} unidades)
-              </span>
-            </div>
-
-            <div className={styles.priceContainer}>
-              <div className={styles.priceMain}>
-                <span className={styles.saidonLabel}>Precio Socio Saidon</span>
-                <div className={styles.saidonPrice}>
-                  $
-                  {Number(product.priceSaidon).toLocaleString("en-US", {
-                    minimumFractionDigits: 2,
-                  })}
-                </div>
-              </div>
-              <div className={styles.pricePvp}>
-                <span className={styles.pvpLabel}>Precio Público</span>
-                <span className={styles.pvpValue}>
-                  $
-                  {Number(product.pricePVP).toLocaleString("en-US", {
-                    minimumFractionDigits: 2,
-                  })}
-                </span>
-              </div>
-            </div>
-
-            <div className={styles.benefitsRow}>
-              <div className={styles.benefitItem}>
-                <Gift className={styles.benefitIcon} size={20} />
-                <div>
-                  <span className={styles.benefitValue}>
-                    +{Number(product.pointsEarned)} pts
-                  </span>
-                  <span className={styles.benefitLabel}>Puntos de Estatus</span>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.actionSection}>
-              <AddToCartButton
-                productId={product.id}
-                options={product.options as never}
-                className={styles.fullWidthBtn}
-                relatedProducts={relatedProducts}
-              />
-              
-              {!isLoggedIn && (
-                <div className={styles.authCta}>
-                  <Heart size={14} />
-                  <span>
-                    <Link href="/auth/login" className={styles.authLink}>Inicia sesión</Link>
-                    {' '}para guardar favoritos y ganar SaidonPuntos.
-                  </span>
-                </div>
-              )}
-
-              <p className={styles.securePrompt}>
-                <ShieldCheck size={16} />
-                Compra Protegida por SaidonClub
-              </p>
-            </div>
-
-            <div className={styles.features}>
-              <div className={styles.featureItem}>
-                <Truck size={20} />
-                <div>
-                  <strong>Envío Prioritario</strong>
-                  <p>Recibe en 24-48 horas hábiles</p>
-                </div>
-              </div>
-              <div className={styles.featureItem}>
-                <RefreshCcw size={20} />
-                <div>
-                  <strong>Garantía de Satisfacción</strong>
-                  <p>30 días de devolución asegurada</p>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.descriptionBox}>
-              <h3>Descripción del Producto</h3>
-              <p>{product.description}</p>
-            </div>
-
-            {product.provider && (
-              <div className={styles.providerInfo}>
-                <span className={styles.providerLabel}>Vendido por:</span>
-                <div className={styles.providerCard}>
-                  <div className={styles.providerAvatar}>
-                    {product.provider.avatar ? (
-                      <Image
-                        src={product.provider.avatar}
-                        alt={product.provider.name || ""}
-                        width={32}
-                        height={32}
-                      />
-                    ) : (
-                      <span>{product.provider.name?.[0] || "S"}</span>
-                    )}
-                  </div>
-                  <strong>
-                    {product.provider.name || "Proveedor Oficial"}
-                  </strong>
-                </div>
-              </div>
-            )}
-          </div>
+          <ProductDetailInteractive
+            product={product}
+            relatedProducts={relatedProducts}
+            isLoggedIn={isLoggedIn}
+          />
         </div>
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (
           <section className={styles.relatedSection}>
-            <h2 className={styles.sectionTitle}>También te puede interesar</h2>
+            <SectionHeader className={styles.sectionTitle}>También te puede interesar</SectionHeader>
             <div className={styles.relatedGrid}>
               {relatedProducts.map((p) => (
                 <Link

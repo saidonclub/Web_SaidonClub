@@ -14,11 +14,17 @@ export interface CartItem {
   name: string;
   price: number;
   quantity: number;
+  options?: Record<string, string>;
+}
+
+function itemKey(id: string, options?: Record<string, string>): string {
+  if (!options || Object.keys(options).length === 0) return id;
+  return `${id}::${JSON.stringify(options)}`;
 }
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: Omit<CartItem, "quantity">) => void;
+  addToCart: (item: Omit<CartItem, "quantity"> & { quantity?: number }) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
   totalItems: number;
@@ -68,15 +74,21 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   }, [cart]);
 
-  const addToCart = (item: Omit<CartItem, "quantity">) => {
+  const addToCart = (item: Omit<CartItem, "quantity"> & { quantity?: number }) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((i) => i.id === item.id);
-      if (existingItem) {
-        return prevCart.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i,
-        );
+      const key = itemKey(item.id, item.options);
+      const existingIndex = prevCart.findIndex(
+        (i) => itemKey(i.id, i.options) === key
+      );
+      if (existingIndex >= 0) {
+        const updated = [...prevCart];
+        updated[existingIndex] = {
+          ...updated[existingIndex],
+          quantity: updated[existingIndex].quantity + (item.quantity || 1),
+        };
+        return updated;
       }
-      return [...prevCart, { ...item, quantity: 1 }];
+      return [...prevCart, { ...item, quantity: item.quantity || 1 }];
     });
     // Si estuviéramos logueados, el server action ya se encargó del DB.
     // Aquí solo refrescamos el count visual.

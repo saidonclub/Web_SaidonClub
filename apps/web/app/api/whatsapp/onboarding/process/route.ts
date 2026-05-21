@@ -1,12 +1,38 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getMessageForDay } from "@/lib/services/whatsapp";
+import { getUser } from "@/lib/auth/core";
 
 const ONBOARDING_LOG: Map<string, { day: number; sentAt: string }[]> =
   new Map();
 
+async function checkAuthorization(request: Request): Promise<boolean> {
+  const authHeader = request.headers.get("authorization");
+  const expectedSecret = process.env.CRON_SECRET;
+
+  if (expectedSecret && authHeader === `Bearer ${expectedSecret}`) {
+    return true;
+  }
+
+  const user = await getUser();
+  if (user && (user.role === "ADMIN" || user.role === "SUPER_ADMIN")) {
+    return true;
+  }
+
+  if (!expectedSecret && process.env.NODE_ENV === "development") {
+    return true;
+  }
+
+  return false;
+}
+
 export async function POST(request: Request) {
   try {
+    const isAuthorized = await checkAuthorization(request);
+    if (!isAuthorized) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const body = await request.json();
     const { userId, forceDay } = body;
 
@@ -74,10 +100,20 @@ export async function POST(request: Request) {
   }
 }
 
-export async function GET() {
-  return NextResponse.json({
-    message: "Sistema de automatización WhatsApp activo",
-    days: [0, 1, 3, 5, 7],
-    totalUsers: ONBOARDING_LOG.size,
-  });
+export async function GET(request: Request) {
+  try {
+    const isAuthorized = await checkAuthorization(request);
+    if (!isAuthorized) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
+    return NextResponse.json({
+      message: "Sistema de automatización WhatsApp activo",
+      days: [0, 1, 3, 5, 7],
+      totalUsers: ONBOARDING_LOG.size,
+    });
+  } catch (error) {
+    console.error("Error in WhatsApp onboarding GET:", error);
+    return NextResponse.json({ error: "Error interno" }, { status: 500 });
+  }
 }

@@ -12,14 +12,15 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark');
+  // CORREGIDO: Tema por defecto era 'dark', ahora es 'light'
+  const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     try {
       const savedTheme = localStorage.getItem('saidon-theme') as Theme;
-      const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-      const initialTheme = savedTheme || systemTheme;
+      // CORREGIDO: Fallback era 'dark', ahora es 'light'
+      const initialTheme = savedTheme || 'light';
 
       console.log('ThemeContext: Initial theme:', initialTheme);
       setTheme(initialTheme);

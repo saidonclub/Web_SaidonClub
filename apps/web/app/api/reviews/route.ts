@@ -8,6 +8,9 @@ import {
 } from "@/lib/actions/review";
 import { csrfMiddleware } from "@/lib/api/csrf-middleware";
 
+import { getUser } from "@/lib/auth/core";
+import { prisma } from "@/lib/prisma";
+
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
@@ -22,11 +25,36 @@ export async function GET(request: NextRequest) {
     }
 
     if (type === "client" && id) {
+      const user = await getUser();
+      if (!user) {
+        return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+      }
       const result = await getClientReviews(id, page, limit);
       return NextResponse.json(result);
     }
 
     if (type === "appointment" && id) {
+      const user = await getUser();
+      if (!user) {
+        return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+      }
+
+      const appointment = await prisma.appointment.findUnique({
+        where: { id },
+      });
+
+      if (!appointment) {
+        return NextResponse.json({ error: "Cita no encontrada" }, { status: 404 });
+      }
+
+      const isClient = appointment.clientId === user.id;
+      const isProvider = appointment.providerId === user.id;
+      const isAdmin = user.role === "ADMIN" || user.role === "SUPER_ADMIN";
+
+      if (!isClient && !isProvider && !isAdmin) {
+        return NextResponse.json({ error: "Permisos insuficientes" }, { status: 403 });
+      }
+
       const result = await getReviewByAppointment(id);
       return NextResponse.json(result);
     }

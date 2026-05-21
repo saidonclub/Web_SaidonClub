@@ -57,6 +57,8 @@ const DENYLISTED_EXTENSIONS = [".exe", ".scr", ".bat", ".cmd", ".sh", ".php", ".
 
 export function useOptimizedUpload(options: UseOptimizedUploadOptions = {}) {
   const opts = { ...DEFAULT_OPTIONS, ...options };
+  // Destructure primitives used in callbacks for stable dependency tracking
+  const { maxSizeMB, autoCompress } = opts;
   const [progress, setProgress] = useState<UploadProgress>({ status: "idle", progress: 0 });
   const [result, setResult] = useState<UploadResult | null>(null);
 
@@ -69,13 +71,13 @@ export function useOptimizedUpload(options: UseOptimizedUploadOptions = {}) {
       if (!ALLOWLISTED_TYPES.includes(file.type)) {
         return { valid: false, error: `Tipo ${file.type} no permitido` };
       }
-      const maxSizeBytes = opts.maxSizeMB * 1024 * 1024;
+      const maxSizeBytes = maxSizeMB * 1024 * 1024;
       if (file.size > maxSizeBytes) {
-        return { valid: false, error: `Archivo excede ${opts.maxSizeMB}MB` };
+        return { valid: false, error: `Archivo excede ${maxSizeMB}MB` };
       }
       return { valid: true };
     },
-    [opts.maxSizeMB]
+    [maxSizeMB]
   );
 
   const upload = useCallback(
@@ -92,7 +94,7 @@ export function useOptimizedUpload(options: UseOptimizedUploadOptions = {}) {
         const finalFile = file;
         let optimized = false;
 
-        if (opts.autoCompress && file.type.startsWith("image/")) {
+        if (autoCompress && file.type.startsWith("image/")) {
           optimized = true;
         }
 
@@ -151,7 +153,7 @@ export function useOptimizedUpload(options: UseOptimizedUploadOptions = {}) {
         return null;
       }
     },
-    [validateFile, opts]
+    [validateFile, autoCompress]
   );
 
   const reset = useCallback(() => {

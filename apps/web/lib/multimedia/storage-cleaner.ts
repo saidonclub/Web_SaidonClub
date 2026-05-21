@@ -68,7 +68,7 @@ export class StorageCleanerService {
               if (VIDEO_EXTENSIONS.includes(ext)) videosCount++;
             }
           }
-        } catch (error) {
+        } catch {
           // Ignorar directorios sin acceso
         }
       };

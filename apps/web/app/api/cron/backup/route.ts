@@ -16,7 +16,7 @@ const supabase = supabaseUrl && supabaseServiceKey
   : null;
 
 // Función helper para serializar de forma segura datos de Prisma (incluyendo BigInt/Decimal)
-function safeStringify(obj: any): string {
+function safeStringify(obj: unknown): string {
   return JSON.stringify(obj, (key, value) => {
     if (typeof value === 'bigint') {
       return value.toString();
@@ -111,9 +111,9 @@ async function executeBackup(request: NextRequest) {
       fs.writeFileSync(localPath, serializedData, 'utf8');
       localWriteSuccess = true;
       console.log(`[Cron Backup] Respaldo guardado localmente en: ${localPath}`);
-    } catch (err: any) {
-      localError = err.message;
-      console.warn(`[Cron Backup] No se pudo escribir el archivo en el disco local (esperado en entornos serverless de solo lectura): ${err.message}`);
+    } catch (err: unknown) {
+      localError = err instanceof Error ? err.message : String(err);
+      console.warn(`[Cron Backup] No se pudo escribir el archivo en el disco local (esperado en entornos serverless de solo lectura): ${localError}`);
     }
 
     let cloudUploadSuccess = false;
@@ -168,9 +168,9 @@ async function executeBackup(request: NextRequest) {
         cloudUrl = publicUrlData.publicUrl;
         cloudUploadSuccess = true;
         console.log(`[Cron Backup] Respaldo subido exitosamente a la nube: ${cloudUrl}`);
-      } catch (err: any) {
-        cloudError = err.message;
-        console.error(`[Cron Backup] Error al subir a Supabase Storage: ${err.message}`);
+      } catch (err: unknown) {
+        cloudError = err instanceof Error ? err.message : String(err);
+        console.error(`[Cron Backup] Error al subir a Supabase Storage: ${cloudError}`);
       }
     } else {
       console.warn('[Cron Backup] Supabase no inicializado. Faltan variables de entorno NEXT_PUBLIC_SUPABASE_URL y/o SUPABASE_SERVICE_ROLE_KEY.');
@@ -206,12 +206,12 @@ async function executeBackup(request: NextRequest) {
       }
     }, { status: 200 });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[Cron Backup] Error crítico en el endpoint de backup:', error);
     return NextResponse.json({
       success: false,
       error: 'Backup process failed',
-      details: error.message
+      details: error instanceof Error ? error.message : 'Error desconocido'
     }, { status: 500 });
   }
 }

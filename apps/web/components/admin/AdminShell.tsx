@@ -22,7 +22,6 @@ import {
   Settings,
   LogOut,
   Menu,
-  X,
   Image as ImageIcon,
   Bell,
   Search,

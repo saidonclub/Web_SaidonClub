@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import path from "path";
 
 // ============================================================
 // CONFIG:      next.config.ts
@@ -153,7 +152,7 @@ const nextConfig: NextConfig = {
     qualities: [75, 85, 90],
     // Minimizar surface de ataque en optimización de imágenes
     dangerouslyAllowSVG: false,
-    contentDispositionType: "attachment",
+    contentDispositionType: "inline",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 

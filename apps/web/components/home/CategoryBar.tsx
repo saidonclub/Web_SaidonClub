@@ -5,8 +5,8 @@
 
 import Link from "next/link";
 import {
-  Laptop, Home, Sparkles, Car, Trophy, Gamepad2, PawPrint, Shirt,
-  Footprints, ToyBrick, Hammer, Smartphone, ArrowRight, Briefcase,
+  Laptop, Home, Sparkles, Trophy, PawPrint, Shirt,
+  Hammer, ArrowRight, Briefcase,
   HeartPulse, Plane, GraduationCap,
 } from "lucide-react";
 import styles from "./CategoryBar.module.css";

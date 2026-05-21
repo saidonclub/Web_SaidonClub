@@ -4,6 +4,7 @@ import styles from "./Productos.module.css";
 import { prisma } from "@/lib/prisma";
 import { Prisma } from "@saidonclub/database";
 import { cookies } from "next/headers";
+import SectionHeader from "@/components/shared/SectionHeader";
 import ProductFilterSidebar from "@/components/marketplace/ProductFilterSidebar";
 import ProductTopBar from "@/components/marketplace/ProductTopBar";
 import ProductCard from "@/components/marketplace/ProductCard";
@@ -269,12 +270,12 @@ export default async function ProductosPage({
 
         <section className={styles.content}>
           <div className={styles.contentHeader}>
-            <div className={styles.categoryTitle}>
+            <SectionHeader className={styles.categoryTitle}>
               <span className={styles.categoryIcon}>
                 <TrendingUp size={20} />
               </span>
               <h2>{categoryLabel}</h2>
-            </div>
+            </SectionHeader>
             <ProductTopBar />
           </div>
 

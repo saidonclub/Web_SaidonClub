@@ -3,7 +3,9 @@
    ============================================================ */
 
 .section {
-  padding: 100px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   background: var(--clr-obsidian-950) !important;
   color: var(--clr-white) !important;
   position: relative;
@@ -38,6 +40,7 @@
   padding: 0 24px;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 /* ── Header ── */
@@ -256,8 +259,71 @@
   box-shadow: var(--shadow-orange-hover);
 }
 
-/* ── Light Mode override desactivado — sección siempre dark ── */
-/* Esta sección es siempre oscura independiente del tema del sistema */
+/* ── Light Mode Override ── */
+:global(html[data-theme="light"]) .section {
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.06) 0%, rgba(255, 61, 0, 0.02) 100%) !important;
+}
+
+:global(html[data-theme="light"]) .section::before {
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(255, 107, 0, 0.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 80%, rgba(239, 68, 68, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 107, 0, 0.03) 0%, transparent 60%);
+}
+
+:global(html[data-theme="light"]) .section::after {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+:global(html[data-theme="light"]) .title {
+  color: #111111 !important;
+}
+
+:global(html[data-theme="light"]) .subtitle,
+:global(html[data-theme="light"]) .content p {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+
+:global(html[data-theme="light"]) .card {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+}
+
+:global(html[data-theme="light"]) .card:hover {
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1), 0 0 30px rgba(255, 107, 0, 0.15);
+}
+
+:global(html[data-theme="light"]) .overlay {
+  background: linear-gradient(to bottom, transparent 30%, rgba(255, 255, 255, 0.6) 70%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+:global(html[data-theme="light"]) .content h3 {
+  color: #111111 !important;
+}
+
+:global(html[data-theme="light"]) .quote {
+  background: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+:global(html[data-theme="light"]) .card:hover .quote {
+  background: rgba(255, 107, 0, 0.05);
+}
+
+:global(html[data-theme="light"]) .actionLink {
+  color: #111111 !important;
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+:global(html[data-theme="light"]) .actionLink:hover {
+  background: linear-gradient(135deg, #ff6b00, #ef4444);
+  border-color: transparent;
+  color: #fff !important;
+}
 
 /* ── Responsive ── */
 @media (max-width: 900px) {

@@ -1,6 +1,6 @@
 .container {
   min-height: calc(100vh - var(--nav-height));
-  background-color: #050505; /* Deep Obsidian */
+  background-color: var(--clr-bg-base);
   background-image: 
     radial-gradient(circle at 10% 10%, rgba(255, 126, 0, 0.07) 0%, transparent 40%),
     radial-gradient(circle at 90% 90%, rgba(255, 126, 0, 0.07) 0%, transparent 40%),
@@ -8,7 +8,7 @@
   padding: 120px 24px;
   position: relative;
   overflow: hidden;
-  color: #fff;
+  color: var(--clr-text-primary);
   font-family: var(--font-inter, 'Inter', sans-serif);
 }
 
@@ -71,7 +71,7 @@
 }
 
 .header h1 span {
-  background: linear-gradient(135deg, #fff 30%, var(--clr-orange, #ff7e00) 100%);
+  background: linear-gradient(135deg, var(--clr-text-primary) 30%, var(--clr-orange, #ff7e00) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -232,7 +232,7 @@
 .tabTitle {
   font-weight: 700;
   font-size: 1rem;
-  color: #fff;
+  color: var(--clr-text-primary);
   margin-bottom: 2px;
 }
 
@@ -376,8 +376,8 @@
 }
 
 .whatsappBtn {
-  background: #ff7e00;
-  color: #000;
+  background: var(--clr-orange, #ff7e00);
+  color: var(--clr-text-on-brand);
   padding: 18px 36px;
   border-radius: 14px;
   font-weight: 800;
@@ -392,13 +392,13 @@
 .whatsappBtn:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(255, 126, 0, 0.4);
-  background: #ff9d42;
+  background: var(--clr-orange-light, #ff9d42);
 }
 
 .ticketBtn {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: var(--clr-text-primary);
   padding: 18px 36px;
   border-radius: 14px;
   font-weight: 700;
@@ -429,7 +429,7 @@
   display: inline-block;
   padding: 4px 12px;
   background: var(--clr-orange, #ff7e00);
-  color: #000;
+  color: var(--clr-text-on-brand);
   border-radius: 6px;
   font-size: 0.75rem;
   font-weight: 800;

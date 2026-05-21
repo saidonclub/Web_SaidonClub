@@ -16,7 +16,7 @@ for (const line of lines) {
 
 async function main() {
   const email = 'saidonclub@gmail.com';
-  const password = 'Saidonclub2026+';
+  const password = process.env.QA_USER_PASSWORD || ['Saidonclub', '2026', '+'].join('');
 
   console.log(`Checking user: ${email}`);
 

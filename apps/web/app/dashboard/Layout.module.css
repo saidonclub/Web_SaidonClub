@@ -20,5 +20,8 @@
   .main {
     height: auto;
     overflow-y: visible;
+    padding-top: 72px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }

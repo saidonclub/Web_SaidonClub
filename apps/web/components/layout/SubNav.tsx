@@ -35,6 +35,7 @@ export default function SubNav() {
           key={c.slug} 
           className={`${styles.subNavItemWrapper} ${c.type === 'product' ? styles.navSectionProducts : styles.navSectionServices}`}
           data-tooltip={c.label}
+          data-tooltip-pos="bottom"
         >
           <Link 
             href={itemHref} 

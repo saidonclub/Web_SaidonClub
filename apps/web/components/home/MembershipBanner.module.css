@@ -86,3 +86,42 @@
 
 @media (max-width: 1100px) { .grid { grid-template-columns: 1fr 1fr; } .infoCard { grid-column: 1 / -1; } }
 @media (max-width: 700px)  { .grid { grid-template-columns: 1fr; } }
+
+/* ── Light Mode ── */
+:global(html[data-theme="light"]) .card {
+  background: #FFFFFF;
+  border-color: #E5E7EB;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+:global(html[data-theme="light"]) .card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+}
+
+:global(html[data-theme="light"]) .featured {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(255, 87, 34, 0.35);
+  box-shadow: 0 0 0 1px rgba(255, 87, 34, 0.20), 0 8px 32px rgba(255, 87, 34, 0.12);
+}
+
+:global(html[data-theme="light"]) .infoCard {
+  background: #FFFFFF;
+  border-color: #E5E7EB;
+}
+
+:global(html[data-theme="light"]) .calcBox {
+  background: #F9FAFB;
+  border-color: #E5E7EB;
+}
+
+:global(html[data-theme="light"]) .ctaDefault {
+  border-color: #D1D5DB;
+  color: #374151;
+}
+
+:global(html[data-theme="light"]) .ctaDefault:hover {
+  border-color: #FF5722;
+  color: #FF5722;
+  background: rgba(255, 87, 34, 0.05);
+}
+

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   MapPin,
   Phone,
@@ -83,7 +84,7 @@ export default function ProviderClientPage({
           <div className={styles.avatarSection}>
             <div className={styles.avatar}>
               {provider.avatar ? (
-                <img src={provider.avatar} alt={provider.name || "Provider"} />
+                <Image src={provider.avatar} alt={provider.name || "Provider"} width={120} height={120} style={{ objectFit: "cover" }} />
               ) : (
                 <span>{provider.name?.[0] || "P"}</span>
               )}
@@ -218,7 +219,7 @@ export default function ProviderClientPage({
                     >
                       <div className={styles.productImage}>
                         {product.images?.[0] ? (
-                          <img src={product.images[0]} alt={product.name} />
+                          <Image src={product.images[0]} alt={product.name} width={250} height={250} style={{ objectFit: "cover" }} />
                         ) : (
                           <div className={styles.productPlaceholder}>
                             <Package size={32} />

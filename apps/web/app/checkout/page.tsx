@@ -27,7 +27,7 @@ export default async function CheckoutPage({ searchParams }: { searchParams: Pro
   const plan = planDetails[planId as keyof typeof planDetails] || planDetails['preferente'];
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} section-bg-mlm`} data-section="mlm">
       <div className={styles.main}>
         <div className={styles.leftCol}>
           <h1 className={styles.title}>Finalizar Compra</h1>

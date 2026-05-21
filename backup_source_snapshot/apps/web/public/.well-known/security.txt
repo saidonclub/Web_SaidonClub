@@ -1,7 +1,0 @@
-Contact: mailto:security@saidonclub.com
-Expires: 2027-01-01T00:00:00.000Z
-Preferred-Languages: es, en
-Policy: https://saidonclub.com/security-policy
-Hiring: https://saidonclub.com/jobs
-# SaidonClub OS Security Disclosure Policy
-# We appreciate the community's help in keeping our ecosystem safe.

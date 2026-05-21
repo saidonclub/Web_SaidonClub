@@ -32,6 +32,10 @@ interface Props {
   className?: string;
   variant?: "compact" | "full";
   productSlug?: string;
+  productName?: string;
+  price?: number;
+  hideSelectors?: boolean;
+  controlledOptions?: Record<string, string>;
   relatedProducts?: RelatedProduct[]; // For success modal recommendations
 }
 
@@ -41,6 +45,10 @@ export default function AddToCartButton({
   className,
   variant = "full",
   productSlug,
+  productName,
+  price,
+  hideSelectors = false,
+  controlledOptions,
   relatedProducts = [],
 }: Props) {
   const [status, setStatus] = useState<
@@ -94,10 +102,12 @@ export default function AddToCartButton({
 
     if (status === "loading" || status === "success") return;
 
+    const activeOptions = controlledOptions || selectedOptions;
+
     setStatus("loading");
     try {
       // First try server action (for logged in users)
-      const result = await addToCart(productId, quantity, selectedOptions);
+      const result = await addToCart(productId, quantity, activeOptions);
       
       if (result && !("error" in result)) {
         setStatus("success");
@@ -110,9 +120,10 @@ export default function AddToCartButton({
         // Fallback to local cart for guest users
         addToCartContext({
           id: productId,
-          name: productSlug || "Producto",
-          price: 0, // We should ideally pass the price here
-          // quantity: quantity is handled by context's addToCart
+          name: productName || productSlug || "Producto",
+          price: price || 0,
+          quantity: quantity,
+          options: activeOptions,
         });
         setStatus("success");
         if (variant === "full") {
@@ -169,13 +180,13 @@ export default function AddToCartButton({
       className={`${className || ""} ${styles.btnContainer}`}
       onClick={(e) => e.stopPropagation()}
     >
-      {hasOptions && (
+      {hasOptions && !hideSelectors && (
         <div className={styles.optionsWrapper}>
           {parsedOptions.map((opt) => (
             <div key={opt.name} className={styles.optionGroup}>
               <label>{opt.name}</label>
               <select
-                value={selectedOptions[opt.name] || ""}
+                value={(controlledOptions || selectedOptions)[opt.name] || ""}
                 onChange={(e) => handleOptionChange(opt.name, e.target.value)}
               >
                 {opt.values?.map((val) => (

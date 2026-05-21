@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
 import styles from "./MayChat.module.css";
 import { SITE_CONFIG } from "@/config/site";
 
@@ -131,7 +132,7 @@ export default function MayChat() {
               </svg>
             </span>
           ) : (
-            <img src={MAY_AVATAR} alt="May — Asistente SaidonClub" className={styles.fabAvatar} />
+            <Image src={MAY_AVATAR} alt="May — Asistente SaidonClub" className={styles.fabAvatar} width={50} height={50} />
           )}
         </span>
 
@@ -154,7 +155,7 @@ export default function MayChat() {
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <div className={styles.avatarWrap}>
-              <img src={MAY_AVATAR} alt="May" className={styles.avatar} />
+              <Image src={MAY_AVATAR} alt="May" className={styles.avatar} width={40} height={40} />
               <span className={styles.online} aria-label="En línea" />
             </div>
             <div className={styles.headerInfo}>
@@ -198,7 +199,7 @@ export default function MayChat() {
           {messages.map((m) => (
             <div key={m.id} className={`${styles.msgRow} ${m.role === "user" ? styles.msgRowUser : ""}`}>
               {m.role === "bot" && (
-                <img src={MAY_AVATAR} alt="May" className={styles.msgAvatar} />
+                <Image src={MAY_AVATAR} alt="May" className={styles.msgAvatar} width={32} height={32} />
               )}
               <div
                 className={`${styles.bubble} ${m.role === "user" ? styles.bubbleUser : styles.bubbleBot}`}
@@ -209,7 +210,7 @@ export default function MayChat() {
 
           {isTyping && (
             <div className={styles.msgRow}>
-              <img src={MAY_AVATAR} alt="May escribiendo…" className={styles.msgAvatar} />
+              <Image src={MAY_AVATAR} alt="May escribiendo…" className={styles.msgAvatar} width={32} height={32} />
               <div className={`${styles.bubble} ${styles.bubbleBot} ${styles.typingBubble}`}>
                 <span className={styles.dot} />
                 <span className={styles.dot} />

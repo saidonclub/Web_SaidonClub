@@ -8,13 +8,14 @@
 
 .message {
   font-size: 11px;
-  font-weight: 600;
-  color: var(--clr-text-muted);
+  font-weight: 700;
+  color: var(--clr-topbar-text, #ffffff);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
   transition: opacity 0.5s ease, transform 0.5s ease;
+  letter-spacing: 0.01em;
 }
 
 .fadeIn {
@@ -27,61 +28,128 @@
   transform: translateY(-10px);
 }
 
+/* ━━ DARK MODE (Red bar): Vivid bright highlights on dark red ━━ */
 .highlightGold {
-  color: #fbbf24;
-  font-weight: 800;
-  text-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+  color: #FFD700;
+  font-weight: 900;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
 .highlightGreen {
-  color: #10b981;
-  font-weight: 800;
-  background: rgba(16, 185, 129, 0.1);
-  padding: 2px 6px;
-  border-radius: var(--radius-xs);
+  color: #00FF88;
+  font-weight: 900;
+  background: rgba(0, 255, 136, 0.15);
+  padding: 1px 6px;
+  border-radius: 3px;
+  text-shadow: 0 0 6px rgba(0, 255, 136, 0.4);
 }
 
 .highlightOrange {
-  color: #f97316;
-  font-weight: 800;
+  color: #FFD700;
+  font-weight: 900;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
 }
 
 .highlightBlue {
-  color: #3b82f6;
-  font-weight: 700;
+  color: #93C5FD;
+  font-weight: 900;
   text-decoration: underline;
   text-underline-offset: 2px;
+  text-shadow: 0 0 6px rgba(147, 197, 253, 0.4);
 }
 
 .highlightRed {
-  color: #ef4444;
+  color: #FFFFFF;
   font-weight: 900;
-  letter-spacing: 0.02em;
-  background: rgba(239, 68, 68, 0.1);
-  padding: 2px 6px;
-  border-radius: var(--radius-xs);
+  letter-spacing: 0.04em;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1px 7px;
+  border-radius: 3px;
 }
 
 .highlightPurple {
-  color: #a855f7;
-  font-weight: 800;
+  color: #E879F9;
+  font-weight: 900;
+  text-shadow: 0 0 8px rgba(232, 121, 249, 0.4);
 }
 
 .highlightGradient {
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #FFD700;
   font-weight: 900;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
 }
 
 .highlightCyan {
-  color: #06b6d4;
-  font-weight: 800;
-  text-shadow: 0 0 5px rgba(6, 182, 212, 0.4);
+  color: #22D3EE;
+  font-weight: 900;
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
 }
 
 .highlightNeon {
-  color: #10b981;
+  color: #4ADE80;
   font-weight: 900;
-  text-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+}
+
+/* ━━ LIGHT MODE (Orange bar): Dark/strong tones for contrast on orange ━━ */
+:global(html[data-theme="light"]) .highlightGold {
+  color: #92400E;
+  font-weight: 900;
+  text-shadow: none;
+}
+
+:global(html[data-theme="light"]) .highlightGreen {
+  color: #065F46;
+  font-weight: 900;
+  background: rgba(0, 0, 0, 0.12);
+  text-shadow: none;
+}
+
+:global(html[data-theme="light"]) .highlightOrange {
+  color: #1C1917;
+  font-weight: 900;
+  text-shadow: none;
+}
+
+:global(html[data-theme="light"]) .highlightBlue {
+  color: #1E3A8A;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-shadow: none;
+}
+
+:global(html[data-theme="light"]) .highlightRed {
+  color: #000000;
+  font-weight: 900;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 1px 7px;
+  border-radius: 3px;
+}
+
+:global(html[data-theme="light"]) .highlightPurple {
+  color: #581C87;
+  font-weight: 900;
+  text-shadow: none;
+}
+
+:global(html[data-theme="light"]) .highlightGradient {
+  color: #000000;
+  font-weight: 900;
+  background: rgba(0, 0, 0, 0.12);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+:global(html[data-theme="light"]) .highlightCyan {
+  color: #0C4A6E;
+  font-weight: 900;
+  text-shadow: none;
+}
+
+:global(html[data-theme="light"]) .highlightNeon {
+  color: #14532D;
+  font-weight: 900;
+  text-shadow: none;
 }

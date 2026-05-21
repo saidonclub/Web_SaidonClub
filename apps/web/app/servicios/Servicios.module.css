@@ -537,24 +537,29 @@
 }
 
 /* Fix VFE-003: Responsive grid columns - 2026-05-12 */
+/* Phase 4: Ultra-dense grid for compact service cards */
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
   position: relative;
   z-index: 2;
 }
 
 @media (min-width: 640px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
 }
 
 @media (min-width: 1024px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
 }
 
 @media (min-width: 1280px) {
-  .grid { grid-template-columns: repeat(4, 1fr); }
+  .grid { grid-template-columns: repeat(5, 1fr); gap: 16px; }
+}
+
+@media (min-width: 1536px) {
+  .grid { grid-template-columns: repeat(6, 1fr); gap: 16px; }
 }
 
 .serviceCard {

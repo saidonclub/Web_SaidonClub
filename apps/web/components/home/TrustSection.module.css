@@ -1,5 +1,7 @@
 .section {
-  padding: 120px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   background: var(--clr-bg-base);
   position: relative;
   overflow: hidden;
@@ -26,6 +28,10 @@
   filter: grayscale(1) opacity(0.5);
 }
 
+:global(html[data-theme="light"]) .section {
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.06) 0%, rgba(255, 61, 0, 0.02) 100%) !important;
+}
+
 .bgOverlay {
   position: absolute;
   top: 0;
@@ -41,6 +47,7 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 24px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 120px;
@@ -352,9 +359,18 @@
 }
 
 :global(html[data-theme="light"]) .finalCta {
-  background: rgba(var(--clr-white-rgb), 0.9);
-  box-shadow: 0 40px 100px rgba(var(--clr-black-rgb), 0.1);
-  border: 1px solid rgba(var(--clr-black-rgb), 0.05);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+:global(html[data-theme="light"]) .trustCard:hover {
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.12), 0 0 20px rgba(255, 107, 0, 0.15);
+}
+
+:global(html[data-theme="light"]) .checkBadge {
+  border-color: #FFFFFF;
 }
 
 .ctaGlow {

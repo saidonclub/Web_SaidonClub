@@ -65,7 +65,6 @@ export default function Navbar() {
               <div 
                 data-tooltip={theme === 'dark' ? 'Modo Claro' : 'Modo Oscuro'}
                 data-tooltip-pos="bottom"
-                title={theme === 'dark' ? 'Cambiar a Modo Claro' : 'Cambiar a Modo Oscuro'}
                 className={styles.tooltipContainer}
               >
                 <button 
@@ -83,7 +82,6 @@ export default function Navbar() {
               <div
                 data-tooltip="Ir a Mi Carrito"
                 data-tooltip-pos="bottom"
-                title="Ver carrito de compras"
                 className={styles.tooltipContainer}
               >
                 <Link 
@@ -98,7 +96,6 @@ export default function Navbar() {
               <div
                 data-tooltip="Ir a Mi Panel de Control"
                 data-tooltip-pos="bottom"
-                title="Acceder a tu cuenta"
                 className={styles.tooltipContainer}
               >
                 <Link 

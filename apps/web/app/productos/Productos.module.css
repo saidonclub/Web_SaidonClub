@@ -14,15 +14,16 @@
   isolation: isolate;
 }
 
-/* High-End CSS Procedural Background for Marketplace */
+/* High-End CSS Procedural Background for Product Marketplace — RED Premium */
 .header::before {
   content: '';
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(circle at 20% 30%, rgba(255, 61, 0, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255, 61, 0, 0.1) 0%, transparent 40%),
-    linear-gradient(135deg, #050505 0%, #121214 100%);
+    radial-gradient(circle at 15% 25%, rgba(220, 38, 38, 0.20) 0%, transparent 45%),
+    radial-gradient(circle at 85% 65%, rgba(185, 28, 28, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(239, 68, 68, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0000 0%, #1a0505 50%, #120808 100%);
   z-index: -2;
 }
 
@@ -140,15 +141,15 @@
 .headerIconBox {
   width: 56px;
   height: 56px;
-  /* Glass style — visible on dark banner overlay */
-  background: rgba(255, 90, 0, 0.20);
-  color: #FF8C3A;
+  /* Glass style — RED premium for products */
+  background: rgba(220, 38, 38, 0.25);
+  color: #FCA5A5;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 140, 58, 0.50);
-  box-shadow: 0 8px 24px rgba(255, 61, 0, 0.30), inset 0 1px 0 rgba(255,255,255,0.15);
+  border: 1px solid rgba(252, 165, 165, 0.50);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.35), inset 0 1px 0 rgba(255,255,255,0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   animation: float 6s ease-in-out infinite;
@@ -186,18 +187,18 @@
   flex-shrink: 0;
 }
 
-/* Accent badge — orange glow, stands out */
+/* Accent badge — RED glow for products, stands out */
 .stackItemAccent {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 80, 0, 0.22);
-  border: 1px solid rgba(255, 140, 58, 0.55);
+  background: rgba(220, 38, 38, 0.25);
+  border: 1px solid rgba(252, 165, 165, 0.55);
   padding: 6px 14px;
   border-radius: 100px;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #FFB070;
+  color: #FCA5A5;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
@@ -205,7 +206,7 @@
 }
 
 .stackItemAccent svg {
-  color: #FF8C3A;
+  color: #FCA5A5;
   flex-shrink: 0;
 }
 
@@ -221,10 +222,10 @@
   line-height: 1.05;
 }
 
-/* Products brand accent in the title */
+/* Products RED brand accent in the title */
 .title span {
-  color: #FF6B6B;
-  text-shadow: 0 0 30px rgba(255, 61, 0, 0.5);
+  color: #F87171;
+  text-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
 }
 
 .subtitle {
@@ -544,24 +545,29 @@
 }
 
 /* Fix VFE-003: Responsive grid columns - 2026-05-12 */
+/* Phase 4: Ultra-dense grid for compact product cards */
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
   position: relative;
   z-index: 2;
 }
 
 @media (min-width: 640px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
 }
 
 @media (min-width: 1024px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
 }
 
 @media (min-width: 1280px) {
-  .grid { grid-template-columns: repeat(4, 1fr); }
+  .grid { grid-template-columns: repeat(5, 1fr); gap: 16px; }
+}
+
+@media (min-width: 1536px) {
+  .grid { grid-template-columns: repeat(6, 1fr); gap: 16px; }
 }
 
 .productCard {

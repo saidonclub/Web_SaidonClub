@@ -1,8 +1,20 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { getUser } from "@/lib/auth/core";
+import { Role, Permission, hasPermission } from "@saidonclub/rbac";
 
 export async function GET() {
   try {
+    const user = await getUser();
+    if (!user) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
+    const role = user.role as Role;
+    if (!hasPermission(role, Permission.VIEW_REPORTS)) {
+      return NextResponse.json({ error: "Permisos insuficientes" }, { status: 403 });
+    }
+
     const now = new Date();
     const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
     const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);

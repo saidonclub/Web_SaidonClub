@@ -5,7 +5,9 @@
 
 .section {
   position: relative;
-  padding: 80px 0 60px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   overflow: hidden;
   /* Force dark background always — this is a brand section */
   background: #050505 !important;
@@ -39,6 +41,7 @@
   display: flex;
   flex-direction: column;
   gap: 56px;
+  width: 100%;
 }
 
 /* ── Header ── */
@@ -171,8 +174,42 @@
 /* ── Responsive ── */
 @media (max-width: 600px) {
   .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .section { padding: 60px 0; }
   .statCard { padding: 22px 14px; }
   .value { font-size: 1.8rem; }
   .inner { gap: 40px; }
+}
+
+/* ── Light Mode — Must use !important to override forced dark styles ── */
+:global(html[data-theme="light"]) .section {
+  background: #F9FAFB !important;
+}
+
+:global(html[data-theme="light"]) .bgLines {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px) !important;
+}
+
+:global(html[data-theme="light"]) .title {
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .statCard {
+  background: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+:global(html[data-theme="light"]) .statCard:hover {
+  background: #FFFFFF !important;
+  border-color: rgba(255, 87, 34, 0.35) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.10) !important;
+}
+
+:global(html[data-theme="light"]) .value {
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .statLabel {
+  color: #6B7280 !important;
 }

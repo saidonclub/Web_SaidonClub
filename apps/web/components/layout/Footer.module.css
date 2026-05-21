@@ -369,9 +369,28 @@ html[data-theme="light"] .statItem {
 }
 
 @media (max-width: 768px) {
+  /* CORREGIDO: StatsBanner ahora visible en mobile con diseño adaptado */
   .statsBanner {
-    display: none; /* Hide stats banner entirely on mobile to save space */
+    display: block;
+    padding: 8px 0;
   }
+  .statsInner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 0 12px;
+  }
+  .statItem {
+    padding: 8px 12px;
+    gap: 2px;
+  }
+  .statValue {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+  .statLabel {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  
   .mainFooter {
     padding: 16px 12px; /* Padding reducido */
   }
@@ -400,14 +419,17 @@ html[data-theme="light"] .statItem {
     height: 2px;
   }
   .footerLink {
-    font-size: 13px;
-    line-height: 1; 
-    gap: 2px;
-    padding: 1px 0;
+    font-size: 14px;
+    line-height: 1.4;
+    gap: 4px;
+    padding: 8px 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
   .brandDesc {
     font-size: 13px;
-    line-height: 1.1; /* Interlineado estrecho */
+    line-height: 1.5;
     max-width: 100%;
     text-align: left;
   }
@@ -416,39 +438,48 @@ html[data-theme="light"] .statItem {
     gap: 10px;
     margin-top: 4px;
   }
+  /* CORREGIDO: Social buttons ahora cumplen con touch target de 44px */
   .socialBtn {
-    width: 30px;
-    height: 30px;
-    border-radius: var(--radius-sm);
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: var(--radius-md);
   }
   .socialBtn svg {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
   }
   .newsletterCol {
     gap: 8px;
   }
   .newsletterDesc {
     font-size: 13px;
-    line-height: 1.1; /* Interlineado estrecho */
+    line-height: 1.5;
   }
   .newsletterInput {
-    padding: 8px 12px;
-    font-size: 13px;
-    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    font-size: 14px;
+    border-radius: var(--radius-md);
+    min-height: 44px;
   }
   .newsletterBtn {
-    padding: 8px 14px;
-    font-size: 13px;
-    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: var(--radius-md);
+    min-height: 44px;
   }
   .contactInfo {
     padding-top: 8px;
     margin-top: 4px;
-    gap: 2px;
+    gap: 4px;
   }
   .contactLink {
-    font-size: 12px;
+    font-size: 14px;
+    padding: 8px 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
   .bottomBar {
     padding: 12px 0;
@@ -456,7 +487,7 @@ html[data-theme="light"] .statItem {
   .bottomInner {
     flex-direction: column;
     gap: 12px;
-    font-size: 12px;
+    font-size: 13px;
     padding: 0 16px;
   }
   .bottomLinks {

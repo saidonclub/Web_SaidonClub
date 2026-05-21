@@ -6,6 +6,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import {
   Upload,
   X,
@@ -232,7 +233,7 @@ export const MediaUpload: React.FC<MediaUploadProps> = ({
               className={`${styles.previewItem} ${file.isMain ? styles.mainItem : ""} ${styles[file.status]}`}
             >
               {file.type === "image" ? (
-                <img src={file.url} alt="Preview" className={styles.media} />
+                <Image src={file.url} alt="Preview" className={styles.media} width={200} height={200} style={{ objectFit: "cover" }} unoptimized />
               ) : (
                 <video
                   src={file.url}
@@ -344,9 +345,13 @@ export const MediaUpload: React.FC<MediaUploadProps> = ({
               <X size={32} />
             </button>
             {files.find((f) => f.id === previewId)?.type === "image" ? (
-              <img
-                src={files.find((f) => f.id === previewId)?.url}
+              <Image
+                src={files.find((f) => f.id === previewId)?.url || ""}
                 alt="Preview"
+                width={800}
+                height={800}
+                style={{ objectFit: "contain", maxWidth: "100%", maxHeight: "80vh" }}
+                unoptimized
               />
             ) : (
               <video

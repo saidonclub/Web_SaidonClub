@@ -201,6 +201,115 @@
 
 @media (max-width: 1024px) {
   .sidebar {
-    display: none; /* Mobile menu will be handled differently */
+    display: none; /* Desktop sidebar hidden on mobile */
+  }
+}
+
+/* ========================================
+   MOBILE MENU STYLES
+   ======================================== */
+
+/* Botón hamburguesa flotante */
+.mobileMenuBtn {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  width: 48px;
+  height: 48px;
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  color: var(--clr-text-primary);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.mobileMenuBtn:hover {
+  background: var(--clr-bg-hover);
+  transform: scale(1.05);
+}
+
+.mobileMenuBtn:active {
+  transform: scale(0.95);
+}
+
+/* Overlay oscuro */
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Sidebar móvil deslizable */
+.mobileSidebar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 85vw;
+  max-width: 320px;
+  height: 100vh;
+  background: var(--clr-bg-card);
+  z-index: 9999;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.mobileSidebar.open {
+  transform: translateX(0);
+}
+
+/* Botón cerrar en header del menú */
+.closeBtn {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--clr-border);
+  border-radius: 8px;
+  color: var(--clr-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: var(--clr-bg-hover);
+  color: var(--clr-text-primary);
+}
+
+/* Responsive: mostrar botón hamburguesa y sidebar móvil */
+@media (max-width: 1024px) {
+  .mobileMenuBtn {
+    display: flex;
+  }
+
+  .mobileOverlay {
+    display: block;
+  }
+
+  .mobileSidebar {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Ajuste del main para evitar overlap con botón hamburguesa */
+@media (max-width: 1024px) {
+  .main {
+    padding-top: 72px;
   }
 }

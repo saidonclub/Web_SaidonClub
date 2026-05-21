@@ -710,3 +710,148 @@
     display: none;
   }
 }
+
+/* ── Light Mode ── */
+:global(html[data-theme="light"]) .hero {
+  background: #F9FAFB;
+}
+
+:global(html[data-theme="light"]) .bgOverlay {
+  background: linear-gradient(
+    105deg,
+    rgba(255,255,255,0.88) 0%,
+    rgba(255,255,255,0.65) 45%,
+    rgba(255,255,255,0.20) 100%
+  );
+}
+
+:global(html[data-theme="light"]) .bgGradient {
+  background:
+    radial-gradient(ellipse at 15% 60%, rgba(255, 87, 34, 0.12) 0%, transparent 55%),
+    linear-gradient(to bottom, transparent 60%, rgba(249, 250, 251, 0.95) 100%);
+}
+
+:global(html[data-theme="light"]) .bgGrid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+:global(html[data-theme="light"]) .bgGlow {
+  background: radial-gradient(circle, rgba(255, 87, 34, 0.10) 0%, transparent 70%);
+}
+
+:global(html[data-theme="light"]) .title {
+  color: #111827;
+}
+
+:global(html[data-theme="light"]) .description {
+  color: rgba(55, 65, 81, 0.85);
+}
+
+:global(html[data-theme="light"]) .point {
+  color: rgba(55, 65, 81, 0.9);
+}
+
+:global(html[data-theme="light"]) .ctaSecondary {
+  color: #374151;
+  border-color: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+:global(html[data-theme="light"]) .ctaSecondary:hover {
+  border-color: #FF5722;
+  color: #FF5722;
+  background: rgba(255, 87, 34, 0.06);
+}
+
+:global(html[data-theme="light"]) .statPill {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(10px);
+}
+
+:global(html[data-theme="light"]) .statLabel {
+  color: #6B7280;
+}
+
+:global(html[data-theme="light"]) .floatingCard {
+  background: rgba(255, 255, 255, 0.90);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 87, 34, 0.08);
+}
+
+:global(html[data-theme="light"]) .cardHeader {
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+:global(html[data-theme="light"]) .cardTitle {
+  color: rgba(0, 0, 0, 0.40);
+}
+
+:global(html[data-theme="light"]) .cardStat {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+:global(html[data-theme="light"]) .cardStat:hover {
+  background: rgba(255, 87, 34, 0.05);
+  border-color: rgba(255, 87, 34, 0.2);
+}
+
+:global(html[data-theme="light"]) .cardStatLabel {
+  color: rgba(0, 0, 0, 0.40);
+}
+
+:global(html[data-theme="light"]) .progressRow {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+:global(html[data-theme="light"]) .progressBar {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+:global(html[data-theme="light"]) .activityRow {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.50);
+}
+
+:global(html[data-theme="light"]) .actText {
+  color: rgba(0, 0, 0, 0.50);
+}
+
+:global(html[data-theme="light"]) .floatBadge1,
+:global(html[data-theme="light"]) .floatBadge2 {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(0, 0, 0, 0.10);
+  color: #374151;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+:global(html[data-theme="light"]) .indicators {
+  background: rgba(255, 255, 255, 0.80);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+:global(html[data-theme="light"]) .indicator {
+  background: rgba(0, 0, 0, 0.20);
+}
+
+:global(html[data-theme="light"]) .counterSep {
+  color: rgba(0, 0, 0, 0.20);
+}
+
+:global(html[data-theme="light"]) .counterTotal {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+:global(html[data-theme="light"]) .scrollHint {
+  color: rgba(0, 0, 0, 0.30);
+}
+
+:global(html[data-theme="light"]) .mouse {
+  border-color: rgba(0, 0, 0, 0.20);
+}
+

@@ -3,7 +3,9 @@
    ============================================================ */
 
 .section {
-  padding: 100px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   background: var(--clr-bg-base);
   position: relative;
   overflow: hidden;
@@ -20,15 +22,16 @@
 }
 
 .inner {
-  max-width: 1400px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(40px, 6vw, 100px);
   align-items: center;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 /* ── Visual Side ── */
@@ -69,24 +72,31 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%;
   opacity: 0;
-  animation: fadeCarousel 25s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeCarousel 50s infinite both cubic-bezier(0.4, 0, 0.2, 1);
   transform: scale(1.1);
+  will-change: opacity, transform, z-index;
 }
 
-/* 5 images, 25s total (5s each). 
-   Fade in takes 1s (4%), stays visible for 4s (16%), fades out for 1s (4%) */
+/* 10 images, 50s total (5s each). 
+   Fade in takes 1s (2%), stays visible for 4s (8%), fades out for 1s (2%) */
 .carouselImage:nth-child(1) { animation-delay: 0s; }
 .carouselImage:nth-child(2) { animation-delay: 5s; }
 .carouselImage:nth-child(3) { animation-delay: 10s; }
 .carouselImage:nth-child(4) { animation-delay: 15s; }
 .carouselImage:nth-child(5) { animation-delay: 20s; }
+.carouselImage:nth-child(6) { animation-delay: 25s; }
+.carouselImage:nth-child(7) { animation-delay: 30s; }
+.carouselImage:nth-child(8) { animation-delay: 35s; }
+.carouselImage:nth-child(9) { animation-delay: 40s; }
+.carouselImage:nth-child(10) { animation-delay: 45s; }
 
 @keyframes fadeCarousel {
-  0% { opacity: 0; transform: scale(1.1); z-index: 1; }
-  4% { opacity: 1; transform: scale(1.08); z-index: 1; }
-  20% { opacity: 1; transform: scale(1.02); z-index: 1; }
-  24% { opacity: 0; transform: scale(1); z-index: 0; }
+  0% { opacity: 0; transform: scale(1.1); z-index: 2; }
+  2% { opacity: 1; transform: scale(1.08); z-index: 2; }
+  10% { opacity: 1; transform: scale(1.02); z-index: 1; }
+  12% { opacity: 0; transform: scale(1); z-index: 1; }
   100% { opacity: 0; transform: scale(1); z-index: 0; }
 }
 
@@ -363,6 +373,10 @@
 }
 
 /* ── Light Mode ── */
+:global(html[data-theme="light"]) .section {
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.06) 0%, rgba(255, 61, 0, 0.02) 100%) !important;
+}
+
 :global(html[data-theme="light"]) .gradientVisual {
   background: linear-gradient(135deg, #f4f4f5 0%, #e4e4e7 100%);
 }

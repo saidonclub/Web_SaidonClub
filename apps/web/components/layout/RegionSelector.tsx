@@ -279,7 +279,7 @@ const RegionSelector = () => {
           top: dropPos.top,
           left: dropPos.left,
           width: dropPos.width,
-          zIndex: 2147483647,
+          zIndex: "var(--z-popover)",
         }}
       >
         {/* Hierarchical Search (Google Powered) */}

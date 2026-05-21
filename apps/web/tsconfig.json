@@ -21,6 +21,7 @@
     "paths": {
       "@/*": ["./*"],
       "@saidonclub/database": ["../../packages/database/src/index.ts"],
+      "@saidonclub/database/src/generated/client_v3": ["../../packages/database/src/generated/client_v3"],
       "@saidonclub/rbac": ["../../packages/rbac/src/index.ts"],
       "@saidonclub/config-engine": ["../../packages/config-engine/src/index.ts"],
       "@saidonclub/types": ["../../packages/types/src/index.ts"],

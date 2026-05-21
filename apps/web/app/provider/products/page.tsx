@@ -11,6 +11,7 @@ import { StatCard } from '@/components/admin/StatCard';
 import { StatusBadge } from '@/components/admin/StatusBadge';
 import { Package, Plus } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from '../products/products.module.css';
 
 export default async function ProviderProductsPage() {
@@ -101,7 +102,7 @@ export default async function ProviderProductsPage() {
                         <div className={styles.productCell}>
                           <div className={styles.productImage}>
                             {p.images?.[0] ? (
-                              <img src={p.images[0]} alt={p.name} />
+                              <Image src={p.images[0]} alt={p.name} width={40} height={40} style={{ objectFit: 'cover' }} />
                             ) : (
                               <Package size={20} />
                             )}

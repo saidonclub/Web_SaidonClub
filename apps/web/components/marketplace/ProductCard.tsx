@@ -40,7 +40,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
 
   return (
     <motion.div 
-      className={styles.productCard}
+      className={`${styles.productCard} product-card`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -98,6 +98,38 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           <span>{Number(product.rating || 4.9).toFixed(1)}</span>
           {product.reviewsCount ? <span className={styles.reviewCount}>({product.reviewsCount})</span> : null}
         </div>
+
+        {/* Variantes compactas directamente en catálogo */}
+        {product.options && (
+          <div className={styles.compactVariants}>
+            {(() => {
+              try {
+                const parsed = typeof product.options === "string" ? JSON.parse(product.options) : product.options;
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                  const opts = parsed as { name: string; values: string[] }[];
+                  return opts.slice(0, 2).map((opt) => {
+                    if (!opt.name || !opt.values || opt.values.length === 0) return null;
+                    return (
+                      <div key={opt.name} className={styles.variantLine}>
+                        <span className={styles.variantLabel}>{opt.name}:</span>
+                        <div className={styles.variantValues}>
+                          {opt.values.slice(0, 3).map((val: string) => (
+                            <span key={val} className={styles.variantValBadge} title={val}>{val}</span>
+                          ))}
+                          {opt.values.length > 3 && <span className={styles.variantValMore}>+{opt.values.length - 3}</span>}
+                        </div>
+                      </div>
+                    );
+                  });
+                }
+              } catch (e) {
+                return null;
+              }
+              return null;
+            })()}
+          </div>
+        )}
+
         <div className={styles.priceBlock}>
           {/* Precio Público (PVP) */}
           <div className={styles.priceRowPvp}>
@@ -144,6 +176,8 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             productId={product.id}
             variant="compact"
             productSlug={product.slug}
+            productName={product.name}
+            price={saidon}
             options={product.options}
             className={styles.addBtnWrapper}
           />

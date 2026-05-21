@@ -73,7 +73,7 @@ export default async function CarritoPage() {
   const total = subtotal + shipping;
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} section-bg-products`} data-section="products">
       <main className={styles.main}>
         <h1 className={styles.title}>Tu Carrito</h1>
 

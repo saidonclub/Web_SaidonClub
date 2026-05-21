@@ -4,14 +4,13 @@
    ================================================================ */
 
 .productCard {
-  --card-bg: var(--clr-bg-glass);
+  --card-bg: var(--clr-bg-card); /* Use solid card background instead of glass to stand out against red */
   --card-border: var(--clr-border);
   --glow-color: var(--clr-orange);
 
   position: relative;
   background: var(--card-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* Remove blur to keep it solid and performant */
   border: 1px solid var(--card-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -19,7 +18,13 @@
   flex-direction: column;
   height: 100%;
   transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-md);
+}
+
+:global(html[data-theme="light"]) .productCard {
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 /* Top accent line */
@@ -51,10 +56,10 @@
 }
 
 .productCard:hover {
-  border-color: rgba(var(--clr-orange-rgb), 0.35);
+  border-color: rgba(255, 255, 255, 0.4);
   box-shadow:
-    0 20px 50px rgba(var(--clr-black-rgb), 0.18),
-    0 0 30px rgba(var(--clr-orange-rgb), 0.1);
+    0 12px 30px rgba(var(--clr-black-rgb), 0.25),
+    0 0 20px rgba(255, 255, 255, 0.1);
   transform: translateY(-4px);
 }
 
@@ -73,16 +78,12 @@
   border-radius: var(--radius-sm);
 }
 
-/* ── Image Zone ── */
+/* ── Image Zone — Ultra Compact ── */
 .imageWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  background: linear-gradient(
-    135deg,
-    var(--clr-bg-elevated) 0%,
-    var(--clr-bg-card) 100%
-  );
+  aspect-ratio: 4 / 3;
+  background: #FFFFFF;
   border-bottom: 1px solid var(--card-border);
   display: flex;
   align-items: center;
@@ -139,13 +140,13 @@
 /* ── Badges ── */
 .badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 8px;
+  left: 8px;
   background: linear-gradient(135deg, var(--clr-orange) 0%, var(--clr-orange-light) 100%);
   color: var(--clr-obsidian-950);
   font-weight: 900;
-  font-size: 10px;
-  padding: 4px 10px;
+  font-size: 9px;
+  padding: 3px 8px;
   border-radius: var(--radius-md);
   z-index: 2;
   box-shadow: 0 4px 12px rgba(var(--clr-orange-rgb), 0.4);
@@ -154,14 +155,14 @@
 
 .pointsBadge {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 8px;
+  right: 8px;
   background: var(--clr-bg-glass-dark);
   border: 1px solid rgba(var(--clr-orange-rgb), 0.5);
   color: var(--clr-orange);
   font-weight: 800;
-  font-size: 10px;
-  padding: 4px 10px;
+  font-size: 9px;
+  padding: 3px 8px;
   border-radius: var(--radius-md);
   backdrop-filter: blur(8px);
   z-index: 2;
@@ -170,28 +171,28 @@
 
 .verifiedBadge {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 8px;
+  right: 8px;
   background: rgba(var(--clr-success-rgb), 0.15);
   border: 1px solid rgba(var(--clr-success-rgb), 0.4);
   color: var(--clr-success);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 2px 6px;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   backdrop-filter: blur(6px);
   z-index: 2;
 }
 
-/* ── Product Info ── */
+/* ── Product Info — Ultra Compact ── */
 .productInfo {
-  padding: clamp(14px, 3vw, 20px);
+  padding: 8px 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 3px;
   flex-grow: 1;
   position: relative;
   z-index: 1;
@@ -208,9 +209,9 @@
 
 .productName {
   margin: 0;
-  font-size: clamp(15px, 2vw, 18px);
+  font-size: 12px;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.2;
   color: var(--clr-text-primary);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -218,6 +219,10 @@
   overflow: hidden;
   transition: color 0.3s ease;
   letter-spacing: -0.01em;
+}
+
+:global(html[data-theme="light"]) .productName {
+  color: #111827;
 }
 
 .productCard:hover .productName {
@@ -240,14 +245,64 @@
   font-weight: 400;
 }
 
+/* ── Compact Variants ── */
+.compactVariants {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 6px 0;
+  padding: 4px 0;
+  border-top: 1px dashed var(--clr-border-subtle);
+}
+
+.variantLine {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.variantLabel {
+  font-size: 10px;
+  color: var(--clr-text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.variantValues {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.variantValBadge {
+  font-size: 9px;
+  background: var(--clr-bg-elevated);
+  color: var(--clr-text-secondary);
+  padding: 1px 5px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--clr-border);
+  font-weight: 600;
+  max-width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.variantValMore {
+  font-size: 9px;
+  color: var(--clr-orange);
+  font-weight: 700;
+  align-self: center;
+}
+
 /* ── Price Block ── */
 .priceBlock {
   margin-top: auto;
-  padding-top: 12px;
+  padding-top: 8px;
   border-top: 1px solid var(--clr-border-subtle);
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 3px;
 }
 
 .priceRowPvp {
@@ -294,11 +349,15 @@
 }
 
 .priceSaidon {
-  font-size: clamp(18px, 2.5vw, 24px);
+  font-size: 14px;
   font-weight: 900;
   color: var(--clr-text-primary);
   line-height: 1;
   letter-spacing: -0.02em;
+}
+
+:global(html[data-theme="light"]) .priceSaidon {
+  color: #000000;
 }
 
 .discountPill {
@@ -345,25 +404,24 @@
   margin-left: auto;
 }
 
-/* ── Button Group ── */
 .buttonGroup {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 4px;
+  margin-top: 6px;
 }
 
 .detailsBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 3px;
   background: var(--clr-bg-hover);
   border: 1px solid var(--clr-border);
   color: var(--clr-text-primary);
-  padding: clamp(7px, 1.2vw, 10px);
-  border-radius: var(--radius-md);
-  font-size: clamp(10px, 1.1vw, 12px);
+  padding: 5px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.25s ease;

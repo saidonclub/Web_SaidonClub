@@ -5,9 +5,21 @@ import {
   getEventStats,
   listEventsByEntity,
 } from "@/lib/actions/event";
+import { getUser } from "@/lib/auth/core";
+import { Role, Permission, hasPermission } from "@saidonclub/rbac";
 
 export async function POST(request: NextRequest) {
   try {
+    const user = await getUser();
+    if (!user) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
+    const role = user.role as Role;
+    if (!hasPermission(role, Permission.MANAGE_SYSTEM_CONFIG)) {
+      return NextResponse.json({ error: "Permisos insuficientes" }, { status: 403 });
+    }
+
     const body = await request.json();
 
     const result = await createSystemEvent(body);
@@ -31,6 +43,16 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
+    const user = await getUser();
+    if (!user) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
+    const role = user.role as Role;
+    if (!hasPermission(role, Permission.VIEW_AUDIT_LOGS)) {
+      return NextResponse.json({ error: "Permisos insuficientes" }, { status: 403 });
+    }
+
     const { searchParams } = new URL(request.url);
     const action = searchParams.get("action");
     const entityType = searchParams.get("entityType");

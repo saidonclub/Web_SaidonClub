@@ -1,10 +1,6 @@
 import { NextResponse } from 'next/server';
 import Groq from 'groq-sdk';
 
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY || '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',
-});
-
 const SYSTEM_PROMPT = `
 Eres May, la asistente virtual de Inteligencia Artificial exclusiva de SaidonClub.
 SaidonClub es un ecosistema marketplace híbrido multinacional de Ecuador, una plataforma fintech enterprise, un sistema MLM basado en consumo real, un marketplace de productos y servicios, con un sistema de puntos y recompensas.
@@ -14,9 +10,20 @@ Si no tienes la respuesta exacta, ofrece soporte humano a través del botón de 
 Utiliza markdown para formatear tus respuestas, destacando con negrita (**texto**) palabras clave importantes.
 `;
 
+// Lazy initialization - solo se crea cuando se necesita
+function getGroqClient() {
+  const apiKey = process.env.GROQ_API_KEY;
+  if (!apiKey) {
+    throw new Error('GROQ_API_KEY no configurada');
+  }
+  return new Groq({ apiKey });
+}
+
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
+    
+    const groq = getGroqClient();
 
     const chatCompletion = await groq.chat.completions.create({
       messages: [
@@ -28,11 +35,13 @@ export async function POST(req: Request) {
       max_tokens: 1024,
     });
 
-    return NextResponse.json(chatCompletion);
-  } catch (error: unknown) {
-    console.error('Groq API Error:', error);
+    const response = chatCompletion.choices[0]?.message?.content || 'Lo siento, no pude generar una respuesta.';
+
+    return NextResponse.json({ response });
+  } catch (error) {
+    console.error('Chat error:', error);
     return NextResponse.json(
-      { error: 'Error procesando la solicitud con el Agente IA.' },
+      { error: 'Error al procesar la solicitud' },
       { status: 500 }
     );
   }

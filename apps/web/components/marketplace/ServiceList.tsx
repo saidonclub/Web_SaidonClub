@@ -11,7 +11,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ServiceCard from "./ServiceCard";
 import styles from "@/app/servicios/Servicios.module.css";
 import { Briefcase } from "lucide-react";
-import Link from "next/link";
 import { ServicePublic } from "@saidonclub/types";
 
 gsap.registerPlugin(ScrollTrigger);

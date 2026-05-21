@@ -10,6 +10,7 @@ export default function TopBar() {
   const pathname = usePathname();
   const [activeTopDropdown, setActiveTopDropdown] = useState<string | null>(null);
   const topNavRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -21,6 +22,20 @@ export default function TopBar() {
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
+  const handleMouseEnter = (label: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActiveTopDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveTopDropdown(null);
+    }, 75); // 75ms delay keeps the menu open while crossing gaps but feels snappier
+  };
+
   return (
     <div className={styles.topBar}>
       <div className={styles.topBarInner}>
@@ -31,8 +46,8 @@ export default function TopBar() {
             <div 
               key={menu.label} 
               className={styles.topLinkWrap}
-              onMouseEnter={() => setActiveTopDropdown(menu.label)}
-              onMouseLeave={() => setActiveTopDropdown(null)}
+              onMouseEnter={() => handleMouseEnter(menu.label)}
+              onMouseLeave={handleMouseLeave}
             >
               <Link 
                 href={menu.href} 
@@ -45,7 +60,11 @@ export default function TopBar() {
               </Link>
               
               {activeTopDropdown === menu.label && (
-                <div className={styles.topDropdown}>
+                <div 
+                  className={styles.topDropdown}
+                  onMouseEnter={() => handleMouseEnter(menu.label)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <div className={styles.topDropdownScrollable}>
                     {menu.subcategories.map((sub) => (
                       <Link 
@@ -65,20 +84,12 @@ export default function TopBar() {
         </div>
 
         <div className={styles.topActions}>
-          {/* BOTÓN DE ACCESO (VISTA PÚBLICA): 
-              Color reactivo: Naranja Saidon al hover.
-              Estilo: Transparente, sin bordes, enfoque en tipografía premium. */}
           <Link href="/auth/login" className={styles.topLogin} data-tooltip="Ingresar a mi cuenta existente">
             <LogIn size={14} /> Iniciar sesión
           </Link>
           
-          {/* DIVISOR DE SEGURIDAD: 
-              Estilo: Línea vertical punteada gris que separa elegantemente las acciones de cuenta. */}
           <div className={styles.topDivider}/>
           
-          {/* BOTÓN DE REGISTRO (ÚNETE A LA RED): 
-              Color reactivo: Violeta MLM al hover.
-              Estilo: Transparente, minimalismo ejecutivo. */}
           <Link href="/auth/register" className={styles.topRegister} data-tooltip="Crear una nueva cuenta SaidonClub">
             <UserPlus size={14} /> Registrarse
           </Link>

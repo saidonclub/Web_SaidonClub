@@ -21,30 +21,30 @@ export const revalidate = 60;
 
 export default async function HomePage() {
   // --- FETCH PRODUCTS ---
-  const allProducts = await prisma.product.findMany({
-    take: 20,
-    orderBy: { createdAt: 'desc' },
-    where: { isActive: true },
-    select: {
-      id: true,
-      name: true,
-      slug: true,
-      pricePVP: true,
-      priceSaidon: true,
-      pointsEarned: true,
-      cost: true,
-      tax: true,
-      logistics: true,
-      margin: true,
-      stock: true,
-      category: {
-        select: { id: true, name: true, slug: true }
-      },
-      images: true,
-    }
-  });
+  const productSelect = {
+    id: true, name: true, slug: true, pricePVP: true, priceSaidon: true,
+    pointsEarned: true, cost: true, tax: true, logistics: true, margin: true,
+    stock: true, images: true, category: { select: { id: true, name: true, slug: true } }
+  };
 
-  const plainProducts = allProducts.map(p => ({
+  const [dbBestSelling, dbPopular] = await Promise.all([
+    prisma.product.findMany({
+      take: 10,
+      where: { isActive: true },
+      orderBy: { orderItems: { _count: 'desc' } },
+      select: productSelect,
+    }),
+    prisma.product.findMany({
+      take: 10,
+      where: { isActive: true },
+      orderBy: { cartItems: { _count: 'desc' } },
+      select: productSelect,
+    })
+  ]);
+
+  type ProductItem = typeof dbBestSelling[0];
+
+  const mapProducts = (products: ProductItem[]) => products.map(p => ({
     ...p,
     pricePVP: Number(p.pricePVP),
     priceSaidon: Number(p.priceSaidon),
@@ -55,49 +55,61 @@ export default async function HomePage() {
     margin: Number(p.margin),
   }));
 
-  const top10BestSelling = [...plainProducts].sort((a, b) => b.pricePVP - a.pricePVP).slice(0, 10);
-  const top10Popular = [...plainProducts].sort((a, b) => a.id.localeCompare(b.id)).slice(0, 10);
-  const top10Discounts = [...plainProducts].sort((a, b) => {
+  const top10BestSelling = mapProducts(dbBestSelling);
+  const top10Popular = mapProducts(dbPopular);
+  
+  // Real discounts calculation in memory over a wider set of recent active products
+  const recentForDiscounts = await prisma.product.findMany({
+    take: 50,
+    where: { isActive: true },
+    select: productSelect,
+  });
+  
+  const top10Discounts = mapProducts(recentForDiscounts).sort((a, b) => {
     const pA = a.pricePVP > 0 ? (a.pricePVP - a.priceSaidon) / a.pricePVP : 0;
     const pB = b.pricePVP > 0 ? (b.pricePVP - b.priceSaidon) / b.pricePVP : 0;
     return pB - pA;
   }).slice(0, 10);
 
   // --- FETCH SERVICES ---
-  const allServices = await prisma.service.findMany({
-    take: 20,
-    orderBy: { createdAt: 'desc' },
-    where: { isActive: true },
-    select: {
-      id: true,
-      name: true,
-      slug: true,
-      description: true,
-      priceSaidon: true,
-      pointsEarned: true,
-      images: true,
-      status: true,
-      location: true,
-      city: { select: { name: true } },
-      category: { select: { id: true, name: true, slug: true } },
-      provider: { select: { id: true, name: true } },
-    }
-  });
+  const serviceSelect = {
+    id: true, name: true, slug: true, description: true, priceSaidon: true,
+    pointsEarned: true, images: true, status: true, location: true,
+    city: { select: { name: true } }, category: { select: { id: true, name: true, slug: true } },
+    provider: { select: { id: true, name: true } },
+  };
 
-  const plainServices = allServices.map(s => ({
+  const [dbFeaturedServices, dbPopularServices] = await Promise.all([
+    prisma.service.findMany({
+      take: 10,
+      where: { isActive: true, status: 'APPROVED' },
+      orderBy: { createdAt: 'desc' },
+      select: serviceSelect,
+    }),
+    prisma.service.findMany({
+      take: 10,
+      where: { isActive: true },
+      orderBy: { orderItems: { _count: 'desc' } }, // Using orderItems as popular for services
+      select: serviceSelect,
+    })
+  ]);
+
+  type ServiceItem = typeof dbFeaturedServices[0];
+
+  const mapServices = (services: ServiceItem[]) => services.map(s => ({
     ...s,
     priceSaidon: Number(s.priceSaidon),
     pointsEarned: Number(s.pointsEarned),
-    location: s.location ?? undefined,   // coerce null → undefined
-    city: s.city ?? undefined,           // coerce null → undefined
-    rating: 5.0,
+    location: s.location ?? undefined,
+    city: s.city ?? undefined,
+    rating: 5.0, // Mocked rating until reviews table is connected
     reviewsCount: 0,
     isVerified: s.status === 'APPROVED',
   }));
 
-  const featuredServices = [...plainServices].filter(s => s.isVerified).slice(0, 10);
-  const popularServices = [...plainServices].sort((a, b) => (b.reviewsCount || 0) - (a.reviewsCount || 0)).slice(0, 10);
-  const highlyRatedServices = [...plainServices].sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 10);
+  const featuredServices = mapServices(dbFeaturedServices);
+  const popularServices = mapServices(dbPopularServices);
+  const highlyRatedServices = featuredServices; // Fallback to featured for highly rated
 
   return (
     <>
@@ -119,9 +131,9 @@ export default async function HomePage() {
 
       {/* 5. Featured Services — Verified, popular, highly rated */}
       <FeaturedServices
-        featured={featuredServices.length > 0 ? featuredServices : plainServices.slice(0, 10)}
-        popular={popularServices.length > 0 ? popularServices : plainServices.slice(0, 10)}
-        highlyRated={highlyRatedServices.length > 0 ? highlyRatedServices : plainServices.slice(0, 10)}
+        featured={featuredServices}
+        popular={popularServices.length > 0 ? popularServices : featuredServices}
+        highlyRated={highlyRatedServices.length > 0 ? highlyRatedServices : featuredServices}
       />
 
       {/* 6. How It Works — 3 steps animated */}

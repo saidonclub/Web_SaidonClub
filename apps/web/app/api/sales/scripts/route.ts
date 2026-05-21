@@ -7,14 +7,25 @@ import {
   type SalesScript,
 } from "@/lib/data/sales-scripts";
 
+import { getUser } from "@/lib/auth/core";
+
 const FAVORITES_STORAGE: Map<string, string[]> = new Map();
 
 export async function GET(request: Request) {
+  const user = await getUser();
+  if (!user) {
+    return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+  }
+
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id");
   const category = searchParams.get("category");
   const channel = searchParams.get("channel");
   const userId = searchParams.get("userId");
+
+  if (userId && userId !== user.id) {
+    return NextResponse.json({ error: "Permisos insuficientes" }, { status: 403 });
+  }
 
   if (id) {
     const script = getScriptById(id);
@@ -74,6 +85,11 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
+    const user = await getUser();
+    if (!user) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
+
     const body = await request.json();
     const { userId, scriptId, action } = body;
 
@@ -82,6 +98,10 @@ export async function POST(request: Request) {
         { error: "Faltan parámetros requeridos" },
         { status: 400 },
       );
+    }
+
+    if (userId !== user.id) {
+      return NextResponse.json({ error: "Permisos insuficientes" }, { status: 403 });
     }
 
     let favorites = FAVORITES_STORAGE.get(userId) || [];

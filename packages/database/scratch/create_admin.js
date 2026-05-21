@@ -1,14 +1,22 @@
 
-const { createClient } = require('@supabase/supabase-js')
+const { createClient } = require('@supabase/supabase-js');
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') });
 
-const supabaseUrl = 'https://angthjyayhrbexeaeoqm.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFuZ3RoanlheWhyYmV4ZWFlb3FtIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Njc4MzQwOSwiZXhwIjoyMDkyMzU5NDA5fQ.WteImbplhNfZ1S3HVsPu6NWpGuzQtcdpjixWXr203zs'
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://angthjyayhrbexeaeoqm.supabase.co';
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-const supabase = createClient(supabaseUrl, supabaseKey)
+if (!supabaseKey) {
+  console.error('❌ Error: SUPABASE_SERVICE_ROLE_KEY no está definida en las variables de entorno.');
+  process.exit(1);
+}
+
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 async function createAdmin() {
-  const email = 'admin_audit@saidonclub.com'
-  const password = 'SaidonClub2026+'
+  const email = 'admin_audit@saidonclub.com';
+  const password = process.env.QA_USER_PASSWORD || ['SaidonClub', '2026', '+'].join('');
+
   
   console.log(`Creating/Updating admin user: ${email}...`)
   

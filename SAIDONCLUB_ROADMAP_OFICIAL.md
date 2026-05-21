@@ -1,0 +1,58 @@
+# 🧭 SAIDONCLUB — HOJA DE RUTA Y PLANIFICACIÓN CONSOLIDADA (ROADMAP MAESTRO)
+
+> **Nota de Integridad:** Este documento unifica de forma exhaustiva todos los planes de acción, listas de verificación de despliegue, hojas de ruta de agentes e historiales de progreso de SaidonClub en una única fuente de verdad actualizada.
+
+---
+
+## 🎯 Visión Global
+Convertir a **SaidonClub OS** en el estándar global y la plataforma definitiva para ecosistemas hiper-escalables de MLM (Multinivel) y Marketplaces descentralizados. Seguridad, Transparencia (Auditoría Forense) y un Diseño de Lujo (Obsidian & Safety Orange).
+
+---
+
+## 🚀 Fase Actual: Fase 4 — Producción, Hardening y Despliegue Final (99% Completado)
+Actualmente nos encontramos en la recta final del **Omega OS Deployment**. El entorno de desarrollo local ha sido consolidado y auditado exitosamente.
+
+### 🏁 Hitos Alcanzados (Mayo 2026):
+- [x] **Consolidación de Entorno:** Limpieza de múltiples archivos `.env.*` dispersos. Todas las claves API (Supabase, Stripe, PayPal, Groq, OpenRouter, Gemini, Resend) consolidadas en el `.env` raíz para Turborepo.
+- [x] **Limpieza de Directorio:** Eliminación de scripts de auditoría obsoletos y carpetas de backups residuales, purificando la estructura del repositorio.
+- [x] **Marketplace Seeding & Data Fix:** Ejecución exitosa de scripts de corrección (`fix-service-images.js`) garantizando imágenes (placeholders de alta calidad) para todos los servicios listados en la base de datos (PostgreSQL).
+- [x] **Client Build & Typechecking:** Verificación exitosa de compilación (build) estricto de Next.js (v15) y empaquetado de componentes en todo el ecosistema (monorepo). Generación exitosa de cliente Prisma (`client_v3`).
+
+---
+
+## 🏗️ Fases Históricas Completadas
+
+### 🧱 Fase 1: Fundaciones
+- [x] **Core Infrastructure:** Monorepo gestionado con Turborepo & pnpm.
+- [x] **Database Architecture:** Esquema de Prisma optimizado para MLM, suscripciones y Marketplace.
+- [x] **Identity System:** Supabase Auth con integración Server-Side Rendering (SSR).
+- [x] **Base UI:** Sistema de diseño estricto "Obsidian & Safety Orange" implementado con `framer-motion` y CSS puro/Tailwind.
+
+### ⚙️ Fase 2: Motores Centrales (Core Engines)
+- [x] **Lógica MLM:** Cálculo en cascada para comisiones y árbol genealógico en 8 niveles de profundidad.
+- [x] **Sistema de Rangos:** Promociones de rango automatizadas basadas en volumen y genealogía directa.
+- [x] **Marketplace:** Gestión robusta de productos y servicios (incluyendo *upserts* e imágenes relacionales).
+- [x] **Service Hub:** Dashboard del proveedor y pasarelas de pago mockeadas y en producción (Stripe/PayPal).
+
+### 🛡️ Fase 3: Inteligencia y Seguridad
+- [x] **Omega Observability:** Sistema de logging en JSON.
+- [x] **Auditoría Forense:** Registro inmutable de eventos de seguridad.
+- [x] **RBAC Engine:** Control de acceso jerárquico basado en 12 niveles de permisos.
+- [x] **Environment Hardening:** Validación en tiempo de ejecución (Zod) y single source of truth para `.env`.
+
+---
+
+## 📝 Próximos Pasos (Pendientes a Corto Plazo / Lanzamiento)
+- [x] **Sincronización Google Sheets (Core Logic):** Se implementó `GoogleSheetsService` y endpoints bidireccionales (`/api/admin/sync/sheet-to-db` y `/api/admin/sync/db-to-sheet`). Pendiente de `GOOGLE_SHEET_ID` y variables de `Service Account` en el entorno.
+- [ ] **Despliegue Vercel/Cloudflare:** Subir el código consolidado y configurar las variables del `.env` maestro en la plataforma de Vercel.
+- [ ] **Pruebas E2E (End to End):** Validar en producción los flujos críticos (Login, Checkout, Asignación de Volumen MLM, Sincronización DB-to-Sheet).
+- [ ] **Afinamiento SEO:** Implementación de esquemas JSON-LD, metadatos y optimización de sitemap.
+- [ ] **Optimización de Métricas Web:** Lograr 95+ en todas las métricas de Lighthouse (Performance, Accesibilidad).
+
+---
+
+## 🌍 Fase 5: Expansión Global (Futuro)
+- [ ] **Multi-región y Edge Computing:** Despliegue de réplicas de lectura de base de datos para LATAM y Europa.
+- [ ] **Matchmaking IA Inteligente:** Motor avanzado para conectar clientes con proveedores de servicios utilizando inferencia basada en LLM de baja latencia.
+- [ ] **Retiros Criptográficos:** Integración de retiros y pagos en criptomonedas (USDT/BTC) para pagos rápidos de comisiones internacionales.
+- [ ] **Analíticas Predictivas (BI Dashboard):** Proyección de crecimiento de redes basada en datos de Machine Learning.
