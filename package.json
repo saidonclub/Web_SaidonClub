@@ -19,6 +19,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:stress": "tsx tests/stress_standalone.ts",
+    "test:stress:vitest": "npx vitest run --config vitest.stress.config.ts --reporter verbose",
     "test:audit": "pnpm test:stress",
     "test:sheets": "tsx scripts/test-google-sheets.ts"
   },

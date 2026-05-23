@@ -2,11 +2,9 @@ import { defineConfig } from 'vitest/config'
 import path from 'path'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// NOTA: Las pruebas de integración / estrés del MLM Engine corren fuera de
-//       Vitest porque Vitest v1 + Node 24 tiene incompatibilidades con el
-//       binario nativo de Prisma (.node) y con el modo ESM estricto de tinypool.
-//
-//       Para correr el audit completo usar:  pnpm test:stress
+// NOTA: Los tests de estrés del MLM Engine se excluyen de la suite general
+//       porque son lentos y compiten por la misma BD. Se ejecutan por separado
+//       con:  pnpm test:stress:vitest
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default defineConfig({
@@ -20,7 +18,7 @@ export default defineConfig({
     globals: true,
     // Excluir el stress test de Vitest — corre con tsx directamente
     include: ['tests/**/*.test.{ts,tsx}', 'packages/**/*.test.{ts,tsx}'],
-    exclude: ['tests/stress_standalone.ts', 'tests/e2e/**'],
+    exclude: ['tests/stress_standalone.ts', 'tests/e2e/**', 'tests/mlm_stress.test.ts', 'packages/mlm-engine/src/__tests__/stress.test.ts'],
     setupFiles: ['./tests/setup.ts'],
     testTimeout: 30000,
     hookTimeout: 30000,

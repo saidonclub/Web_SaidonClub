@@ -260,18 +260,22 @@ export async function executeWeeklyClosure(closureDate: Date): Promise<void> {
                   }) as CommRecord;
                 }
 
-                // UPSERT WALLET (Ensure exists)
+                // UPSERT WALLET (Ensure exists) — idempotente
                 type WalletRecord = { id: string };
                 let wallet = walletMap.get(rankResult.userId) as WalletRecord | undefined;
                 if (!wallet) {
-                  wallet = await tx.wallet.create({
-                    data: {
-                      userId: rankResult.userId,
-                      balancePending: 0,
-                      balanceAvailable: 0,
-                      balanceValidated: 0,
-                    }
-                  }) as WalletRecord;
+                  wallet = await tx.wallet.findUnique({ where: { userId: rankResult.userId } }) as WalletRecord | null;
+                  if (!wallet) {
+                    wallet = await tx.wallet.create({
+                      data: {
+                        userId: rankResult.userId,
+                        balancePending: 0,
+                        balanceAvailable: 0,
+                        balanceValidated: 0,
+                      }
+                    }) as WalletRecord;
+                  }
+                  walletMap.set(rankResult.userId, wallet);
                 }
 
                 // IDEMPOTENT TRANSACTION
